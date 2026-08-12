@@ -221,6 +221,19 @@ python -m mypy --config-file backend/pyproject.toml backend/src
 python scripts/validate_corpus.py
 ```
 
+### Extract a document
+
+Install the optional extraction dependencies and extract a document from the
+representative manifest:
+
+```powershell
+python -m pip install -e ".\backend[dev,extraction]"
+python -m racevault.extraction.cli extract --role tyre_data
+```
+
+See [PDF extraction](docs/extraction.md) for artifact fields, extraction options,
+and validation commands.
+
 ### Stop the services
 
 ```powershell

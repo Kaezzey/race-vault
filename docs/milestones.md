@@ -18,8 +18,21 @@ Acceptance gates:
 
 ## M2 — Deterministic PDF extraction
 
+Status: complete (2026-08-13).
+
 Build a Docling and PyMuPDF extraction pipeline that preserves page boundaries,
 headings, section hierarchy, tables, hashes, and extraction provenance.
+
+Acceptance gates:
+
+1. Extraction artifacts include source and page-text SHA-256 hashes.
+2. Every normalized element and table retains page-numbered provenance.
+3. Table rows, columns, spans, header flags, and cell text are preserved.
+4. Raw lossless Docling output is stored and hash-verified.
+5. Artifact validation rejects broken page, table, hash, and statistics references.
+6. Repeated extraction of the representative tyre document produces byte-identical
+   normalized and raw JSON artifacts.
+7. Representative tyre-data and regulation PDFs complete successfully.
 
 ## M3 — Classification and evidence-aware chunking
 

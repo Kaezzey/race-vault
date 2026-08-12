@@ -25,12 +25,19 @@ dev = [
   "pytest-asyncio>=1.3,<2",
   "ruff>=0.14,<1",
 ]
+extraction = [
+  "docling>=2.119,<3",
+  "pymupdf>=1.28,<2",
+]
+
+[project.scripts]
+racevault-extract = "racevault.extraction.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/racevault"]
 
 [tool.pytest.ini_options]
-addopts = "-q -p no:cacheprovider"
+addopts = "-q -p no:cacheprovider --basetemp=.test-tmp"
 testpaths = ["tests"]
 
 [tool.ruff]

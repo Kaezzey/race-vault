@@ -4,6 +4,7 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
+.test-tmp/
 .ruff_cache/
 .mypy_cache/
 htmlcov/
@@ -17,5 +18,6 @@ build/
 # Local service data is held in named Docker volumes, but keep these safe if
 # bind mounts are introduced during development.
 .data/
+.artifacts/
 
 AI & ML Reference File Database/
