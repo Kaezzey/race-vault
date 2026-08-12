@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "corpus_root": "AI & ML Reference File Database",
+  "documents": [
+    {
+      "role": "regulation_current",
+      "path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+      "document_type": "regulation",
+      "vehicle_generation": "992.2",
+      "championship": "PCC Australia",
+      "season": 2026,
+      "revision": "Version 2",
+      "authority": "official_regulation"
+    },
+    {
+      "role": "regulation_previous",
+      "path": "Rules and Regulations/PCC Australia/2025_Porsche_Carrera_Cup_Australia_Sporting_Technical_Regulations_V1.pdf",
+      "document_type": "regulation",
+      "vehicle_generation": "992.1",
+      "championship": "PCC Australia",
+      "season": 2025,
+      "revision": "V1",
+      "authority": "official_regulation"
+    },
+    {
+      "role": "technical_manual_previous_generation",
+      "path": "Porsche Technical Manuals/992.1 Technical Manual.pdf",
+      "document_type": "technical_manual",
+      "vehicle_generation": "992.1",
+      "authority": "manufacturer_document"
+    },
+    {
+      "role": "technical_manual_current_generation",
+      "path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+      "document_type": "technical_manual",
+      "vehicle_generation": "992.2",
+      "authority": "manufacturer_document"
+    },
+    {
+      "role": "tyre_data",
+      "path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+      "document_type": "tyre_data",
+      "vehicle_generation": "992.1",
+      "season": 2025,
+      "authority": "component_supplier_document"
+    },
+    {
+      "role": "component_manual",
+      "path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+      "document_type": "component_manual",
+      "authority": "component_supplier_document"
+    },
+    {
+      "role": "long_form_reference",
+      "path": "ECU/engine_control_unit_ms_6-x_manual.pdf",
+      "document_type": "engineering_reference",
+      "authority": "component_supplier_document"
+    }
+  ]
+}
+

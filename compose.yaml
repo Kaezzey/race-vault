@@ -1,0 +1,88 @@
+name: racevault
+
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.6-pg18-trixie
+    environment:
+      POSTGRES_DB: ${RACEVAULT_POSTGRES_DB:-racevault}
+      POSTGRES_USER: ${RACEVAULT_POSTGRES_USER:-racevault}
+      POSTGRES_PASSWORD: ${RACEVAULT_POSTGRES_PASSWORD:-racevault-local-only}
+    ports:
+      - "5432:5432"
+    volumes:
+      # PostgreSQL 18 stores clusters in major-version-specific directories.
+      # Mount the parent so in-place pg_upgrade can cross version directories.
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    restart: unless-stopped
+
+  opensearch:
+    image: opensearchproject/opensearch:3.7.0
+    environment:
+      discovery.type: single-node
+      DISABLE_INSTALL_DEMO_CONFIG: "true"
+      DISABLE_SECURITY_PLUGIN: "true"
+      OPENSEARCH_JAVA_OPTS: -Xms1g -Xmx1g
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl --fail --silent http://localhost:9200/_cluster/health >/dev/null
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 30s
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./backend
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      RACEVAULT_POSTGRES_HOST: postgres
+      RACEVAULT_OPENSEARCH_URL: http://opensearch:9200
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./AI & ML Reference File Database:/data/corpus:ro"
+      - "./corpus:/app/corpus:ro"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request; urllib.request.urlopen('http://localhost:8000/health/live', timeout=2)
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  opensearch-data:

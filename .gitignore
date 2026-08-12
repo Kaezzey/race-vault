@@ -1,0 +1,21 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+dist/
+build/
+.idea/
+.vscode/
+*.log
+
+# Local service data is held in named Docker volumes, but keep these safe if
+# bind mounts are introduced during development.
+.data/
+
+AI & ML Reference File Database/
