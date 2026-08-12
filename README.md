@@ -234,6 +234,19 @@ python -m racevault.extraction.cli extract --role tyre_data
 See [PDF extraction](docs/extraction.md) for artifact fields, extraction options,
 and validation commands.
 
+### Classify and chunk an extraction
+
+```powershell
+python -m racevault.chunking.cli classify `
+  ".artifacts/extracted/<source>/<configuration>/extraction.json"
+
+python -m racevault.chunking.cli chunk `
+  ".artifacts/extracted/<source>/<configuration>/extraction.json"
+```
+
+See [Document classification and chunking](docs/chunking.md) for strategy rules,
+chunk fields, and validation commands.
+
 ### Stop the services
 
 ```powershell

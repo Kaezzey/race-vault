@@ -30,6 +30,7 @@ extraction = [
 
 [project.scripts]
 racevault-extract = "racevault.extraction.cli:main"
+racevault-chunk = "racevault.chunking.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/racevault"]

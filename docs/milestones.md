@@ -36,8 +36,22 @@ Acceptance gates:
 
 ## M3 — Classification and evidence-aware chunking
 
+Status: complete (2026-08-13).
+
 Classify document types and apply clause-, section-, or hierarchical chunking.
-Every chunk must retain stable source, page, section, and revision identity.
+Every chunk retains stable source, page, section, and revision identity.
+
+Acceptance gates:
+
+1. Declared corpus metadata takes precedence over path and size classification rules.
+2. Regulations use clause-aware boundaries, tyre data uses page and table boundaries,
+   and manuals and references use hierarchical section boundaries.
+3. Evidence text preserves the exact extracted text and remains separate from added
+   retrieval context.
+4. Every eligible extraction element appears in exactly one chunk.
+5. Tables and individual source elements are never split; oversized chunks are marked.
+6. Chunk identifiers and artifacts are stable across repeated runs with identical input.
+7. Artifact validation rejects changed extraction inputs and incomplete provenance.
 
 ## M4 — Lexical retrieval
 
