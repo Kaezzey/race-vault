@@ -9,10 +9,6 @@ from racevault.extraction.io import sha256_text
 from racevault.extraction.models import BoundingBox, PageArtifact, PageBlock
 
 
-class PdfReadError(RuntimeError):
-    pass
-
-
 def _normalize_text(text: str) -> str:
     lines = [line.rstrip() for line in text.replace("\r\n", "\n").split("\n")]
     return "\n".join(lines).strip()
@@ -40,7 +36,7 @@ def read_pdf_pages(
 
     with pymupdf.open(source_path) as document:  # type: ignore[no-untyped-call]
         if document.needs_pass:
-            raise PdfReadError("password-protected PDFs are not supported")
+            raise RuntimeError("password-protected PDFs are not supported")
         total_pages = document.page_count
         final_page = total_pages if page_end is None else page_end
         if page_start < 1 or final_page < page_start or final_page > total_pages:

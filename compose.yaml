@@ -63,9 +63,6 @@ services:
       RACEVAULT_OPENSEARCH_URL: http://opensearch:9200
     ports:
       - "8000:8000"
-    volumes:
-      - "./AI & ML Reference File Database:/data/corpus:ro"
-      - "./corpus:/app/corpus:ro"
     depends_on:
       postgres:
         condition: service_healthy

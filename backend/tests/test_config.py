@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from racevault.config import Settings
 
 
@@ -10,10 +12,5 @@ def test_database_credentials_are_url_encoded() -> None:
 
 
 def test_dependency_timeout_must_be_positive() -> None:
-    try:
+    with pytest.raises(ValueError):
         Settings(dependency_timeout_seconds=0)
-    except ValueError:
-        pass
-    else:
-        raise AssertionError("zero timeout should fail validation")
-

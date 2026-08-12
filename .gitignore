@@ -5,6 +5,7 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .test-tmp/
+.test-work/
 .ruff_cache/
 .mypy_cache/
 htmlcov/

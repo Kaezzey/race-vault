@@ -19,11 +19,6 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    environment: str = "development"
-    log_level: str = "INFO"
-    api_host: str = "0.0.0.0"
-    api_port: int = 8000
-
     postgres_db: str = "racevault"
     postgres_user: str = "racevault"
     postgres_password: str = "racevault-local-only"
@@ -58,4 +53,3 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-

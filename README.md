@@ -145,8 +145,8 @@ Document processing uses a strategy based on document type:
                                       Cited evidence
 ```
 
-The source library is mounted read-only. Generated extraction artifacts,
-indexes, embeddings, and metadata records are stored separately.
+The extraction pipeline reads source documents without modifying them. Generated
+artifacts, indexes, embeddings, and metadata records are stored separately.
 
 ## Version scope
 
