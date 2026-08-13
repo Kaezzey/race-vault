@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from racevault.lexical.documents import artifact_identity, build_index_document
+from racevault.chunking.identity import chunk_artifact_identity
+from racevault.lexical.documents import build_index_document
 from tests.lexical.factories import chunking_artifact
 
 
@@ -19,4 +20,4 @@ def test_index_document_preserves_evidence_provenance_and_filters() -> None:
     assert document["season"] == 2026
     assert document["revision"] == "Version 2"
     assert document["authority"] == "manufacturer_document"
-    assert document["artifact_id"] == artifact_identity(artifact)
+    assert document["artifact_id"] == chunk_artifact_identity(artifact)

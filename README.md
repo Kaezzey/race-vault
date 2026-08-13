@@ -263,6 +263,27 @@ python -m racevault.lexical.cli search "ABS M5"
 See [Lexical retrieval](docs/lexical-retrieval.md) for the index contract,
 technical-term analysis, metadata filters, and search commands.
 
+### Generate and search dense embeddings
+
+Run BGE-M3 on the host workstation so it can use the NVIDIA GPU:
+
+```powershell
+cd backend
+python -m pip install ".[semantic]"
+
+python -m racevault.semantic.cli embed `
+  "../.artifacts/chunks/<source>/<extraction>/<settings>/chunks.json" `
+  --device cuda
+
+python -m racevault.semantic.cli search `
+  "How is front-to-rear braking balance adjusted?" `
+  --vehicle-generation "992.2" `
+  --device cuda
+```
+
+See [Semantic retrieval](docs/semantic-retrieval.md) for model identity,
+pgvector storage, vector reuse, metadata filters, and search commands.
+
 ### Stop the services
 
 ```powershell

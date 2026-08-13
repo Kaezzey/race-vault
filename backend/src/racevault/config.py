@@ -28,6 +28,10 @@ class Settings(BaseSettings):
     opensearch_url: str = "http://localhost:9200"
     opensearch_index_name: str = "racevault-chunks-v1"
     opensearch_timeout_seconds: float = Field(default=10.0, gt=0, le=120)
+    semantic_model_id: str = "BAAI/bge-m3"
+    semantic_model_revision: str = "5617a9f61b028005a4858fdac845db406aefb181"
+    semantic_max_tokens: int = Field(default=8192, ge=1, le=8192)
+    semantic_batch_size: int = Field(default=8, ge=1, le=128)
     dependency_timeout_seconds: float = Field(default=2.0, gt=0, le=30)
 
     @property

@@ -6,6 +6,7 @@ import enum
 import uuid
 from datetime import UTC, datetime
 
+from pgvector.sqlalchemy import VECTOR
 from sqlalchemy import (
     Boolean,
     DateTime,
@@ -57,6 +58,7 @@ class Document(Base):
     sha256: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
     source_path: Mapped[str] = mapped_column(Text, unique=True, nullable=False)
     filename: Mapped[str] = mapped_column(Text, nullable=False)
+    source_role: Mapped[str | None] = mapped_column(String(128), index=True)
     title: Mapped[str | None] = mapped_column(Text)
     document_type: Mapped[DocumentType] = mapped_column(
         Enum(
@@ -111,6 +113,7 @@ class Chunk(Base):
         index=True,
     )
     ordinal: Mapped[int] = mapped_column(Integer, nullable=False)
+    artifact_id: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
     extraction_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
     strategy: Mapped[ChunkStrategy] = mapped_column(
         Enum(
@@ -146,6 +149,27 @@ class Chunk(Base):
     provenance: Mapped[list[dict[str, object]]] = mapped_column(JSONB, nullable=False)
     character_count: Mapped[int] = mapped_column(Integer, nullable=False)
     oversize: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(UTC), nullable=False
+    )
+
+
+class ChunkEmbedding(Base):
+    """One model-versioned dense representation of a chunk."""
+
+    __tablename__ = "chunk_embeddings"
+
+    chunk_id: Mapped[str] = mapped_column(
+        String(36),
+        ForeignKey("chunks.id", ondelete="CASCADE"),
+        primary_key=True,
+    )
+    model_id: Mapped[str] = mapped_column(String(256), primary_key=True)
+    model_revision: Mapped[str] = mapped_column(String(64), primary_key=True)
+    input_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    dimensions: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    normalized: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    embedding: Mapped[list[float]] = mapped_column(VECTOR(1024), nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now(UTC), nullable=False
     )

@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from racevault.lexical.models import LexicalSearchRequest, SearchFilters
+from racevault.lexical.models import LexicalSearchRequest
+from racevault.retrieval.models import SearchFilters
 
 FILTER_FIELDS = {
     "source_sha256": "source_sha256",

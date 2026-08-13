@@ -74,8 +74,23 @@ Acceptance gates:
 
 ## M5 — Semantic retrieval
 
+Status: complete (2026-08-13).
+
 Run BGE-M3 locally, persist embeddings in pgvector, and expose filtered vector
 search.
+
+Acceptance gates:
+
+1. The embedding contract pins the BGE-M3 model ID, revision, dimensions,
+   normalization, maximum input length, and input-text hash.
+2. Every representative chunk has one valid 1,024-dimensional dense vector.
+3. Matching vectors are reused without regenerating or reloading the model.
+4. PostgreSQL stores chunks, exact evidence, provenance, and model-versioned
+   embeddings transactionally.
+5. A cosine HNSW index and strict iterative scans support filtered retrieval.
+6. Semantic search supports the same source and domain filters as BM25 search.
+7. Representative conceptual queries retrieve relevant manual, tyre-data, and
+   regulation evidence, and a wrong-revision filter returns no results.
 
 ## M6 — Fusion and reranking
 

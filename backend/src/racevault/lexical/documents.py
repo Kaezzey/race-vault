@@ -2,10 +2,8 @@
 
 from __future__ import annotations
 
-import hashlib
-
+from racevault.chunking.identity import chunk_artifact_identity
 from racevault.chunking.models import ChunkArtifact, ChunkingArtifact
-from racevault.extraction.io import canonical_json_bytes
 
 
 def _metadata_string(metadata: dict[str, object], key: str) -> str | None:
@@ -18,21 +16,13 @@ def _metadata_integer(metadata: dict[str, object], key: str) -> int | None:
     return value if isinstance(value, int) and not isinstance(value, bool) else None
 
 
-def artifact_identity(artifact: ChunkingArtifact) -> str:
-    identity = (
-        artifact.provenance.extraction_sha256.encode()
-        + canonical_json_bytes(artifact.provenance.settings)
-    )
-    return hashlib.sha256(identity).hexdigest()
-
-
 def build_index_document(
     artifact: ChunkingArtifact, chunk: ChunkArtifact
 ) -> dict[str, object]:
     metadata = artifact.source.metadata
     return {
         "chunk_id": chunk.chunk_id,
-        "artifact_id": artifact_identity(artifact),
+        "artifact_id": chunk_artifact_identity(artifact),
         "ordinal": chunk.ordinal,
         "source_sha256": artifact.source.sha256,
         "source_path": artifact.source.relative_path,

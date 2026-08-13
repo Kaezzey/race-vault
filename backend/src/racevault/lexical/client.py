@@ -8,8 +8,9 @@ from typing import Any, Self, cast
 
 import httpx
 
+from racevault.chunking.identity import chunk_artifact_identity
 from racevault.chunking.models import ChunkingArtifact
-from racevault.lexical.documents import artifact_identity, build_index_document
+from racevault.lexical.documents import build_index_document
 from racevault.lexical.mapping import INDEX_SCHEMA_VERSION, index_definition
 from racevault.lexical.models import (
     IndexingResult,
@@ -169,7 +170,7 @@ class OpenSearchClient:
         self.ensure_index()
         self._bulk_index(artifact)
         removed = self._remove_stale_source(
-            artifact.source.sha256, artifact_identity(artifact)
+            artifact.source.sha256, chunk_artifact_identity(artifact)
         )
         indexed = self.count(source_sha256=artifact.source.sha256)
         if indexed != len(artifact.chunks):
