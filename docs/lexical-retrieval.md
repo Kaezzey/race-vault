@@ -46,6 +46,11 @@ The index uses two text analyzers:
 Queries search both forms. This supports terms such as `P4`, `992.2`, `N3R`,
 `ABS M5`, regulation clauses, and part numbers.
 
+The BM25 candidate query uses OR matching across analyzed query terms. This
+keeps natural-language questions from requiring every word to appear in one
+chunk. Exact identifiers and repeated technical terms still receive higher
+BM25 scores. RRF and cross-encoder reranking provide later precision.
+
 ## Metadata filters
 
 Search supports exact filters for:

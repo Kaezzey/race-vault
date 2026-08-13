@@ -1,0 +1,443 @@
+{
+  "corpus_root": "AI & ML Reference File Database",
+  "documents": [
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "ABS/Core/Data_Sheet_70612107_ABS_M5_Kit.pdf",
+      "role": "document_9dfe262b5c14921e"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+      "role": "component_manual"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "ABS/Diagnostics/ABS_Diagnostics_in_Display.pdf",
+      "role": "document_6837bab706ce02e1"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolbox/Pi Toolbox User Guide.pdf",
+      "role": "document_f345482180cbd76e"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolbox/start-up-manual-pi-toolbox.pdf",
+      "role": "document_285ea06620ffc395"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/22-pi-toolset-devices-device-properties.pdf",
+      "role": "document_5ed7a809fa227e16"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/3-pi-toolset-data.pdf",
+      "role": "document_8fb07cab5da0d82b"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/5-pi-toolset-actions-changing-lap-number.pdf",
+      "role": "document_879696cdb52fe76f"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/5-pi-toolset-actions-logging.pdf",
+      "role": "document_8f30882216295aa8"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-alarms.pdf",
+      "role": "document_90a289ff0ebebed4"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-beacons.pdf",
+      "role": "document_1e0398c1bfb52096"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-channel-rates.pdf",
+      "role": "document_7e241b5a41100f7c"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-ecu.pdf",
+      "role": "document_5a03cb9cffbab794"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-fuelling.pdf",
+      "role": "document_679cbe7894a29a89"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-hardware-settings.pdf",
+      "role": "document_c4b705106c3e476f"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-logging.pdf",
+      "role": "document_207686e7c3f06b82"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-logic-channels.pdf",
+      "role": "document_6f3ae0b8f3ab55d8"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-maths-channels.pdf",
+      "role": "document_e9fb6cab8a4babe0"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-nmea-0183-decode.pdf",
+      "role": "document_6212a0f43b1fec8f"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-sensors.pdf",
+      "role": "document_283df4f91647c118"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-setup-locking.pdf",
+      "role": "document_f5be467f6e25b03a"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-streams-can.pdf",
+      "role": "document_7deb5d122fd95a5e"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-wheelspeeds.pdf",
+      "role": "document_21fb6a7d0e6b9a7c"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-zeroing.pdf",
+      "role": "document_94de1b00c4d2c6f0"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/7-pi-toolset-channels.pdf",
+      "role": "document_00dff534d6128c24"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "component_manual",
+      "path": "Cosworth/Pi Toolset/8-pi-toolset-settings.pdf",
+      "role": "document_78a003284277ddaf"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "engineering_reference",
+      "path": "ECU/engine_control_unit_ms_6-x_manual.pdf",
+      "role": "long_form_reference"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "part_catalogue",
+      "path": "Part Catalogues/PA10_0842_911 GT3 Cup MY2021-2025 (Typ 992)_CW_11_26_English_en.pdf",
+      "role": "document_1b3c54515701302d",
+      "season": 2025
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "part_catalogue",
+      "path": "Part Catalogues/PA10_2282_911 Cup MY2026 (Typ 992 II)_CW_24_26_English_en.pdf",
+      "role": "document_dfa6c98fb2860d5a",
+      "season": 2026
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "part_catalogue",
+      "path": "Part Catalogues/PA10_2336_01_2026_Tech_Info_911_Cup_Identical parts_V2_en.pdf",
+      "role": "document_3635e7f7180cc8f8",
+      "season": 2026
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "part_catalogue",
+      "path": "Part Catalogues/PA10_2337_02_2026_Tech_Info_GT3_Cup_Identical parts_en.pdf",
+      "role": "document_b667c105b310734d",
+      "season": 2026
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_0852/PA10_0852_992_GT3_Cup_RaceCon_Manual_en.pdf",
+      "role": "document_788862bd0a0acfbe"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_1024/Windows11_Workaround_temp.pdf",
+      "role": "document_175cc3a64f9c7cfb"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_1281/PA10_1281_Start-up Manual for Porsche Toolset_v4_de_en.pdf",
+      "role": "document_b8a1c512b799c262"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_1281/Porsche_Toolset_10.0.4680.11/Pi Toolset 10.0 (Build 4680 - Update 11) Release Note.pdf",
+      "role": "document_af8047c3ae0b16f1"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_1918/992Cup_Manual_Software_Updates_V03.pdf",
+      "role": "document_baf1eda49727a769"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_2238/992_GT3_CUP_SW_ChangeLog_VBV12_V1.pdf",
+      "role": "document_17f4d2219be2fd17"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_2238/PA10_1282_992Cup_Manual_Software_Updates_V06.1_us.pdf",
+      "role": "document_8f57273a58ade59e"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_2238/PA10_1282_Track kml list V1_de.pdf",
+      "role": "document_63acbefee909d3e2"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "component_manual",
+      "path": "PMRSI Other/2026-08-10_PA10_2427/PA10_2427_Bosch RaceABS_Import XML_en.pdf",
+      "role": "document_54438bf97f2622d6"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "technical_manual",
+      "path": "Porsche Technical Manuals/992.1 Technical Manual.pdf",
+      "role": "technical_manual_previous_generation",
+      "vehicle_generation": "992.1"
+    },
+    {
+      "authority": "manufacturer_document",
+      "document_type": "technical_manual",
+      "path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+      "role": "technical_manual_current_generation",
+      "vehicle_generation": "992.2"
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Benelux",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC Benelux/2025 Sporting Regulations.pdf",
+      "role": "document_a358263ca1a09d2f",
+      "season": 2025
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Benelux",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC Benelux/2025 Technical Regulations.pdf",
+      "role": "document_b0a0097d0c630a53",
+      "season": 2025
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Deutschland",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC Deutschland/2026 Regulations.pdf",
+      "role": "document_c276cf335ae39389",
+      "season": 2026
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC France",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC France/2025 Regulations.pdf",
+      "role": "document_8541cdf020332d70",
+      "season": 2025
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC France",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC France/2026 Regulations.pdf",
+      "role": "document_672e60181e4c0f48",
+      "season": 2026
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Great Britian",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC Great Britian/2025 Regulations.pdf",
+      "role": "document_3abb76d5b42c0ead",
+      "season": 2025
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Great Britian",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC Great Britian/2026 Regulations.pdf",
+      "role": "document_1eeecab491e43df8",
+      "season": 2026
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC North America",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC North America/2025 Regulations.pdf",
+      "role": "document_fba4ab0bb9ac262e",
+      "season": 2025
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC North America",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC North America/2026 Regulations.pdf",
+      "role": "document_2d852ef55ae8cab6",
+      "season": 2026
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Scandinavia",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC Scandinavia/2025 Regulations.pdf",
+      "role": "document_7274ba30e39e9215",
+      "season": 2025
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Scandinavia",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/PCC Scandinavia/2026 Regulations.pdf",
+      "role": "document_883b29bb55ed059e",
+      "season": 2026
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "Porsche Supercup",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/Other/Porsche Supercup/2026 Regulations.pdf",
+      "role": "document_3dd5dff7ab2451b8",
+      "season": 2026
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Asia",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/PCC Asia/PCCA 2025 Regulations_Final.pdf",
+      "role": "document_01458a13c8288fa0",
+      "season": 2025
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Asia",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/PCC Asia/PCCA 2026 Regulations_Final.pdf",
+      "role": "document_6113a83764b0f20b",
+      "season": 2026
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Australia",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/PCC Australia/2025_Porsche_Carrera_Cup_Australia_Sporting_Technical_Regulations_V1.pdf",
+      "revision": "V1",
+      "role": "regulation_previous",
+      "season": 2025,
+      "vehicle_generation": "992.1"
+    },
+    {
+      "authority": "official_regulation",
+      "championship": "PCC Australia",
+      "document_type": "regulation",
+      "path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+      "revision": "Version 2",
+      "role": "regulation_current",
+      "season": 2026,
+      "vehicle_generation": "992.2"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "tyre_data",
+      "path": "Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf",
+      "role": "document_8ecdba2faf5cd989",
+      "season": 2025,
+      "vehicle_generation": "992.1"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "tyre_data",
+      "path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+      "role": "tyre_data",
+      "season": 2025,
+      "vehicle_generation": "992.1"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "tyre_data",
+      "path": "Tyre Data/992.1/Slicks/Front/PA10_0849_DataPackage_30 65 18 N3_en.pdf",
+      "role": "document_1c690e52530e8f79",
+      "vehicle_generation": "992.1"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "tyre_data",
+      "path": "Tyre Data/992.1/Slicks/Rear/PA10_0849_DataPackage_31 71 18 N3_en.pdf",
+      "role": "document_f81c9b6f471dbedd",
+      "vehicle_generation": "992.1"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "tyre_data",
+      "path": "Tyre Data/992.2/Combined/PA10_2359_03_2026_Tech_Info_911_Cup_Michelin_Preco_en.pdf",
+      "role": "document_0e09ad9747be2ec4",
+      "season": 2026,
+      "vehicle_generation": "992.2"
+    },
+    {
+      "authority": "component_supplier_document",
+      "document_type": "tyre_data",
+      "path": "Tyre Data/992.2/Combined/PA10_2359_Cup N4_Technical Recommendations_2025_en.pdf",
+      "role": "document_87fdc03d78b0f169",
+      "season": 2025,
+      "vehicle_generation": "992.2"
+    }
+  ],
+  "schema_name": "racevault.corpus_manifest",
+  "schema_version": 1
+}

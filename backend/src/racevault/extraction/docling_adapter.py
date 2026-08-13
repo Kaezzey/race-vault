@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
 from importlib.metadata import version
 from pathlib import Path
 from typing import Any
@@ -25,12 +26,9 @@ class DoclingResult:
     docling_core_version: str
 
 
-def convert_pdf(
-    source_path: Path,
-    page_start: int,
-    page_end: int,
-    options: DoclingOptions,
-) -> DoclingResult:
+@lru_cache(maxsize=4)
+def _document_converter(options: DoclingOptions) -> Any:
+    """Create one converter per settings contract for the current process."""
     try:
         from docling.datamodel.accelerator_options import AcceleratorOptions
         from docling.datamodel.base_models import InputFormat
@@ -58,12 +56,21 @@ def convert_pdf(
         raise RuntimeError("Docling layout engine does not expose compile settings")
     layout_engine_options.compile_model = options.model_compilation_enabled
 
-    converter = DocumentConverter(
+    return DocumentConverter(
         allowed_formats=[InputFormat.PDF],
         format_options={
             InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
         },
     )
+
+
+def convert_pdf(
+    source_path: Path,
+    page_start: int,
+    page_end: int,
+    options: DoclingOptions,
+) -> DoclingResult:
+    converter = _document_converter(options)
     conversion = converter.convert(
         source_path,
         page_range=(page_start, page_end),

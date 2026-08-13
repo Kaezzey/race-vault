@@ -38,7 +38,7 @@ def build_search_body(request: LexicalSearchRequest) -> dict[str, object]:
                         "multi_match": {
                             "query": request.query,
                             "type": "best_fields",
-                            "operator": "and",
+                            "operator": "or",
                             "fields": [
                                 "contextual_text^4",
                                 "contextual_text.codes^6",

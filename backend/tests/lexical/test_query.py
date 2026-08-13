@@ -32,7 +32,7 @@ def test_search_query_uses_bm25_fields_and_exact_filters() -> None:
     assert {"term": {"page_numbers": 8}} in filters
     multi_match = boolean["must"][0]["multi_match"]
     assert "contextual_text.codes^6" in multi_match["fields"]
-    assert multi_match["operator"] == "and"
+    assert multi_match["operator"] == "or"
 
 
 def test_search_query_rejects_whitespace() -> None:

@@ -114,8 +114,25 @@ Acceptance gates:
 
 ## M7 — Evaluation and corpus hardening
 
+Status: complete (2026-08-14).
+
 Create a labelled engineering query set, measure retrieval quality, ingest the
 full corpus, and cover conflicts and wrong-revision failure modes.
+
+Acceptance gates:
+
+1. A validated manifest covers every one of the 64 corpus PDFs exactly once.
+2. Full-corpus extraction and chunking are resumable and record per-document
+   failures without removing completed artifacts.
+3. All 4,888 pages complete extraction and produce 9,212 validated chunks with
+   no document failures.
+4. OpenSearch and PostgreSQL each contain the same 9,212 canonical chunks.
+5. All 64 PostgreSQL documents have matching pinned BGE-M3 embeddings.
+6. A labelled dataset measures BM25, BGE-M3, RRF, and reranked hit rate and MRR
+   independently.
+7. The full-corpus evaluation passes positive hit-rate and MRR thresholds, the
+   wrong-revision case returns no candidates, and the multi-source case exposes
+   relevant evidence from both sources.
 
 ## M8 — Product API
 

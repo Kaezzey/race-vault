@@ -302,6 +302,35 @@ python -m racevault.fusion.cli `
 See [Hybrid retrieval and reranking](docs/hybrid-retrieval.md) for candidate
 limits, RRF behavior, reranker identity, result fields, and configuration.
 
+### Ingest and evaluate the full corpus
+
+Validate the 64-document manifest, run resumable ingestion, and measure every
+retrieval stage:
+
+```powershell
+python -m racevault.corpus.cli audit
+
+python -m racevault.corpus.cli ingest `
+  --through chunk `
+  --extraction-device cuda
+
+python -m racevault.corpus.cli ingest `
+  --through semantic `
+  --extraction-device cuda `
+  --embedding-device cuda `
+  --local-files-only
+
+cd backend
+python -m racevault.evaluation.cli `
+  --dataset "../evaluation/queries.json" `
+  --device cuda `
+  --local-files-only
+```
+
+See [Retrieval evaluation and full-corpus ingestion](docs/evaluation-and-corpus.md)
+for the corpus inventory, checkpoint behavior, metrics, thresholds, and current
+full-corpus results.
+
 ### Stop the services
 
 ```powershell

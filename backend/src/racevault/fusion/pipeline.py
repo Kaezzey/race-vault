@@ -2,14 +2,19 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from typing import Protocol
 
-from racevault.fusion.models import HybridSearchRequest, HybridSearchResponse
+from racevault.fusion.models import (
+    FusedCandidate,
+    HybridSearchRequest,
+    HybridSearchResponse,
+)
 from racevault.fusion.reranker import CandidateReranker, rerank_candidates
 from racevault.fusion.rrf import reciprocal_rank_fusion
 from racevault.lexical.models import LexicalSearchRequest, LexicalSearchResponse
 from racevault.semantic.embedder import DenseEmbedder
-from racevault.semantic.models import SemanticSearchRequest
+from racevault.semantic.models import SemanticSearchRequest, SemanticSearchResponse
 from racevault.semantic.pipeline import semantic_search
 from racevault.semantic.store import SemanticStore
 
@@ -18,14 +23,22 @@ class LexicalSearcher(Protocol):
     def search(self, request: LexicalSearchRequest) -> LexicalSearchResponse: ...
 
 
-def hybrid_search(
+@dataclass(frozen=True)
+class HybridStages:
+    lexical: LexicalSearchResponse
+    semantic: SemanticSearchResponse
+    fused: tuple[FusedCandidate, ...]
+    reranked: tuple[FusedCandidate, ...]
+
+
+def hybrid_search_stages(
     request: HybridSearchRequest,
     *,
     lexical: LexicalSearcher,
     semantic_embedder: DenseEmbedder,
     semantic_store: SemanticStore,
     reranker: CandidateReranker,
-) -> HybridSearchResponse:
+) -> HybridStages:
     if request.reranker != reranker.spec:
         raise ValueError("request reranker does not match the loaded reranker")
     lexical_response = lexical.search(
@@ -58,11 +71,34 @@ def hybrid_search(
         reranker=reranker,
         limit=request.rerank_limit,
     )
+    return HybridStages(
+        lexical=lexical_response,
+        semantic=semantic_response,
+        fused=fused,
+        reranked=reranked,
+    )
+
+
+def hybrid_search(
+    request: HybridSearchRequest,
+    *,
+    lexical: LexicalSearcher,
+    semantic_embedder: DenseEmbedder,
+    semantic_store: SemanticStore,
+    reranker: CandidateReranker,
+) -> HybridSearchResponse:
+    stages = hybrid_search_stages(
+        request,
+        lexical=lexical,
+        semantic_embedder=semantic_embedder,
+        semantic_store=semantic_store,
+        reranker=reranker,
+    )
     return HybridSearchResponse(
         query=request.query,
-        lexical_hits=len(lexical_response.hits),
-        semantic_hits=len(semantic_response.hits),
-        fused_candidates=len(fused),
-        reranked_candidates=len(reranked),
-        results=reranked[: request.result_limit],
+        lexical_hits=len(stages.lexical.hits),
+        semantic_hits=len(stages.semantic.hits),
+        fused_candidates=len(stages.fused),
+        reranked_candidates=len(stages.reranked),
+        results=stages.reranked[: request.result_limit],
     )
