@@ -26,6 +26,8 @@ class Settings(BaseSettings):
     postgres_port: int = 5432
 
     opensearch_url: str = "http://localhost:9200"
+    opensearch_index_name: str = "racevault-chunks-v1"
+    opensearch_timeout_seconds: float = Field(default=10.0, gt=0, le=120)
     dependency_timeout_seconds: float = Field(default=2.0, gt=0, le=30)
 
     @property

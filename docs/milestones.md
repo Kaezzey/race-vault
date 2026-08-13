@@ -55,8 +55,22 @@ Acceptance gates:
 
 ## M4 — Lexical retrieval
 
+Status: complete (2026-08-13).
+
 Index evidence in OpenSearch and evaluate exact-term BM25 retrieval with strict
 metadata filters.
+
+Acceptance gates:
+
+1. A versioned, strict OpenSearch mapping defines searchable and stored fields.
+2. Technical analyzers retain common engineering identifiers and clause terms.
+3. Indexing preserves exact evidence, source metadata, pages, and provenance.
+4. Reindexing replaces stale chunks for one source without removing other sources.
+5. BM25 search supports document, authority, generation, championship, season,
+   revision, page, role, kind, and source filters.
+6. Search results contain the fields required to create exact source citations.
+7. Representative regulation and tyre queries retrieve the expected evidence,
+   and a wrong-revision filter returns no results.
 
 ## M5 — Semantic retrieval
 

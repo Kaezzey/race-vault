@@ -247,6 +247,22 @@ python -m racevault.chunking.cli chunk `
 See [Document classification and chunking](docs/chunking.md) for strategy rules,
 chunk fields, and validation commands.
 
+### Index and search chunks
+
+Run these commands from `backend/`:
+
+```powershell
+python -m racevault.lexical.cli ensure-index
+
+python -m racevault.lexical.cli index `
+  "../.artifacts/chunks/<source>/<extraction>/<settings>/chunks.json"
+
+python -m racevault.lexical.cli search "ABS M5"
+```
+
+See [Lexical retrieval](docs/lexical-retrieval.md) for the index contract,
+technical-term analysis, metadata filters, and search commands.
+
 ### Stop the services
 
 ```powershell
