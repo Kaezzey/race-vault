@@ -7,8 +7,8 @@ from typing import Self
 
 from pydantic import Field, field_validator, model_validator
 
-from racevault.extraction.models import ArtifactModel, ProvenanceRef
-from racevault.retrieval.models import SearchFilters
+from racevault.extraction.models import ArtifactModel
+from racevault.retrieval.models import EvidenceHit, SearchFilters
 
 DEFAULT_MODEL_ID = "BAAI/bge-m3"
 DEFAULT_MODEL_REVISION = "5617a9f61b028005a4858fdac845db406aefb181"
@@ -70,33 +70,8 @@ class SemanticSearchRequest(ArtifactModel):
         return value
 
 
-class SemanticSearchHit(ArtifactModel):
-    chunk_id: str
-    artifact_id: str
-    ordinal: int
+class SemanticSearchHit(EvidenceHit):
     score: float
-    evidence_text: str
-    evidence_sha256: str
-    contextual_text: str
-    contextual_sha256: str
-    source_path: str
-    source_filename: str
-    source_sha256: str
-    source_role: str | None
-    source_metadata: dict[str, object]
-    document_class: str
-    strategy: str
-    kind: str
-    section_path: tuple[str, ...]
-    clause_reference: str | None
-    page_start: int
-    page_end: int
-    page_numbers: tuple[int, ...]
-    element_ids: tuple[str, ...]
-    table_ids: tuple[str, ...]
-    provenance: tuple[ProvenanceRef, ...]
-    character_count: int
-    oversize: bool
     model_id: str
     model_revision: str
 

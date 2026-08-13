@@ -38,6 +38,7 @@ racevault-extract = "racevault.extraction.cli:main"
 racevault-chunk = "racevault.chunking.cli:main"
 racevault-lexical = "racevault.lexical.cli:main"
 racevault-semantic = "racevault.semantic.cli:main"
+racevault-retrieve = "racevault.fusion.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/racevault"]

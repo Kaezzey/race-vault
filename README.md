@@ -284,6 +284,24 @@ python -m racevault.semantic.cli search `
 See [Semantic retrieval](docs/semantic-retrieval.md) for model identity,
 pgvector storage, vector reuse, metadata filters, and search commands.
 
+### Run hybrid retrieval and reranking
+
+Run BM25 and semantic retrieval with the same filters, fuse the candidates, and
+rerank the strongest evidence:
+
+```powershell
+cd backend
+python -m racevault.fusion.cli `
+  "Joker Tyre" `
+  --document-class regulation `
+  --season 2026 `
+  --revision "Version 2" `
+  --device cuda
+```
+
+See [Hybrid retrieval and reranking](docs/hybrid-retrieval.md) for candidate
+limits, RRF behavior, reranker identity, result fields, and configuration.
+
 ### Stop the services
 
 ```powershell

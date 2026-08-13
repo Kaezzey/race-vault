@@ -32,6 +32,10 @@ class Settings(BaseSettings):
     semantic_model_revision: str = "5617a9f61b028005a4858fdac845db406aefb181"
     semantic_max_tokens: int = Field(default=8192, ge=1, le=8192)
     semantic_batch_size: int = Field(default=8, ge=1, le=128)
+    reranker_model_id: str = "BAAI/bge-reranker-v2-m3"
+    reranker_model_revision: str = "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+    reranker_max_tokens: int = Field(default=8192, ge=1, le=8192)
+    reranker_batch_size: int = Field(default=4, ge=1, le=128)
     dependency_timeout_seconds: float = Field(default=2.0, gt=0, le=30)
 
     @property

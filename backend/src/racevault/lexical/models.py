@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from pydantic import Field, field_validator
 
-from racevault.extraction.models import ArtifactModel, ProvenanceRef
+from racevault.extraction.models import ArtifactModel
+from racevault.retrieval.models import EvidenceHit
 from racevault.retrieval.models import SearchFilters as SearchFilters
 
 
@@ -22,33 +23,8 @@ class LexicalSearchRequest(ArtifactModel):
         return value
 
 
-class LexicalSearchHit(ArtifactModel):
-    chunk_id: str
-    artifact_id: str
-    ordinal: int
+class LexicalSearchHit(EvidenceHit):
     score: float
-    evidence_text: str
-    evidence_sha256: str
-    contextual_text: str
-    contextual_sha256: str
-    source_path: str
-    source_filename: str
-    source_sha256: str
-    source_role: str | None
-    source_metadata: dict[str, object]
-    document_class: str
-    strategy: str
-    kind: str
-    section_path: tuple[str, ...]
-    clause_reference: str | None
-    page_start: int
-    page_end: int
-    page_numbers: tuple[int, ...]
-    element_ids: tuple[str, ...]
-    table_ids: tuple[str, ...]
-    provenance: tuple[ProvenanceRef, ...]
-    character_count: int
-    oversize: bool
     highlights: tuple[str, ...] = ()
 
 

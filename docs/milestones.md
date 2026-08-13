@@ -94,8 +94,23 @@ Acceptance gates:
 
 ## M6 — Fusion and reranking
 
+Status: complete (2026-08-14).
+
 Combine lexical and semantic rankings with RRF and rerank candidates using
 BGE-Reranker-v2-M3.
+
+Acceptance gates:
+
+1. Lexical and semantic hits use one citation-ready evidence contract.
+2. Both retrieval channels apply the same source and domain filters before fusion.
+3. Weighted RRF deduplicates chunks and records each channel rank and raw score.
+4. Fusion and final tie handling are deterministic for identical inputs.
+5. The reranker model ID, revision, maximum input length, and normalized score
+   contract are pinned.
+6. Final results retain lexical, semantic, fused, and reranked diagnostics with
+   complete source provenance.
+7. Representative regulation and tyre-data queries return the expected evidence,
+   and a wrong-revision filter returns no candidates at every stage.
 
 ## M7 — Evaluation and corpus hardening
 
