@@ -157,8 +157,29 @@ Acceptance gates:
 
 ## M9 — Evidence interface
 
+Status: complete (2026-08-14).
+
 Build the Next.js engineering interface for queries, filters, citations, source
 inspection, and comparison.
+
+Acceptance gates:
+
+1. Search runs the V1 hybrid retrieval endpoint and reports loading and service
+   errors without losing the current query.
+2. Metadata filters are visible before submission and remain attached to the
+   displayed result set.
+3. Evidence cards show exact text, source, page, clause, domain metadata, rank,
+   and normalized reranker score.
+4. Citation inspection shows source and evidence hashes, section identity,
+   provenance count, and retrieval-stage diagnostics.
+5. The source catalogue exposes all loaded documents, chunk counts, and vector
+   coverage with local filtering.
+6. Comparison retrieves independently from two selected source hashes and keeps
+   both evidence sets visually separate.
+7. Desktop and mobile layouts provide access to search, sources, comparison,
+   filters, and the query composer.
+8. Type checking, lint, production build, live search, filtered retrieval,
+   comparison, responsive layout, and container checks pass.
 
 ## M10 — V1 deployment acceptance
 

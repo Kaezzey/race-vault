@@ -210,6 +210,7 @@ Invoke-RestMethod http://localhost:8000/health/ready
 ```
 
 Open the API documentation at <http://localhost:8000/docs>.
+Open the evidence interface at <http://localhost:3000>.
 
 Use the NVIDIA GPU for local embedding, reranking, and extraction:
 
@@ -219,6 +220,9 @@ docker compose -f compose.yaml -f compose.gpu.yaml up --build -d
 
 See [Product API](docs/product-api.md) for V1 endpoints, request contracts,
 errors, ingestion controls, and runtime configuration.
+
+See [Evidence interface](docs/evidence-interface.md) for search, filters,
+citations, source inspection, comparison, and frontend development.
 
 ### Run backend checks
 
@@ -352,6 +356,7 @@ This command preserves PostgreSQL and OpenSearch data in Docker volumes.
 
 ```text
 backend/        API, database models, migrations, and tests
+frontend/       Next.js evidence interface
 corpus/         Source manifests
 docs/           Design and delivery documentation
 scripts/        Repository validation tools
