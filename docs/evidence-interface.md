@@ -1,23 +1,34 @@
 # Evidence interface
 
-RaceVault provides a local web interface for hybrid retrieval, source
-inspection, and document comparison. The interface runs at
+RaceVault provides a local web interface for grounded questions, hybrid
+retrieval, source inspection, and document comparison. The interface runs at
 <http://localhost:3000>.
 
 ## Work areas
 
-### Search
+### Ask
 
-Search uses a conversation layout with one active engineering question. A
-request runs the complete retrieval pipeline:
+The default view uses a conversation layout with one active engineering
+question. A request runs the complete grounded-answer pipeline:
 
 ```text
 Metadata prefilters
   -> BM25 and BGE-M3
   -> RRF
   -> BGE reranker
-  -> cited evidence cards
+  -> bounded evidence
+  -> Qwen 3.5 9B
+  -> citation validation
+  -> grounded answer and evidence cards
 ```
+
+The generated answer appears before the evidence. Inline evidence identifiers
+such as `E1` are buttons. Select one to move to the matching evidence card and
+update the citation inspector.
+
+Conflicts and limitations are displayed separately when the V2 response
+contains them. The answer footer shows the local model, citation count, and
+total retrieval and generation time.
 
 Each evidence card shows:
 
@@ -41,7 +52,7 @@ The filter panel supports:
 - revision;
 - source authority.
 
-The selected filters are sent with every search request. The API applies them
+The selected filters are sent with every answer request. The API applies them
 inside both retrieval channels before fusion.
 
 ### Sources
@@ -51,6 +62,18 @@ count, vector coverage, source metadata, and a shortened source hash.
 
 Use the catalogue search field to filter the loaded list by filename, document
 type, vehicle generation, or revision.
+
+Drop a PDF into the upload area or use **Select PDF**. Select a document type
+when known so RaceVault applies the correct chunking strategy. The status text
+tracks extraction, chunking, indexing, and embedding. Processing one uploaded
+source does not rebuild existing sources.
+
+Use **Search only** to apply the source SHA-256 as a retrieval prefilter. Both
+BM25 and BGE-M3 then search only that source.
+
+Use **Remove** to delete the source from OpenSearch and delete its PostgreSQL
+document, chunks, and embeddings. Other sources and the original PDF files are
+not changed.
 
 ### Compare
 
@@ -122,6 +145,7 @@ inspector. On smaller screens:
 
 - navigation moves to a bottom tab bar;
 - evidence and comparison columns stack;
+- grounded answers and evidence headings remove their desktop offset;
 - the query composer remains available above the navigation;
 - source catalogue details are reduced to the essential fields.
 

@@ -1,18 +1,72 @@
 from __future__ import annotations
 
-from typing import cast
+from io import BytesIO
+from typing import BinaryIO, cast
 from unittest.mock import Mock, patch
 
 from fastapi.testclient import TestClient
 
+from racevault.api.source_management import (
+    SourceDeletionResult,
+    SourceManager,
+    SourceUploadStatus,
+)
 from racevault.catalog.models import CorpusStatus, SourceListResponse
 from racevault.catalog.store import CatalogStore
+from racevault.chunking.models import DocumentClass
 from racevault.main import create_app
 from tests.api.factories import source_summary
 
 
-def _client(catalog: Mock) -> TestClient:
-    return TestClient(create_app(catalog_store=cast(CatalogStore, catalog)))
+class FakeSourceManager:
+    def __init__(self) -> None:
+        self.started: tuple[str, bytes, DocumentClass | None, str] | None = None
+
+    def start_upload(
+        self,
+        *,
+        filename: str,
+        file: BinaryIO,
+        document_type: DocumentClass | None,
+        authority: str,
+    ) -> SourceUploadStatus:
+        content = file.read()
+        self.started = filename, content, document_type, authority
+        return SourceUploadStatus(
+            run_id="1" * 32,
+            filename=filename,
+            source_sha256="b" * 64,
+            status="queued",
+        )
+
+    def upload_status(self, run_id: str) -> SourceUploadStatus | None:
+        if run_id != "1" * 32:
+            return None
+        return SourceUploadStatus(
+            run_id=run_id,
+            filename="manual.pdf",
+            source_sha256="b" * 64,
+            status="complete",
+            chunks=12,
+            generated_embeddings=12,
+        )
+
+    def delete_source(self, source_sha256: str) -> SourceDeletionResult:
+        return SourceDeletionResult(
+            source_sha256=source_sha256,
+            removed_documents=1,
+            removed_chunks=12,
+            removed_opensearch_chunks=12,
+        )
+
+
+def _client(catalog: Mock, manager: FakeSourceManager | None = None) -> TestClient:
+    return TestClient(
+        create_app(
+            catalog_store=cast(CatalogStore, catalog),
+            source_manager=cast(SourceManager, manager or FakeSourceManager()),
+        )
+    )
 
 
 def test_source_listing_passes_metadata_filters() -> None:
@@ -61,3 +115,39 @@ def test_corpus_status_exposes_cross_store_consistency() -> None:
 
     assert response.status_code == 200
     assert response.json()["consistent"] is True
+
+
+def test_pdf_upload_starts_source_ingestion() -> None:
+    catalog = Mock(spec=CatalogStore)
+    manager = FakeSourceManager()
+
+    response = _client(catalog, manager).post(
+        "/v1/sources/uploads",
+        files={"file": ("manual.pdf", BytesIO(b"%PDF-test"), "application/pdf")},
+        data={
+            "document_type": "technical_manual",
+            "authority": "manufacturer_document",
+        },
+    )
+
+    assert response.status_code == 202
+    assert response.json()["status"] == "queued"
+    assert manager.started == (
+        "manual.pdf",
+        b"%PDF-test",
+        DocumentClass.TECHNICAL_MANUAL,
+        "manufacturer_document",
+    )
+
+
+def test_source_upload_status_and_delete() -> None:
+    catalog = Mock(spec=CatalogStore)
+    client = _client(catalog, FakeSourceManager())
+
+    upload = client.get(f"/v1/sources/uploads/{'1' * 32}")
+    deleted = client.delete(f"/v1/sources/{'b' * 64}")
+
+    assert upload.status_code == 200
+    assert upload.json()["chunks"] == 12
+    assert deleted.status_code == 200
+    assert deleted.json()["removed_chunks"] == 12

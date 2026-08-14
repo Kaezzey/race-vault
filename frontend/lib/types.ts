@@ -106,6 +106,32 @@ export interface SourceListResponse {
   sources: SourceSummary[];
 }
 
+export type SourceUploadState =
+  | "queued"
+  | "extracting"
+  | "chunking"
+  | "indexing"
+  | "complete"
+  | "failed";
+
+export interface SourceUploadStatus {
+  run_id: string;
+  filename: string;
+  source_sha256: string;
+  status: SourceUploadState;
+  chunks: number;
+  generated_embeddings: number;
+  reused_embeddings: number;
+  error: string | null;
+}
+
+export interface SourceDeletionResult {
+  source_sha256: string;
+  removed_documents: number;
+  removed_chunks: number;
+  removed_opensearch_chunks: number;
+}
+
 export interface CorpusStatus {
   documents: number;
   chunks: number;
@@ -121,6 +147,53 @@ export interface ComparisonResponse {
   query: string;
   left: RetrievalResponse;
   right: RetrievalResponse;
+}
+
+export interface GenerationModelIdentity {
+  model: string;
+  digest: string;
+  parameter_size: string | null;
+  quantization_level: string | null;
+}
+
+export interface GroundedCitation {
+  evidence_id: string;
+  citation: Citation;
+}
+
+export interface GroundedAnswerResponse {
+  query: string;
+  filters: SearchFilters;
+  answer: string;
+  insufficient_evidence: boolean;
+  conflicts: string[];
+  limitations: string[];
+  citations: GroundedCitation[];
+  evidence: RetrievalResult[];
+  retrieval_counts: {
+    lexical: number;
+    semantic: number;
+    fused: number;
+    reranked: number;
+  };
+  generation_model: GenerationModelIdentity;
+  generation_usage: {
+    total_duration_ms: number;
+    load_duration_ms: number;
+    prompt_tokens: number;
+    output_tokens: number;
+  };
+  timings: {
+    retrieval_ms: number;
+    generation_ms: number;
+  };
+}
+
+export interface GenerationStatus {
+  available: boolean;
+  ollama_version: string;
+  model: GenerationModelIdentity;
+  capabilities: string[];
 }
 
 export interface ApiErrorBody {

@@ -40,6 +40,7 @@ RaceVault is designed to:
 - identify the authority of each source;
 - expose conflicting evidence instead of hiding it;
 - return exact citations for every retrieved result;
+- add, scope, and remove individual sources without rebuilding the corpus;
 - run without a paid AI API.
 
 The V1 target is a corpus of 50 to 80 PDFs on a workstation with an NVIDIA RTX
@@ -115,8 +116,9 @@ Document processing uses a strategy based on document type:
 | Vector storage | PostgreSQL and pgvector | Store document metadata, chunks, and embeddings |
 | Rank fusion | Reciprocal Rank Fusion | Combine lexical and semantic rankings |
 | Reranking | BGE-Reranker-v2-M3 | Score candidate evidence against the full query |
-| API | FastAPI | Provide ingestion, retrieval, filtering, citation, and comparison services |
-| Web interface | Next.js and TypeScript | Provide search, filters, citations, source inspection, and comparison |
+| Answer generation | Ollama and Qwen 3.5 9B | Generate local answers from retrieved evidence |
+| API | FastAPI | Provide source management, ingestion, retrieval, filtering, citation, and comparison services |
+| Web interface | Next.js and TypeScript | Provide source upload and removal, search, filters, citations, inspection, and comparison |
 | Deployment | Docker Compose | Run all services on the local workstation |
 | Visual retrieval | ColQwen family | Retrieve evidence from page layout, tables, diagrams, and figures |
 
@@ -143,6 +145,12 @@ Document processing uses a strategy based on document type:
                                          Reranker
                                             |
                                       Cited evidence
+                                         /      \
+                              V1 evidence        Qwen
+                                                   |
+                                         Citation validation
+                                                   |
+                                          V2 grounded answer
 ```
 
 The extraction pipeline reads source documents without modifying them. Generated
@@ -164,10 +172,15 @@ text and structured tables. It includes:
 - rank fusion and reranking;
 - source citations and document comparison.
 
-### V2: multimodal retrieval
+### V2: grounded answers and multimodal retrieval
 
-V2 adds visual page retrieval for evidence that text extraction cannot represent
-reliably. Examples include:
+V2 adds local answer generation on top of V1 retrieval. Qwen receives a bounded
+set of reranked evidence, not the source corpus. RaceVault validates every
+evidence identifier returned by the model and rejects answers with unknown or
+mismatched citations.
+
+V2 also adds visual page retrieval for evidence that text extraction cannot
+represent reliably. Examples include:
 
 - suspension and component diagrams;
 - aerodynamic maps;
@@ -223,6 +236,35 @@ errors, ingestion controls, and runtime configuration.
 
 See [Evidence interface](docs/evidence-interface.md) for search, filters,
 citations, source inspection, comparison, and frontend development.
+
+### Generate a grounded answer
+
+Run Ollama on the host and make sure the configured model is installed:
+
+```powershell
+ollama list
+```
+
+The default model is `qwen3.5:9b`. Submit a question through the V2 API:
+
+```powershell
+$body = @{
+  query = "How is brake balance adjusted?"
+  filters = @{
+    document_class = "technical_manual"
+    vehicle_generation = "992.2"
+  }
+} | ConvertTo-Json
+
+Invoke-RestMethod `
+  -Method Post `
+  -Uri http://localhost:8000/v2/answers `
+  -ContentType "application/json" `
+  -Body $body
+```
+
+See [Grounded answer generation](docs/grounded-generation.md) for the model,
+prompt, citation, runtime, and error contracts.
 
 ### Run backend checks
 

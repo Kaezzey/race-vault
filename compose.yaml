@@ -61,10 +61,12 @@ services:
     environment:
       RACEVAULT_POSTGRES_HOST: postgres
       RACEVAULT_OPENSEARCH_URL: http://opensearch:9200
+      RACEVAULT_OLLAMA_URL: http://host.docker.internal:11434
       RACEVAULT_CORPUS_MANIFEST_PATH: /data/manifests/full_documents.json
       RACEVAULT_CORPUS_ROOT_PATH: /data/corpus
       RACEVAULT_EXTRACTION_ROOT_PATH: /data/artifacts/extracted
       RACEVAULT_CHUNK_ROOT_PATH: /data/artifacts/chunks
+      RACEVAULT_UPLOAD_ROOT_PATH: /data/artifacts/uploads
       RACEVAULT_INGESTION_REPORT_PATH: /data/artifacts/reports/full-ingestion.json
     ports:
       - "8000:8000"

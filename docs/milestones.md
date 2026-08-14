@@ -185,3 +185,69 @@ Acceptance gates:
 
 Verify recovery, repeatable full-corpus ingestion, workstation performance, and
 operational documentation for the 50–80 PDF target.
+
+## M11 — Local grounded answer generation
+
+Status: complete (2026-08-14).
+
+Use Ollama and Qwen 3.5 9B to generate answers from bounded V1 retrieval
+evidence. Keep source citations and model output separate, and reject answers
+that fail the grounding contract.
+
+Acceptance gates:
+
+1. Ollama remains a host service and is reachable from the Compose API service.
+2. The configured model identity, digest, size, quantization, and capabilities
+   are available through a status endpoint.
+3. Answer generation receives only the question and bounded reranked evidence.
+4. The prompt treats document text as untrusted data and disables model thinking
+   output.
+5. Every returned citation maps to exact V1 evidence and source provenance.
+6. Unknown and mismatched citations fail closed with a stable API error.
+7. Retrieval models release GPU memory before Qwen generation on the 12 GB
+   workstation GPU.
+8. Unit, contract, type, lint, live model, and container checks pass.
+
+## M12 — Grounded answer interface
+
+Status: complete (2026-08-14).
+
+Connect the existing conversation interface to V2 grounded answers while
+keeping exact retrieval evidence and citation inspection available.
+
+Acceptance gates:
+
+1. The question composer submits metadata filters to `POST /v2/answers`.
+2. The generated answer, conflicts, limitations, model, citation count, and
+   total request time are visible.
+3. Inline evidence identifiers select and scroll to the matching evidence card.
+4. Evidence cards retain page citations, exact evidence text, retrieval scores,
+   metadata, and citation inspection.
+5. Source catalogue and source comparison behavior remain unchanged.
+6. Loading and stable API error states remain visible during local generation.
+7. Type checking, lint, production build, container health, live answer, and
+   inline citation interaction checks pass.
+
+## M13 — Interactive source management
+
+Status: complete (2026-08-14).
+
+Add and remove individual PDF sources from the web interface without rebuilding
+the full corpus.
+
+Acceptance gates:
+
+1. The Sources view accepts PDF selection and drag-and-drop upload.
+2. A user can specify the document type before processing or use automatic
+   classification.
+3. Upload processing runs extraction, type-specific chunking, OpenSearch
+   indexing, and BGE-M3 embedding in a serialized background worker.
+4. Upload status reports queued, extraction, chunking, indexing, completion,
+   and failure states.
+5. Adding one source generates only that source's chunks and embeddings.
+6. Source-scoped search applies the uploaded source SHA-256 as a prefilter in
+   both retrieval channels.
+7. Removing one source deletes its OpenSearch chunks and its PostgreSQL
+   document, chunks, and cascading embeddings without changing other sources.
+8. Original manifest PDFs and generated extraction artifacts remain unchanged.
+9. API tests, lint, type checking, and the frontend production build pass.

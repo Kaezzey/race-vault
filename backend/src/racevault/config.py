@@ -43,10 +43,23 @@ class Settings(BaseSettings):
         default_factory=lambda: ["http://localhost:3000"]
     )
     api_ingestion_enabled: bool = False
+    ollama_url: str = "http://localhost:11434"
+    ollama_model: str = "qwen3.5:9b"
+    ollama_timeout_seconds: float = Field(default=300.0, gt=0, le=900)
+    ollama_context_tokens: int = Field(default=8192, ge=2048, le=32768)
+    ollama_max_output_tokens: int = Field(default=512, ge=64, le=4096)
+    ollama_keep_alive: str = "0"
+    answer_evidence_limit: int = Field(default=3, ge=1, le=10)
+    answer_evidence_character_budget: int = Field(
+        default=12000, ge=4000, le=60000
+    )
+    answer_release_retrieval_models: bool = True
     corpus_manifest_path: str = "corpus/full_documents.json"
     corpus_root_path: str = "AI & ML Reference File Database"
     extraction_root_path: str = ".artifacts/extracted"
     chunk_root_path: str = ".artifacts/chunks"
+    upload_root_path: str = ".artifacts/uploads"
+    upload_max_bytes: int = Field(default=250 * 1024 * 1024, ge=1024, le=2**31)
     ingestion_extraction_device: Literal["auto", "cpu", "cuda"] = "auto"
     ingestion_threads: int = Field(default=8, ge=1, le=64)
     ingestion_report_path: str = ".artifacts/reports/full-ingestion.json"

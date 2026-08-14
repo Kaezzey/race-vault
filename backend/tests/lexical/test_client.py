@@ -90,3 +90,24 @@ def test_search_parses_citation_ready_hit() -> None:
     assert response.hits[0].chunk_id == artifact.chunks[0].chunk_id
     assert response.hits[0].page_numbers == (2,)
     assert response.hits[0].highlights == ("<mark>ABS M5</mark>",)
+
+
+def test_delete_source_uses_source_hash_filter() -> None:
+    requests: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        requests.append(request)
+        return httpx.Response(200, json={"deleted": 7})
+
+    with OpenSearchClient(
+        base_url="http://test",
+        index_name="racevault-test",
+        transport=httpx.MockTransport(handler),
+    ) as client:
+        deleted = client.delete_source("a" * 64)
+
+    assert deleted == 7
+    assert requests[0].method == "POST"
+    assert json.loads(requests[0].content)["query"] == {
+        "term": {"source_sha256": "a" * 64}
+    }

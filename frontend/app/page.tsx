@@ -1,6 +1,14 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  DragEvent,
+  FormEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import {
   ChevronIcon,
@@ -15,18 +23,24 @@ import {
 } from "@/components/icons";
 import {
   compareSources,
+  deleteSource,
+  generateGroundedAnswer,
   getCorpusStatus,
+  getGenerationStatus,
+  getSourceUpload,
   listSources,
   RaceVaultApiError,
-  searchEvidence,
+  uploadSource,
 } from "@/lib/api";
 import type {
   ComparisonResponse,
   CorpusStatus,
-  RetrievalResponse,
+  GenerationStatus,
+  GroundedAnswerResponse,
   RetrievalResult,
   SearchFilters,
   SourceSummary,
+  SourceUploadStatus,
   View,
 } from "@/lib/types";
 
@@ -87,11 +101,13 @@ function MetadataPills({ result }: { result: RetrievalResult }) {
 
 function EvidenceCard({
   result,
+  evidenceId,
   selected,
   onSelect,
   side,
 }: {
   result: RetrievalResult;
+  evidenceId?: string;
   selected?: boolean;
   onSelect?: () => void;
   side?: "left" | "right";
@@ -101,7 +117,7 @@ function EvidenceCard({
   const content = (
     <>
       <div className="evidence-head">
-        <span className="rank">{result.rank}</span>
+        <span className="rank">{evidenceId ?? result.rank}</span>
         <div className="evidence-source">
           <strong>{result.citation.source_filename}</strong>
           <span>
@@ -127,12 +143,82 @@ function EvidenceCard({
     </>
   );
   if (!onSelect) {
-    return <article className={className}>{content}</article>;
+    return <article className={className} id={evidenceId ? `evidence-${evidenceId}` : undefined}>{content}</article>;
   }
   return (
-    <button className={className} onClick={onSelect} type="button">
+    <button className={className} id={evidenceId ? `evidence-${evidenceId}` : undefined} onClick={onSelect} type="button">
       {content}
     </button>
+  );
+}
+
+function GroundedText({
+  text,
+  onCitationSelect,
+}: {
+  text: string;
+  onCitationSelect: (evidenceId: string) => void;
+}) {
+  return text.split(/(\[E[1-9][0-9]*\])/g).map((part, index) => {
+    const match = /^\[(E[1-9][0-9]*)\]$/.exec(part);
+    if (!match) return <span key={`${index}-${part}`}>{part}</span>;
+    const evidenceId = match[1];
+    return (
+      <button
+        aria-label={`Open evidence ${evidenceId}`}
+        className="inline-citation"
+        key={`${index}-${part}`}
+        onClick={() => onCitationSelect(evidenceId)}
+        type="button"
+      >
+        {evidenceId}
+      </button>
+    );
+  });
+}
+
+function GroundedAnswer({
+  response,
+  onCitationSelect,
+}: {
+  response: GroundedAnswerResponse;
+  onCitationSelect: (evidenceId: string) => void;
+}) {
+  const totalMs = response.timings.retrieval_ms + response.timings.generation_ms;
+  return (
+    <section className="grounded-answer" aria-label="Grounded answer">
+      <div className="answer-heading">
+        <div className="assistant-mark">RV</div>
+        <div>
+          <span>Grounded answer</span>
+          <h1>{response.insufficient_evidence ? "More evidence is required" : "Answer from the corpus"}</h1>
+        </div>
+      </div>
+      <div className="answer-copy">
+        <GroundedText text={response.answer} onCitationSelect={onCitationSelect} />
+      </div>
+      {response.conflicts.length > 0 && (
+        <div className="answer-notice conflict-notice">
+          <strong>Source conflicts</strong>
+          {response.conflicts.map((item) => (
+            <p key={item}><GroundedText text={item} onCitationSelect={onCitationSelect} /></p>
+          ))}
+        </div>
+      )}
+      {response.limitations.length > 0 && (
+        <div className="answer-notice">
+          <strong>Limitations</strong>
+          {response.limitations.map((item) => (
+            <p key={item}><GroundedText text={item} onCitationSelect={onCitationSelect} /></p>
+          ))}
+        </div>
+      )}
+      <div className="answer-meta">
+        <span>{response.generation_model.model}</span>
+        <span>{response.citations.length} citations</span>
+        <span>{(totalMs / 1000).toFixed(1)} s</span>
+      </div>
+    </section>
   );
 }
 
@@ -277,8 +363,24 @@ function FilterPanel({
   );
 }
 
-function SourcesView({ sources }: { sources: SourceSummary[] }) {
+function SourcesView({
+  sources,
+  onChanged,
+  onDeleted,
+  onUseSource,
+}: {
+  sources: SourceSummary[];
+  onChanged: () => Promise<void>;
+  onDeleted: (sourceSha256: string) => Promise<void>;
+  onUseSource: (sourceSha256: string) => void;
+}) {
   const [term, setTerm] = useState("");
+  const [documentType, setDocumentType] = useState("auto");
+  const [dragging, setDragging] = useState(false);
+  const [job, setJob] = useState<SourceUploadStatus | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState<string | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
   const visible = sources.filter((source) =>
     [sourceName(source), source.document_type, source.vehicle_generation, source.revision]
       .filter(Boolean)
@@ -286,6 +388,74 @@ function SourcesView({ sources }: { sources: SourceSummary[] }) {
       .toLowerCase()
       .includes(term.toLowerCase()),
   );
+
+  useEffect(() => {
+    if (!job || job.status === "complete" || job.status === "failed") return;
+    const runId = job.run_id;
+    let active = true;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    async function poll() {
+      try {
+        const next = await getSourceUpload(runId);
+        if (!active) return;
+        setJob(next);
+        if (next.status === "complete") await onChanged();
+        if (next.status !== "complete" && next.status !== "failed") {
+          timer = setTimeout(poll, 1500);
+        }
+      } catch (caught) {
+        if (!active) return;
+        setUploadError(caught instanceof Error ? caught.message : "Upload status failed.");
+      }
+    }
+    timer = setTimeout(poll, 800);
+    return () => {
+      active = false;
+      if (timer) clearTimeout(timer);
+    };
+  }, [job, onChanged]);
+
+  async function startUpload(file: File) {
+    if (!file.name.toLowerCase().endsWith(".pdf")) {
+      setUploadError("Select a PDF file.");
+      return;
+    }
+    setUploadError(null);
+    try {
+      setJob(await uploadSource(file, documentType));
+    } catch (caught) {
+      setUploadError(caught instanceof Error ? caught.message : "Upload failed.");
+    }
+  }
+
+  function drop(event: DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    setDragging(false);
+    const file = event.dataTransfer.files[0];
+    if (file) void startUpload(file);
+  }
+
+  async function remove(source: SourceSummary) {
+    if (!window.confirm(`Remove ${sourceName(source)} and all of its search data?`)) return;
+    setDeleting(source.source_sha256);
+    setUploadError(null);
+    try {
+      await deleteSource(source.source_sha256);
+      await onDeleted(source.source_sha256);
+    } catch (caught) {
+      setUploadError(caught instanceof Error ? caught.message : "Source removal failed.");
+    } finally {
+      setDeleting(null);
+    }
+  }
+
+  const uploadLabel = job
+    ? job.status === "complete"
+      ? `${job.filename} is ready: ${job.chunks} chunks indexed.`
+      : job.status === "failed"
+        ? job.error || "Source processing failed."
+        : `${label(job.status)} ${job.filename}...`
+    : "Drop a PDF here or select a file.";
 
   return (
     <main className="catalog-view">
@@ -301,6 +471,46 @@ function SourcesView({ sources }: { sources: SourceSummary[] }) {
           />
         </div>
       </header>
+      <section
+        className={`source-dropzone ${dragging ? "dragging" : ""}`}
+        onDragEnter={(event) => { event.preventDefault(); setDragging(true); }}
+        onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDragging(false); }}
+        onDragOver={(event) => event.preventDefault()}
+        onDrop={drop}
+      >
+        <div className="dropzone-icon"><FileIcon aria-hidden="true" /></div>
+        <div className="dropzone-copy">
+          <strong>Add a source</strong>
+          <span>{uploadLabel}</span>
+          {uploadError && <small>{uploadError}</small>}
+        </div>
+        <label className="upload-type">
+          Document type
+          <select onChange={(event) => setDocumentType(event.target.value)} value={documentType}>
+            <option value="auto">Automatic</option>
+            <option value="regulation">Regulation</option>
+            <option value="technical_manual">Technical manual</option>
+            <option value="tyre_data">Tyre data</option>
+            <option value="part_catalogue">Part catalogue</option>
+            <option value="component_manual">Component manual</option>
+            <option value="engineering_reference">Engineering reference</option>
+          </select>
+        </label>
+        <input
+          accept="application/pdf,.pdf"
+          hidden
+          onChange={(event) => {
+            const file = event.target.files?.[0];
+            if (file) void startUpload(file);
+            event.target.value = "";
+          }}
+          ref={fileInput}
+          type="file"
+        />
+        <button disabled={Boolean(job && !["complete", "failed"].includes(job.status))} onClick={() => fileInput.current?.click()} type="button">
+          Select PDF
+        </button>
+      </section>
       <div className="catalog-summary">
         Showing <strong>{visible.length}</strong> of {sources.length} loaded sources
       </div>
@@ -328,6 +538,12 @@ function SourcesView({ sources }: { sources: SourceSummary[] }) {
                 <i><em style={{ width: `${coverage}%` }} /></i>
               </div>
               <code>{shortHash(source.source_sha256)}</code>
+              <div className="source-actions">
+                <button onClick={() => onUseSource(source.source_sha256)} type="button">Search only</button>
+                <button className="remove-source" disabled={deleting === source.source_sha256} onClick={() => void remove(source)} type="button">
+                  {deleting === source.source_sha256 ? "Removing..." : "Remove"}
+                </button>
+              </div>
             </article>
           );
         })}
@@ -450,13 +666,23 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState<SearchFilters>({});
   const [showFilters, setShowFilters] = useState(false);
-  const [response, setResponse] = useState<RetrievalResponse | null>(null);
+  const [response, setResponse] = useState<GroundedAnswerResponse | null>(null);
   const [selected, setSelected] = useState<RetrievalResult | null>(null);
   const [sources, setSources] = useState<SourceSummary[]>([]);
   const [corpus, setCorpus] = useState<CorpusStatus | null>(null);
+  const [generationStatus, setGenerationStatus] = useState<GenerationStatus | null>(null);
   const [recent, setRecent] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const refreshCorpus = useCallback(async () => {
+    const [status, sourceList] = await Promise.all([
+      getCorpusStatus(),
+      listSources(),
+    ]);
+    setCorpus(status);
+    setSources(sourceList.sources);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -473,6 +699,35 @@ export default function Home() {
     return () => { active = false; };
   }, []);
 
+  const handleSourceDeleted = useCallback(async (sourceSha256: string) => {
+    setFilters((current) => {
+      if (current.source_sha256 !== sourceSha256) return current;
+      const next = { ...current };
+      delete next.source_sha256;
+      return next;
+    });
+    await refreshCorpus();
+  }, [refreshCorpus]);
+
+  const useSource = useCallback((sourceSha256: string) => {
+    setFilters({ source_sha256: sourceSha256 });
+    setResponse(null);
+    setSelected(null);
+    setView("search");
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+    getGenerationStatus()
+      .then((status) => {
+        if (active) setGenerationStatus(status);
+      })
+      .catch(() => {
+        if (active) setGenerationStatus(null);
+      });
+    return () => { active = false; };
+  }, []);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [view]);
@@ -480,8 +735,14 @@ export default function Home() {
   const filterCount = Object.keys(filters).length;
   const statusText = corpus?.consistent ? "Corpus ready" : corpus ? "Check corpus" : "Connecting";
   const activeFilterLabels = useMemo(
-    () => Object.entries(filters).map(([key, value]) => `${label(key)}: ${label(String(value))}`),
-    [filters],
+    () => Object.entries(filters).map(([key, value]) => {
+      if (key === "source_sha256") {
+        const source = sources.find((item) => item.source_sha256 === value);
+        return `Source: ${source ? sourceName(source) : shortHash(String(value))}`;
+      }
+      return `${label(key)}: ${label(String(value))}`;
+    }),
+    [filters, sources],
   );
 
   async function runSearch(searchQuery: string) {
@@ -492,9 +753,9 @@ export default function Home() {
     setLoading(true);
     setError(null);
     try {
-      const result = await searchEvidence(normalized, filters);
+      const result = await generateGroundedAnswer(normalized, filters);
       setResponse(result);
-      setSelected(result.results[0] ?? null);
+      setSelected(result.evidence[0] ?? null);
       setRecent((items) => [normalized, ...items.filter((item) => item !== normalized)].slice(0, 5));
     } catch (caught) {
       const message = caught instanceof RaceVaultApiError
@@ -511,6 +772,20 @@ export default function Home() {
     void runSearch(query);
   }
 
+  function selectEvidence(evidenceId: string) {
+    if (!response) return;
+    const index = Number(evidenceId.slice(1)) - 1;
+    const result = response.evidence[index];
+    if (!result) return;
+    setSelected(result);
+    window.requestAnimationFrame(() => {
+      document.getElementById(`evidence-${evidenceId}`)?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    });
+  }
+
   return (
     <div className="app-shell">
       <aside className="sidebar">
@@ -518,7 +793,7 @@ export default function Home() {
           <span>RV</span><strong>RaceVault</strong>
         </button>
         <button className="new-search" onClick={() => { setView("search"); setResponse(null); setSelected(null); setQuery(""); }} type="button">
-          <SearchIcon aria-hidden="true" /> New search
+          <SearchIcon aria-hidden="true" /> New question
         </button>
         <nav aria-label="Primary navigation">
           <button className={view === "search" ? "active" : ""} onClick={() => setView("search")} type="button">
@@ -548,13 +823,20 @@ export default function Home() {
       <section className="workspace">
         <header className="topbar">
           <div className="mobile-brand"><span>RV</span><strong>RaceVault</strong></div>
-          <div className="scope-label"><i /> Local engineering corpus</div>
+          <div className="scope-label"><i className={generationStatus?.available ? "ok" : ""} /> {generationStatus?.available ? `${generationStatus.model.model} · local` : "Local engineering corpus"}</div>
           <button className="filter-button" onClick={() => setShowFilters(true)} type="button">
             <SlidersIcon aria-hidden="true" /> Filters {filterCount > 0 && <b>{filterCount}</b>}
           </button>
         </header>
 
-        {view === "sources" && <SourcesView sources={sources} />}
+        {view === "sources" && (
+          <SourcesView
+            onChanged={refreshCorpus}
+            onDeleted={handleSourceDeleted}
+            onUseSource={useSource}
+            sources={sources}
+          />
+        )}
         {view === "compare" && <CompareView sources={sources} />}
         {view === "search" && (
           <div className="content-shell">
@@ -563,7 +845,7 @@ export default function Home() {
                 <div className="welcome">
                   <div className="welcome-mark">RV</div>
                   <h1>What do you need to verify?</h1>
-                  <p>Search manuals, regulations, tyre data, catalogues, and engineering references. Every result links back to exact source evidence.</p>
+                  <p>Ask across manuals, regulations, tyre data, catalogues, and engineering references. Answers use local Qwen generation and link to exact source evidence.</p>
                   <div className="suggestions">
                     {SUGGESTIONS.map((suggestion) => (
                       <button key={suggestion} onClick={() => void runSearch(suggestion)} type="button">
@@ -577,28 +859,33 @@ export default function Home() {
               {response && (
                 <div className="results-thread">
                   <div className="user-query"><p>{response.query}</p><span>You</span></div>
-                  <div className="result-intro">
-                    <div className="assistant-mark">RV</div>
-                    <div>
-                      <h1>Found {response.results.length} evidence passages</h1>
-                      <p>Ranked from {response.counts.fused} fused candidates. Open a result to inspect its citation and retrieval trace.</p>
-                    </div>
-                  </div>
+                  <GroundedAnswer response={response} onCitationSelect={selectEvidence} />
                   {activeFilterLabels.length > 0 && (
                     <div className="active-filters">
                       <FilterIcon aria-hidden="true" />
                       {activeFilterLabels.map((item) => <span key={item}>{item}</span>)}
                     </div>
                   )}
+                  <div className="evidence-heading">
+                    <div>
+                      <span>Source evidence</span>
+                      <h2>{response.evidence.length} retrieved passages</h2>
+                    </div>
+                    <p>{response.retrieval_counts.fused} fused candidates before reranking</p>
+                  </div>
                   <div className="evidence-list">
-                    {response.results.map((result) => (
-                      <EvidenceCard
-                        key={result.citation.chunk_id}
-                        onSelect={() => setSelected(result)}
-                        result={result}
-                        selected={selected?.citation.chunk_id === result.citation.chunk_id}
-                      />
-                    ))}
+                    {response.evidence.map((result, index) => {
+                      const evidenceId = `E${index + 1}`;
+                      return (
+                        <EvidenceCard
+                          evidenceId={evidenceId}
+                          key={result.citation.chunk_id}
+                          onSelect={() => selectEvidence(evidenceId)}
+                          result={result}
+                          selected={selected?.citation.chunk_id === result.citation.chunk_id}
+                        />
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -606,7 +893,7 @@ export default function Home() {
               {loading && (
                 <div className="loading-state">
                   <div className="spinner" />
-                  <div><strong>Searching the corpus</strong><span>BM25 · BGE-M3 · RRF · reranker</span></div>
+                  <div><strong>Building a grounded answer</strong><span>Retrieval · reranking · local Qwen generation</span></div>
                 </div>
               )}
               {error && <div className="error-banner">{error}</div>}
@@ -631,12 +918,12 @@ export default function Home() {
                       <FilterIcon aria-hidden="true" />
                       {filterCount ? `${filterCount} filters` : "Add filters"}
                     </button>
-                    <button aria-label="Search" className="send-button" disabled={!query.trim() || loading} type="submit">
+                    <button aria-label="Ask RaceVault" className="send-button" disabled={!query.trim() || loading} type="submit">
                       <SendIcon aria-hidden="true" />
                     </button>
                   </div>
                 </form>
-                <p>RaceVault retrieves source evidence. Verify technical decisions in the original document.</p>
+                <p>RaceVault generates from retrieved evidence only. Verify technical decisions in the original document.</p>
               </div>
             </main>
             <CitationInspector result={selected} />

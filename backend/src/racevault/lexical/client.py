@@ -198,6 +198,23 @@ class OpenSearchClient:
             raise OpenSearchError("invalid OpenSearch count")
         return count
 
+    def delete_source(self, source_sha256: str) -> int:
+        """Remove every indexed chunk for one source."""
+
+        response = self._request(
+            "POST",
+            f"/{self.index_name}/_delete_by_query?refresh=true&conflicts=proceed",
+            json_body={"query": {"term": {"source_sha256": source_sha256}}},
+            allowed_statuses=(404,),
+        )
+        if response.status_code == 404:
+            return 0
+        body = _mapping(response.json(), "delete response")
+        deleted = body.get("deleted", 0)
+        if not isinstance(deleted, int):
+            raise OpenSearchError("invalid OpenSearch delete count")
+        return deleted
+
     def search(self, request: LexicalSearchRequest) -> LexicalSearchResponse:
         response = self._request(
             "POST",

@@ -2,9 +2,13 @@ import type {
   ApiErrorBody,
   ComparisonResponse,
   CorpusStatus,
+  GenerationStatus,
+  GroundedAnswerResponse,
   RetrievalResponse,
   SearchFilters,
+  SourceDeletionResult,
   SourceListResponse,
+  SourceUploadStatus,
 } from "@/lib/types";
 
 const API_URL =
@@ -22,10 +26,11 @@ export class RaceVaultApiError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const isFormData = init?.body instanceof FormData;
   const response = await fetch(`${API_URL}${path}`, {
     ...init,
     headers: {
-      "Content-Type": "application/json",
+      ...(!isFormData ? { "Content-Type": "application/json" } : {}),
       ...init?.headers,
     },
   });
@@ -44,8 +49,38 @@ export function getCorpusStatus(): Promise<CorpusStatus> {
   return request<CorpusStatus>("/v1/corpus/status");
 }
 
+export function getGenerationStatus(): Promise<GenerationStatus> {
+  return request<GenerationStatus>("/v2/generation/status");
+}
+
 export function listSources(limit = 100): Promise<SourceListResponse> {
   return request<SourceListResponse>(`/v1/sources?limit=${limit}`);
+}
+
+export function uploadSource(
+  file: File,
+  documentType: string,
+): Promise<SourceUploadStatus> {
+  const body = new FormData();
+  body.append("file", file);
+  body.append("document_type", documentType);
+  body.append("authority", "unknown");
+  return request<SourceUploadStatus>("/v1/sources/uploads", {
+    method: "POST",
+    body,
+  });
+}
+
+export function getSourceUpload(runId: string): Promise<SourceUploadStatus> {
+  return request<SourceUploadStatus>(`/v1/sources/uploads/${runId}`);
+}
+
+export function deleteSource(
+  sourceSha256: string,
+): Promise<SourceDeletionResult> {
+  return request<SourceDeletionResult>(`/v1/sources/${sourceSha256}`, {
+    method: "DELETE",
+  });
 }
 
 export function searchEvidence(
@@ -64,6 +99,16 @@ export function searchEvidence(
         result_limit: 10,
       },
     }),
+  });
+}
+
+export function generateGroundedAnswer(
+  query: string,
+  filters: SearchFilters,
+): Promise<GroundedAnswerResponse> {
+  return request<GroundedAnswerResponse>("/v2/answers", {
+    method: "POST",
+    body: JSON.stringify({ query, filters }),
   });
 }
 

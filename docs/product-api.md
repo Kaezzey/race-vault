@@ -17,6 +17,9 @@ Use the machine-readable schema at <http://localhost:8000/openapi.json>.
 | `GET` | `/v1/sources` | List and filter source documents. |
 | `GET` | `/v1/sources/{source_sha256}` | Read one source record. |
 | `GET` | `/v1/sources/{source_sha256}/chunks` | Inspect source chunks by page or kind. |
+| `POST` | `/v1/sources/uploads` | Upload one PDF and start background ingestion. |
+| `GET` | `/v1/sources/uploads/{run_id}` | Read one upload's processing status. |
+| `DELETE` | `/v1/sources/{source_sha256}` | Remove one source and its search data. |
 | `GET` | `/v1/corpus/status` | Check document, chunk, embedding, and index consistency. |
 | `GET` | `/v1/ingestion/status` | Read API-trigger state and the latest ingestion checkpoint. |
 | `POST` | `/v1/ingestion/runs` | Start one resumable ingestion run. |
@@ -113,6 +116,46 @@ GET /v1/sources/{source_sha256}/chunks?page=17&kind=table&limit=50
 Chunk responses include exact evidence and extraction provenance. Use `limit`
 and `offset` for pagination.
 
+## Manage individual sources
+
+Upload one PDF as multipart form data:
+
+```http
+POST /v1/sources/uploads
+Content-Type: multipart/form-data
+
+file=<PDF>
+document_type=technical_manual
+authority=manufacturer_document
+```
+
+`document_type` can be `auto`, `regulation`, `technical_manual`, `tyre_data`,
+`part_catalogue`, `component_manual`, or `engineering_reference`. Automatic
+classification uses the existing deterministic classifier. Unknown documents
+use generic evidence chunking.
+
+The endpoint stores the PDF in the managed upload area and returns `202
+Accepted`. Poll the returned run ID:
+
+```http
+GET /v1/sources/uploads/{run_id}
+```
+
+Processing states are `queued`, `extracting`, `chunking`, `indexing`,
+`complete`, and `failed`. One worker performs model-heavy processing at a time.
+Adding a source does not reprocess existing documents.
+
+Remove a source from both retrieval stores:
+
+```http
+DELETE /v1/sources/{source_sha256}
+```
+
+PostgreSQL cascades the document deletion to its chunks and embeddings.
+OpenSearch deletes documents with the same source SHA-256. The operation does
+not delete original manifest PDFs, managed uploaded PDFs, or generated
+artifacts. A later ingestion run can add the source again.
+
 ## Check corpus consistency
 
 `GET /v1/corpus/status` returns counts for PostgreSQL documents, chunks,
@@ -181,7 +224,7 @@ Common status codes are:
 | `403` | API-triggered ingestion is disabled. |
 | `404` | A requested source does not exist. |
 | `409` | An ingestion run is already active. |
-| `422` | Request validation failed. |
+| `422` | Request validation or PDF upload failed. |
 | `503` | PostgreSQL, OpenSearch, or retrieval is unavailable. |
 
 ## Run the API
@@ -216,3 +259,36 @@ RACEVAULT_API_CORS_ORIGINS=["http://localhost:3000"]
 
 V1 allows `GET` and `POST` requests with the `Content-Type` header. It does not
 enable browser credentials.
+
+## V2 grounded answers
+
+Check the local generation service and configured model:
+
+```http
+GET /v2/generation/status
+```
+
+Generate an answer from V1 hybrid retrieval results:
+
+```http
+POST /v2/answers
+Content-Type: application/json
+
+{
+  "query": "How is brake balance adjusted?",
+  "filters": {
+    "document_class": "technical_manual",
+    "vehicle_generation": "992.2"
+  }
+}
+```
+
+The response contains the generated answer, exact V1 evidence, mapped source
+citations, retrieval counts, model identity, token usage, and retrieval and
+generation timings. Qwen returns statement-level evidence identifiers, and
+RaceVault renders the inline citation markers. RaceVault returns
+`502 grounded_answer_invalid` instead of publishing an answer when a statement
+uses an unknown or invalid citation.
+
+See [Grounded answer generation](grounded-generation.md) for the complete
+contract and runtime configuration.

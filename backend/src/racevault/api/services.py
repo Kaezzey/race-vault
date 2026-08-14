@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import gc
+import importlib
 import math
 import threading
 from typing import Protocol, cast
@@ -164,6 +166,21 @@ class HybridRetrievalService:
             ),
             results=tuple(results),
         )
+
+    def release_models(self) -> None:
+        """Release local retrieval models and cached CUDA allocations."""
+
+        with self._lock:
+            used_cuda = any(
+                model is not None and model.device == "cuda"
+                for model in (self._embedder, self._reranker)
+            )
+            self._embedder = None
+            self._reranker = None
+            gc.collect()
+            if used_cuda:
+                torch = importlib.import_module("torch")
+                torch.cuda.empty_cache()
 
 
 def get_retrieval_service(request: Request) -> RetrievalService:

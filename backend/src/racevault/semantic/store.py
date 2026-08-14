@@ -285,6 +285,37 @@ class SemanticStore:
             ).fetchone()
         return int(row["count"]) if row is not None else 0
 
+    def source_exists(self, source_sha256: str) -> bool:
+        with self._connect() as connection:
+            row = connection.execute(
+                "SELECT EXISTS(SELECT 1 FROM documents WHERE sha256 = %s) AS found",
+                (source_sha256,),
+            ).fetchone()
+        return bool(row["found"]) if row is not None else False
+
+    def delete_source(self, source_sha256: str) -> tuple[int, int]:
+        """Delete one document and its cascading chunks and embeddings."""
+
+        with self._connect() as connection, connection.transaction():
+            row = connection.execute(
+                """
+                SELECT d.id, count(c.id) AS chunks
+                FROM documents d
+                LEFT JOIN chunks c ON c.document_id = d.id
+                WHERE d.sha256 = %s
+                GROUP BY d.id
+                """,
+                (source_sha256,),
+            ).fetchone()
+            if row is None:
+                return 0, 0
+            chunks = int(row["chunks"])
+            deleted = connection.execute(
+                "DELETE FROM documents WHERE id = %s",
+                (row["id"],),
+            ).rowcount
+        return max(deleted, 0), chunks
+
     def search(
         self,
         request: SemanticSearchRequest,
