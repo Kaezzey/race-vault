@@ -9,6 +9,7 @@ from racevault.generation.models import GeneratedAnswer, GeneratedStatement
 from racevault.generation.ollama import (
     OllamaClient,
     OllamaModelNotFoundError,
+    OllamaResponseError,
 )
 
 
@@ -81,6 +82,26 @@ class StubOllamaClient(OllamaClient):
         raise AssertionError(f"unexpected request: {method} {path}")
 
 
+class TruncatedOllamaClient(StubOllamaClient):
+    def _request(
+        self,
+        method: str,
+        path: str,
+        *,
+        json: object | None = None,
+    ) -> Any:
+        if path != "/api/chat":
+            return super()._request(method, path, json=json)
+        return {
+            "model": "qwen3.5:9b",
+            "message": {"role": "assistant", "content": '{"answer": ['},
+            "done": True,
+            "done_reason": "length",
+            "prompt_eval_count": 100,
+            "eval_count": 512,
+        }
+
+
 def test_status_reports_installed_model_identity() -> None:
     status = StubOllamaClient().status()
 
@@ -114,3 +135,14 @@ def test_generate_uses_structured_non_thinking_contract() -> None:
         "seed": 0,
     }
     assert json.dumps(client.chat_payload["format"])
+
+
+def test_generate_reports_truncated_structured_output_without_content() -> None:
+    with pytest.raises(
+        OllamaResponseError,
+        match=r"done_reason=length, output_tokens=512; : json_invalid",
+    ):
+        TruncatedOllamaClient().generate(
+            system_prompt="system",
+            user_prompt="evidence",
+        )

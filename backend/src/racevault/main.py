@@ -44,15 +44,19 @@ def create_app(
         summary="Traceable motorsport engineering evidence retrieval",
         version=__version__,
     )
-    configured_retrieval = retrieval_service or HybridRetrievalService(settings)
+    configured_catalog = catalog_store or CatalogStore(
+        settings.psycopg_conninfo,
+        connect_timeout_seconds=settings.dependency_timeout_seconds,
+    )
+    configured_retrieval = retrieval_service or HybridRetrievalService(
+        settings,
+        configured_catalog,
+    )
     application.state.retrieval_service = configured_retrieval
     application.state.answer_service = answer_service or build_answer_service(
         settings, configured_retrieval
     )
-    application.state.catalog_store = catalog_store or CatalogStore(
-        settings.psycopg_conninfo,
-        connect_timeout_seconds=settings.dependency_timeout_seconds,
-    )
+    application.state.catalog_store = configured_catalog
     application.state.ingestion_coordinator = (
         ingestion_coordinator or LocalIngestionCoordinator(settings)
     )

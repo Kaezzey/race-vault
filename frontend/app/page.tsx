@@ -749,7 +749,7 @@ export default function Home() {
     const normalized = searchQuery.trim();
     if (!normalized || loading) return;
     setView("search");
-    setQuery(normalized);
+    setQuery("");
     setLoading(true);
     setError(null);
     try {

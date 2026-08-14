@@ -47,9 +47,10 @@ class Settings(BaseSettings):
     ollama_model: str = "qwen3.5:9b"
     ollama_timeout_seconds: float = Field(default=300.0, gt=0, le=900)
     ollama_context_tokens: int = Field(default=8192, ge=2048, le=32768)
-    ollama_max_output_tokens: int = Field(default=512, ge=64, le=4096)
+    ollama_max_output_tokens: int = Field(default=1024, ge=64, le=4096)
     ollama_keep_alive: str = "0"
     answer_evidence_limit: int = Field(default=3, ge=1, le=10)
+    answer_max_evidence_limit: int = Field(default=10, ge=1, le=10)
     answer_evidence_character_budget: int = Field(
         default=12000, ge=4000, le=60000
     )

@@ -66,9 +66,9 @@ class GeneratedStatement(ArtifactModel):
 class GeneratedAnswer(ArtifactModel):
     """Schema supplied to the local model and validated after generation."""
 
-    answer: tuple[GeneratedStatement, ...] = Field(min_length=1, max_length=30)
-    conflicts: tuple[GeneratedStatement, ...] = Field(max_length=10)
-    limitations: tuple[GeneratedStatement, ...] = Field(max_length=10)
+    answer: tuple[GeneratedStatement, ...] = Field(min_length=1, max_length=6)
+    conflicts: tuple[GeneratedStatement, ...] = Field(max_length=3)
+    limitations: tuple[GeneratedStatement, ...] = Field(max_length=3)
     insufficient_evidence: bool
 
 

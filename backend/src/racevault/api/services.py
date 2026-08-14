@@ -21,10 +21,19 @@ from racevault.api.models import (
 )
 from racevault.catalog.store import CatalogStore
 from racevault.config import Settings, get_settings
-from racevault.fusion.models import HybridSearchRequest, RerankerSpec
+from racevault.fusion.models import (
+    FusedCandidate,
+    HybridSearchRequest,
+    HybridSearchResponse,
+    RerankerSpec,
+)
 from racevault.fusion.pipeline import hybrid_search
 from racevault.fusion.reranker import BgeReranker
 from racevault.lexical.client import OpenSearchClient
+from racevault.retrieval.query_scope import (
+    remove_query_scope_terms,
+    resolve_query_filter_scopes,
+)
 from racevault.semantic.embedder import BgeM3Embedder
 from racevault.semantic.models import EmbeddingModelSpec
 from racevault.semantic.store import SemanticStore
@@ -34,11 +43,40 @@ class RetrievalService(Protocol):
     def search(self, request: RetrievalSearchRequest) -> RetrievalSearchResponse: ...
 
 
+def _interleave_scoped_results(
+    responses: tuple[HybridSearchResponse, ...],
+    *,
+    limit: int,
+) -> tuple[FusedCandidate, ...]:
+    """Keep each requested metadata scope represented in the final results."""
+
+    combined: list[FusedCandidate] = []
+    depth = 0
+    while len(combined) < limit:
+        added = False
+        for response in responses:
+            if depth >= len(response.results):
+                continue
+            combined.append(
+                response.results[depth].model_copy(
+                    update={"final_rank": len(combined) + 1}
+                )
+            )
+            added = True
+            if len(combined) == limit:
+                break
+        if not added:
+            break
+        depth += 1
+    return tuple(combined)
+
+
 class HybridRetrievalService:
     """Load local models on the first request and serialize GPU inference."""
 
-    def __init__(self, settings: Settings) -> None:
+    def __init__(self, settings: Settings, catalog: CatalogStore) -> None:
         self._settings = settings
+        self._catalog = catalog
         self._embedding_spec = EmbeddingModelSpec(
             model_id=settings.semantic_model_id,
             model_revision=settings.semantic_model_revision,
@@ -71,6 +109,12 @@ class HybridRetrievalService:
         return self._embedder, self._reranker
 
     def search(self, request: RetrievalSearchRequest) -> RetrievalSearchResponse:
+        filter_scopes = resolve_query_filter_scopes(
+            request.query,
+            request.filters,
+            championships=self._catalog.list_championships(),
+        )
+        content_query = remove_query_scope_terms(request.query, filter_scopes)
         with self._lock:
             embedder, reranker = self._models()
             options = request.options
@@ -79,38 +123,51 @@ class HybridRetrievalService:
                 index_name=self._settings.opensearch_index_name,
                 timeout_seconds=self._settings.opensearch_timeout_seconds,
             ) as lexical:
-                response = hybrid_search(
-                    HybridSearchRequest(
-                        query=request.query,
-                        filters=request.filters,
-                        channel_limit=options.channel_limit,
-                        fusion_limit=options.fusion_limit,
-                        rerank_limit=options.rerank_limit,
-                        result_limit=options.result_limit,
-                        embedding_model_id=self._embedding_spec.model_id,
-                        embedding_model_revision=(
-                            self._embedding_spec.model_revision
+                semantic_store = SemanticStore(
+                    self._settings.psycopg_conninfo
+                    + " connect_timeout="
+                    + str(
+                        max(
+                            1,
+                            math.ceil(
+                                self._settings.dependency_timeout_seconds
+                            ),
                         ),
-                        reranker=self._reranker_spec,
-                    ),
-                    lexical=lexical,
-                    semantic_embedder=embedder,
-                    semantic_store=SemanticStore(
-                        self._settings.psycopg_conninfo
-                        + " connect_timeout="
-                        + str(
-                            max(
-                                1,
-                                math.ceil(
-                                    self._settings.dependency_timeout_seconds
-                                ),
-                            )
-                        )
-                    ),
-                    reranker=reranker,
+                    )
                 )
+                responses = tuple(
+                    hybrid_search(
+                        HybridSearchRequest(
+                            query=content_query,
+                            filters=filters,
+                            channel_limit=options.channel_limit,
+                            fusion_limit=options.fusion_limit,
+                            rerank_limit=options.rerank_limit,
+                            result_limit=options.result_limit,
+                            embedding_model_id=self._embedding_spec.model_id,
+                            embedding_model_revision=(
+                                self._embedding_spec.model_revision
+                            ),
+                            reranker=self._reranker_spec,
+                        ),
+                        lexical=lexical,
+                        semantic_embedder=embedder,
+                        semantic_store=semantic_store,
+                        reranker=reranker,
+                    )
+                    for filters in filter_scopes
+                )
+        if len(responses) == 1:
+            candidates = responses[0].results
+            response_filters = filter_scopes[0]
+        else:
+            candidates = _interleave_scoped_results(
+                responses,
+                limit=request.options.result_limit,
+            )
+            response_filters = request.filters
         results = []
-        for item in response.results:
+        for item in candidates:
             if item.final_rank is None or item.reranker_score is None:
                 raise RuntimeError("retrieval returned an incomplete final result")
             results.append(
@@ -148,13 +205,18 @@ class HybridRetrievalService:
                 )
             )
         return RetrievalSearchResponse(
-            query=response.query,
-            filters=request.filters,
+            query=request.query,
+            filters=response_filters,
+            resolved_championships=tuple(
+                filters.championship
+                for filters in filter_scopes
+                if filters.championship is not None
+            ),
             counts=CandidateCounts(
-                lexical=response.lexical_hits,
-                semantic=response.semantic_hits,
-                fused=response.fused_candidates,
-                reranked=response.reranked_candidates,
+                lexical=sum(item.lexical_hits for item in responses),
+                semantic=sum(item.semantic_hits for item in responses),
+                fused=sum(item.fused_candidates for item in responses),
+                reranked=sum(item.reranked_candidates for item in responses),
             ),
             embedding_model=ModelIdentity(
                 model_id=self._embedding_spec.model_id,

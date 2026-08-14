@@ -42,7 +42,13 @@ Requirements:
 7. Do not resolve a conflict unless the evidence explicitly resolves it.
 8. If the evidence cannot answer the question, set insufficient_evidence to
    true and explain what is missing.
-9. Return only the requested structured JSON. Do not include reasoning traces.
+9. For comparisons, compare measurements with the same definition first. Do
+   not present differently defined measurements as equivalent.
+10. Do not report requested evidence as missing when a supplied passage
+    directly contains that value.
+11. Keep the response concise. Return no more than six answer statements, three
+   conflict statements, and three limitation statements.
+12. Return only the requested structured JSON. Do not include reasoning traces.
 """
 
 CITATION_REPAIR_PROMPT = """The previous response failed citation validation.
@@ -191,11 +197,14 @@ class GroundedAnswerService:
         return self._ollama.status()
 
     def _select_evidence(
-        self, results: tuple[RetrievalResult, ...]
+        self,
+        results: tuple[RetrievalResult, ...],
+        *,
+        limit: int,
     ) -> tuple[_PackedEvidence, ...]:
         selected: list[_PackedEvidence] = []
         remaining = self._settings.answer_evidence_character_budget
-        for item in results[: self._settings.answer_evidence_limit]:
+        for item in results[:limit]:
             text = item.evidence_text
             if selected and len(text) > remaining:
                 break
@@ -228,12 +237,22 @@ class GroundedAnswerService:
                 query=request.query,
                 filters=request.filters,
                 options=RetrievalOptions(
-                    result_limit=self._settings.answer_evidence_limit
+                    result_limit=self._settings.answer_max_evidence_limit
                 ),
             )
         )
         retrieval_ms = _duration_ms(retrieval_started)
-        packed = self._select_evidence(retrieval.results)
+        evidence_limit = min(
+            self._settings.answer_max_evidence_limit,
+            max(
+                self._settings.answer_evidence_limit,
+                len(retrieval.resolved_championships),
+            ),
+        )
+        packed = self._select_evidence(
+            retrieval.results,
+            limit=evidence_limit,
+        )
         evidence = tuple(item.result for item in packed)
         self._release_retrieval_models()
 
@@ -313,7 +332,7 @@ class GroundedAnswerService:
         )
         return GroundedAnswerResponse(
             query=request.query,
-            filters=request.filters,
+            filters=retrieval.filters,
             answer=answer_text,
             insufficient_evidence=insufficient_evidence,
             conflicts=conflicts,

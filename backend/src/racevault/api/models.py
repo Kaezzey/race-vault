@@ -95,6 +95,7 @@ class RetrievalResult(ArtifactModel):
 class RetrievalSearchResponse(ArtifactModel):
     query: str
     filters: SearchFilters
+    resolved_championships: tuple[str, ...] = ()
     counts: CandidateCounts
     embedding_model: ModelIdentity
     reranker_model: ModelIdentity

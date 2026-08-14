@@ -69,6 +69,7 @@ export interface RetrievalResult {
 export interface RetrievalResponse {
   query: string;
   filters: SearchFilters;
+  resolved_championships: string[];
   counts: {
     lexical: number;
     semantic: number;

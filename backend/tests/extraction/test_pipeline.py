@@ -82,3 +82,51 @@ def test_pipeline_writes_and_reuses_canonical_artifact(tmp_path: Path) -> None:
     assert converter.call_count == 1
     assert first_bytes == canonical_json_bytes(second.artifact)
     assert second.artifact.source.sha256 == sha256_file(source)
+
+
+def test_reused_extraction_refreshes_manifest_metadata(tmp_path: Path) -> None:
+    corpus = tmp_path / "corpus"
+    corpus.mkdir()
+    (corpus / "manual.pdf").write_bytes(b"test PDF bytes")
+    output = tmp_path / "output"
+    docling_document = {
+        "body": {"children": []},
+        "furniture": {"children": []},
+        "texts": [],
+        "tables": [],
+        "pictures": [],
+        "groups": [],
+        "key_value_items": [],
+        "form_items": [],
+    }
+
+    with (
+        patch(
+            "racevault.extraction.pipeline.read_pdf_pages",
+            return_value=(1, (_page(),), "1.28.2"),
+        ),
+        patch(
+            "racevault.extraction.pipeline.convert_pdf",
+            return_value=DoclingResult(docling_document, "2.119.0", "2.91.0"),
+        ) as converter,
+    ):
+        extract_document(
+            corpus_root=corpus,
+            relative_path="manual.pdf",
+            output_root=output,
+            role="regulation",
+            metadata={"championship": "Original championship"},
+        )
+        refreshed = extract_document(
+            corpus_root=corpus,
+            relative_path="manual.pdf",
+            output_root=output,
+            role="regulation",
+            metadata={"championship": "Canonical championship"},
+        )
+
+    assert refreshed.reused is True
+    assert refreshed.artifact.source.metadata == {
+        "championship": "Canonical championship"
+    }
+    assert converter.call_count == 1

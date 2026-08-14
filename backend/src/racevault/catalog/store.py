@@ -135,6 +135,20 @@ class CatalogStore:
         )
         return response.sources[0] if response.sources else None
 
+    def list_championships(self) -> tuple[str, ...]:
+        """Return the championship values available for retrieval filters."""
+
+        with self._connect() as connection:
+            rows = connection.execute(
+                """
+                SELECT DISTINCT championship
+                FROM documents
+                WHERE championship IS NOT NULL
+                ORDER BY championship
+                """
+            ).fetchall()
+        return tuple(str(row["championship"]) for row in rows)
+
     def list_chunks(
         self,
         *,

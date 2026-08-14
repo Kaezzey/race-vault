@@ -31,6 +31,20 @@ class OllamaResponseError(OllamaError):
     """Ollama or the model returned an invalid response."""
 
 
+def _validation_summary(error: ValidationError) -> str:
+    """Return validation locations and error types without model output."""
+
+    failures = (
+        f"{'.'.join(str(part) for part in item['loc'])}: {item['type']}"
+        for item in error.errors(
+            include_url=False,
+            include_context=False,
+            include_input=False,
+        )
+    )
+    return "; ".join(failures)
+
+
 class _OllamaModel(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
@@ -206,13 +220,21 @@ class OllamaClient:
             response = _ChatResponse.model_validate(
                 self._request("POST", "/api/chat", json=payload)
             )
-            answer = GeneratedAnswer.model_validate_json(response.message.content)
         except ValidationError as error:
             raise OllamaResponseError(
-                "the generation model returned an invalid structured answer"
+                "Ollama returned an invalid chat response: "
+                f"{_validation_summary(error)}"
             ) from error
         if not response.done:
             raise OllamaResponseError("Ollama did not complete the response")
+        try:
+            answer = GeneratedAnswer.model_validate_json(response.message.content)
+        except ValidationError as error:
+            raise OllamaResponseError(
+                "the generation model returned an invalid structured answer: "
+                f"done_reason={response.done_reason or 'unknown'}, "
+                f"output_tokens={response.eval_count}; {_validation_summary(error)}"
+            ) from error
         return OllamaGeneration(
             answer=answer,
             model=status.model,

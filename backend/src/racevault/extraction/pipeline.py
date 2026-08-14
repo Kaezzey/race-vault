@@ -93,6 +93,12 @@ def extract_document(
         artifact = validate_extraction_artifact(artifact_path)
         if artifact.source.sha256 != source_sha256:
             raise ValueError("existing artifact source hash does not match the PDF")
+        refreshed_source = artifact.source.model_copy(
+            update={"role": role, "metadata": metadata or {}}
+        )
+        if refreshed_source != artifact.source:
+            artifact = artifact.model_copy(update={"source": refreshed_source})
+            write_json_atomic(artifact_path, artifact)
         return ExtractionResult(
             artifact=artifact,
             artifact_path=artifact_path,

@@ -147,11 +147,74 @@ def test_answer_maps_validated_evidence_to_source_citation() -> None:
     assert response.citations[0].evidence_id == "E1"
     assert response.citations[0].citation.page_numbers == (6,)
     assert response.evidence[0].evidence_text == "Joker Tyre definition."
-    assert retrieval.requests[0].options.result_limit == 3
+    assert retrieval.requests[0].options.result_limit == 10
     assert retrieval.released is True
     assert ollama.user_prompt is not None
     assert "BEGIN E1" in ollama.user_prompt
     assert "Joker Tyre definition." in ollama.user_prompt
+
+
+def test_answer_includes_one_evidence_item_per_resolved_championship() -> None:
+    base_response = retrieval_response("weight comparison")
+    base_result = base_response.results[0]
+    championships = ("Series A", "Series B", "Series C", "Series D")
+    results = tuple(
+        base_result.model_copy(
+            update={
+                "rank": index,
+                "evidence_text": f"{championship} weight requirement.",
+                "source_metadata": {"championship": championship},
+                "citation": base_result.citation.model_copy(
+                    update={"chunk_id": f"chk_{index:032x}"}
+                ),
+            }
+        )
+        for index, championship in enumerate(championships, start=1)
+    )
+    retrieval = FakeRetrieval(
+        base_response.model_copy(
+            update={
+                "resolved_championships": championships,
+                "results": results,
+            }
+        )
+    )
+    ollama = FakeOllama(
+        GeneratedAnswer(
+            answer=tuple(
+                GeneratedStatement(
+                    text=f"{championship} has a weight requirement.",
+                    citations=(f"E{index}",),
+                )
+                for index, championship in enumerate(championships, start=1)
+            ),
+            conflicts=(),
+            limitations=(),
+            insufficient_evidence=False,
+        )
+    )
+    service = GroundedAnswerService(
+        settings=Settings(
+            answer_evidence_limit=3,
+            answer_max_evidence_limit=10,
+        ),
+        retrieval=retrieval,
+        ollama=ollama,
+    )
+
+    response = service.answer(
+        GroundedAnswerRequest(query="compare four series")
+    )
+
+    assert len(response.evidence) == 4
+    assert [item.source_metadata["championship"] for item in response.evidence] == [
+        "Series A",
+        "Series B",
+        "Series C",
+        "Series D",
+    ]
+    assert ollama.user_prompt is not None
+    assert "BEGIN E4" in ollama.user_prompt
 
 
 def test_answer_retries_one_invalid_evidence_identifier() -> None:
