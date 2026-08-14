@@ -97,6 +97,15 @@ Start the complete CPU stack:
 docker compose up --build -d
 ```
 
+For backend development with source mounting and automatic API reload:
+
+```powershell
+docker compose -f compose.yaml -f compose.dev.yaml up -d
+```
+
+After the initial image build, changes under `backend/src` do not reinstall
+Docling, Torch, CUDA, or Transformers.
+
 Start the API with NVIDIA GPU access:
 
 ```powershell

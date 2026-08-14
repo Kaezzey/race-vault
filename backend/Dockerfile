@@ -1,20 +1,36 @@
+# syntax=docker/dockerfile:1.7
+
 FROM python:3.13-slim AS runtime
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install --yes --no-install-recommends \
+        libgl1 \
+        libglib2.0-0t64 \
+        libx11-6 \
+        libxcb1 && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY requirements.lock ./
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+    python -m pip install --requirement requirements.lock
+
+RUN useradd --create-home --uid 10001 racevault && \
+    mkdir -p /home/racevault/.cache/huggingface && \
+    chown -R racevault:racevault /home/racevault
 
 COPY pyproject.toml alembic.ini ./
 COPY migrations ./migrations
 COPY src ./src
 
-RUN python -m pip install ".[semantic,extraction]"
-
-RUN useradd --create-home --uid 10001 racevault && \
-    mkdir -p /home/racevault/.cache/huggingface && \
-    chown -R racevault:racevault /app /home/racevault
+RUN python -m pip install --no-deps . && python -m pip check
 
 USER racevault
 

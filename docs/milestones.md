@@ -251,3 +251,23 @@ Acceptance gates:
    document, chunks, and cascading embeddings without changing other sources.
 8. Original manifest PDFs and generated extraction artifacts remain unchanged.
 9. API tests, lint, type checking, and the frontend production build pass.
+
+## M14 — API image and extraction runtime
+
+Status: complete (2026-08-14).
+
+Make PDF extraction available in the slim API image and keep heavy Python
+dependencies cached during backend development.
+
+Acceptance gates:
+
+1. The API image installs the Debian XCB, OpenGL, GLib, and X11 runtime
+   libraries required by Docling's OpenCV dependency.
+2. OpenCV and Docling import successfully in the built API image.
+3. Linux Python dependencies are pinned in `backend/requirements.lock`.
+4. Docker installs the lock file before copying application source.
+5. RaceVault is installed after the source copy with `--no-deps` and validated
+   with `pip check`.
+6. Docker BuildKit caches downloaded Python packages.
+7. `compose.dev.yaml` mounts `backend/src` and enables Uvicorn reload.
+8. Backend source changes do not reinstall model or extraction dependencies.

@@ -216,6 +216,20 @@ docker compose exec api alembic upgrade head
 docker compose ps
 ```
 
+The first API build installs the locked extraction and model dependencies. Later
+backend source changes reuse that image layer.
+
+For backend development, use the development override:
+
+```powershell
+docker compose -f compose.yaml -f compose.dev.yaml up -d
+```
+
+The override mounts `backend/src` at `/app/src` and enables Uvicorn reload.
+Python source changes do not require an image rebuild. Rebuild the API only
+after changing `backend/requirements.lock`, `backend/pyproject.toml`, or
+`backend/Dockerfile`.
+
 Check service readiness:
 
 ```powershell
@@ -275,6 +289,23 @@ python -m ruff check backend scripts
 python -m mypy --config-file backend/pyproject.toml backend/src
 python scripts/validate_corpus.py
 ```
+
+### Update locked backend dependencies
+
+`backend/requirements.lock` contains the resolved Linux dependencies used by
+the API image. Regenerate it in a Linux Python 3.13 environment after changing
+dependencies in `backend/pyproject.toml`:
+
+```bash
+python -m pip install "pip-tools>=7.6,<8"
+pip-compile \
+  --extra semantic \
+  --extra extraction \
+  --output-file requirements.lock \
+  pyproject.toml
+```
+
+Commit `pyproject.toml` and `requirements.lock` together.
 
 ### Extract a document
 

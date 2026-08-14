@@ -238,6 +238,19 @@ docker compose up --build -d
 docker compose exec api alembic upgrade head
 ```
 
+The API image installs `backend/requirements.lock` before copying application
+source. Changes under `backend/src` therefore reuse the heavy Torch, CUDA,
+Transformers, and Docling layer.
+
+Use the development override while editing backend code:
+
+```powershell
+docker compose -f compose.yaml -f compose.dev.yaml up -d
+```
+
+The override bind-mounts `backend/src` and enables Uvicorn reload. Do not use
+the development override as a production deployment configuration.
+
 Use the NVIDIA GPU override for model inference and extraction:
 
 ```powershell
@@ -257,8 +270,8 @@ Set `RACEVAULT_API_CORS_ORIGINS` to a JSON array of allowed origins:
 RACEVAULT_API_CORS_ORIGINS=["http://localhost:3000"]
 ```
 
-V1 allows `GET` and `POST` requests with the `Content-Type` header. It does not
-enable browser credentials.
+V1 allows `GET`, `POST`, and `DELETE` requests with the `Content-Type` header.
+It does not enable browser credentials.
 
 ## V2 grounded answers
 
