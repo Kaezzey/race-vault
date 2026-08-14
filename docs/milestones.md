@@ -136,8 +136,24 @@ Acceptance gates:
 
 ## M8 — Product API
 
+Status: complete (2026-08-14).
+
 Expose ingestion, retrieval, citation, source inspection, and document
 comparison through stable FastAPI contracts.
+
+Acceptance gates:
+
+1. V1 retrieval applies matching metadata prefilters in both search channels and
+   returns fused, reranked evidence.
+2. Every retrieval result contains page-level citation and extraction provenance.
+3. Source listing and chunk inspection support filters and bounded pagination.
+4. Document comparison retrieves independently from two verified source hashes.
+5. Corpus status verifies PostgreSQL chunk and embedding counts against OpenSearch.
+6. Ingestion requires an explicit scope, permits one active run, writes resumable
+   checkpoints, and is disabled by default.
+7. Validation and service failures use stable error codes and response shapes.
+8. The Compose runtime supports CPU operation and an explicit NVIDIA GPU override.
+9. Unit, contract, full-corpus, live GPU retrieval, and comparison checks pass.
 
 ## M9 — Evidence interface
 

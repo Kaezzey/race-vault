@@ -1,0 +1,6 @@
+services:
+  api:
+    gpus: all
+    environment:
+      RACEVAULT_API_MODEL_DEVICE: cuda
+      RACEVAULT_INGESTION_EXTRACTION_DEVICE: cuda

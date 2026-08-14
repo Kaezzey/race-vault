@@ -61,6 +61,11 @@ services:
     environment:
       RACEVAULT_POSTGRES_HOST: postgres
       RACEVAULT_OPENSEARCH_URL: http://opensearch:9200
+      RACEVAULT_CORPUS_MANIFEST_PATH: /data/manifests/full_documents.json
+      RACEVAULT_CORPUS_ROOT_PATH: /data/corpus
+      RACEVAULT_EXTRACTION_ROOT_PATH: /data/artifacts/extracted
+      RACEVAULT_CHUNK_ROOT_PATH: /data/artifacts/chunks
+      RACEVAULT_INGESTION_REPORT_PATH: /data/artifacts/reports/full-ingestion.json
     ports:
       - "8000:8000"
     depends_on:
@@ -68,6 +73,11 @@ services:
         condition: service_healthy
       opensearch:
         condition: service_healthy
+    volumes:
+      - ./corpus:/data/manifests:ro
+      - "./AI & ML Reference File Database:/data/corpus:ro"
+      - ./.artifacts:/data/artifacts
+      - huggingface-cache:/home/racevault/.cache/huggingface
     healthcheck:
       test:
         - CMD
@@ -83,3 +93,4 @@ services:
 volumes:
   postgres-data:
   opensearch-data:
+  huggingface-cache:

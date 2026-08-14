@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from functools import lru_cache
+from typing import Literal
 from urllib.parse import quote_plus
 
 from pydantic import Field
@@ -36,6 +37,19 @@ class Settings(BaseSettings):
     reranker_model_revision: str = "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
     reranker_max_tokens: int = Field(default=8192, ge=1, le=8192)
     reranker_batch_size: int = Field(default=4, ge=1, le=128)
+    api_model_device: Literal["auto", "cpu", "cuda"] = "auto"
+    api_local_files_only: bool = False
+    api_cors_origins: list[str] = Field(
+        default_factory=lambda: ["http://localhost:3000"]
+    )
+    api_ingestion_enabled: bool = False
+    corpus_manifest_path: str = "corpus/full_documents.json"
+    corpus_root_path: str = "AI & ML Reference File Database"
+    extraction_root_path: str = ".artifacts/extracted"
+    chunk_root_path: str = ".artifacts/chunks"
+    ingestion_extraction_device: Literal["auto", "cpu", "cuda"] = "auto"
+    ingestion_threads: int = Field(default=8, ge=1, le=64)
+    ingestion_report_path: str = ".artifacts/reports/full-ingestion.json"
     dependency_timeout_seconds: float = Field(default=2.0, gt=0, le=30)
 
     @property

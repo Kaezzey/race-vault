@@ -211,6 +211,15 @@ Invoke-RestMethod http://localhost:8000/health/ready
 
 Open the API documentation at <http://localhost:8000/docs>.
 
+Use the NVIDIA GPU for local embedding, reranking, and extraction:
+
+```powershell
+docker compose -f compose.yaml -f compose.gpu.yaml up --build -d
+```
+
+See [Product API](docs/product-api.md) for V1 endpoints, request contracts,
+errors, ingestion controls, and runtime configuration.
+
 ### Run backend checks
 
 ```powershell
