@@ -1,6 +1,6 @@
 # RaceVault
 
-RaceVault is a local retrieval and grounded-answer system for motorsport technical documents. It searches manuals, regulations, component documentation, part catalogues, and engineering references, then returns an answer linked to the source evidence.
+RaceVault is a custom retrieval-augmented generation (RAG) system for motorsport technical documents. It searches manuals, regulations, component documentation, part catalogues, and engineering references, then returns an answer linked to the source evidence.
 
 ![Python](https://img.shields.io/badge/Python-3.12--3.14-3776AB?logo=python&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
