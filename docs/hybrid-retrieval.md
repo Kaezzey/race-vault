@@ -23,10 +23,10 @@ or document class from entering the candidate set.
 
 ### Current edition resolution
 
-A motorsport corpus keeps superseded regulations beside the ones in force. Most
-championships here hold both a 2025 and a 2026 edition, and they disagree: the
-minimum car weight in Carrera Cup Australia is 1295 kg in the 2025 regulations
-and 1300 kg in the 2026 ones, under a renumbered clause.
+A motorsport corpus keeps superseded regulations beside the ones in force. Six
+of the nine championships here hold both a 2025 and a 2026 edition, and the two
+disagree: the minimum car weight in Carrera Cup Australia is 1295 kg in the 2025
+regulations and 1300 kg in the 2026 ones, under a renumbered clause.
 
 An unqualified question is almost always about the edition in force, so once a
 question resolves to a championship, the scope is narrowed to that
