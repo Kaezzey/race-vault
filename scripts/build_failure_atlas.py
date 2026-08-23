@@ -38,7 +38,8 @@ def main(argv: list[str] | None = None) -> int:
                 f"- Category: {result['category']}",
                 f"- Split: {result.get('split', 'unknown')}",
                 f"- Returned: {result['reranked']['returned']}",
-                f"- First relevant rank: {result['reranked'].get('first_relevant_rank')}",
+                "- First relevant rank: "
+                f"{result['reranked'].get('first_relevant_rank')}",
                 f"- nDCG@10: {result['reranked'].get('ndcg_at_10', 0):.3f}",
                 "- Root cause: _adjudication required_",
                 "- Proposed action: _adjudication required_",

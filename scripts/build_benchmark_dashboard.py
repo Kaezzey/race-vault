@@ -40,17 +40,24 @@ def build_dashboard(reports: list[dict[str, object]]) -> str:
             + "</tr>"
         )
     return f"""<!doctype html>
-<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 <title>RaceVault benchmark</title>
 <style>
 body{{font:16px system-ui;margin:2rem;background:#0d1117;color:#e6edf3}}
-table{{border-collapse:collapse;width:100%}}th,td{{padding:.7rem;border:1px solid #30363d;text-align:right}}
-th:first-child,td:first-child{{text-align:left}}th{{background:#161b22}}caption{{text-align:left;font-size:1.5rem;margin-bottom:1rem}}
+table{{border-collapse:collapse;width:100%}}
+th,td{{padding:.7rem;border:1px solid #30363d;text-align:right}}
+th:first-child,td:first-child{{text-align:left}}th{{background:#161b22}}
+caption{{text-align:left;font-size:1.5rem;margin-bottom:1rem}}
 .note{{color:#9da7b3;max-width:70rem}}
 </style>
-<p class="note">Every row is generated from a machine-readable, commit-fingerprinted report. No scores are embedded in this dashboard generator.</p>
+<p class="note">Every row is generated from a machine-readable,
+commit-fingerprinted report. No scores are embedded in this dashboard
+generator.</p>
 <table><caption>Held-out quality and systems trade-offs</caption><thead><tr>
-<th>Configuration</th><th>Split</th><th>Queries</th><th>nDCG@10</th><th>R@10</th><th>MRR</th><th>Negative accuracy</th><th>Warm p95 ms</th><th>Index GB</th><th>Commit</th>
+<th>Configuration</th><th>Split</th><th>Queries</th><th>nDCG@10</th>
+<th>R@10</th><th>MRR</th><th>Negative accuracy</th><th>Warm p95 ms</th>
+<th>Index GB</th><th>Commit</th>
 </tr></thead><tbody>{''.join(rows)}</tbody></table></html>"""
 
 

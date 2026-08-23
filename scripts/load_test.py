@@ -104,7 +104,10 @@ def main(argv: list[str] | None = None) -> int:
     print(f"expected_429={expected_rejections} unexpected={unexpected}")
     print(f"latency_seconds p50={median:.3f} p95={p95:.3f}")
     print(f"unexpected_error_rate={error_rate:.4f}")
-    return 0 if p95 <= args.p95_slo_seconds and error_rate < args.maximum_error_rate else 1
+    within_slo = (
+        p95 <= args.p95_slo_seconds and error_rate < args.maximum_error_rate
+    )
+    return 0 if within_slo else 1
 
 
 if __name__ == "__main__":

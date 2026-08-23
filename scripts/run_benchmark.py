@@ -13,9 +13,11 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPOSITORY_ROOT))
 sys.path.insert(0, str(REPOSITORY_ROOT / "backend" / "src"))
 
-from racevault.evaluation.runner import load_dataset
+# Imported after the sys.path inserts above, which make both packages
+# importable when this script runs from a checkout rather than an install.
+from scripts.build_public_fixture_pdfs import build_fixtures  # noqa: E402
 
-from scripts.build_public_fixture_pdfs import build_fixtures
+from racevault.evaluation.runner import load_dataset  # noqa: E402
 
 
 def _hashes(root: Path) -> dict[str, str]:

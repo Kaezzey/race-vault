@@ -70,3 +70,18 @@ select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
 python_version = "3.12"
 strict = true
 packages = ["racevault"]
+
+# docling and pymupdf ship no type stubs and belong to the optional extraction
+# extra. Type checking must give the same answer whether or not that extra is
+# installed, so their absence cannot be an error.
+[[tool.mypy.overrides]]
+module = ["docling.*", "pymupdf"]
+ignore_missing_imports = true
+
+# The pymupdf call is untyped when the package is present and Any when it is
+# not, so its suppression is required in one environment and redundant in the
+# other. Checking for redundancy here would fail in whichever environment ran
+# second.
+[[tool.mypy.overrides]]
+module = ["racevault.extraction.pymupdf_reader"]
+warn_unused_ignores = false
