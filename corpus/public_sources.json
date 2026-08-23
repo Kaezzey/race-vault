@@ -1,0 +1,7 @@
+{
+  "schema_name": "racevault.public_source_acquisition",
+  "schema_version": 1,
+  "policy": "Only add a source after recording a stable official URL, SHA-256, licence, redistribution decision, and review date.",
+  "target_source_count": {"minimum": 12, "maximum": 20},
+  "sources": []
+}

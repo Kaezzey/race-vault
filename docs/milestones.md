@@ -271,3 +271,47 @@ Acceptance gates:
 6. Docker BuildKit caches downloaded Python packages.
 7. `compose.dev.yaml` mounts `backend/src` and enables Uvicorn reload.
 8. Backend source changes do not reinstall model or extraction dependencies.
+
+## M15 — Evaluation v2 and reproducibility infrastructure
+
+Status: complete (2026-08-21).
+
+Graded retrieval metrics, bootstrap confidence intervals, paired comparisons,
+claim-level grounding judgements, annotation agreement, immutable experiment
+fingerprints, deterministic public PDF fixtures, benchmark entry points, CI, and
+artifact workflows are implemented and covered by automated tests.
+
+## M16 — Human-labelled held-out benchmark
+
+Status: annotation required.
+
+The target is 200 independently written queries with a 140/60 document-family
+split, 40 unanswerable cases, and a 40-query double-labelled sample. The schema,
+protocol, leakage validation, and progress ledger are complete. No held-out score
+will be published until human annotation and adjudication are complete.
+
+## M17 — Operational acceptance
+
+Status: infrastructure complete; live acceptance pending.
+
+Request IDs, content-free metrics, optional OTLP traces, Grafana/Prometheus/Jaeger,
+bounded GPU generation, load tooling, recovery procedures, and stable saturation
+errors are implemented. The 30-minute workstation soak and recovery drill require
+the local services and GPU to be running.
+
+## M18 — Visual retrieval experiment
+
+Status: experimental gate implemented; model run pending.
+
+The MaxSim reference scorer, evidence diagnostics contract, pinned model identity,
+and frozen quality/confidence/latency/storage gate are implemented. Page rendering,
+full visual indexing, and the 40-query human-labelled visual study remain disabled
+until executed and measured.
+
+## M19 — Senior-review showcase
+
+Status: written assets complete; recording pending.
+
+System, data, and model cards, technical report, failure-atlas generator, static
+dashboard generator, operating runbook, and five-minute demo script are present.
+The video and final dashboards require completed benchmark artifacts.

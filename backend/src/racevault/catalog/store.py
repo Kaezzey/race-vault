@@ -16,6 +16,7 @@ from racevault.catalog.models import (
     SourceListResponse,
     SourceSummary,
 )
+from racevault.retrieval.editions import DocumentEdition
 from racevault.retrieval.models import SearchFilters
 from racevault.semantic.models import EmbeddingModelSpec
 
@@ -135,19 +136,40 @@ class CatalogStore:
         )
         return response.sources[0] if response.sources else None
 
-    def list_championships(self) -> tuple[str, ...]:
-        """Return the championship values available for retrieval filters."""
+    def list_document_editions(self) -> tuple[DocumentEdition, ...]:
+        """Return every catalogued championship, season, and revision combination."""
 
         with self._connect() as connection:
             rows = connection.execute(
                 """
-                SELECT DISTINCT championship
+                SELECT DISTINCT championship, season, revision
                 FROM documents
                 WHERE championship IS NOT NULL
-                ORDER BY championship
+                ORDER BY championship, season, revision
                 """
             ).fetchall()
-        return tuple(str(row["championship"]) for row in rows)
+        return tuple(
+            DocumentEdition(
+                championship=str(row["championship"]),
+                season=row["season"],
+                revision=row["revision"],
+            )
+            for row in rows
+        )
+
+    def list_vehicle_generations(self) -> tuple[str, ...]:
+        """Return vehicle-generation values available for retrieval filters."""
+
+        with self._connect() as connection:
+            rows = connection.execute(
+                """
+                SELECT DISTINCT vehicle_generation
+                FROM documents
+                WHERE vehicle_generation IS NOT NULL
+                ORDER BY vehicle_generation
+                """
+            ).fetchall()
+        return tuple(str(row["vehicle_generation"]) for row in rows)
 
     def list_chunks(
         self,

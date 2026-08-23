@@ -1,0 +1,41 @@
+name: Full GPU Benchmark
+
+on:
+  workflow_dispatch:
+    inputs:
+      split:
+        description: Frozen dataset split
+        type: choice
+        options: [development, test, all]
+        default: all
+      dataset:
+        description: Dataset path below evaluation/
+        default: queries.json
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: [self-hosted, gpu, racevault]
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v6
+      - run: docker compose -f compose.yaml -f compose.gpu.yaml up --build -d
+      - run: docker compose exec -T api alembic upgrade head
+      - name: Run fingerprinted evaluation
+        run: >-
+          docker compose exec -T api python -m racevault.evaluation.cli
+          --dataset /data/evaluation/${{ inputs.dataset }}
+          --output /data/artifacts/evaluation/${{ github.sha }}.json
+          --device cuda
+          --local-files-only
+          --split ${{ inputs.split }}
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: benchmark-${{ github.sha }}
+          path: .artifacts/evaluation/${{ github.sha }}.json
+          if-no-files-found: error
+      - if: always()
+        run: docker compose down

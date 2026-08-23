@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Any
+import logging
+from typing import Any, Self
 
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
@@ -13,6 +14,9 @@ from racevault.generation.models import (
     GenerationStatus,
     GenerationUsage,
 )
+from racevault.telemetry import metrics
+
+logger = logging.getLogger(__name__)
 
 
 class OllamaError(RuntimeError):
@@ -119,6 +123,34 @@ class OllamaClient:
         self._context_tokens = context_tokens
         self._max_output_tokens = max_output_tokens
         self._keep_alive = keep_alive
+        self._client: httpx.Client | None = None
+        self._identity: GenerationModelIdentity | None = None
+
+    def close(self) -> None:
+        if self._client is not None:
+            self._client.close()
+            self._client = None
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, *_args: object) -> None:
+        self.close()
+
+    def _http(self) -> httpx.Client:
+        """Hold one connection open for the process.
+
+        Opening a connection costs far more than the request that follows it,
+        and on a host whose "localhost" resolves to ::1 before 127.0.0.1 the
+        refused IPv6 attempt adds about two seconds before the IPv4 retry.
+        """
+
+        if self._client is None:
+            self._client = httpx.Client(
+                base_url=self._base_url,
+                timeout=self._timeout,
+            )
+        return self._client
 
     def _request(
         self,
@@ -128,13 +160,9 @@ class OllamaClient:
         json: object | None = None,
     ) -> Any:
         try:
-            with httpx.Client(
-                base_url=self._base_url,
-                timeout=self._timeout,
-            ) as client:
-                response = client.request(method, path, json=json)
-                response.raise_for_status()
-                return response.json()
+            response = self._http().request(method, path, json=json)
+            response.raise_for_status()
+            return response.json()
         except (httpx.ConnectError, httpx.TimeoutException) as error:
             raise OllamaUnavailableError(
                 "the local Ollama service is unavailable"
@@ -180,16 +208,56 @@ class OllamaClient:
             raise OllamaResponseError(
                 "Ollama returned invalid model details"
             ) from error
+        identity = GenerationModelIdentity(
+            model=self._model,
+            digest=tag.digest,
+            parameter_size=tag.details.parameter_size,
+            quantization_level=tag.details.quantization_level,
+        )
+        self._identity = identity
         return GenerationStatus(
             available=True,
             ollama_version=version.version,
-            model=GenerationModelIdentity(
-                model=self._model,
-                digest=tag.digest,
-                parameter_size=tag.details.parameter_size,
-                quantization_level=tag.details.quantization_level,
-            ),
+            model=identity,
             capabilities=show.capabilities,
+        )
+
+    def _model_identity(self) -> GenerationModelIdentity:
+        """Return the model identity, resolving it at most once.
+
+        `status()` costs three round trips and reports the same digest every
+        time for a pinned model, so paying it before each generation doubled
+        the latency of a short answer.
+        """
+
+        if self._identity is None:
+            return self.status().model
+        return self._identity
+
+    def _check_context_headroom(self, prompt_tokens: int) -> None:
+        """Report a prompt that filled the space reserved for it.
+
+        Ollama does not error when a prompt exceeds `num_ctx`; it discards the
+        oldest tokens, which are the system prompt carrying every grounding
+        rule. A silently ungrounded answer looks exactly like a grounded one,
+        so the condition is surfaced rather than left to be inferred later.
+        """
+
+        headroom = self._context_tokens - self._max_output_tokens
+        metrics.observe(
+            "racevault_generation_prompt_tokens",
+            prompt_tokens,
+            buckets=(1000, 2000, 4000, 8000, 12000, 16000, 24000, 32000),
+        )
+        if prompt_tokens < headroom:
+            return
+        metrics.increment("racevault_generation_context_overflow_total")
+        logger.warning(
+            "generation prompt used %d tokens with only %d available before the "
+            "%d-token context window; the system prompt may have been truncated",
+            prompt_tokens,
+            headroom,
+            self._context_tokens,
         )
 
     def generate(
@@ -198,7 +266,7 @@ class OllamaClient:
         system_prompt: str,
         user_prompt: str,
     ) -> OllamaGeneration:
-        status = self.status()
+        identity = self._model_identity()
         payload = {
             "model": self._model,
             "messages": [
@@ -227,6 +295,7 @@ class OllamaClient:
             ) from error
         if not response.done:
             raise OllamaResponseError("Ollama did not complete the response")
+        self._check_context_headroom(response.prompt_eval_count)
         try:
             answer = GeneratedAnswer.model_validate_json(response.message.content)
         except ValidationError as error:
@@ -237,7 +306,7 @@ class OllamaClient:
             ) from error
         return OllamaGeneration(
             answer=answer,
-            model=status.model,
+            model=identity,
             usage=GenerationUsage(
                 total_duration_ms=response.total_duration // 1_000_000,
                 load_duration_ms=response.load_duration // 1_000_000,

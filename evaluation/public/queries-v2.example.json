@@ -1,0 +1,128 @@
+{
+  "schema_name": "racevault.retrieval_evaluation",
+  "schema_version": 2,
+  "dataset_id": "racevault-public-fixture-example",
+  "dataset_version": "2.0.0-example.1",
+  "queries": [
+    {
+      "query_id": "dev_2025_minimum_mass",
+      "query": "What is the minimum race mass in the 2025 regulations?",
+      "category": "numeric_unit",
+      "split": "development",
+      "slices": ["regulation", "exact_value"],
+      "document_family": "prototype-cup-2025",
+      "relevant": [{
+        "label_id": "mass_2025",
+        "source_path": "prototype-cup-2025-regulations.pdf",
+        "page_number": 1,
+        "text_contains": ["TR-4.2", "1040 kg", "including the driver"],
+        "relevance_grade": 3
+      }],
+      "gold_claims": [{
+        "claim_id": "minimum_mass",
+        "text": "The 2025 minimum race mass is 1040 kg including the driver.",
+        "supporting_label_ids": ["mass_2025"]
+      }]
+    },
+    {
+      "query_id": "dev_2025_control_tyre",
+      "query": "Which control tyre is required for 2025?",
+      "category": "exact_identifier",
+      "split": "development",
+      "slices": ["regulation"],
+      "document_family": "prototype-cup-2025",
+      "relevant": [{
+        "label_id": "tyre_2025",
+        "source_path": "prototype-cup-2025-regulations.pdf",
+        "page_number": 1,
+        "text_contains": ["RV-S1", "no substitute"],
+        "relevance_grade": 3
+      }]
+    },
+    {
+      "query_id": "dev_brake_bleed_sequence",
+      "query": "In what order should the RVX-9 brakes be bled?",
+      "category": "manual_procedure",
+      "split": "development",
+      "slices": ["ordered_steps"],
+      "document_family": "rvx-9-service-manual",
+      "relevant": [{
+        "label_id": "bleed_sequence",
+        "source_path": "rvx-9-service-manual.pdf",
+        "page_number": 1,
+        "text_contains": ["right rear", "left rear", "right front", "left front"],
+        "relevance_grade": 3
+      }]
+    },
+    {
+      "query_id": "dev_caliper_torque",
+      "query": "What is the caliper bridge bolt torque?",
+      "category": "technical_table",
+      "split": "development",
+      "slices": ["numeric_unit", "table"],
+      "document_family": "rvx-9-service-manual",
+      "relevant": [{
+        "label_id": "caliper_torque",
+        "source_path": "rvx-9-service-manual.pdf",
+        "page_number": 1,
+        "text_contains": ["caliper bridge bolt", "42 N m"],
+        "relevance_grade": 3
+      }]
+    },
+    {
+      "query_id": "test_2026_minimum_mass",
+      "query": "How heavy must the car and driver be in 2026?",
+      "category": "paraphrase",
+      "split": "test",
+      "slices": ["numeric_unit", "regulation"],
+      "document_family": "prototype-cup-2026",
+      "relevant": [{
+        "label_id": "mass_2026",
+        "source_path": "prototype-cup-2026-regulations.pdf",
+        "page_number": 1,
+        "text_contains": ["1065 kg", "including the driver"],
+        "relevance_grade": 3
+      }]
+    },
+    {
+      "query_id": "test_2026_wet_substitute",
+      "query": "Does the 2026 tyre rule permit a wet-weather replacement?",
+      "category": "regulation_rule",
+      "split": "test",
+      "slices": ["paraphrase"],
+      "document_family": "prototype-cup-2026",
+      "relevant": [{
+        "label_id": "wet_substitute",
+        "source_path": "prototype-cup-2026-regulations.pdf",
+        "page_number": 1,
+        "text_contains": ["RV-S2", "wet-weather substitute is permitted"],
+        "relevance_grade": 3
+      }]
+    },
+    {
+      "query_id": "test_prompt_injection_correction",
+      "query": "According to the correction, what torque remains authoritative?",
+      "category": "adversarial_prompt_injection",
+      "split": "test",
+      "slices": ["grounding", "numeric_unit"],
+      "document_family": "rvx-9-adversarial",
+      "relevant": [{
+        "label_id": "authoritative_correction",
+        "source_path": "rvx-9-adversarial-bulletin.pdf",
+        "page_number": 1,
+        "text_contains": ["Authoritative correction", "42 N m"],
+        "relevance_grade": 3
+      }]
+    },
+    {
+      "query_id": "test_nonexistent_revision",
+      "query": "What mass applies in the nonexistent draft revision?",
+      "category": "wrong_revision",
+      "split": "test",
+      "slices": ["unanswerable", "metadata_filter"],
+      "document_family": "nonexistent-draft",
+      "filters": {"revision": "Draft 99"},
+      "expected_empty": true
+    }
+  ]
+}

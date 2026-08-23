@@ -1,0 +1,254 @@
+{
+  "schema_name": "racevault.retrieval_evaluation",
+  "schema_version": 1,
+  "queries": [
+    {
+      "query_id": "reg_joker_tyre_definition",
+      "query": "What is a Joker Tyre?",
+      "category": "regulation_definition",
+      "filters": {
+        "document_class": "regulation",
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": "Version 2"
+      },
+      "relevant": [{
+        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+        "page_number": 6,
+        "text_contains": ["Joker Tyre", "Regulation S16.3"]
+      }]
+    },
+    {
+      "query_id": "reg_control_component_requirement",
+      "query": "Are control components mandatory?",
+      "category": "regulation_concept",
+      "filters": {
+        "document_class": "regulation",
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": "Version 2"
+      },
+      "relevant": [{
+        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+        "page_number": 6,
+        "text_contains": ["Control Component", "mandatory"]
+      }]
+    },
+    {
+      "query_id": "reg_slick_tyre_definition",
+      "query": "Which regulation defines a slick tyre?",
+      "category": "regulation_definition",
+      "filters": {
+        "document_class": "regulation",
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": "Version 2"
+      },
+      "relevant": [{
+        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+        "page_number": 7,
+        "text_contains": ["Slick Tyre", "Regulation T12"]
+      }]
+    },
+    {
+      "query_id": "reg_round_alteration_precedence",
+      "query": "What takes precedence when the regulations are altered for a specific round?",
+      "category": "regulation_rule",
+      "filters": {
+        "document_class": "regulation",
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": "Version 2"
+      },
+      "relevant": [{
+        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+        "page_number": 8,
+        "text_contains": ["Supplementary Regulations", "take precedence"]
+      }]
+    },
+    {
+      "query_id": "reg_driver_minimum_age",
+      "query": "What is the minimum driver age?",
+      "category": "regulation_rule",
+      "filters": {
+        "document_class": "regulation",
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": "Version 2"
+      },
+      "relevant": [{
+        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+        "page_number": 9,
+        "text_contains": ["seventeen (17) years"]
+      }]
+    },
+    {
+      "query_id": "reg_2026_calendar",
+      "query": "Which circuits are on the 2026 championship calendar?",
+      "category": "regulation_table",
+      "filters": {
+        "document_class": "regulation",
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": "Version 2"
+      },
+      "relevant": [{
+        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+        "page_number": 10,
+        "text_contains": ["Round", "Circuit", "Albert Park"]
+      }]
+    },
+    {
+      "query_id": "tyre_n3r_dimensions",
+      "query": "What are the N3R tyre dimensions and recommended wheel width?",
+      "category": "technical_table",
+      "filters": {
+        "document_class": "tyre_data",
+        "vehicle_generation": "992.1",
+        "season": 2025
+      },
+      "relevant": [{
+        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+        "page_number": 2,
+        "text_contains": ["31/71-18", "N3R", "2197"]
+      }]
+    },
+    {
+      "query_id": "tyre_n3_rolling_circumference",
+      "query": "What is the rolling circumference of the front N3 tyre?",
+      "category": "technical_table",
+      "filters": {
+        "document_class": "tyre_data",
+        "vehicle_generation": "992.1",
+        "season": 2025
+      },
+      "relevant": [{
+        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+        "page_number": 2,
+        "text_contains": ["30/65-18", "N3", "2030"]
+      }]
+    },
+    {
+      "query_id": "tyre_shoulder_temperature_delta",
+      "query": "What is the maximum temperature difference between the inside and outside tyre shoulders?",
+      "category": "technical_recommendation",
+      "filters": {
+        "document_class": "tyre_data",
+        "vehicle_generation": "992.1",
+        "season": 2025
+      },
+      "relevant": [{
+        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+        "page_number": 3,
+        "text_contains": ["inside shoulder", "outside shoulder", "20"]
+      }]
+    },
+    {
+      "query_id": "tyre_unlisted_track_recommendation",
+      "query": "Which recommendation applies to tracks that are not specifically listed?",
+      "category": "technical_recommendation",
+      "filters": {
+        "document_class": "tyre_data",
+        "vehicle_generation": "992.1",
+        "season": 2025
+      },
+      "relevant": [{
+        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+        "page_number": 4,
+        "text_contains": ["all other tracks", "STANDARD recommendations"]
+      }]
+    },
+    {
+      "query_id": "tyre_n3r_standard_cold_pressure",
+      "query": "What is the standard minimum cold pressure for the rear N3R tyre?",
+      "category": "technical_table",
+      "filters": {
+        "document_class": "tyre_data",
+        "vehicle_generation": "992.1",
+        "season": 2025
+      },
+      "relevant": [{
+        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+        "page_number": 6,
+        "text_contains": ["13 J 18", "1.2 bar", "17.4 Psi"]
+      }]
+    },
+    {
+      "query_id": "manual_intended_use",
+      "query": "Is the Porsche 911 Cup 992 II designed for public-road driving?",
+      "category": "manual_concept",
+      "filters": {
+        "document_class": "technical_manual",
+        "vehicle_generation": "992.2"
+      },
+      "relevant": [{
+        "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+        "page_number": 3,
+        "text_contains": ["circuit races", "racecar"]
+      }, {
+        "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+        "page_number": 3,
+        "text_contains": ["cannot be approved", "public roads"]
+      }]
+    },
+    {
+      "query_id": "manual_main_voltage_switch",
+      "query": "Which switch position turns the main voltage supply on?",
+      "category": "manual_procedure",
+      "filters": {
+        "document_class": "technical_manual",
+        "vehicle_generation": "992.2"
+      },
+      "relevant": [{
+        "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+        "page_number": 9,
+        "text_contains": ["main voltage supply", "Switch down: ON"]
+      }]
+    },
+    {
+      "query_id": "manual_fire_system_test",
+      "query": "Why must the fire extinguisher system be tested in test mode?",
+      "category": "manual_safety",
+      "filters": {
+        "document_class": "technical_manual",
+        "vehicle_generation": "992.2"
+      },
+      "relevant": [{
+        "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+        "page_number": 9,
+        "text_contains": ["test mode", "activated unintentionally"]
+      }]
+    },
+    {
+      "query_id": "failure_wrong_regulation_revision",
+      "query": "What is a Joker Tyre?",
+      "category": "wrong_revision",
+      "filters": {
+        "document_class": "regulation",
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": "Version 1"
+      },
+      "relevant": [],
+      "expected_empty": true
+    },
+    {
+      "query_id": "conflict_n3r_pressure_sources",
+      "query": "minimum cold pressure N3R",
+      "category": "multi_source_conflict",
+      "filters": {
+        "document_class": "tyre_data",
+        "vehicle_generation": "992.1"
+      },
+      "relevant": [{
+        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+        "text_contains": ["13 J 18", "Mini cold pressure"]
+      }, {
+        "source_path": "Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf",
+        "page_number": 2,
+        "text_contains": ["tyre pressure", "Michelin Precos"]
+      }],
+      "minimum_distinct_sources": 2
+    }
+  ]
+}

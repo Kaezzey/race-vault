@@ -126,13 +126,35 @@ The 2026-08-14 run produced 9,212 canonical chunks. OpenSearch and PostgreSQL
 each contain 9,212 chunks, and all 64 PostgreSQL documents have matching pinned
 BGE-M3 embeddings.
 
-| Stage | Positive hit rate | MRR | Negative accuracy |
-| --- | ---: | ---: | ---: |
-| BM25 | 1.000 | 0.717 | 1.000 |
-| BGE-M3 | 1.000 | 0.751 | 1.000 |
-| RRF | 1.000 | 0.741 | 1.000 |
-| Reranked | 1.000 | 0.967 | 1.000 |
+Held-out test split of `racevault-corpus-v2` (13 queries):
 
-These numbers describe the current 16-query dataset. They are a regression
-baseline, not a general estimate of retrieval accuracy. Extend the labelled set
-when new engineering domains or failure modes are added.
+| Stage | Positive hit rate | MRR | nDCG@10 | Recall@10 |
+| --- | ---: | ---: | ---: | ---: |
+| BM25 | 1.000 | 0.847 | 0.797 | 0.889 |
+| BGE-M3 | 1.000 | 0.889 | 0.832 | 0.889 |
+| RRF | 1.000 | 0.870 | 0.817 | 0.889 |
+| Reranked | 1.000 | 0.944 | 0.894 | 0.944 |
+
+Development split (27 queries, used for tuning and calibration):
+
+| Stage | Positive hit rate | MRR | nDCG@10 | Recall@10 |
+| --- | ---: | ---: | ---: | ---: |
+| BM25 | 1.000 | 0.660 | 0.691 | 0.818 |
+| BGE-M3 | 0.955 | 0.730 | 0.783 | 0.955 |
+| RRF | 0.955 | 0.763 | 0.781 | 0.864 |
+| Reranked | 0.955 | 0.902 | 0.915 | 0.955 |
+
+Negative-query accuracy is not reported per stage because retrieval always
+returns its top candidates. Abstention is an answer-layer decision governed by
+the calibrated reranker-score threshold; see
+[Evidence controller](evidence-controller.md).
+
+The runner calls the fusion pipeline directly, so it does not exercise the
+service-level scope resolution that turns an unqualified question into a
+championship and season filter. Queries that depend on that resolution carry the
+filters it would have produced, and the resolution itself is covered by
+`backend/tests/retrieval/test_scope_resolution.py`.
+
+These numbers are a regression baseline, not a general estimate of retrieval
+accuracy. Extend the labelled set when new engineering domains or failure modes
+are added, by editing `evaluation/build_dataset.py` and rebuilding.

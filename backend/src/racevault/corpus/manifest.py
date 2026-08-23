@@ -76,6 +76,37 @@ def _season(path: str, document_type: DocumentClass) -> int | None:
     return int(matches[-1]) if matches else None
 
 
+_REVISION_PATTERN = re.compile(
+    r"(?:^|[^a-z0-9])"
+    r"(?:(?P<keyword>v|ver|version|rev|revision|issue|amendment)"
+    r"[^a-z0-9]{0,2}(?P<number>\d{1,2})"
+    r"|(?P<named>final|draft|provisional))"
+    r"(?=$|[^a-z0-9])",
+    re.IGNORECASE,
+)
+_VERSIONED_TYPES = {
+    DocumentClass.REGULATION,
+    DocumentClass.TYRE_DATA,
+    DocumentClass.PART_CATALOGUE,
+}
+
+
+def _revision(path: str, document_type: DocumentClass) -> str | None:
+    """Derive a comparable edition label from a versioned document filename."""
+
+    if document_type not in _VERSIONED_TYPES:
+        return None
+    filename = path.replace("\\", "/").rsplit("/", 1)[-1]
+    stem = filename.rsplit(".", 1)[0]
+    match = _REVISION_PATTERN.search(stem)
+    if match is None:
+        return None
+    if match.group("number") is not None:
+        return f"Version {int(match.group('number'))}"
+    named = match.group("named")
+    return named[:1].upper() + named[1:].lower()
+
+
 def _vehicle_generation(path: str) -> str | None:
     normalized = path.replace("\\", "/")
     if "/992.1/" in f"/{normalized}/" or "992.1 Technical" in normalized:
@@ -113,6 +144,7 @@ def discover_manifest(corpus_root: Path) -> CorpusManifest:
                 vehicle_generation=_vehicle_generation(path),
                 championship=_championship(path, document_type),
                 season=_season(path, document_type),
+                revision=_revision(path, document_type),
             )
         )
     return CorpusManifest(corpus_root=corpus_root.name, documents=tuple(documents))

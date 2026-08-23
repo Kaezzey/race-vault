@@ -17,6 +17,7 @@ from racevault.semantic.embedder import DenseEmbedder
 from racevault.semantic.models import SemanticSearchRequest, SemanticSearchResponse
 from racevault.semantic.pipeline import semantic_search
 from racevault.semantic.store import SemanticStore
+from racevault.telemetry import metrics, span
 
 
 class LexicalSearcher(Protocol):
@@ -41,36 +42,52 @@ def hybrid_search_stages(
 ) -> HybridStages:
     if request.reranker != reranker.spec:
         raise ValueError("request reranker does not match the loaded reranker")
-    lexical_response = lexical.search(
-        LexicalSearchRequest(
-            query=request.query,
-            limit=request.channel_limit,
-            filters=request.filters,
+    with span("retrieval.lexical"):
+        lexical_response = lexical.search(
+            LexicalSearchRequest(
+                query=request.query,
+                limit=request.channel_limit,
+                filters=request.filters,
+            )
         )
-    )
-    semantic_response = semantic_search(
-        SemanticSearchRequest(
-            query=request.query,
-            limit=request.channel_limit,
-            filters=request.filters,
-            model_id=request.embedding_model_id,
-            model_revision=request.embedding_model_revision,
-        ),
-        embedder=semantic_embedder,
-        store=semantic_store,
-    )
-    fused = reciprocal_rank_fusion(
-        lexical_response.hits,
-        semantic_response.hits,
-        settings=request.rrf,
-        limit=request.fusion_limit,
-    )
-    reranked = rerank_candidates(
-        request.query,
-        fused,
-        reranker=reranker,
-        limit=request.rerank_limit,
-    )
+    with span("retrieval.semantic"):
+        semantic_response = semantic_search(
+            SemanticSearchRequest(
+                query=request.query,
+                limit=request.channel_limit,
+                filters=request.filters,
+                model_id=request.embedding_model_id,
+                model_revision=request.embedding_model_revision,
+            ),
+            embedder=semantic_embedder,
+            store=semantic_store,
+        )
+    with span("retrieval.fusion"):
+        fused = reciprocal_rank_fusion(
+            lexical_response.hits,
+            semantic_response.hits,
+            settings=request.rrf,
+            limit=request.fusion_limit,
+        )
+    with span("retrieval.rerank"):
+        reranked = rerank_candidates(
+            request.query,
+            fused,
+            reranker=reranker,
+            limit=request.rerank_limit,
+        )
+    for stage_name, count in (
+        ("lexical", len(lexical_response.hits)),
+        ("semantic", len(semantic_response.hits)),
+        ("fused", len(fused)),
+        ("reranked", len(reranked)),
+    ):
+        metrics.observe(
+            "racevault_retrieval_candidates",
+            count,
+            labels={"stage": stage_name},
+            buckets=(0, 1, 3, 5, 10, 15, 30, 50, 100),
+        )
     return HybridStages(
         lexical=lexical_response,
         semantic=semantic_response,

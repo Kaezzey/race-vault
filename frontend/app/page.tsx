@@ -759,7 +759,7 @@ export default function Home() {
       setRecent((items) => [normalized, ...items.filter((item) => item !== normalized)].slice(0, 5));
     } catch (caught) {
       const message = caught instanceof RaceVaultApiError
-        ? `${caught.message} (${caught.code})`
+        ? `${caught.message}${caught.reason ? ` ${caught.reason}` : ""} (${caught.code})`
         : caught instanceof Error ? caught.message : "Search failed.";
       setError(message);
     } finally {

@@ -9,9 +9,10 @@ from pathlib import Path
 import psycopg
 
 from racevault.config import get_settings
+from racevault.evaluation.experiment import create_experiment_fingerprint
 from racevault.evaluation.runner import load_dataset, run_evaluation
 from racevault.extraction.io import write_json_atomic
-from racevault.fusion.models import RerankerSpec
+from racevault.fusion.models import RerankerSpec, RrfSettings
 from racevault.fusion.reranker import BgeReranker
 from racevault.lexical.client import OpenSearchClient, OpenSearchError
 from racevault.semantic.embedder import BgeM3Embedder
@@ -41,6 +42,18 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--rerank-limit", type=int, default=15)
     parser.add_argument("--minimum-hit-rate", type=float, default=0.8)
     parser.add_argument("--minimum-mrr", type=float, default=0.5)
+    parser.add_argument("--minimum-ndcg-at-10", type=float, default=0.5)
+    parser.add_argument(
+        "--split", choices=("all", "development", "test"), default="all"
+    )
+    parser.add_argument("--bootstrap-samples", type=int, default=1000)
+    parser.add_argument("--random-seed", type=int, default=17)
+    parser.add_argument("--disable-metadata-filters", action="store_true")
+    parser.add_argument("--rrf-rank-constant", type=int, default=60)
+    parser.add_argument("--lexical-weight", type=float, default=1.0)
+    parser.add_argument("--semantic-weight", type=float, default=1.0)
+    parser.add_argument("--ablation-label", default="hybrid_reranked")
+    parser.add_argument("--index-size-gb", type=float)
     parser.add_argument("--local-files-only", action="store_true")
     return parser
 
@@ -74,8 +87,33 @@ def main(argv: list[str] | None = None) -> int:
             index_name=settings.opensearch_index_name,
             timeout_seconds=settings.opensearch_timeout_seconds,
         ) as lexical:
+            dataset = load_dataset(args.dataset)
+            configuration = {
+                "split": args.split,
+                "channel_limit": args.channel_limit,
+                "fusion_limit": args.fusion_limit,
+                "rerank_limit": args.rerank_limit,
+                "embedding_batch_size": args.embedding_batch_size,
+                "reranker_batch_size": args.reranker_batch_size,
+                "device": args.device,
+                "metadata_filters": not args.disable_metadata_filters,
+                "rrf_rank_constant": args.rrf_rank_constant,
+                "lexical_weight": args.lexical_weight,
+                "semantic_weight": args.semantic_weight,
+                "ablation_label": args.ablation_label,
+            }
+            experiment = create_experiment_fingerprint(
+                repo_root=Path(__file__).resolve().parents[4],
+                dataset_path=args.dataset,
+                configuration=configuration,
+                model_revisions={
+                    settings.semantic_model_id: settings.semantic_model_revision,
+                    settings.reranker_model_id: settings.reranker_model_revision,
+                },
+                random_seed=args.random_seed,
+            )
             report = run_evaluation(
-                load_dataset(args.dataset),
+                dataset,
                 lexical=lexical,
                 semantic_embedder=embedder,
                 semantic_store=SemanticStore(settings.psycopg_conninfo),
@@ -83,24 +121,39 @@ def main(argv: list[str] | None = None) -> int:
                 channel_limit=args.channel_limit,
                 fusion_limit=args.fusion_limit,
                 rerank_limit=args.rerank_limit,
+                split=args.split,
+                bootstrap_samples=args.bootstrap_samples,
+                random_seed=args.random_seed,
+                experiment=experiment,
+                use_metadata_filters=not args.disable_metadata_filters,
+                rrf=RrfSettings(
+                    rank_constant=args.rrf_rank_constant,
+                    lexical_weight=args.lexical_weight,
+                    semantic_weight=args.semantic_weight,
+                ),
+                ablation_label=args.ablation_label,
+                index_size_gb=args.index_size_gb,
             )
         write_json_atomic(args.output, report)
         print(
-            "stage      hit-rate  MRR    negative-accuracy  passed\n"
-            "---------- --------- ------ ------------------ ------"
+            "stage      hit-rate  MRR    nDCG@10  R@10   neg-accuracy  passed\n"
+            "---------- --------- ------ -------- ------ ------------- ------"
         )
         for name in ("lexical", "semantic", "fused", "reranked"):
             summary = getattr(report, name)
             print(
                 f"{name:<10} {summary.positive_hit_rate:>9.3f} "
                 f"{summary.mean_reciprocal_rank:>6.3f} "
-                f"{summary.negative_accuracy:>18.3f} "
+                f"{summary.mean_ndcg_at_10:>8.3f} "
+                f"{summary.mean_recall_at_10:>6.3f} "
+                f"{summary.negative_accuracy:>13.3f} "
                 f"{summary.passed_queries:>6}"
             )
         print(f"Report: {args.output}")
         passed = (
             report.reranked.positive_hit_rate >= args.minimum_hit_rate
             and report.reranked.mean_reciprocal_rank >= args.minimum_mrr
+            and report.reranked.mean_ndcg_at_10 >= args.minimum_ndcg_at_10
             and report.reranked.negative_accuracy == 1.0
         )
         return 0 if passed else 1

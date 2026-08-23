@@ -1,0 +1,12 @@
+{
+  "dataset_id": "racevault-engineering-v2",
+  "target_queries": 200,
+  "development_target": 140,
+  "test_target": 60,
+  "unanswerable_target": 40,
+  "double_label_target": 40,
+  "status": "human_annotation_required",
+  "completed_queries": 0,
+  "double_labelled_queries": 0,
+  "note": "Counts are acceptance targets, not completed benchmark claims. Do not publish quality scores until adjudication is complete."
+}

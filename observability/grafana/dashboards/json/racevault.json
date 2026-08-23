@@ -1,0 +1,35 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "HTTP requests per second",
+      "targets": [{"expr": "sum(rate(racevault_http_requests_total[1m])) by (path, status)", "legendFormat": "{{path}} {{status}}"}],
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0}
+    },
+    {
+      "type": "timeseries",
+      "title": "Pipeline p95 latency",
+      "targets": [{"expr": "histogram_quantile(0.95, sum(rate(racevault_pipeline_stage_seconds_bucket[5m])) by (le, stage))", "legendFormat": "{{stage}}"}],
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0}
+    },
+    {
+      "type": "timeseries",
+      "title": "Generation active and queued",
+      "targets": [
+        {"expr": "racevault_generation_active", "legendFormat": "active"},
+        {"expr": "racevault_generation_queue_depth", "legendFormat": "queued"}
+      ],
+      "gridPos": {"h": 8, "w": 24, "x": 0, "y": 8}
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 42,
+  "tags": ["racevault", "rag"],
+  "templating": {"list": []},
+  "time": {"from": "now-15m", "to": "now"},
+  "title": "RaceVault RAG Operations",
+  "uid": "racevault-operations",
+  "version": 1
+}

@@ -181,6 +181,7 @@
       "authority": "manufacturer_document",
       "document_type": "part_catalogue",
       "path": "Part Catalogues/PA10_2336_01_2026_Tech_Info_911_Cup_Identical parts_V2_en.pdf",
+      "revision": "Version 2",
       "role": "document_3635e7f7180cc8f8",
       "season": 2026
     },
@@ -301,7 +302,7 @@
     },
     {
       "authority": "official_regulation",
-      "championship": "PCC Great Britain",
+      "championship": "PCC Great Britian",
       "document_type": "regulation",
       "path": "Rules and Regulations/Other/PCC Great Britian/2025 Regulations.pdf",
       "role": "document_3abb76d5b42c0ead",
@@ -309,7 +310,7 @@
     },
     {
       "authority": "official_regulation",
-      "championship": "PCC Great Britain",
+      "championship": "PCC Great Britian",
       "document_type": "regulation",
       "path": "Rules and Regulations/Other/PCC Great Britian/2026 Regulations.pdf",
       "role": "document_1eeecab491e43df8",
@@ -360,6 +361,7 @@
       "championship": "PCC Asia",
       "document_type": "regulation",
       "path": "Rules and Regulations/PCC Asia/PCCA 2025 Regulations_Final.pdf",
+      "revision": "Final",
       "role": "document_01458a13c8288fa0",
       "season": 2025
     },
@@ -368,6 +370,7 @@
       "championship": "PCC Asia",
       "document_type": "regulation",
       "path": "Rules and Regulations/PCC Asia/PCCA 2026 Regulations_Final.pdf",
+      "revision": "Final",
       "role": "document_6113a83764b0f20b",
       "season": 2026
     },

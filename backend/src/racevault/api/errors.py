@@ -28,12 +28,14 @@ class ApiError(Exception):
         code: str,
         message: str,
         details: object | None = None,
+        headers: Mapping[str, str] | None = None,
     ) -> None:
         super().__init__(message)
         self.status_code = status_code
         self.code = code
         self.message = message
         self.details = details
+        self.headers = dict(headers or {})
 
 
 def error_response(error: ApiError) -> JSONResponse:
@@ -44,7 +46,11 @@ def error_response(error: ApiError) -> JSONResponse:
             details=error.details,
         )
     )
-    return JSONResponse(status_code=error.status_code, content=body.model_dump())
+    return JSONResponse(
+        status_code=error.status_code,
+        content=body.model_dump(),
+        headers=error.headers,
+    )
 
 
 def install_error_handlers(application: FastAPI) -> None:

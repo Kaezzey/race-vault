@@ -21,6 +21,27 @@ The same metadata filters are passed to both retrieval channels before fusion.
 This prevents a result from an excluded season, revision, vehicle generation,
 or document class from entering the candidate set.
 
+### Current edition resolution
+
+A motorsport corpus keeps superseded regulations beside the ones in force. Most
+championships here hold both a 2025 and a 2026 edition, and they disagree: the
+minimum car weight in Carrera Cup Australia is 1295 kg in the 2025 regulations
+and 1300 kg in the 2026 ones, under a renumbered clause.
+
+An unqualified question is almost always about the edition in force, so once a
+question resolves to a championship, the scope is narrowed to that
+championship's newest season and revision before retrieval runs. Explicit API
+filters and a season named in the question both take precedence, and each side
+of a cross-championship comparison is narrowed independently, so a comparison
+cannot put a 2025 edition against a 2026 one.
+
+Narrowing is conservative. A filter is applied only when the catalogue proves it
+cannot hide evidence: every edition in scope must carry the field, and the field
+must actually distinguish between editions. Set
+`RACEVAULT_RETRIEVAL_PREFER_LATEST_EDITION=false` to retrieve across all
+editions instead. The resolved scopes are returned on the response as
+`resolved_scopes`, so a caller can see which edition an answer came from.
+
 ## Reciprocal Rank Fusion
 
 RaceVault uses weighted Reciprocal Rank Fusion (RRF):

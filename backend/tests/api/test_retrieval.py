@@ -51,6 +51,8 @@ def test_search_returns_citation_and_stage_diagnostics() -> None:
     payload = response.json()
     assert payload["results"][0]["citation"]["page_start"] == 6
     assert payload["results"][0]["diagnostics"]["reranker_score"] == 0.9
+    assert payload["request_id"] == response.headers["X-Request-ID"]
+    assert len(payload["pipeline_fingerprint"]) == 64
     assert service.requests[0].options.result_limit == 5
 
 

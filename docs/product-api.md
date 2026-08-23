@@ -298,7 +298,9 @@ Content-Type: application/json
 
 The response contains the generated answer, exact V1 evidence, mapped source
 citations, retrieval counts, model identity, token usage, and retrieval and
-generation timings. Qwen returns statement-level evidence identifiers, and
+generation timings. It also includes `evidence_selection` diagnostics showing
+the deterministic evidence policy and whether a calibrated sufficiency gate
+allowed generation. Qwen returns statement-level evidence identifiers, and
 RaceVault renders the inline citation markers. RaceVault returns
 `502 grounded_answer_invalid` instead of publishing an answer when a statement
 uses an unknown or invalid citation.

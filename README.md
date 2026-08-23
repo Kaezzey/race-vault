@@ -174,10 +174,14 @@ The defaults in `.env.example` are intended for local development. Common settin
 | --- | --- | --- |
 | `RACEVAULT_OLLAMA_MODEL` | `qwen3.5:9b` | Ollama model used for answer generation |
 | `RACEVAULT_API_MODEL_DEVICE` | `auto` | Device used for embedding and reranking outside the GPU override |
-| `RACEVAULT_OLLAMA_CONTEXT_TOKENS` | `8192` | Model context window requested from Ollama |
-| `RACEVAULT_OLLAMA_MAX_OUTPUT_TOKENS` | `1024` | Maximum generated output before validation |
+| `RACEVAULT_OLLAMA_CONTEXT_TOKENS` | `16384` | Model context window requested from Ollama |
+| `RACEVAULT_OLLAMA_MAX_OUTPUT_TOKENS` | `3072` | Maximum generated output before validation |
+| `RACEVAULT_ANSWER_RETRIEVAL_CANDIDATE_LIMIT` | `20` | Reranked passages considered by the evidence controller |
+| `RACEVAULT_ANSWER_FACET_CANDIDATE_LIMIT` | `8` | Passages retrieved for each explicit subtopic in a compound question |
+| `RACEVAULT_ANSWER_MAX_QUERY_FACETS` | `6` | Maximum explicit subtopics searched independently |
+| `RACEVAULT_ANSWER_EVIDENCE_LIMIT` | `8` | Normal evidence-passage budget for an answer |
 | `RACEVAULT_ANSWER_MAX_EVIDENCE_LIMIT` | `10` | Maximum evidence passages for expanded multi-scope questions |
-| `RACEVAULT_ANSWER_EVIDENCE_CHARACTER_BUDGET` | `12000` | Maximum evidence text supplied to the generator |
+| `RACEVAULT_ANSWER_EVIDENCE_CHARACTER_BUDGET` | `24000` | Maximum evidence text supplied to the generator |
 
 Compose connects the API container to host Ollama through `host.docker.internal:11434`. See `.env.example` for database, OpenSearch, extraction, chunking, embedding, and reranking settings.
 
@@ -257,18 +261,89 @@ These decisions are implemented as general pipeline behaviour. They do not depen
 
 ## Current validation baseline
 
-The current corpus baseline contains 64 documents, 4,888 pages, and 9,212 chunks. The current 16-query regression set reports:
+The current corpus baseline contains 64 documents, 4,888 pages, and 9,212 chunks.
+The `racevault-corpus-v2` dataset holds 40 queries: 31 answerable and 9
+out-of-corpus, across nine document families split development/test with no
+family crossing the boundary.
 
-| Retrieval stage | Hit rate | MRR | Negative-query accuracy |
-| --- | ---: | ---: | ---: |
-| BM25 | 1.000 | 0.717 | 1.000 |
-| BGE-M3 | 1.000 | 0.751 | 1.000 |
-| RRF | 1.000 | 0.741 | 1.000 |
-| Reranked | 1.000 | 0.967 | 1.000 |
+Held-out test split (13 queries, never used for tuning):
 
-This is a regression baseline for the current corpus and query set. It is not a general retrieval-quality claim. See [Evaluation and corpus operations](docs/evaluation-and-corpus.md) for the evaluation workflow and generated reports.
+| Retrieval stage | Hit rate | MRR | nDCG@10 | Recall@10 |
+| --- | ---: | ---: | ---: | ---: |
+| BM25 | 1.000 | 0.847 | 0.797 | 0.889 |
+| BGE-M3 | 1.000 | 0.889 | 0.832 | 0.889 |
+| RRF | 1.000 | 0.870 | 0.817 | 0.889 |
+| Reranked | 1.000 | 0.944 | 0.894 | 0.944 |
 
-The latest repository checks also pass 90 backend tests, frontend linting, TypeScript checking, and the production frontend build.
+Abstention is governed by a reranker-score threshold calibrated on the
+development split alone and frozen before held-out use. At that threshold the
+system answers 9 of 9 answerable held-out queries and abstains on 4 of 4
+out-of-corpus ones.
+
+Forty queries over a single corpus remain a regression baseline, not a general
+retrieval-quality claim. See [Evaluation and corpus operations](docs/evaluation-and-corpus.md)
+for the evaluation workflow and generated reports.
+
+### Evaluation v2 and operations
+
+RaceVault now includes the framework for a held-out, graded benchmark without
+overstating unfinished human annotation:
+
+- graded relevance with nDCG@10, Recall@5/10/20, MRR, context precision, and
+  negative-query accuracy;
+- deterministic bootstrap confidence intervals and paired stage comparisons;
+- development/test document-family leakage checks and claim-level grounding
+  judgements;
+- commit-, dataset-, model-, configuration-, hardware-, and seed-fingerprinted
+  reports;
+- deterministic CC0 PDF fixtures and a v2 example dataset;
+- request IDs, Prometheus metrics, optional OTLP traces, a bounded generation
+  queue, and an optional Grafana/Jaeger stack;
+- a frozen visual-retrieval promotion gate and dependency-free MaxSim reference
+  implementation.
+
+Validate the public reproducibility assets:
+
+```powershell
+python scripts/run_benchmark.py quick
+```
+
+Run a fingerprinted benchmark after the retrieval services and corpus are loaded:
+
+```powershell
+python scripts/run_benchmark.py full --split all --device cuda --local-files-only
+```
+
+Use `--split test` only with the completed v2 dataset; the legacy dataset has no
+held-out split.
+
+Start the optional operations stack:
+
+```powershell
+docker compose -f compose.yaml -f compose.observability.yaml up --build -d
+```
+
+Prometheus is then available on port 9090, Grafana on port 3001, and Jaeger on
+port 16686. Raw questions and evidence are never metric labels or trace
+attributes.
+
+The latest repository checks also pass 109 backend tests, frontend linting,
+TypeScript checking, and the production frontend build.
+
+### Evidence intelligence
+
+Grounded generation now uses a deterministic, query-aware evidence controller
+instead of blindly packing the first N chunks. It preserves requested scope
+coverage, rewards passages that cover the question's meaningful topic terms,
+decomposes explicit multi-part requests into bounded facet searches, guarantees
+facet evidence coverage, removes near-duplicates, diversifies conflict evidence
+across sources, and can abstain before generation using a development-calibrated
+reranker threshold. Generated compound answers must account for every facet.
+The existing hybrid retrieval pipeline remains unchanged.
+
+See [Evidence intelligence controller](docs/evidence-controller.md) for the
+leakage-safe calibration workflow and required control-versus-controller
+ablation.
 
 ## Repository layout
 
@@ -309,3 +384,9 @@ race-vault/
 - [Grounded generation](docs/grounded-generation.md)
 - [Evaluation and corpus operations](docs/evaluation-and-corpus.md)
 - [Milestones](docs/milestones.md)
+- [System card](docs/system-card.md)
+- [Data card](docs/data-card.md)
+- [Model card](docs/model-card.md)
+- [Technical report](docs/technical-report.md)
+- [Operations and recovery](docs/operations.md)
+- [Evidence intelligence controller](docs/evidence-controller.md)

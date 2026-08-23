@@ -1,0 +1,6 @@
+[
+  {"item_id": "dev_2025_minimum_mass/mass_2025", "first_grade": 3, "second_grade": 3},
+  {"item_id": "dev_2025_control_tyre/tyre_2025", "first_grade": 3, "second_grade": 2},
+  {"item_id": "dev_brake_bleed_sequence/bleed_sequence", "first_grade": 3, "second_grade": 3},
+  {"item_id": "test_nonexistent_revision/nonrelevant", "first_grade": 0, "second_grade": 0}
+]

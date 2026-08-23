@@ -9,6 +9,7 @@ from fastapi import APIRouter, Depends, Request
 from fastapi.concurrency import run_in_threadpool
 
 from racevault.api.errors import ApiError
+from racevault.config import get_settings
 from racevault.generation.models import (
     GenerationStatus,
     GroundedAnswerRequest,
@@ -21,9 +22,11 @@ from racevault.generation.ollama import (
 )
 from racevault.generation.service import (
     AnswerService,
+    GenerationQueueFullError,
     GroundingValidationError,
 )
 from racevault.lexical.client import OpenSearchError
+from racevault.telemetry import current_request_id
 
 router = APIRouter(prefix="/v2", tags=["generation"])
 
@@ -60,11 +63,27 @@ async def generation_status(
 
 @router.post("/answers", response_model=GroundedAnswerResponse)
 async def grounded_answer(
-    request: GroundedAnswerRequest,
+    body: GroundedAnswerRequest,
+    http_request: Request,
     service: Annotated[AnswerService, Depends(get_answer_service)],
 ) -> GroundedAnswerResponse:
     try:
-        return await run_in_threadpool(service.answer, request)
+        response = await run_in_threadpool(service.answer, body)
+        return response.model_copy(
+            update={
+                "request_id": current_request_id(),
+                "pipeline_fingerprint": http_request.app.state.pipeline_fingerprint,
+            }
+        )
+    except GenerationQueueFullError as error:
+        retry_after = get_settings().generation_retry_after_seconds
+        raise ApiError(
+            status_code=429,
+            code="generation_queue_full",
+            message="Local answer generation is at capacity.",
+            details={"retry_after_seconds": retry_after},
+            headers={"Retry-After": str(retry_after)},
+        ) from error
     except (OllamaUnavailableError, OllamaModelNotFoundError) as error:
         raise _generation_unavailable(error) from error
     except (OllamaResponseError, GroundingValidationError) as error:

@@ -1,0 +1,30 @@
+{
+  "schema_name": "racevault.grounding_judgements",
+  "schema_version": 1,
+  "dataset_id": "racevault-public-fixture-example",
+  "evaluator": "example-human-review",
+  "evaluator_kind": "illustrative_fixture",
+  "judgements": [
+    {
+      "query_id": "dev_2025_minimum_mass",
+      "expected_claim_ids": ["minimum_mass"],
+      "claims": [{
+        "claim_id": "minimum_mass",
+        "correct": true,
+        "supported_by_context": true,
+        "has_citation": true,
+        "citation_entails_claim": true,
+        "context_used": true
+      }],
+      "citation_ids_valid": true,
+      "schema_valid": true
+    },
+    {
+      "query_id": "test_nonexistent_revision",
+      "expected_empty": true,
+      "predicted_insufficient": true,
+      "citation_ids_valid": true,
+      "schema_valid": true
+    }
+  ]
+}

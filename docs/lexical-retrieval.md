@@ -37,19 +37,59 @@ highlights are display aids and are not source evidence.
 
 ## Technical-term analysis
 
-The index uses two text analyzers:
+The index uses three text analyzers:
 
-- `racevault_technical` handles normal words and punctuation;
+- `racevault_technical` handles normal words and punctuation, and applies the
+  light dictionary stemmer `kstem` so that `brakes` matches `brake`;
+- `racevault_technical_search` adds motorsport synonym expansion on top, and is
+  used only at search time;
 - `racevault_codes` retains characters used in technical identifiers, including
   periods, underscores, slashes, and hyphens.
+
+No stop-word filter is applied. Regulations distinguish `shall` from `should`
+from `may`, and removing those words would erase the difference between a
+requirement and a recommendation.
+
+### Motorsport synonyms
+
+One corpus carries documents written by regulators, a manufacturer, and
+component suppliers across several regions, so the same thing is named
+differently from document to document. Australian regulations say `tyre` where
+North American ones say `tire`; a supplier writes `shock absorber` where a
+manual writes `damper`; regulations legislate about the `Automobile` while
+people ask about the `car`. `racevault/lexical/synonyms.py` records those
+equivalences and the rules for adding to them.
+
+Expansion happens at search time only, so the vocabulary can grow without
+reindexing the corpus:
+
+```powershell
+curl -XPOST "$env:RACEVAULT_OPENSEARCH_URL/racevault-chunks-v2/_close"
+curl -XPUT "$env:RACEVAULT_OPENSEARCH_URL/racevault-chunks-v2/_settings" -d @analysis.json
+curl -XPOST "$env:RACEVAULT_OPENSEARCH_URL/racevault-chunks-v2/_open"
+```
+
+Units are grouped only where one quantity has several spellings (`nm`,
+`newton metre`), never where the values differ (`psi`, `bar`), which would make
+numeric answers wrong.
 
 Queries search both forms. This supports terms such as `P4`, `992.2`, `N3R`,
 `ABS M5`, regulation clauses, and part numbers.
 
 The BM25 candidate query uses OR matching across analyzed query terms. This
 keeps natural-language questions from requiring every word to appear in one
-chunk. Exact identifiers and repeated technical terms still receive higher
-BM25 scores. RRF and cross-encoder reranking provide later precision.
+chunk. A question long enough to have optional terms must still match at least
+two of them, so a passage cannot qualify by sharing one common word.
+
+Two optional clauses raise precision without narrowing that candidate set: a
+phrase match over `contextual_text` and `section_text`, and a cross-field match
+requiring every term somewhere in the document. Both only reorder what the
+recall clause already admits, which matters because the most valuable passages
+in the corpus are short table rows such as `Minimum weight: 1265 kg` that would
+fail a stricter term requirement.
+
+Exact identifiers and repeated technical terms still receive higher BM25 scores.
+RRF and cross-encoder reranking provide later precision.
 
 ## Metadata filters
 
@@ -69,8 +109,10 @@ Filters are applied inside the OpenSearch query. They do not change BM25 scores.
 
 ## Index identity
 
-The default index is `racevault-chunks-v1`. Its mapping contains a RaceVault
-schema version. Index validation rejects a different schema version.
+The default index is `racevault-chunks-v2`. Its mapping contains a RaceVault
+schema version, which changes whenever the analysis chain does, because the
+stored tokens change with it. Index validation rejects a different schema
+version rather than querying an index built by an older chain.
 
 Each indexed artifact has an identity derived from:
 

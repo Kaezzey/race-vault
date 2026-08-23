@@ -20,9 +20,18 @@ export class RaceVaultApiError extends Error {
     message: string,
     public readonly code: string,
     public readonly status: number,
+    public readonly reason?: string,
   ) {
     super(message);
   }
+}
+
+function apiErrorReason(details: unknown): string | undefined {
+  if (typeof details !== "object" || details === null || !("reason" in details)) {
+    return undefined;
+  }
+  const reason = details.reason;
+  return typeof reason === "string" && reason.length > 0 ? reason : undefined;
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -40,6 +49,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
       body.error?.message ?? "RaceVault could not complete the request.",
       body.error?.code ?? "request_failed",
       response.status,
+      apiErrorReason(body.error?.details),
     );
   }
   return (await response.json()) as T;

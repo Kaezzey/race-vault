@@ -79,6 +79,7 @@ services:
       - ./corpus:/data/manifests:ro
       - "./AI & ML Reference File Database:/data/corpus:ro"
       - ./.artifacts:/data/artifacts
+      - ./evaluation:/data/evaluation:ro
       - huggingface-cache:/home/racevault/.cache/huggingface
     healthcheck:
       test:

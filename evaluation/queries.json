@@ -1,254 +1,1521 @@
 {
   "schema_name": "racevault.retrieval_evaluation",
-  "schema_version": 1,
+  "schema_version": 2,
+  "dataset_id": "racevault-corpus-v2",
+  "dataset_version": "2.0.0",
   "queries": [
     {
       "query_id": "reg_joker_tyre_definition",
       "query": "What is a Joker Tyre?",
       "category": "regulation_definition",
+      "split": "development",
+      "slices": [
+        "regulation"
+      ],
+      "document_family": "pcc-australia-regulations",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "regulation",
+        "authority": null,
+        "vehicle_generation": null,
         "championship": "PCC Australia",
         "season": 2026,
-        "revision": "Version 2"
+        "revision": "Version 2",
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
-        "page_number": 6,
-        "text_contains": ["Joker Tyre", "Regulation S16.3"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 6,
+          "text_contains": [
+            "Joker Tyre",
+            "Regulation S16.3"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "reg_control_component_requirement",
       "query": "Are control components mandatory?",
       "category": "regulation_concept",
+      "split": "development",
+      "slices": [
+        "regulation"
+      ],
+      "document_family": "pcc-australia-regulations",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "regulation",
+        "authority": null,
+        "vehicle_generation": null,
         "championship": "PCC Australia",
         "season": 2026,
-        "revision": "Version 2"
+        "revision": "Version 2",
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
-        "page_number": 6,
-        "text_contains": ["Control Component", "mandatory"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 6,
+          "text_contains": [
+            "Control Component",
+            "mandatory"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "reg_slick_tyre_definition",
       "query": "Which regulation defines a slick tyre?",
       "category": "regulation_definition",
+      "split": "development",
+      "slices": [
+        "regulation"
+      ],
+      "document_family": "pcc-australia-regulations",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "regulation",
+        "authority": null,
+        "vehicle_generation": null,
         "championship": "PCC Australia",
         "season": 2026,
-        "revision": "Version 2"
+        "revision": "Version 2",
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
-        "page_number": 7,
-        "text_contains": ["Slick Tyre", "Regulation T12"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 7,
+          "text_contains": [
+            "Slick Tyre",
+            "Regulation T12"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "reg_round_alteration_precedence",
       "query": "What takes precedence when the regulations are altered for a specific round?",
       "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation"
+      ],
+      "document_family": "pcc-australia-regulations",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "regulation",
+        "authority": null,
+        "vehicle_generation": null,
         "championship": "PCC Australia",
         "season": 2026,
-        "revision": "Version 2"
+        "revision": "Version 2",
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
-        "page_number": 8,
-        "text_contains": ["Supplementary Regulations", "take precedence"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 8,
+          "text_contains": [
+            "Supplementary Regulations",
+            "take precedence"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "reg_driver_minimum_age",
       "query": "What is the minimum driver age?",
       "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation"
+      ],
+      "document_family": "pcc-australia-regulations",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "regulation",
+        "authority": null,
+        "vehicle_generation": null,
         "championship": "PCC Australia",
         "season": 2026,
-        "revision": "Version 2"
+        "revision": "Version 2",
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
-        "page_number": 9,
-        "text_contains": ["seventeen (17) years"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 9,
+          "text_contains": [
+            "seventeen (17) years"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "reg_2026_calendar",
       "query": "Which circuits are on the 2026 championship calendar?",
       "category": "regulation_table",
+      "split": "development",
+      "slices": [
+        "regulation",
+        "table"
+      ],
+      "document_family": "pcc-australia-regulations",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "regulation",
+        "authority": null,
+        "vehicle_generation": null,
         "championship": "PCC Australia",
         "season": 2026,
-        "revision": "Version 2"
+        "revision": "Version 2",
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
-        "page_number": 10,
-        "text_contains": ["Round", "Circuit", "Albert Park"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 10,
+          "text_contains": [
+            "Round",
+            "Circuit",
+            "Albert Park"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "tyre_n3r_dimensions",
       "query": "What are the N3R tyre dimensions and recommended wheel width?",
       "category": "technical_table",
+      "split": "test",
+      "slices": [
+        "table",
+        "numeric_unit"
+      ],
+      "document_family": "tyre-data",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "tyre_data",
+        "authority": null,
         "vehicle_generation": "992.1",
-        "season": 2025
+        "championship": null,
+        "season": 2025,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
-        "page_number": 2,
-        "text_contains": ["31/71-18", "N3R", "2197"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "31/71-18",
+            "N3R",
+            "2197"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "tyre_n3_rolling_circumference",
       "query": "What is the rolling circumference of the front N3 tyre?",
       "category": "technical_table",
+      "split": "test",
+      "slices": [
+        "table",
+        "numeric_unit"
+      ],
+      "document_family": "tyre-data",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "tyre_data",
+        "authority": null,
         "vehicle_generation": "992.1",
-        "season": 2025
+        "championship": null,
+        "season": 2025,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
-        "page_number": 2,
-        "text_contains": ["30/65-18", "N3", "2030"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "30/65-18",
+            "N3",
+            "2030"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "tyre_shoulder_temperature_delta",
       "query": "What is the maximum temperature difference between the inside and outside tyre shoulders?",
       "category": "technical_recommendation",
+      "split": "test",
+      "slices": [
+        "numeric_unit"
+      ],
+      "document_family": "tyre-data",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "tyre_data",
+        "authority": null,
         "vehicle_generation": "992.1",
-        "season": 2025
+        "championship": null,
+        "season": 2025,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
-        "page_number": 3,
-        "text_contains": ["inside shoulder", "outside shoulder", "20"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 3,
+          "text_contains": [
+            "inside shoulder",
+            "outside shoulder",
+            "20"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "tyre_unlisted_track_recommendation",
       "query": "Which recommendation applies to tracks that are not specifically listed?",
       "category": "technical_recommendation",
+      "split": "test",
+      "slices": [
+        "numeric_unit"
+      ],
+      "document_family": "tyre-data",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "tyre_data",
+        "authority": null,
         "vehicle_generation": "992.1",
-        "season": 2025
+        "championship": null,
+        "season": 2025,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
-        "page_number": 4,
-        "text_contains": ["all other tracks", "STANDARD recommendations"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 4,
+          "text_contains": [
+            "all other tracks",
+            "STANDARD recommendations"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "tyre_n3r_standard_cold_pressure",
       "query": "What is the standard minimum cold pressure for the rear N3R tyre?",
       "category": "technical_table",
+      "split": "test",
+      "slices": [
+        "table",
+        "numeric_unit"
+      ],
+      "document_family": "tyre-data",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "tyre_data",
+        "authority": null,
         "vehicle_generation": "992.1",
-        "season": 2025
+        "championship": null,
+        "season": 2025,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
-        "page_number": 6,
-        "text_contains": ["13 J 18", "1.2 bar", "17.4 Psi"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 6,
+          "text_contains": [
+            "13 J 18",
+            "1.2 bar",
+            "17.4 Psi"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "manual_intended_use",
       "query": "Is the Porsche 911 Cup 992 II designed for public-road driving?",
       "category": "manual_concept",
+      "split": "test",
+      "slices": [
+        "technical_manual"
+      ],
+      "document_family": "porsche-technical-manual",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "technical_manual",
-        "vehicle_generation": "992.2"
+        "authority": null,
+        "vehicle_generation": "992.2",
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
-        "page_number": 3,
-        "text_contains": ["circuit races", "racecar"]
-      }, {
-        "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
-        "page_number": 3,
-        "text_contains": ["cannot be approved", "public roads"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "page_number": 3,
+          "text_contains": [
+            "circuit races",
+            "racecar"
+          ],
+          "relevance_grade": 3
+        },
+        {
+          "label_id": null,
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "page_number": 3,
+          "text_contains": [
+            "cannot be approved",
+            "public roads"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "manual_main_voltage_switch",
       "query": "Which switch position turns the main voltage supply on?",
       "category": "manual_procedure",
+      "split": "test",
+      "slices": [
+        "technical_manual",
+        "ordered_steps"
+      ],
+      "document_family": "porsche-technical-manual",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "technical_manual",
-        "vehicle_generation": "992.2"
+        "authority": null,
+        "vehicle_generation": "992.2",
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
-        "page_number": 9,
-        "text_contains": ["main voltage supply", "Switch down: ON"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "page_number": 9,
+          "text_contains": [
+            "main voltage supply",
+            "Switch down: ON"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "manual_fire_system_test",
       "query": "Why must the fire extinguisher system be tested in test mode?",
       "category": "manual_safety",
+      "split": "test",
+      "slices": [
+        "technical_manual",
+        "safety_limit"
+      ],
+      "document_family": "porsche-technical-manual",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "technical_manual",
-        "vehicle_generation": "992.2"
+        "authority": null,
+        "vehicle_generation": "992.2",
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
-        "page_number": 9,
-        "text_contains": ["test mode", "activated unintentionally"]
-      }]
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "page_number": 9,
+          "text_contains": [
+            "test mode",
+            "activated unintentionally"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "failure_wrong_regulation_revision",
       "query": "What is a Joker Tyre?",
       "category": "wrong_revision",
+      "split": "development",
+      "slices": [
+        "adversarial",
+        "superseded_edition"
+      ],
+      "document_family": null,
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "regulation",
+        "authority": null,
+        "vehicle_generation": null,
         "championship": "PCC Australia",
         "season": 2026,
-        "revision": "Version 1"
+        "revision": "Version 1",
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
       "relevant": [],
-      "expected_empty": true
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     },
     {
       "query_id": "conflict_n3r_pressure_sources",
       "query": "minimum cold pressure N3R",
       "category": "multi_source_conflict",
+      "split": "test",
+      "slices": [
+        "adversarial",
+        "conflict"
+      ],
+      "document_family": "tyre-data",
       "filters": {
+        "source_sha256": null,
+        "source_role": null,
         "document_class": "tyre_data",
-        "vehicle_generation": "992.1"
+        "authority": null,
+        "vehicle_generation": "992.1",
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
       },
-      "relevant": [{
-        "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
-        "text_contains": ["13 J 18", "Mini cold pressure"]
-      }, {
-        "source_path": "Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf",
-        "page_number": 2,
-        "text_contains": ["tyre pressure", "Michelin Precos"]
-      }],
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": null,
+          "text_contains": [
+            "13 J 18",
+            "Mini cold pressure"
+          ],
+          "relevance_grade": 3
+        },
+        {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "tyre pressure",
+            "Michelin Precos"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
       "minimum_distinct_sources": 2
+    },
+    {
+      "query_id": "aus_current_minimum_weight",
+      "query": "What is the minimum weight of the car in Carrera Cup Australia?",
+      "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation",
+        "numeric_unit",
+        "current_edition"
+      ],
+      "document_family": "pcc-australia-regulations",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 26,
+          "text_contains": [
+            "minimum of 1300 kg"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "aus_current_racing_weight",
+      "query": "What minimum racing weight must a Carrera Cup Australia car achieve?",
+      "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation",
+        "numeric_unit",
+        "current_edition"
+      ],
+      "document_family": "pcc-australia-regulations",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 26,
+          "text_contains": [
+            "1385 kg"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "aus_2025_minimum_weight",
+      "query": "What was the minimum car weight in the 2025 Carrera Cup Australia regulations?",
+      "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation",
+        "numeric_unit",
+        "superseded_edition"
+      ],
+      "document_family": "pcc-australia-regulations",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": "PCC Australia",
+        "season": 2025,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2025_Porsche_Carrera_Cup_Australia_Sporting_Technical_Regulations_V1.pdf",
+          "page_number": 47,
+          "text_contains": [
+            "1295 kg"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "aus_driver_minimum_weight",
+      "query": "How much must a driver weigh in Carrera Cup Australia, and what happens if they weigh less?",
+      "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation",
+        "numeric_unit",
+        "current_edition"
+      ],
+      "document_family": "pcc-australia-regulations",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 26,
+          "text_contains": [
+            "85 kg",
+            "ballast"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "aus_fuel_remaining",
+      "query": "How much fuel must remain in the car during a track session?",
+      "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation",
+        "numeric_unit"
+      ],
+      "document_family": "pcc-australia-regulations",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 19,
+          "text_contains": [
+            "2.0 kg of fuel"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "aus_driver_age",
+      "query": "How old must a driver be to compete in Carrera Cup Australia?",
+      "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation",
+        "current_edition"
+      ],
+      "document_family": "pcc-australia-regulations",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 9,
+          "text_contains": [
+            "seventeen (17) years of age"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "aus_joker_tyre_allocation",
+      "query": "How many Joker Tyres may a driver use per round and per season?",
+      "category": "regulation_rule",
+      "split": "development",
+      "slices": [
+        "regulation",
+        "numeric_unit"
+      ],
+      "document_family": "pcc-australia-regulations",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": "PCC Australia",
+        "season": 2026,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 17,
+          "text_contains": [
+            "six (6) front",
+            "two (2) front"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "abs_map_switch_torque",
+      "query": "What tightening torque applies to the ABS map switch?",
+      "category": "component_specification",
+      "split": "development",
+      "slices": [
+        "component_manual",
+        "numeric_unit",
+        "safety_limit"
+      ],
+      "document_family": "abs-m5",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+          "page_number": 21,
+          "text_contains": [
+            "1 to 2 Nm"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "abs_brake_line_diameter",
+      "query": "What brake line should be used to plumb the ABS M5 unit?",
+      "category": "component_specification",
+      "split": "development",
+      "slices": [
+        "component_manual",
+        "numeric_unit"
+      ],
+      "document_family": "abs-m5",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+          "page_number": 22,
+          "text_contains": [
+            "3.3 mm"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "abs_reset_after_drive_cycle_fault",
+      "query": "How is the ABS reset after a drive cycle fault?",
+      "category": "component_procedure",
+      "split": "development",
+      "slices": [
+        "component_manual",
+        "ordered_steps"
+      ],
+      "document_family": "abs-m5",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+          "page_number": 37,
+          "text_contains": [
+            "Power off - Power on"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "abs_map_switch_positions",
+      "query": "How many positions does the ABS function switch have?",
+      "category": "component_specification",
+      "split": "development",
+      "slices": [
+        "component_manual",
+        "numeric_unit"
+      ],
+      "document_family": "abs-m5",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+          "page_number": 31,
+          "text_contains": [
+            "12-position map switch"
+          ],
+          "relevance_grade": 3
+        },
+        {
+          "label_id": null,
+          "source_path": "ABS/Core/Data_Sheet_70612107_ABS_M5_Kit.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "12-position function switch"
+          ],
+          "relevance_grade": 2
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "abs_hydraulic_unit_weight",
+      "query": "How much does the ABS M5 hydraulic unit weigh?",
+      "category": "technical_table",
+      "split": "development",
+      "slices": [
+        "component_manual",
+        "table",
+        "numeric_unit"
+      ],
+      "document_family": "abs-m5",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "ABS/Core/Data_Sheet_70612107_ABS_M5_Kit.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "1,910 g"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "software_update_order",
+      "query": "In what order must the PowerBox, logger and display be updated?",
+      "category": "component_procedure",
+      "split": "development",
+      "slices": [
+        "component_manual",
+        "ordered_steps"
+      ],
+      "document_family": "cup-software-updates",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "PMRSI Other/2026-08-10_PA10_1918/992Cup_Manual_Software_Updates_V03.pdf",
+          "page_number": 20,
+          "text_contains": [
+            "Update firmware PowerBox",
+            "Update firmware display"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "ecu_temperature_range",
+      "query": "What temperature range is the MS 6 harness connector rated for?",
+      "category": "technical_table",
+      "split": "development",
+      "slices": [
+        "engineering_reference",
+        "table",
+        "numeric_unit"
+      ],
+      "document_family": "ms6-ecu",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "ECU/engine_control_unit_ms_6-x_manual.pdf",
+          "page_number": 74,
+          "text_contains": [
+            "Temperature range"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "ecu_flywheel_sensor_type",
+      "query": "Can the MS 6 use an inductive sensor for flywheel measurement?",
+      "category": "component_specification",
+      "split": "development",
+      "slices": [
+        "engineering_reference",
+        "exact_identifier"
+      ],
+      "document_family": "ms6-ecu",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "ECU/engine_control_unit_ms_6-x_manual.pdf",
+          "page_number": 29,
+          "text_contains": [
+            "flywheel measurement"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "part_front_left_caliper",
+      "query": "What is the part number for the front left brake caliper on the 992 GT3 Cup?",
+      "category": "exact_identifier",
+      "split": "development",
+      "slices": [
+        "part_catalogue",
+        "table",
+        "exact_identifier"
+      ],
+      "document_family": "part-catalogue-992",
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [
+        {
+          "label_id": null,
+          "source_path": "Part Catalogues/PA10_0842_911 GT3 Cup MY2021-2025 (Typ 992)_CW_11_26_English_en.pdf",
+          "page_number": 109,
+          "text_contains": [
+            "9F1615427D"
+          ],
+          "relevance_grade": 3
+        }
+      ],
+      "expected_empty": false,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "neg_drs_activation",
+      "query": "Where are the DRS activation zones?",
+      "category": "out_of_corpus",
+      "split": "development",
+      "slices": [
+        "negative"
+      ],
+      "document_family": null,
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [],
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "neg_energy_recovery",
+      "query": "How is the energy recovery system deployed on a qualifying lap?",
+      "category": "out_of_corpus",
+      "split": "development",
+      "slices": [
+        "negative"
+      ],
+      "document_family": null,
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [],
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "neg_push_to_pass",
+      "query": "How many push to pass activations does each driver get?",
+      "category": "out_of_corpus",
+      "split": "development",
+      "slices": [
+        "negative"
+      ],
+      "document_family": null,
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [],
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "neg_success_ballast",
+      "query": "How much success ballast is added after a race win?",
+      "category": "out_of_corpus",
+      "split": "development",
+      "slices": [
+        "negative"
+      ],
+      "document_family": null,
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [],
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "neg_budget_cap",
+      "query": "What is the budget cap for the season?",
+      "category": "out_of_corpus",
+      "split": "test",
+      "slices": [
+        "negative"
+      ],
+      "document_family": null,
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [],
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "neg_turbo_boost_limit",
+      "query": "What is the maximum turbocharger boost pressure permitted?",
+      "category": "out_of_corpus",
+      "split": "test",
+      "slices": [
+        "negative"
+      ],
+      "document_family": null,
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [],
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "neg_sprint_shootout",
+      "query": "What is the sprint shootout format?",
+      "category": "out_of_corpus",
+      "split": "test",
+      "slices": [
+        "negative"
+      ],
+      "document_family": null,
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [],
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
+    },
+    {
+      "query_id": "neg_rallycross_joker",
+      "query": "How does the rallycross joker lap work?",
+      "category": "out_of_corpus",
+      "split": "test",
+      "slices": [
+        "negative"
+      ],
+      "document_family": null,
+      "filters": {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      },
+      "relevant": [],
+      "expected_empty": true,
+      "gold_claims": [],
+      "expects_conflict": false,
+      "minimum_distinct_sources": 1
     }
   ]
 }

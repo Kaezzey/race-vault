@@ -19,6 +19,25 @@ FILTER_FIELDS = {
     "oversize": "oversize",
 }
 
+# The `codes` sub-fields keep part numbers, clause references, and model codes
+# intact, so they outrank prose on an exact-identifier query.
+RECALL_FIELDS = (
+    "contextual_text^4",
+    "contextual_text.codes^6",
+    "section_text^2",
+    "section_text.codes^3",
+    "source_filename",
+    "source_filename.codes^2",
+)
+PHRASE_FIELDS = ("contextual_text^3", "section_text^2")
+COMPLETE_MATCH_FIELDS = ("contextual_text", "section_text", "source_filename")
+
+# A question long enough to have optional terms should not be answered by a
+# passage that shares one common word with it. Two is deliberately low: short
+# table rows such as "Minimum weight: 1265 kg" are among the most valuable
+# passages in the corpus and must not be filtered out for being terse.
+MINIMUM_TERM_MATCH = "2<2"
+
 
 def _filter_clauses(filters: SearchFilters) -> list[dict[str, object]]:
     values = filters.model_dump(exclude_none=True)
@@ -39,17 +58,33 @@ def build_search_body(request: LexicalSearchRequest) -> dict[str, object]:
                             "query": request.query,
                             "type": "best_fields",
                             "operator": "or",
-                            "fields": [
-                                "contextual_text^4",
-                                "contextual_text.codes^6",
-                                "section_text^2",
-                                "section_text.codes^3",
-                                "source_filename",
-                                "source_filename.codes^2",
-                            ],
+                            "minimum_should_match": MINIMUM_TERM_MATCH,
+                            "fields": list(RECALL_FIELDS),
                             "tie_breaker": 0.2,
                         }
                     }
+                ],
+                # Precision signals raise well-matched passages without
+                # narrowing what the recall clause admits.
+                "should": [
+                    {
+                        "multi_match": {
+                            "query": request.query,
+                            "type": "phrase",
+                            "slop": 2,
+                            "fields": list(PHRASE_FIELDS),
+                            "boost": 2.0,
+                        }
+                    },
+                    {
+                        "multi_match": {
+                            "query": request.query,
+                            "type": "cross_fields",
+                            "operator": "and",
+                            "fields": list(COMPLETE_MATCH_FIELDS),
+                            "boost": 1.5,
+                        }
+                    },
                 ],
                 "filter": _filter_clauses(request.filters),
             }

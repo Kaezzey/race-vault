@@ -2,8 +2,13 @@
 
 from __future__ import annotations
 
-INDEX_SCHEMA_VERSION = "1.0"
-DEFAULT_INDEX_NAME = "racevault-chunks-v1"
+from racevault.lexical.synonyms import MOTORSPORT_SYNONYMS
+
+# Bumped whenever the analysis chain changes, because stored tokens change with
+# it. `OpenSearchClient.ensure_index` refuses to query an index built by an
+# older chain rather than silently returning degraded results.
+INDEX_SCHEMA_VERSION = "2.0"
+DEFAULT_INDEX_NAME = "racevault-chunks-v2"
 
 
 def index_definition() -> dict[str, object]:
@@ -25,11 +30,34 @@ def index_definition() -> dict[str, object]:
                         "pattern": r"[^\p{L}\p{N}._/-]+",
                     }
                 },
+                "filter": {
+                    "racevault_motorsport_synonyms": {
+                        "type": "synonym_graph",
+                        "lenient": False,
+                        "synonyms": list(MOTORSPORT_SYNONYMS),
+                    }
+                },
                 "analyzer": {
+                    # Regulations distinguish "shall" from "should" from "may",
+                    # so no stop-word filter is applied. Stemming is the light
+                    # dictionary-based kstem rather than Porter, which would
+                    # conflate distinct technical terms.
                     "racevault_technical": {
                         "type": "custom",
                         "tokenizer": "standard",
-                        "filter": ["lowercase", "asciifolding"],
+                        "filter": ["lowercase", "asciifolding", "kstem"],
+                    },
+                    # Synonyms expand at search time only, so the vocabulary can
+                    # grow without reindexing the corpus.
+                    "racevault_technical_search": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": [
+                            "lowercase",
+                            "asciifolding",
+                            "racevault_motorsport_synonyms",
+                            "kstem",
+                        ],
                     },
                     "racevault_codes": {
                         "type": "custom",
@@ -51,6 +79,7 @@ def index_definition() -> dict[str, object]:
                 "source_filename": {
                     "type": "text",
                     "analyzer": "racevault_technical",
+                    "search_analyzer": "racevault_technical_search",
                     "fields": {
                         "codes": {"type": "text", "analyzer": "racevault_codes"}
                     },
@@ -65,6 +94,7 @@ def index_definition() -> dict[str, object]:
                 "contextual_text": {
                     "type": "text",
                     "analyzer": "racevault_technical",
+                    "search_analyzer": "racevault_technical_search",
                     "fields": {
                         "codes": {"type": "text", "analyzer": "racevault_codes"}
                     },
@@ -74,6 +104,7 @@ def index_definition() -> dict[str, object]:
                 "section_text": {
                     "type": "text",
                     "analyzer": "racevault_technical",
+                    "search_analyzer": "racevault_technical_search",
                     "fields": {
                         "codes": {"type": "text", "analyzer": "racevault_codes"}
                     },

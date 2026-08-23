@@ -1,0 +1,9 @@
+apiVersion: 1
+
+providers:
+  - name: RaceVault
+    folder: RaceVault
+    type: file
+    options:
+      path: /etc/grafana/provisioning/dashboards/json
+

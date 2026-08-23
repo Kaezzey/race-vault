@@ -14,7 +14,7 @@ from racevault.generation.models import (
     GroundedCitation,
 )
 from racevault.generation.ollama import OllamaUnavailableError
-from racevault.generation.service import AnswerService
+from racevault.generation.service import AnswerService, GenerationQueueFullError
 from racevault.main import create_app
 from tests.api.factories import retrieval_response
 
@@ -102,6 +102,7 @@ def test_grounded_answer_returns_validated_citations_and_evidence() -> None:
     payload = response.json()
     assert payload["citations"][0]["evidence_id"] == "E1"
     assert payload["evidence"][0]["citation"]["page_start"] == 6
+    assert payload["request_id"] == response.headers["X-Request-ID"]
     assert service.requests[0].filters.season == 2026
 
 
@@ -121,3 +122,13 @@ def test_grounded_answer_maps_ollama_failure_to_stable_error() -> None:
 
     assert response.status_code == 503
     assert response.json()["error"]["code"] == "generation_unavailable"
+
+
+def test_grounded_answer_rejects_when_generation_queue_is_full() -> None:
+    response = _client(
+        FakeAnswerService(error=GenerationQueueFullError("full"))
+    ).post("/v2/answers", json={"query": "Joker Tyre"})
+
+    assert response.status_code == 429
+    assert response.headers["Retry-After"] == "5"
+    assert response.json()["error"]["code"] == "generation_queue_full"

@@ -33,6 +33,11 @@ semantic = [
   "torch>=2.8,<3",
   "transformers>=5,<6",
 ]
+observability = [
+  "opentelemetry-api==1.44.0",
+  "opentelemetry-exporter-otlp-proto-http==1.44.0",
+  "opentelemetry-sdk==1.44.0",
+]
 
 [project.scripts]
 racevault-extract = "racevault.extraction.cli:main"
@@ -42,6 +47,10 @@ racevault-semantic = "racevault.semantic.cli:main"
 racevault-retrieve = "racevault.fusion.cli:main"
 racevault-corpus = "racevault.corpus.cli:main"
 racevault-evaluate = "racevault.evaluation.cli:main"
+racevault-visual-gate = "racevault.evaluation.visual_cli:main"
+racevault-grounding-evaluate = "racevault.evaluation.grounding_cli:main"
+racevault-annotation-agreement = "racevault.evaluation.annotation_cli:main"
+racevault-calibrate-sufficiency = "racevault.evaluation.calibration_cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/racevault"]

@@ -30,7 +30,14 @@ COPY pyproject.toml alembic.ini ./
 COPY migrations ./migrations
 COPY src ./src
 
-RUN python -m pip install --no-deps . && python -m pip check
+ARG RACEVAULT_INSTALL_OBSERVABILITY=false
+RUN if [ "$RACEVAULT_INSTALL_OBSERVABILITY" = "true" ]; then \
+        python -m pip install --no-cache-dir \
+          opentelemetry-api==1.44.0 \
+          opentelemetry-exporter-otlp-proto-http==1.44.0 \
+          opentelemetry-sdk==1.44.0; \
+    fi && \
+    python -m pip install --no-deps . && python -m pip check
 
 USER racevault
 

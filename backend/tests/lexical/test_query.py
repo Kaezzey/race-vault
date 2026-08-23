@@ -35,6 +35,26 @@ def test_search_query_uses_bm25_fields_and_exact_filters() -> None:
     assert multi_match["operator"] == "or"
 
 
+def test_recall_clause_requires_more_than_one_incidental_term() -> None:
+    """A long question must not be answered by a single shared common word."""
+
+    body = build_search_body(LexicalSearchRequest(query="what is the joker tyre"))
+
+    recall = body["query"]["bool"]["must"][0]["multi_match"]
+    assert recall["minimum_should_match"] == "2<2"
+
+
+def test_phrase_and_complete_matches_boost_without_narrowing() -> None:
+    body = build_search_body(LexicalSearchRequest(query="minimum cold tyre pressure"))
+
+    boolean = body["query"]["bool"]
+    should = [clause["multi_match"] for clause in boolean["should"]]
+    assert [clause["type"] for clause in should] == ["phrase", "cross_fields"]
+    assert all(clause["boost"] > 1 for clause in should)
+    # Precision clauses are optional, so they can only reorder the recall set.
+    assert len(boolean["must"]) == 1
+
+
 def test_search_query_rejects_whitespace() -> None:
     with pytest.raises(ValueError, match="query must contain text"):
         LexicalSearchRequest(query="   ")

@@ -15,6 +15,7 @@ build/
 .idea/
 .vscode/
 *.log
+*.tsbuildinfo
 
 # Local service data is held in named Docker volumes, but keep these safe if
 # bind mounts are introduced during development.

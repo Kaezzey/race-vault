@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Self
+from typing import Literal, Self
 
 from pydantic import Field, field_validator, model_validator
 
@@ -44,6 +44,14 @@ class GeneratedStatement(ArtifactModel):
             "brackets."
         ),
     )
+    facet_id: str | None = Field(
+        default=None,
+        pattern=r"^F[1-9][0-9]*$",
+        description=(
+            "Requested facet answered by this statement. Omit only when the "
+            "user question has no explicit facet list."
+        ),
+    )
 
     @field_validator("text")
     @classmethod
@@ -66,9 +74,9 @@ class GeneratedStatement(ArtifactModel):
 class GeneratedAnswer(ArtifactModel):
     """Schema supplied to the local model and validated after generation."""
 
-    answer: tuple[GeneratedStatement, ...] = Field(min_length=1, max_length=6)
+    answer: tuple[GeneratedStatement, ...] = Field(min_length=1, max_length=10)
     conflicts: tuple[GeneratedStatement, ...] = Field(max_length=3)
-    limitations: tuple[GeneratedStatement, ...] = Field(max_length=3)
+    limitations: tuple[GeneratedStatement, ...] = Field(max_length=6)
     insufficient_evidence: bool
 
 
@@ -103,9 +111,40 @@ class GroundedCitation(ArtifactModel):
     citation: Citation
 
 
+class EvidenceSelectionDiagnostics(ArtifactModel):
+    """Content-free explanation of the evidence controller's decision."""
+
+    policy: str
+    query_intent: Literal[
+        "concept", "exact_or_numeric", "comparison_or_conflict"
+    ]
+    candidates_considered: int = Field(ge=0)
+    selected_count: int = Field(ge=0)
+    duplicates_removed: int = Field(ge=0)
+    distinct_sources: int = Field(ge=0)
+    required_scopes: tuple[str, ...] = ()
+    covered_scopes: tuple[str, ...] = ()
+    requested_facets: tuple[str, ...] = ()
+    covered_facets: tuple[str, ...] = ()
+    missing_facets: tuple[str, ...] = ()
+    maximum_reranker_score: float | None = Field(default=None, ge=0, le=1)
+    minimum_score_threshold: float | None = Field(default=None, ge=0, le=1)
+    sufficient: bool
+    reason: Literal[
+        "selected",
+        "no_candidates",
+        "below_calibrated_threshold",
+        "missing_required_scope",
+        "comparison_topic_too_broad",
+    ]
+
+
 class GroundedAnswerResponse(ArtifactModel):
+    request_id: str | None = None
+    pipeline_fingerprint: str | None = None
     query: str
     filters: SearchFilters
+    resolved_scopes: tuple[SearchFilters, ...] = ()
     answer: str
     insufficient_evidence: bool
     conflicts: tuple[str, ...]
@@ -116,6 +155,7 @@ class GroundedAnswerResponse(ArtifactModel):
     generation_model: GenerationModelIdentity
     generation_usage: GenerationUsage
     timings: AnswerTimings
+    evidence_selection: EvidenceSelectionDiagnostics | None = None
 
     @model_validator(mode="after")
     def citations_must_reference_returned_evidence(self) -> Self:

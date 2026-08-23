@@ -17,6 +17,7 @@ CHAMPIONSHIPS = (
     "PCC Great Britain",
     "PCC Scandinavia",
 )
+VEHICLE_GENERATIONS = ("992.1", "992.2")
 
 
 def _response(*numbers: int) -> HybridSearchResponse:
@@ -71,6 +72,55 @@ def test_explicit_filter_takes_precedence_over_query_scope() -> None:
     assert scopes == (explicit,)
 
 
+def test_query_vehicle_generation_is_applied_as_a_filter() -> None:
+    scopes = resolve_query_filter_scopes(
+        "What are the minimum cold pressures for the 992.1 N3 tyres?",
+        SearchFilters(),
+        championships=CHAMPIONSHIPS,
+        vehicle_generations=VEHICLE_GENERATIONS,
+    )
+
+    assert scopes == (SearchFilters(vehicle_generation="992.1"),)
+
+
+def test_explicit_vehicle_filter_takes_precedence_over_query_scope() -> None:
+    explicit = SearchFilters(vehicle_generation="992.2")
+
+    scopes = resolve_query_filter_scopes(
+        "Compare with the 992.1 car",
+        explicit,
+        championships=CHAMPIONSHIPS,
+        vehicle_generations=VEHICLE_GENERATIONS,
+    )
+
+    assert scopes == (explicit,)
+
+
+def test_single_query_season_is_applied_to_each_championship_scope() -> None:
+    scopes = resolve_query_filter_scopes(
+        "Compare the 2026 PCC Great Britain and PCC Asia regulations",
+        SearchFilters(),
+        championships=CHAMPIONSHIPS,
+    )
+
+    assert scopes == (
+        SearchFilters(championship="PCC Great Britain", season=2026),
+        SearchFilters(championship="PCC Asia", season=2026),
+    )
+
+
+def test_explicit_season_filter_takes_precedence_over_query_year() -> None:
+    scopes = resolve_query_filter_scopes(
+        "Compare the 2026 PCC Great Britain regulations",
+        SearchFilters(season=2025),
+        championships=CHAMPIONSHIPS,
+    )
+
+    assert scopes == (
+        SearchFilters(championship="PCC Great Britain", season=2025),
+    )
+
+
 def test_multiple_championship_mentions_create_ordered_scopes() -> None:
     scopes = resolve_query_filter_scopes(
         "Compare PCC Australia with PCC Great Britain",
@@ -81,6 +131,19 @@ def test_multiple_championship_mentions_create_ordered_scopes() -> None:
     assert [item.championship for item in scopes] == [
         "PCC Australia",
         "PCC Great Britain",
+    ]
+
+
+def test_natural_pcc_suffixes_create_ordered_scopes() -> None:
+    scopes = resolve_query_filter_scopes(
+        "Race rule differences between Great Britain and Asia",
+        SearchFilters(),
+        championships=CHAMPIONSHIPS,
+    )
+
+    assert [item.championship for item in scopes] == [
+        "PCC Great Britain",
+        "PCC Asia",
     ]
 
 
@@ -134,3 +197,43 @@ def test_comparison_language_is_removed_from_the_content_query() -> None:
     content_query = remove_query_scope_terms(query, scopes)
 
     assert content_query == "requirements car weights"
+
+
+def test_natural_scope_aliases_are_removed_from_the_content_query() -> None:
+    query = "Race rule differences between Great Britain and Asia"
+    scopes = resolve_query_filter_scopes(
+        query,
+        SearchFilters(),
+        championships=CHAMPIONSHIPS,
+    )
+
+    content_query = remove_query_scope_terms(query, scopes)
+
+    assert content_query == "Race rule"
+
+
+def test_vehicle_generation_is_removed_after_becoming_a_filter() -> None:
+    query = "What is the minimum cold pressure for the 992.1 N3 tyre?"
+    scopes = resolve_query_filter_scopes(
+        query,
+        SearchFilters(),
+        championships=CHAMPIONSHIPS,
+        vehicle_generations=VEHICLE_GENERATIONS,
+    )
+
+    content_query = remove_query_scope_terms(query, scopes)
+
+    assert content_query == "minimum cold pressure N3 tyre"
+
+
+def test_season_is_removed_after_becoming_a_filter() -> None:
+    query = "Compare the 2026 PCC Great Britain and PCC Asia qualifying rules"
+    scopes = resolve_query_filter_scopes(
+        query,
+        SearchFilters(),
+        championships=CHAMPIONSHIPS,
+    )
+
+    content_query = remove_query_scope_terms(query, scopes)
+
+    assert content_query == "qualifying rules"
