@@ -6,20 +6,9 @@ from racevault.chunking.identity import chunk_artifact_identity
 from racevault.chunking.models import ChunkArtifact, ChunkingArtifact
 
 
-def _metadata_string(metadata: dict[str, object], key: str) -> str | None:
-    value = metadata.get(key)
-    return value if isinstance(value, str) else None
-
-
-def _metadata_integer(metadata: dict[str, object], key: str) -> int | None:
-    value = metadata.get(key)
-    return value if isinstance(value, int) and not isinstance(value, bool) else None
-
-
 def build_index_document(
     artifact: ChunkingArtifact, chunk: ChunkArtifact
 ) -> dict[str, object]:
-    metadata = artifact.source.metadata
     return {
         "chunk_id": chunk.chunk_id,
         "artifact_id": chunk_artifact_identity(artifact),
@@ -28,7 +17,7 @@ def build_index_document(
         "source_path": artifact.source.relative_path,
         "source_filename": artifact.source.filename,
         "source_role": artifact.source.role,
-        "source_metadata": metadata,
+        "source_metadata": artifact.source.metadata,
         "document_class": chunk.document_class.value,
         "strategy": chunk.strategy.value,
         "kind": chunk.kind.value,
@@ -47,9 +36,9 @@ def build_index_document(
         "provenance": [item.model_dump(mode="json") for item in chunk.provenance],
         "character_count": chunk.character_count,
         "oversize": chunk.oversize,
-        "authority": _metadata_string(metadata, "authority"),
-        "vehicle_generation": _metadata_string(metadata, "vehicle_generation"),
-        "championship": _metadata_string(metadata, "championship"),
-        "season": _metadata_integer(metadata, "season"),
-        "revision": _metadata_string(metadata, "revision"),
+        "authority": artifact.source.metadata_string("authority"),
+        "vehicle_generation": artifact.source.metadata_string("vehicle_generation"),
+        "championship": artifact.source.metadata_string("championship"),
+        "season": artifact.source.metadata_integer("season"),
+        "revision": artifact.source.metadata_string("revision"),
     }

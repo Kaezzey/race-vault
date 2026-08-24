@@ -76,11 +76,6 @@ class RetrievalDiagnostics(ArtifactModel):
     lexical_score: float | None = None
     semantic_rank: int | None = Field(default=None, ge=1)
     semantic_score: float | None = None
-    visual_rank: int | None = Field(default=None, ge=1)
-    visual_score: float | None = None
-    page_image_sha256: str | None = Field(default=None, pattern=SHA256_PATTERN)
-    visual_model_id: str | None = None
-    visual_model_revision: str | None = None
     fused_rank: int = Field(ge=1)
     rrf_score: float = Field(ge=0)
     reranker_score: float = Field(ge=0, le=1)

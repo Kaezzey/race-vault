@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import importlib
 from collections.abc import Sequence
 from typing import Any, Protocol
 
+from racevault.semantic.loading import import_torch_dependencies, resolve_device
 from racevault.semantic.models import DenseVector, EmbeddingModelSpec
 
 
@@ -31,16 +31,9 @@ class BgeM3Embedder:
             raise ValueError("batch_size must be positive")
         self._spec = spec or EmbeddingModelSpec()
         self._batch_size = batch_size
-        try:
-            torch = importlib.import_module("torch")
-            transformers = importlib.import_module("transformers")
-        except ImportError as error:
-            raise RuntimeError(
-                "BGE-M3 requires the semantic dependencies; "
-                "install the project with [semantic]"
-            ) from error
+        torch, transformers = import_torch_dependencies()
         self._torch: Any = torch
-        self._device = self._resolve_device(device)
+        self._device = resolve_device(torch, device)
         self._transformers: Any = transformers
         self._local_files_only = local_files_only
         self._tokenizer: Any = None
@@ -53,15 +46,6 @@ class BgeM3Embedder:
     @property
     def device(self) -> str:
         return self._device
-
-    def _resolve_device(self, requested: str) -> str:
-        if requested == "auto":
-            return "cuda" if self._torch.cuda.is_available() else "cpu"
-        if requested not in {"cpu", "cuda"}:
-            raise ValueError("device must be auto, cpu, or cuda")
-        if requested == "cuda" and not self._torch.cuda.is_available():
-            raise RuntimeError("CUDA was requested but is not available")
-        return requested
 
     def _load_model(self) -> None:
         if self._model is not None:

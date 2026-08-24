@@ -4,7 +4,6 @@ import type {
   CorpusStatus,
   GenerationStatus,
   GroundedAnswerResponse,
-  RetrievalResponse,
   SearchFilters,
   SourceDeletionResult,
   SourceListResponse,
@@ -93,24 +92,6 @@ export function deleteSource(
   });
 }
 
-export function searchEvidence(
-  query: string,
-  filters: SearchFilters,
-): Promise<RetrievalResponse> {
-  return request<RetrievalResponse>("/v1/retrieval/search", {
-    method: "POST",
-    body: JSON.stringify({
-      query,
-      filters,
-      options: {
-        channel_limit: 50,
-        fusion_limit: 30,
-        rerank_limit: 15,
-        result_limit: 10,
-      },
-    }),
-  });
-}
 
 export function generateGroundedAnswer(
   query: string,

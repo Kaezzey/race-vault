@@ -117,6 +117,34 @@ def _system_prompt_tokens() -> int:
     return len(SYSTEM_PROMPT) // _CHARACTERS_PER_TOKEN
 
 
+# What RaceVault says instead of answering, keyed by the evidence controller's
+# reason for stopping. Any reason without an entry falls back to the threshold
+# message, which describes the general case of evidence that scored too low.
+ABSTENTIONS: dict[str, tuple[str, str]] = {
+    "no_evidence": (
+        "RaceVault did not retrieve source evidence that can answer this "
+        "question.",
+        "No relevant evidence was retrieved.",
+    ),
+    "missing_required_scope": (
+        "RaceVault could not complete the comparison because it did not "
+        "retrieve evidence for every requested championship.",
+        "Missing evidence for: {scopes}",
+    ),
+    "comparison_topic_too_broad": (
+        "RaceVault found evidence for both championships, but the requested "
+        "comparison is too broad to answer reliably.",
+        "Specify a rule area such as starts, qualifying, track limits, "
+        "penalties, tyres, or points.",
+    ),
+    "below_calibrated_threshold": (
+        "RaceVault retrieved possible evidence, but its relevance did not meet "
+        "the calibrated answer threshold.",
+        "Generation was skipped to avoid an unsupported answer.",
+    ),
+}
+
+
 class GroundingValidationError(RuntimeError):
     """The generated answer does not satisfy the citation contract."""
 
@@ -781,42 +809,17 @@ class GroundedAnswerService:
         generation_started = time.perf_counter()
         if not packed or not selection.sufficient:
             status = self._ollama.status()
-            if not packed:
-                answer_text = (
-                    "RaceVault did not retrieve source evidence that can "
-                    "answer this question."
-                )
-                limitation = "No relevant evidence was retrieved."
-            elif selection.diagnostics.reason == "missing_required_scope":
-                missing_scopes = tuple(
-                    scope
-                    for scope in selection.diagnostics.required_scopes
-                    if scope not in selection.diagnostics.covered_scopes
-                )
-                answer_text = (
-                    "RaceVault could not complete the comparison because it "
-                    "did not retrieve evidence for every requested championship."
-                )
-                limitation = "Missing evidence for: " + ", ".join(missing_scopes)
-            elif (
-                selection.diagnostics.reason
-                == "comparison_topic_too_broad"
-            ):
-                answer_text = (
-                    "RaceVault found evidence for both championships, but the "
-                    "requested comparison is too broad to answer reliably."
-                )
-                limitation = (
-                    "Specify a rule area such as starts, qualifying, track "
-                    "limits, penalties, tyres, or points."
-                )
-            else:
-                answer_text = (
-                    "RaceVault retrieved possible evidence, but its relevance "
-                    "did not meet the calibrated answer threshold."
-                )
-                limitation = (
-                    "Generation was skipped to avoid an unsupported answer."
+            reason = "no_evidence" if not packed else selection.diagnostics.reason
+            answer_text, limitation = ABSTENTIONS.get(
+                reason, ABSTENTIONS["below_calibrated_threshold"]
+            )
+            if reason == "missing_required_scope":
+                limitation = limitation.format(
+                    scopes=", ".join(
+                        scope
+                        for scope in selection.diagnostics.required_scopes
+                        if scope not in selection.diagnostics.covered_scopes
+                    )
                 )
             conflicts: tuple[str, ...] = ()
             limitations: tuple[str, ...] = (limitation,)

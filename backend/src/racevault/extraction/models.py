@@ -106,6 +106,17 @@ class SourceArtifact(ArtifactModel):
     role: str | None = None
     metadata: dict[str, object] = Field(default_factory=dict)
 
+    def metadata_string(self, key: str) -> str | None:
+        value = self.metadata.get(key)
+        return value if isinstance(value, str) else None
+
+    def metadata_integer(self, key: str) -> int | None:
+        value = self.metadata.get(key)
+        # bool is a subclass of int, and a flag is not a season.
+        if isinstance(value, int) and not isinstance(value, bool):
+            return value
+        return None
+
 
 class ExtractorSettings(ArtifactModel):
     page_start: int = Field(ge=1)

@@ -25,6 +25,7 @@ class StubOllamaClient(OllamaClient):
         )
         self.installed = installed
         self.chat_payload: dict[str, Any] | None = None
+        self.paths: list[str] = []
 
     def _request(
         self,
@@ -33,6 +34,7 @@ class StubOllamaClient(OllamaClient):
         *,
         json: object | None = None,
     ) -> Any:
+        self.paths.append(path)
         if path == "/api/version":
             return {"version": "0.32.9"}
         if path == "/api/tags":
@@ -146,3 +148,51 @@ def test_generate_reports_truncated_structured_output_without_content() -> None:
             system_prompt="system",
             user_prompt="evidence",
         )
+
+
+def test_repeated_generation_resolves_the_model_once() -> None:
+    """status() costs three round trips and reports the same pinned digest."""
+
+    client = StubOllamaClient()
+    for _ in range(3):
+        client.generate(system_prompt="system", user_prompt="user")
+
+    assert client.paths.count("/api/chat") == 3
+    assert client.paths.count("/api/tags") == 1
+    assert client.paths.count("/api/version") == 1
+    assert client.paths.count("/api/show") == 1
+
+
+def test_generation_reports_the_resolved_model() -> None:
+    result = StubOllamaClient().generate(system_prompt="s", user_prompt="u")
+
+    assert result.model.model == "qwen3.5:9b"
+    assert result.model.quantization_level == "Q4_K_M"
+
+
+def test_health_status_stays_live() -> None:
+    """A cached identity must not make the health endpoint stale."""
+
+    client = StubOllamaClient()
+    client.generate(system_prompt="s", user_prompt="u")
+    client.status()
+
+    assert client.paths.count("/api/version") == 2
+
+
+def test_one_connection_serves_the_process() -> None:
+    """Opening a connection costs more than the request that follows it."""
+
+    client = OllamaClient(
+        base_url="http://ollama.test",
+        model="qwen3.5:9b",
+        timeout_seconds=30,
+        context_tokens=8192,
+        max_output_tokens=512,
+        keep_alive="5m",
+    )
+
+    assert client._http() is client._http()
+
+    client.close()
+    assert client._client is None

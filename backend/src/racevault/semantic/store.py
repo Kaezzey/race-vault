@@ -14,6 +14,7 @@ from psycopg.types.json import Jsonb
 
 from racevault.chunking.identity import chunk_artifact_identity
 from racevault.chunking.models import ChunkingArtifact
+from racevault.retrieval.models import CHUNK_FILTER_SQL, DOCUMENT_FILTER_SQL
 from racevault.semantic.models import (
     EmbeddedChunk,
     EmbeddingModelSpec,
@@ -23,29 +24,10 @@ from racevault.semantic.models import (
     SemanticSearchResponse,
 )
 
-FILTER_SQL: dict[str, str] = {
-    "source_sha256": "d.sha256 = %s",
-    "source_role": "d.source_role = %s",
-    "document_class": "d.document_type::text = %s",
-    "authority": "d.authority::text = %s",
-    "vehicle_generation": "d.vehicle_generation = %s",
-    "championship": "d.championship = %s",
-    "season": "d.season = %s",
-    "revision": "d.revision = %s",
-    "page_number": "c.page_numbers @> ARRAY[%s]::smallint[]",
-    "chunk_kind": "c.kind::text = %s",
-    "oversize": "c.oversize = %s",
-}
+FILTER_SQL = {**DOCUMENT_FILTER_SQL, **CHUNK_FILTER_SQL}
 
 
-def _metadata_string(metadata: dict[str, object], key: str) -> str | None:
-    value = metadata.get(key)
-    return value if isinstance(value, str) else None
 
-
-def _metadata_integer(metadata: dict[str, object], key: str) -> int | None:
-    value = metadata.get(key)
-    return value if isinstance(value, int) and not isinstance(value, bool) else None
 
 
 class SemanticStore:
@@ -83,7 +65,6 @@ class SemanticStore:
         artifact: ChunkingArtifact,
     ) -> uuid.UUID:
         source = artifact.source
-        metadata = source.metadata
         row = connection.execute(
             """
             INSERT INTO documents (
@@ -117,16 +98,16 @@ class SemanticStore:
                 source.relative_path,
                 source.filename,
                 source.role,
-                _metadata_string(metadata, "title"),
+                source.metadata_string("title"),
                 artifact.classification.document_class.value,
-                _metadata_string(metadata, "vehicle_generation"),
-                _metadata_string(metadata, "championship"),
-                _metadata_integer(metadata, "season"),
-                _metadata_string(metadata, "revision"),
-                _metadata_string(metadata, "authority") or "unknown",
-                _metadata_string(metadata, "language"),
+                source.metadata_string("vehicle_generation"),
+                source.metadata_string("championship"),
+                source.metadata_integer("season"),
+                source.metadata_string("revision"),
+                source.metadata_string("authority") or "unknown",
+                source.metadata_string("language"),
                 source.page_count,
-                Jsonb(metadata),
+                Jsonb(source.metadata),
             ),
         ).fetchone()
         if row is None or not isinstance(row["id"], uuid.UUID):

@@ -17,19 +17,10 @@ from racevault.catalog.models import (
     SourceSummary,
 )
 from racevault.retrieval.editions import DocumentEdition
-from racevault.retrieval.models import SearchFilters
+from racevault.retrieval.models import DOCUMENT_FILTER_SQL, SearchFilters
 from racevault.semantic.models import EmbeddingModelSpec
 
-SOURCE_FILTER_SQL = {
-    "source_sha256": "d.sha256 = %s",
-    "source_role": "d.source_role = %s",
-    "document_class": "d.document_type::text = %s",
-    "authority": "d.authority::text = %s",
-    "vehicle_generation": "d.vehicle_generation = %s",
-    "championship": "d.championship = %s",
-    "season": "d.season = %s",
-    "revision": "d.revision = %s",
-}
+SOURCE_FILTER_SQL = DOCUMENT_FILTER_SQL
 
 
 def _source(row: Mapping[str, object]) -> SourceSummary:

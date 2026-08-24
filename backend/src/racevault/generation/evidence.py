@@ -401,30 +401,17 @@ def select_evidence(
 
     intent = classify_query_intent(query)
     topic_terms = _topic_tokens(query) - _TOPIC_STOP_TERMS
-    if not candidates or limit <= 0:
-        diagnostics = EvidenceSelectionDiagnostics(
-            policy="facet_topic_mmr_scope_v3",
-            query_intent=intent,
-            candidates_considered=len(candidates),
-            selected_count=0,
-            duplicates_removed=0,
-            distinct_sources=0,
-            required_scopes=required_scopes,
-            covered_scopes=(),
-            requested_facets=tuple(facet.label for facet in requested_facets),
-            covered_facets=(),
-            missing_facets=tuple(facet.label for facet in requested_facets),
-            maximum_reranker_score=None,
-            minimum_score_threshold=minimum_reranker_score,
-            sufficient=False,
-            reason="no_candidates",
-        )
-        return EvidenceSelection((), diagnostics, False)
-
-    maximum_score = max(item.diagnostics.reranker_score for item in candidates)
+    # Without candidates or budget every loop below is a no-op, so the normal
+    # path reports the empty selection rather than a second copy of it.
+    selectable = bool(candidates) and limit > 0
+    maximum_score = (
+        max(item.diagnostics.reranker_score for item in candidates)
+        if selectable
+        else None
+    )
     score_sufficient = (
         minimum_reranker_score is None
-        or maximum_score >= minimum_reranker_score
+        or (maximum_score is not None and maximum_score >= minimum_reranker_score)
     )
 
     selected: list[RetrievalResult] = []
@@ -648,11 +635,14 @@ def select_evidence(
     )
     reason: Literal[
         "selected",
+        "no_candidates",
         "below_calibrated_threshold",
         "missing_required_scope",
         "comparison_topic_too_broad",
     ]
-    if not score_sufficient:
+    if not selectable:
+        reason = "no_candidates"
+    elif not score_sufficient:
         reason = "below_calibrated_threshold"
     elif not coverage_sufficient:
         reason = "missing_required_scope"

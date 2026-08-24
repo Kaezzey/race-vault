@@ -21,6 +21,26 @@ class SearchFilters(ArtifactModel):
     oversize: bool | None = None
 
 
+# SQL predicates for each SearchFilters field, shared by every reader that
+# queries PostgreSQL. Document predicates apply to a source; chunk predicates
+# additionally need the chunks table in scope.
+DOCUMENT_FILTER_SQL: dict[str, str] = {
+    "source_sha256": "d.sha256 = %s",
+    "source_role": "d.source_role = %s",
+    "document_class": "d.document_type::text = %s",
+    "authority": "d.authority::text = %s",
+    "vehicle_generation": "d.vehicle_generation = %s",
+    "championship": "d.championship = %s",
+    "season": "d.season = %s",
+    "revision": "d.revision = %s",
+}
+CHUNK_FILTER_SQL: dict[str, str] = {
+    "page_number": "c.page_numbers @> ARRAY[%s]::smallint[]",
+    "chunk_kind": "c.kind::text = %s",
+    "oversize": "c.oversize = %s",
+}
+
+
 class EvidenceHit(ArtifactModel):
     """Citation-ready evidence fields shared by retrieval channels."""
 
