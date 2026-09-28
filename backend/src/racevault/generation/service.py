@@ -5,9 +5,12 @@ from __future__ import annotations
 import json
 import threading
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from functools import lru_cache
 from typing import Protocol
+
+from pydantic_core import from_json
 
 from racevault.api.models import (
     CandidateCounts,
@@ -156,14 +159,18 @@ class GenerationQueueFullError(RuntimeError):
 class AnswerService(Protocol):
     def status(self) -> GenerationStatus: ...
 
-    def answer(self, request: GroundedAnswerRequest) -> GroundedAnswerResponse: ...
+    def answer(
+        self, request: GroundedAnswerRequest,
+        *, on_draft: Callable[[str], None] | None = None,
+    ) -> GroundedAnswerResponse: ...
 
 
 class GenerationClient(Protocol):
     def status(self) -> GenerationStatus: ...
 
     def generate(
-        self, *, system_prompt: str, user_prompt: str
+        self, *, system_prompt: str, user_prompt: str,
+        on_text: Callable[[str], None] | None = None,
     ) -> OllamaGeneration: ...
 
 
@@ -617,7 +624,10 @@ class GroundedAnswerService:
         if callable(release):
             release()
 
-    def answer(self, request: GroundedAnswerRequest) -> GroundedAnswerResponse:
+    def answer(
+        self, request: GroundedAnswerRequest,
+        *, on_draft: Callable[[str], None] | None = None,
+    ) -> GroundedAnswerResponse:
         retrieval_started = time.perf_counter()
         with span("answer.retrieval"):
             resolved_scopes = self._retrieval.resolve_scopes(
@@ -844,10 +854,32 @@ class GroundedAnswerService:
                 facets=facets,
                 facet_candidate_ids=facet_candidate_ids,
             )
+            previous_draft = ""
+
+            def publish_draft(content: str) -> None:
+                nonlocal previous_draft
+                try:
+                    partial = from_json(content, allow_partial="trailing-strings")
+                except ValueError:
+                    return
+                if not isinstance(partial, dict):
+                    return
+                statements = partial.get("answer", [])
+                if not isinstance(statements, list):
+                    return
+                draft = "\n\n".join(
+                    item["text"] for item in statements
+                    if isinstance(item, dict) and isinstance(item.get("text"), str)
+                )
+                if draft != previous_draft and on_draft is not None:
+                    on_draft(draft)
+                    previous_draft = draft
+
             with span("answer.generation"):
                 output = self._ollama.generate(
                     system_prompt=SYSTEM_PROMPT,
                     user_prompt=user_prompt,
+                    **({"on_text": publish_draft} if on_draft is not None else {}),
                 )
             initial_answer = _clear_unrequested_facet_ids(
                 output.answer,
@@ -861,6 +893,8 @@ class GroundedAnswerService:
                         required_facet_ids=required_facet_ids,
                     )
             except GroundingValidationError as validation_error:
+                if on_draft is not None:
+                    on_draft("")
                 metrics.increment("racevault_generation_repairs_total")
                 with span("answer.citation_repair"):
                     repaired = self._ollama.generate(
@@ -985,7 +1019,10 @@ class QueuedAnswerService:
         with self._state_lock:
             return self._active, self._queued
 
-    def answer(self, request: GroundedAnswerRequest) -> GroundedAnswerResponse:
+    def answer(
+        self, request: GroundedAnswerRequest,
+        *, on_draft: Callable[[str], None] | None = None,
+    ) -> GroundedAnswerResponse:
         if not self._slots.acquire(blocking=False):
             metrics.increment("racevault_generation_queue_rejected_total")
             raise GenerationQueueFullError("local generation queue is full")
@@ -1001,7 +1038,9 @@ class QueuedAnswerService:
             self._active += 1
             self._publish_state()
         try:
-            return self._service.answer(request)
+            return self._service.answer(
+                request, **({"on_draft": on_draft} if on_draft is not None else {})
+            )
         finally:
             with self._state_lock:
                 self._active -= 1

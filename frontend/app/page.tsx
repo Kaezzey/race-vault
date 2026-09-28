@@ -159,20 +159,23 @@ function GroundedText({
   text: string;
   onCitationSelect: (evidenceId: string) => void;
 }) {
-  return text.split(/(\[E[1-9][0-9]*\])/g).map((part, index) => {
-    const match = /^\[(E[1-9][0-9]*)\]$/.exec(part);
+  return text.split(/(\[E[1-9][0-9]*(?:,\s*E[1-9][0-9]*)*\])/g).map((part, index) => {
+    const match = /^\[(E[1-9][0-9]*(?:,\s*E[1-9][0-9]*)*)\]$/.exec(part);
     if (!match) return <span key={`${index}-${part}`}>{part}</span>;
-    const evidenceId = match[1];
     return (
-      <button
-        aria-label={`Open evidence ${evidenceId}`}
-        className="inline-citation"
-        key={`${index}-${part}`}
-        onClick={() => onCitationSelect(evidenceId)}
-        type="button"
-      >
-        {evidenceId}
-      </button>
+      <span key={`${index}-${part}`}>
+        {match[1].split(/,\s*/).map((evidenceId) => (
+          <button
+            aria-label={`Open evidence ${evidenceId}`}
+            className="inline-citation"
+            key={evidenceId}
+            onClick={() => onCitationSelect(evidenceId)}
+            type="button"
+          >
+            {evidenceId}
+          </button>
+        ))}
+      </span>
     );
   });
 }
@@ -667,6 +670,11 @@ export default function Home() {
   const [filters, setFilters] = useState<SearchFilters>({});
   const [showFilters, setShowFilters] = useState(false);
   const [response, setResponse] = useState<GroundedAnswerResponse | null>(null);
+  const [draft, setDraft] = useState("");
+  const [submittedQuery, setSubmittedQuery] = useState("");
+  const [submittedFilters, setSubmittedFilters] = useState<string[]>([]);
+  const answerRequest = useRef<AbortController | null>(null);
+  useEffect(() => () => answerRequest.current?.abort(), []);
   const [selected, setSelected] = useState<RetrievalResult | null>(null);
   const [sources, setSources] = useState<SourceSummary[]>([]);
   const [corpus, setCorpus] = useState<CorpusStatus | null>(null);
@@ -709,12 +717,25 @@ export default function Home() {
     await refreshCorpus();
   }, [refreshCorpus]);
 
-  const useSource = useCallback((sourceSha256: string) => {
-    setFilters({ source_sha256: sourceSha256 });
+  const resetQuestion = useCallback(() => {
+    answerRequest.current?.abort();
+    answerRequest.current = null;
+    setLoading(false);
+    setSubmittedQuery("");
+    setSubmittedFilters([]);
+    setDraft("");
     setResponse(null);
     setSelected(null);
+    setError(null);
+    setQuery("");
     setView("search");
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, []);
+
+  const useSource = useCallback((sourceSha256: string) => {
+    resetQuestion();
+    setFilters({ source_sha256: sourceSha256 });
+  }, [resetQuestion]);
 
   useEffect(() => {
     let active = true;
@@ -747,23 +768,39 @@ export default function Home() {
 
   async function runSearch(searchQuery: string) {
     const normalized = searchQuery.trim();
-    if (!normalized || loading) return;
+    if (!normalized || answerRequest.current) return;
     setView("search");
+    setSubmittedQuery(normalized);
+    setSubmittedFilters(activeFilterLabels);
+    window.scrollTo({ top: 0, behavior: "auto" });
     setQuery("");
     setLoading(true);
+    setResponse(null);
+    setSelected(null);
+    setDraft("");
     setError(null);
+    const controller = new AbortController();
+    answerRequest.current = controller;
     try {
-      const result = await generateGroundedAnswer(normalized, filters);
+      const result = await generateGroundedAnswer(normalized, filters, (text) => {
+        if (answerRequest.current === controller) setDraft(text);
+      }, controller.signal);
+      if (answerRequest.current !== controller) return;
       setResponse(result);
       setSelected(result.evidence[0] ?? null);
       setRecent((items) => [normalized, ...items.filter((item) => item !== normalized)].slice(0, 5));
     } catch (caught) {
+      if (answerRequest.current !== controller || controller.signal.aborted) return;
       const message = caught instanceof RaceVaultApiError
         ? `${caught.message}${caught.reason ? ` ${caught.reason}` : ""} (${caught.code})`
         : caught instanceof Error ? caught.message : "Search failed.";
       setError(message);
     } finally {
-      setLoading(false);
+      if (answerRequest.current === controller) {
+        answerRequest.current = null;
+        setLoading(false);
+        setDraft("");
+      }
     }
   }
 
@@ -792,7 +829,7 @@ export default function Home() {
         <button className="brand" onClick={() => setView("search")} type="button">
           <span>RV</span><strong>RaceVault</strong>
         </button>
-        <button className="new-search" onClick={() => { setView("search"); setResponse(null); setSelected(null); setQuery(""); }} type="button">
+        <button className="new-search" onClick={resetQuestion} type="button">
           <SearchIcon aria-hidden="true" /> New question
         </button>
         <nav aria-label="Primary navigation">
@@ -840,8 +877,8 @@ export default function Home() {
         {view === "compare" && <CompareView sources={sources} />}
         {view === "search" && (
           <div className="content-shell">
-            <main className={`conversation ${response ? "has-results" : ""}`}>
-              {!response && !loading && (
+            <main className={`conversation ${submittedQuery ? "has-results" : ""}`}>
+              {!submittedQuery && (
                 <div className="welcome">
                   <div className="welcome-mark">RV</div>
                   <h1>What do you need to verify?</h1>
@@ -856,46 +893,60 @@ export default function Home() {
                 </div>
               )}
 
-              {response && (
+              {submittedQuery && (
                 <div className="results-thread">
-                  <div className="user-query"><p>{response.query}</p><span>You</span></div>
-                  <GroundedAnswer response={response} onCitationSelect={selectEvidence} />
-                  {activeFilterLabels.length > 0 && (
+                  <div className="user-query"><p>{submittedQuery}</p><span>You</span></div>
+                  {submittedFilters.length > 0 && (
                     <div className="active-filters">
                       <FilterIcon aria-hidden="true" />
-                      {activeFilterLabels.map((item) => <span key={item}>{item}</span>)}
+                      {submittedFilters.map((item) => <span key={item}>{item}</span>)}
                     </div>
                   )}
-                  <div className="evidence-heading">
-                    <div>
-                      <span>Source evidence</span>
-                      <h2>{response.evidence.length} retrieved passages</h2>
-                    </div>
-                    <p>{response.retrieval_counts.fused} fused candidates before reranking</p>
-                  </div>
-                  <div className="evidence-list">
-                    {response.evidence.map((result, index) => {
-                      const evidenceId = `E${index + 1}`;
-                      return (
-                        <EvidenceCard
-                          evidenceId={evidenceId}
-                          key={result.citation.chunk_id}
-                          onSelect={() => selectEvidence(evidenceId)}
-                          result={result}
-                          selected={selected?.citation.chunk_id === result.citation.chunk_id}
-                        />
-                      );
-                    })}
-                  </div>
+                  {loading && (
+                    <section className="grounded-answer" aria-label="Answer in progress" aria-busy="true">
+                      <div className="answer-heading">
+                        <div className="assistant-mark">RV</div>
+                        <div>
+                          <span>Answer in progress</span>
+                          <h1>{draft ? "Writing your answer" : "Finding source evidence"}</h1>
+                        </div>
+                      </div>
+                      {draft && <div className="answer-copy">{draft}</div>}
+                      <div className="loading-state" role="status">
+                        <div className="spinner" aria-hidden="true" />
+                        <span>{draft ? "Draft · verifying citations before finalizing" : "Searching the corpus for your question…"}</span>
+                      </div>
+                    </section>
+                  )}
+                  {response && (
+                    <>
+                      <GroundedAnswer response={response} onCitationSelect={selectEvidence} />
+                      <div className="evidence-heading">
+                        <div>
+                          <span>Source evidence</span>
+                          <h2>{response.evidence.length} retrieved passages</h2>
+                        </div>
+                        <p>{response.retrieval_counts.fused} fused candidates before reranking</p>
+                      </div>
+                      <div className="evidence-list">
+                        {response.evidence.map((result, index) => {
+                          const evidenceId = `E${index + 1}`;
+                          return (
+                            <EvidenceCard
+                              evidenceId={evidenceId}
+                              key={result.citation.chunk_id}
+                              onSelect={() => selectEvidence(evidenceId)}
+                              result={result}
+                              selected={selected?.citation.chunk_id === result.citation.chunk_id}
+                            />
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
 
-              {loading && (
-                <div className="loading-state">
-                  <div className="spinner" />
-                  <div><strong>Building a grounded answer</strong><span>Retrieval · reranking · local Qwen generation</span></div>
-                </div>
-              )}
               {error && <div className="error-banner">{error}</div>}
 
               <div className="composer-wrap">

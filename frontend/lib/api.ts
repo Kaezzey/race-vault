@@ -93,14 +93,62 @@ export function deleteSource(
 }
 
 
-export function generateGroundedAnswer(
+export async function generateGroundedAnswer(
   query: string,
   filters: SearchFilters,
+  onDraft: (text: string) => void,
+  signal?: AbortSignal,
 ): Promise<GroundedAnswerResponse> {
-  return request<GroundedAnswerResponse>("/v2/answers", {
+  const response = await fetch(`${API_URL}/v2/answers/stream`, {
     method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "text/event-stream" },
+    signal,
     body: JSON.stringify({ query, filters }),
   });
+  if (!response.ok) {
+    const body = (await response.json().catch(() => ({}))) as ApiErrorBody;
+    throw new RaceVaultApiError(
+      body.error?.message ?? "RaceVault could not complete the request.",
+      body.error?.code ?? "request_failed", response.status,
+      apiErrorReason(body.error?.details),
+    );
+  }
+  if (!response.body) throw new Error("The answer stream is unavailable.");
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  try {
+    while (true) {
+      const { value, done } = await reader.read();
+      buffer += decoder.decode(value, { stream: !done });
+      let boundary: number;
+      while ((boundary = buffer.indexOf("\n\n")) >= 0) {
+        const frame = buffer.slice(0, boundary);
+        buffer = buffer.slice(boundary + 2);
+        const data = frame.split("\n")
+          .filter((line) => line.startsWith("data:"))
+          .map((line) => line.slice(5).trimStart()).join("\n");
+        if (!data) continue;
+        const event = JSON.parse(data) as
+          | { type: "draft"; text: string }
+          | { type: "complete"; response: GroundedAnswerResponse }
+          | { type: "error"; status: number; error: NonNullable<ApiErrorBody["error"]> };
+        if (event.type === "draft") onDraft(event.text);
+        if (event.type === "complete") return event.response;
+        if (event.type === "error") {
+          throw new RaceVaultApiError(
+            event.error.message ?? "Answer generation failed.",
+            event.error.code ?? "request_failed", event.status,
+            apiErrorReason(event.error.details),
+          );
+        }
+      }
+      if (done) throw new Error("The answer stream ended before completion. Please retry.");
+    }
+  } finally {
+    await reader.cancel().catch(() => {});
+    reader.releaseLock();
+  }
 }
 
 export function compareSources(

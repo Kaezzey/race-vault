@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from typing import Any
 
+import httpx
 import pytest
 
 from racevault.generation.models import GeneratedAnswer, GeneratedStatement
@@ -196,3 +197,68 @@ def test_one_connection_serves_the_process() -> None:
 
     client.close()
     assert client._client is None
+
+
+@pytest.mark.parametrize("complete", [True, False])
+def test_stream_delivers_content_before_completion_and_requires_done(complete) -> None:
+    client = StubOllamaClient()
+    drafts = []
+    content = GeneratedAnswer(
+        answer=(GeneratedStatement(text="Adjust the wheel.", citations=("E1",)),),
+        conflicts=(),
+        limitations=(),
+        insufficient_evidence=False,
+    ).model_dump_json()
+
+    class Stream(httpx.SyncByteStream):
+        def __iter__(self):
+            for index, part in enumerate((content[:25], content[25:])):
+                if index:
+                    assert drafts == [content[:25]]
+                yield (
+                    json.dumps(
+                        {
+                            "model": "qwen3.5:9b",
+                            "message": {"role": "assistant", "content": part},
+                            "done": False,
+                        }
+                    )
+                    + "\n"
+                ).encode()
+            if complete:
+                yield (
+                    json.dumps(
+                        {
+                            "model": "qwen3.5:9b",
+                            "message": {"role": "assistant", "content": ""},
+                            "done": True,
+                            "eval_count": 20,
+                        }
+                    )
+                    + "\n"
+                ).encode()
+
+    def handle(request):
+        assert json.loads(request.content)["stream"] is True
+        return httpx.Response(200, stream=Stream())
+
+    client._client = httpx.Client(
+        base_url="http://ollama.test", transport=httpx.MockTransport(handle)
+    )
+    try:
+        if complete:
+            result = client.generate(
+                system_prompt="system", user_prompt="evidence", on_text=drafts.append
+            )
+            assert result.answer.answer[0].text == "Adjust the wheel."
+            assert result.usage.output_tokens == 20
+        else:
+            with pytest.raises(OllamaResponseError, match="did not complete"):
+                client.generate(
+                    system_prompt="system",
+                    user_prompt="evidence",
+                    on_text=drafts.append,
+                )
+        assert drafts == [content[:25], content]
+    finally:
+        client.close()

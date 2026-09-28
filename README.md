@@ -117,7 +117,23 @@ The dataset holds 40 questions across nine document families, split so that no f
 
 You need Docker Desktop, Ollama running on the host, and an NVIDIA GPU for reasonable speed.
 
-Create the environment file and pull the model:
+After the first-time setup below, start the existing images without rebuilding:
+
+```powershell
+docker compose -f compose.yaml -f compose.dev.yaml up -d --no-build
+```
+
+Open the web interface at `http://localhost:3000`, and the API documentation at `http://localhost:8000/docs`.
+
+To stop the stack and keep the data:
+
+```powershell
+docker compose -f compose.yaml -f compose.dev.yaml stop
+```
+
+### First-time setup only
+
+Create the environment file if it does not already exist, then pull the model:
 
 ```powershell
 Copy-Item .env.example .env
@@ -126,16 +142,14 @@ ollama pull qwen3.5:9b
 
 On macOS or Linux, use `cp .env.example .env` for the first command.
 
-Start the stack and apply the database migrations:
+Build the images once, start the stack, and apply the database migrations. The first backend build downloads large PyTorch and NVIDIA dependencies; routine startup does not repeat this build.
 
 ```powershell
 docker compose -f compose.yaml -f compose.dev.yaml up --build -d
 docker compose -f compose.yaml -f compose.dev.yaml exec api alembic upgrade head
 ```
 
-Open the web interface at `http://localhost:3000`, and the API documentation at `http://localhost:8000/docs`.
-
-To give the API container access to an NVIDIA GPU, add `-f compose.gpu.yaml` to the commands. To stop the stack and keep the data, run `docker compose down`.
+To give the API container access to an NVIDIA GPU, add `-f compose.gpu.yaml` before the subcommand in the commands above.
 
 Add your own PDFs from the Sources page. RaceVault runs extraction, chunking, embedding, and indexing as one job.
 
@@ -156,6 +170,26 @@ The defaults keep all three models resident, which needs about 10 GB of video me
 Set `RACEVAULT_OLLAMA_URL` to `http://127.0.0.1:11434` rather than `localhost` on any host whose resolver returns `::1` first. Ollama listens on IPv4 only, so each connection to `localhost` waits about two seconds for the IPv6 attempt to fail.
 
 ## Development
+
+The development Compose file mounts backend source directly. After backend code edits, restart the API:
+
+```powershell
+docker compose -f compose.yaml -f compose.dev.yaml restart api
+```
+
+After frontend edits, rebuild only the web container:
+
+```powershell
+docker compose -f compose.yaml -f compose.dev.yaml up --build -d --no-deps web
+```
+
+Rebuild the API only when its dependencies or Dockerfile change:
+
+```powershell
+docker compose -f compose.yaml -f compose.dev.yaml up --build -d --no-deps api
+```
+
+Run `docker compose -f compose.yaml -f compose.dev.yaml exec api alembic upgrade head` when database migrations change. It is not needed for routine startup or frontend edits.
 
 Run the backend checks:
 
@@ -180,7 +214,7 @@ The repository passes 183 backend tests, frontend linting, type checking, and th
 ## Limits
 
 - Answering is single-turn. RaceVault does not use previous questions as context.
-- The API returns a complete answer. It does not stream tokens.
+- Answers stream as provisional drafts, then finalize with validated citations and source evidence.
 - Citation validation confirms the structure and the identifiers. It does not prove that a citation entails the claim.
 - Abstention rests on a retrieval score. A confident score on a passage that misses the point still reaches the model.
 - Retrieval is text only. RaceVault does not read pages as images.

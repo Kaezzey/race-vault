@@ -306,14 +306,18 @@ textarea:focus-visible {
 
 .conversation {
   border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
   min-height: calc(100vh - 58px);
-  padding: 0 42px 150px;
+  min-width: 0;
+  padding: 0 42px;
   position: relative;
 }
 
 .welcome {
   margin: 0 auto;
   max-width: 690px;
+  width: 100%;
   padding-top: clamp(80px, 13vh, 150px);
   text-align: center;
 }
@@ -377,10 +381,9 @@ textarea:focus-visible {
 .composer-wrap {
   background: linear-gradient(0deg, var(--bg) 70%, rgba(11, 11, 12, 0));
   bottom: 0;
-  left: 0;
-  padding: 28px 42px 17px;
-  position: absolute;
-  right: 0;
+  margin-top: auto;
+  padding: 28px 0 17px;
+  position: sticky;
   z-index: 10;
 }
 
@@ -468,6 +471,7 @@ textarea:focus-visible {
 .results-thread {
   margin: 0 auto;
   max-width: 760px;
+  width: 100%;
   padding-top: 38px;
 }
 
@@ -486,6 +490,8 @@ textarea:focus-visible {
   margin: 0;
   max-width: 82%;
   padding: 11px 15px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
 }
 
 .user-query span {
@@ -556,6 +562,7 @@ textarea:focus-visible {
   font-size: 15px;
   line-height: 1.72;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .inline-citation {
@@ -984,7 +991,25 @@ button.evidence-card:hover {
   overflow-wrap: anywhere;
 }
 
-.loading-state,
+.loading-state {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  gap: 10px;
+  min-height: 32px;
+  padding: 8px 0;
+}
+
+.answer-copy + .loading-state {
+  margin-top: 14px;
+}
+
+.loading-state .spinner {
+  flex: 0 0 auto;
+  height: 16px;
+  width: 16px;
+}
+
 .compare-empty {
   align-items: center;
   color: var(--muted);
@@ -1607,14 +1632,14 @@ button.evidence-card:hover {
   }
 
   .conversation {
+    min-height: calc(100dvh - 118px);
+    margin-bottom: 60px;
     padding-left: 20px;
     padding-right: 20px;
   }
 
   .composer-wrap {
     bottom: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 
   .inspector {

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Callable
+
 from racevault.api.models import RetrievalSearchRequest, RetrievalSearchResponse
 from racevault.config import Settings
 from racevault.generation.models import (
@@ -71,7 +73,8 @@ class FakeOllama:
         )
 
     def generate(
-        self, *, system_prompt: str, user_prompt: str
+        self, *, system_prompt: str, user_prompt: str,
+        on_text: Callable[[str], None] | None = None,
     ) -> OllamaGeneration:
         self.generated = True
         self.system_prompt = system_prompt
@@ -79,6 +82,10 @@ class FakeOllama:
         answer = self.generated_answers[
             min(self.generate_count, len(self.generated_answers) - 1)
         ]
+        if on_text is not None:
+            content = answer.model_dump_json()
+            for index in range(1, len(content) + 1):
+                on_text(content[:index])
         self.generate_count += 1
         return OllamaGeneration(
             answer=answer,
@@ -725,3 +732,24 @@ def test_broad_comparison_requests_a_specific_rule_area() -> None:
         "penalties, tyres, or points.",
     )
     assert ollama.generated is False
+
+
+def test_streamed_draft_decodes_partial_json_and_finalizes_citations() -> None:
+    text = 'Turn the "wheel".\nPressure: 2 bar \u2014 cold.'
+    ollama = FakeOllama(GeneratedAnswer(
+        answer=(GeneratedStatement(text=text, citations=("E1",)),),
+        conflicts=(), limitations=(), insufficient_evidence=False,
+    ))
+    service = GroundedAnswerService(
+        settings=Settings(),
+        retrieval=FakeRetrieval(retrieval_response("brake balance")),
+        ollama=ollama,
+    )
+    drafts = []
+    response = service.answer(GroundedAnswerRequest(query="brake balance"),
+                              on_draft=drafts.append)
+    assert drafts[0] == "T"
+    assert drafts[-1] == text
+    assert all("[E1]" not in draft for draft in drafts)
+    assert response.citations[0].evidence_id == "E1"
+    assert "[E1]" in response.answer

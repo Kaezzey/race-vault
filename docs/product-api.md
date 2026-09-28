@@ -307,3 +307,25 @@ uses an unknown or invalid citation.
 
 See [Grounded answer generation](grounded-generation.md) for the complete
 contract and runtime configuration.
+## Streaming answers
+
+`POST /v2/answers/stream` accepts the same JSON body as `/v2/answers` and
+returns `text/event-stream`. The frontend consumes it with streaming `fetch`.
+Each SSE `data` field contains one JSON event:
+
+- `{"type":"draft","text":"..."}` replaces the current provisional answer
+  text. Updates arrive during Ollama generation; they are full snapshots, not
+  text to append. Drafts have not passed grounding validation and may be cleared
+  during citation repair.
+- `{"type":"complete","response":{...}}` contains the validated
+  `GroundedAnswerResponse`, including citations, evidence, usage and request ID.
+  Replace the draft with this response. An evidence abstention can complete
+  without draft events.
+- `{"type":"error","status":502,"error":{"code":"...","message":"...","details":{...}}}`
+  terminates an unsuccessful answer. Discard the draft. Once streaming starts,
+  failures (including queue capacity errors) use this event rather than an HTTP
+  error status. Invalid request bodies still return HTTP 422 before streaming.
+
+Comment frames keep the connection alive during retrieval and generation.
+A connection ending without `complete` or `error` is an interrupted response.
+The existing `POST /v2/answers` JSON contract remains available.

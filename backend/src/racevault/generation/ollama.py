@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+from collections.abc import Callable
 from typing import Any, Self
 
 import httpx
@@ -265,6 +266,7 @@ class OllamaClient:
         *,
         system_prompt: str,
         user_prompt: str,
+        on_text: Callable[[str], None] | None = None,
     ) -> OllamaGeneration:
         identity = self._model_identity()
         payload = {
@@ -273,7 +275,7 @@ class OllamaClient:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            "stream": False,
+            "stream": on_text is not None,
             "think": False,
             "format": GeneratedAnswer.model_json_schema(),
             "keep_alive": self._keep_alive,
@@ -286,7 +288,9 @@ class OllamaClient:
         }
         try:
             response = _ChatResponse.model_validate(
-                self._request("POST", "/api/chat", json=payload)
+                self._stream_chat(payload, on_text)
+                if on_text is not None
+                else self._request("POST", "/api/chat", json=payload)
             )
         except ValidationError as error:
             raise OllamaResponseError(
@@ -314,3 +318,35 @@ class OllamaClient:
                 output_tokens=response.eval_count,
             ),
         )
+
+    def _stream_chat(
+        self, payload: dict[str, Any], on_text: Callable[[str], None]
+    ) -> dict[str, Any]:
+        content = ""
+        try:
+            with self._http().stream("POST", "/api/chat", json=payload) as response:
+                response.raise_for_status()
+                for line in response.iter_lines():
+                    if not line.strip():
+                        continue
+                    chunk = _ChatResponse.model_validate_json(line)
+                    content += chunk.message.content
+                    if chunk.message.content:
+                        on_text(content)
+                    if chunk.done:
+                        result = chunk.model_dump()
+                        result["message"]["content"] = content
+                        return result
+        except httpx.HTTPStatusError as error:
+            if error.response.status_code == 404:
+                raise OllamaModelNotFoundError(
+                    f"Ollama model is unavailable: {self._model}"
+                ) from error
+            raise OllamaResponseError(
+                f"Ollama returned HTTP {error.response.status_code}"
+            ) from error
+        except httpx.RequestError as error:
+            raise OllamaUnavailableError(
+                "the local Ollama stream was interrupted"
+            ) from error
+        raise OllamaResponseError("Ollama did not complete the response")

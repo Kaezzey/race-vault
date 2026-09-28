@@ -2,11 +2,15 @@
 
 from __future__ import annotations
 
+import json
+from collections.abc import AsyncIterator, Callable
 from typing import Annotated, cast
 
+import anyio
 import psycopg
 from fastapi import APIRouter, Depends, Request
 from fastapi.concurrency import run_in_threadpool
+from fastapi.responses import StreamingResponse
 
 from racevault.api.errors import ApiError
 from racevault.config import get_settings
@@ -67,8 +71,21 @@ async def grounded_answer(
     http_request: Request,
     service: Annotated[AnswerService, Depends(get_answer_service)],
 ) -> GroundedAnswerResponse:
+    return await _answer(body, http_request, service)
+
+
+async def _answer(
+    body: GroundedAnswerRequest,
+    http_request: Request,
+    service: AnswerService,
+    on_draft: Callable[[str], None] | None = None,
+) -> GroundedAnswerResponse:
     try:
-        response = await run_in_threadpool(service.answer, body)
+        response = await run_in_threadpool(
+            service.answer,
+            body,
+            **({"on_draft": on_draft} if on_draft is not None else {}),
+        )
         return response.model_copy(
             update={
                 "request_id": current_request_id(),
@@ -100,3 +117,64 @@ async def grounded_answer(
             message="Retrieval is temporarily unavailable.",
             details={"reason": str(error)},
         ) from error
+
+
+@router.post("/answers/stream")
+async def stream_grounded_answer(
+    body: GroundedAnswerRequest,
+    http_request: Request,
+    service: Annotated[AnswerService, Depends(get_answer_service)],
+) -> StreamingResponse:
+    async def events() -> AsyncIterator[str]:
+        send, receive = anyio.create_memory_object_stream[dict[str, object]](1)
+
+        def on_draft(text: str) -> None:
+            # Bounded delivery applies backpressure and interrupts generation
+            # at the next token when the browser disconnects.
+            anyio.from_thread.check_cancelled()
+            event: dict[str, object] = {"type": "draft", "text": text}
+            anyio.from_thread.run(send.send, event)
+
+        async def produce() -> None:
+            async with send:
+                try:
+                    response = await _answer(body, http_request, service, on_draft)
+                    await send.send(
+                        {
+                            "type": "complete",
+                            "response": response.model_dump(mode="json"),
+                        }
+                    )
+                except ApiError as error:
+                    await send.send(
+                        {
+                            "type": "error",
+                            "status": error.status_code,
+                            "error": {
+                                "code": error.code,
+                                "message": error.message,
+                                "details": error.details,
+                            },
+                        }
+                    )
+
+        yield ": connected\n\n"
+        async with anyio.create_task_group() as group:
+            group.start_soon(produce)
+            async with receive:
+                while True:
+                    with anyio.move_on_after(15) as timeout:
+                        try:
+                            event = await receive.receive()
+                        except anyio.EndOfStream:
+                            break
+                    if timeout.cancel_called:
+                        yield ": keepalive\n\n"
+                    else:
+                        yield f"data: {json.dumps(event)}\n\n"
+
+    return StreamingResponse(
+        events(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
