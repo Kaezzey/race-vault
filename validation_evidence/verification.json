@@ -1,0 +1,11 @@
+{
+  "raw_rankings_rescored": 160,
+  "raw_metrics_exact_match": true,
+  "declared_families_disjoint": true,
+  "labelled_source_paths_disjoint": true,
+  "store_snapshots_unchanged": true,
+  "historical_calibration_exact_match": true,
+  "saved_grounding_and_agreement_match_illustrative_fixtures": true,
+  "existing_tests_passed": 53,
+  "test_command": "python -m pytest backend/tests/evaluation backend/tests/generation/test_service.py backend/tests/generation/test_evidence.py -q (PYTHONPATH=backend/src)"
+}

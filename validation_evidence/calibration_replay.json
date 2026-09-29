@@ -1,0 +1,14 @@
+{
+  "schema_name": "racevault.sufficiency_calibration",
+  "schema_version": 1,
+  "threshold": 0.237715570256114,
+  "development_queries": 27,
+  "answerable_queries": 22,
+  "unanswerable_queries": 5,
+  "answerable_recall": 1.0,
+  "unanswerable_recall": 1.0,
+  "balanced_accuracy": 1.0,
+  "source_run_id": "b63a69a8-a9c6-4b80-ae8b-65af8d597001",
+  "source_dataset_id": "racevault-corpus-v2",
+  "source_dataset_version": "2.0.0"
+}

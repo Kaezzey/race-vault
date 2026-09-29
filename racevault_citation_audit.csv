@@ -1,0 +1,644 @@
+﻿query_id,question,document_family,split,holdout_status,answerable_label,capture_file,row_kind,capture_status,generated_statement_id,statement_section,generated_claim,cited_evidence_id,cited_source,cited_pages,cited_chunk,retrieved_evidence_text,supplied_evidence_text,citation_id_valid,support_judgement,citation_completeness,wrong_source,wrong_vehicle_generation_or_edition,generation_error,answer_correctness,atomic_claim_text,reviewer_id,reviewed_at,second_reviewer_judgement,adjudicated_judgement,review_notes,missing_or_abstention_reason
+tyre_n3r_dimensions,What are the N3R tyre dimensions and recommended wheel width?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3r_dimensions.json,statement_citation_pair,completed,tyre_n3r_dimensions:S1,answer,N3R tyre dimensions — The N3R tyre is identified as the MICHELIN PORSCHE CUP N3R with a size designation of 31/71-18.,E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[2],chk_32aed2741216e83e7f7c3f6335b98f3a,"SIZE	TYRE	WHEEL RECOMMEN DED ("")	TREAD WIDTH (mm)	TIRE SECTION (MM)	DIAMETER INLFATED (mm)	ROLLING CIRCUMFER ENCE (mm)
+30/65-18	MICHELIN PORSCHE CUP N3	12	296	320	651	2030
+31/71-18	MICHELIN PORSCHE CUP N3R	13	311	348	708	2197","SIZE	TYRE	WHEEL RECOMMEN DED ("")	TREAD WIDTH (mm)	TIRE SECTION (MM)	DIAMETER INLFATED (mm)	ROLLING CIRCUMFER ENCE (mm)
+30/65-18	MICHELIN PORSCHE CUP N3	12	296	320	651	2030
+31/71-18	MICHELIN PORSCHE CUP N3R	13	311	348	708	2197",True,,,,,,,,,,,,,
+tyre_n3r_dimensions,What are the N3R tyre dimensions and recommended wheel width?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3r_dimensions.json,statement_citation_pair,completed,tyre_n3r_dimensions:S2,answer,Recommended wheel width — The recommended wheel width for the N3R tyre is 13 inches.,E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[2],chk_32aed2741216e83e7f7c3f6335b98f3a,"SIZE	TYRE	WHEEL RECOMMEN DED ("")	TREAD WIDTH (mm)	TIRE SECTION (MM)	DIAMETER INLFATED (mm)	ROLLING CIRCUMFER ENCE (mm)
+30/65-18	MICHELIN PORSCHE CUP N3	12	296	320	651	2030
+31/71-18	MICHELIN PORSCHE CUP N3R	13	311	348	708	2197","SIZE	TYRE	WHEEL RECOMMEN DED ("")	TREAD WIDTH (mm)	TIRE SECTION (MM)	DIAMETER INLFATED (mm)	ROLLING CIRCUMFER ENCE (mm)
+30/65-18	MICHELIN PORSCHE CUP N3	12	296	320	651	2030
+31/71-18	MICHELIN PORSCHE CUP N3R	13	311	348	708	2197",True,,,,,,,,,,,,,
+tyre_n3_rolling_circumference,What is the rolling circumference of the front N3 tyre?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3_rolling_circumference.json,statement_citation_pair,completed,tyre_n3_rolling_circumference:S1,answer,"The rolling circumference for the front N3 tyre, specified as size 30/65-18 (Michelin Pilot Sport Cup N3), is 2030 mm.",E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[2],chk_32aed2741216e83e7f7c3f6335b98f3a,"SIZE	TYRE	WHEEL RECOMMEN DED ("")	TREAD WIDTH (mm)	TIRE SECTION (MM)	DIAMETER INLFATED (mm)	ROLLING CIRCUMFER ENCE (mm)
+30/65-18	MICHELIN PORSCHE CUP N3	12	296	320	651	2030
+31/71-18	MICHELIN PORSCHE CUP N3R	13	311	348	708	2197","SIZE	TYRE	WHEEL RECOMMEN DED ("")	TREAD WIDTH (mm)	TIRE SECTION (MM)	DIAMETER INLFATED (mm)	ROLLING CIRCUMFER ENCE (mm)
+30/65-18	MICHELIN PORSCHE CUP N3	12	296	320	651	2030
+31/71-18	MICHELIN PORSCHE CUP N3R	13	311	348	708	2197",True,,,,,,,,,,,,,
+tyre_shoulder_temperature_delta,What is the maximum temperature difference between the inside and outside tyre shoulders?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_shoulder_temperature_delta.json,statement_citation_pair,completed,tyre_shoulder_temperature_delta:S1,answer,The maximum permitted temperature difference between the inside and outside tyre shoulders after a run is less than 20°C.,E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[3],chk_979a04bfbd3dbd14cee46a474fe51a45,"After a run, the delta of temperature between the inside shoulder and the outside shoulder has to be less than 20°C.
+
+Exceeding some of these data levels (f.e. camber) may cause a tyre damage or a fall of in performances  :  high  tyre  wear,  balance  problems  (oversteer/understeer)  and  a  drop  off  in laptimes (less constant).
+
+One stint is equivalent to the mileage indicated (including a maximum of 2 pit stops and/or driving under pace car). At this mileage and this speed limit, the integrity of the construction is guaranteed for endurance but not for wear potential or grip potential. Therefore, depending on the conditions of use, a tyre :
+
+Could be worn before achieving the indicated mileage,
+
+Could be only partially  worn  even  though  the  indicated  mileage  has  been  achieved.  In  this case, the integrity of the construction cannot be guaranteed, the tyre must be replaced.
+
+These  recommendations  are  valid  unless  the  tyres  have  been  damaged:  for  example, puncture or flat spots.
+
+The recommendations regarding rain tyres are only for wet conditions and not intended for a drying race track.","After a run, the delta of temperature between the inside shoulder and the outside shoulder has to be less than 20°C.
+
+Exceeding some of these data levels (f.e. camber) may cause a tyre damage or a fall of in performances  :  high  tyre  wear,  balance  problems  (oversteer/understeer)  and  a  drop  off  in laptimes (less constant).
+
+One stint is equivalent to the mileage indicated (including a maximum of 2 pit stops and/or driving under pace car). At this mileage and this speed limit, the integrity of the construction is guaranteed for endurance but not for wear potential or grip potential. Therefore, depending on the conditions of use, a tyre :
+
+Could be worn before achieving the indicated mileage,
+
+Could be only partially  worn  even  though  the  indicated  mileage  has  been  achieved.  In  this case, the integrity of the construction cannot be guaranteed, the tyre must be replaced.
+
+These  recommendations  are  valid  unless  the  tyres  have  been  damaged:  for  example, puncture or flat spots.
+
+The recommendations regarding rain tyres are only for wet conditions and not intended for a drying race track.",True,,,,,,,,,,,,,
+tyre_unlisted_track_recommendation,Which recommendation applies to tracks that are not specifically listed?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_unlisted_track_recommendation.json,statement_citation_pair,completed,tyre_unlisted_track_recommendation:S1,answer,"For tracks not specifically listed in the Michelin Preco documents, the specifications for 'low stress circuit standard' must be used.",E4,Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf,[2],chk_c76d4b2ac1e88d21c2449a7b5d073ea8,"Falsch eingestellte Sturz- und Luftdruckwerte können zu Reifenschäden führen.
+
+An  die  vorgegebenen  Sturz-  und  Luftdruckwerte  der  Mic helin  Preco's  ( Porsche  Technical recommendations N3_N3R_2025.pdf) halten.
+
+Bei Strecken die nicht in den Michelin Preco's aufgeführt sind, müssen die Vorgaben für 'low stress circuit standard' verwendet werden.
+
+Eine Überschreitung der maximalen Dicke der Sturzeinstellscheiben für den jeweiligen Streckentyp, ist nicht zulässig.","Falsch eingestellte Sturz- und Luftdruckwerte können zu Reifenschäden führen.
+
+An  die  vorgegebenen  Sturz-  und  Luftdruckwerte  der  Mic helin  Preco's  ( Porsche  Technical recommendations N3_N3R_2025.pdf) halten.
+
+Bei Strecken die nicht in den Michelin Preco's aufgeführt sind, müssen die Vorgaben für 'low stress circuit standard' verwendet werden.
+
+Eine Überschreitung der maximalen Dicke der Sturzeinstellscheiben für den jeweiligen Streckentyp, ist nicht zulässig.",True,,,,,,,,,,,,,
+tyre_unlisted_track_recommendation,Which recommendation applies to tracks that are not specifically listed?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_unlisted_track_recommendation.json,statement_citation_pair,completed,tyre_unlisted_track_recommendation:S1,answer,"For tracks not specifically listed in the Michelin Preco documents, the specifications for 'low stress circuit standard' must be used.",E5,Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf,[2],chk_7350f900afcfefb3e34195cc2e4ab066,"Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.","Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.",True,,,,,,,,,,,,,
+tyre_unlisted_track_recommendation,Which recommendation applies to tracks that are not specifically listed?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_unlisted_track_recommendation.json,statement_citation_pair,completed,tyre_unlisted_track_recommendation:S2,answer,"Alternatively, users may apply the STANDARD recommendations for use as a general fallback for all other tracks not explicitly listed in mid stress and high stress categories.",E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[4],chk_7080ff28f08cfe1d6d3a9cf13ec5a898,"For all other tracks, you can apply the STANDARD recommendations for use.
+
+(1) Contact Michelin for specific track recommendations for use
+
+Tracks with banking other than listed in mid stress and high stress","For all other tracks, you can apply the STANDARD recommendations for use.
+
+(1) Contact Michelin for specific track recommendations for use
+
+Tracks with banking other than listed in mid stress and high stress",True,,,,,,,,,,,,,
+tyre_unlisted_track_recommendation,Which recommendation applies to tracks that are not specifically listed?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_unlisted_track_recommendation.json,statement_citation_pair,completed,tyre_unlisted_track_recommendation:S3,answer,"For tracks with banking other than those listed, users must contact their Michelin Technical Advisor for specific recommendations.",E3,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[9],chk_7f1e01ae8e7c0ab499d31bba776cec5b,"24h Le Mans Tracks with banking (2) (2) Tracks with banking other than listed in mid stress and high stress
+CONTACT YOUR MICHELIN TECHNICAL ADVISOR","24h Le Mans Tracks with banking (2) (2) Tracks with banking other than listed in mid stress and high stress
+CONTACT YOUR MICHELIN TECHNICAL ADVISOR",True,,,,,,,,,,,,,
+tyre_n3r_standard_cold_pressure,What is the standard minimum cold pressure for the rear N3R tyre?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3r_standard_cold_pressure.json,statement_citation_pair,completed,tyre_n3r_standard_cold_pressure:S1,answer,The standard minimum cold pressure for the rear N3R tyre on a low stress circuit is 1.3 bar (18.9 Psi).,E3,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[7],chk_2c12cc9b2020700896b55247b083943c,"Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1","Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1",True,,,,,,,,,,,,,
+tyre_n3r_standard_cold_pressure,What is the standard minimum cold pressure for the rear N3R tyre?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3r_standard_cold_pressure.json,statement_citation_pair,completed,tyre_n3r_standard_cold_pressure:S2,answer,"For medium and high stress circuits, the minimum cold pressure for the rear N3R tyre is 1.2 bar (17.4 Psi).",E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[6],chk_7bb9956e39700a69eb65c67a43b4152a,"Usage :			Track not listed in mid stress, high stress, specific
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.2 bar  17.4 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-4.01°	0	0	0	0	0
+-4.0°	0	1	1	1	1
+-3.5°	0	1	1	1	1
+From -1.5° to -3°	0	1	1	1	1","Usage :			Track not listed in mid stress, high stress, specific
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.2 bar  17.4 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-4.01°	0	0	0	0	0
+-4.0°	0	1	1	1	1
+-3.5°	0	1	1	1	1
+From -1.5° to -3°	0	1	1	1	1",True,,,,,,,,,,,,,
+tyre_n3r_standard_cold_pressure,What is the standard minimum cold pressure for the rear N3R tyre?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3r_standard_cold_pressure.json,statement_citation_pair,completed,tyre_n3r_standard_cold_pressure:S3,answer,"The distinction between low stress and high/medium stress pressure values arises because the evidence lists specific circuits for the 1.3 bar value (e.g., Le Castellet, Macao) while the 1.2 bar value applies to tracks not listed in the Michelin Precos or those categorized as medium/high stress.",E3,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[7],chk_2c12cc9b2020700896b55247b083943c,"Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1","Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1",True,,,,,,,,,,,,,
+tyre_n3r_standard_cold_pressure,What is the standard minimum cold pressure for the rear N3R tyre?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3r_standard_cold_pressure.json,statement_citation_pair,completed,tyre_n3r_standard_cold_pressure:S3,answer,"The distinction between low stress and high/medium stress pressure values arises because the evidence lists specific circuits for the 1.3 bar value (e.g., Le Castellet, Macao) while the 1.2 bar value applies to tracks not listed in the Michelin Precos or those categorized as medium/high stress.",E4,Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf,[2],chk_7350f900afcfefb3e34195cc2e4ab066,"Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.","Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.",True,,,,,,,,,,,,,
+tyre_n3r_standard_cold_pressure,What is the standard minimum cold pressure for the rear N3R tyre?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3r_standard_cold_pressure.json,statement_citation_pair,completed,tyre_n3r_standard_cold_pressure:S4,limitation,"The evidence does not explicitly define a single universal 'standard' minimum cold pressure for the rear N3R tyre independent of circuit stress classification; instead, it provides conditional values based on track type.",E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[6],chk_7bb9956e39700a69eb65c67a43b4152a,"Usage :			Track not listed in mid stress, high stress, specific
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.2 bar  17.4 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-4.01°	0	0	0	0	0
+-4.0°	0	1	1	1	1
+-3.5°	0	1	1	1	1
+From -1.5° to -3°	0	1	1	1	1","Usage :			Track not listed in mid stress, high stress, specific
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.2 bar  17.4 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-4.01°	0	0	0	0	0
+-4.0°	0	1	1	1	1
+-3.5°	0	1	1	1	1
+From -1.5° to -3°	0	1	1	1	1",True,,,,,,,,,,,,,
+tyre_n3r_standard_cold_pressure,What is the standard minimum cold pressure for the rear N3R tyre?,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_tyre_n3r_standard_cold_pressure.json,statement_citation_pair,completed,tyre_n3r_standard_cold_pressure:S4,limitation,"The evidence does not explicitly define a single universal 'standard' minimum cold pressure for the rear N3R tyre independent of circuit stress classification; instead, it provides conditional values based on track type.",E3,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[7],chk_2c12cc9b2020700896b55247b083943c,"Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1","Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1",True,,,,,,,,,,,,,
+manual_intended_use,Is the Porsche 911 Cup 992 II designed for public-road driving?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_intended_use.json,statement_citation_pair,completed,manual_intended_use:S1,answer,"The Porsche 911 Cup (992 II) is explicitly designed for participation in circuit races and is classified as a racecar, not for public-road driving.",E1,Porsche Technical Manuals/992.2 Technical Manual.pdf,[3],chk_105391d4b3c51d7d961e5e699c2ef8c6,"This car has been specially designed for participation in circuit races.
+
+The Porsche 911 Cup (992 II) is a racecar; special skills and knowledge are required to drive a racecar. We therefore recommend that drivers first complete the 'Porsche Track Experience', the 'Porsche Racing Experience' or an equivalent training programme.
+
+Repair, maintenance and adjustment work on a racecar requires special skills and knowledge and an extremely high level of care and attention. Persons who carry out work on the 911Cup(992 II) must be sensitised to the particular requirements of motorsport.
+
+Figures, descriptions and schematic drawings serve only as visualisation of the text.
+
+We shall not accept liability for completeness of the content or for conformity of the content with applicable sporting codes and legal regulations.
+
+Porsche Motorsport does not accept any claims for repair and goodwill if control units and/or CANs have been manipulated.","This car has been specially designed for participation in circuit races.
+
+The Porsche 911 Cup (992 II) is a racecar; special skills and knowledge are required to drive a racecar. We therefore recommend that drivers first complete the 'Porsche Track Experience', the 'Porsche Racing Experience' or an equivalent training programme.
+
+Repair, maintenance and adjustment work on a racecar requires special skills and knowledge and an extremely high level of care and attention. Persons who carry out work on the 911Cup(992 II) must be sensitised to the particular requirements of motorsport.
+
+Figures, descriptions and schematic drawings serve only as visualisation of the text.
+
+We shall not accept liability for completeness of the content or for conformity of the content with applicable sporting codes and legal regulations.
+
+Porsche Motorsport does not accept any claims for repair and goodwill if control units and/or CANs have been manipulated.",True,,,,,,,,,,,,,
+manual_intended_use,Is the Porsche 911 Cup 992 II designed for public-road driving?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_intended_use.json,statement_citation_pair,completed,manual_intended_use:S2,answer,Driving this vehicle requires special skills and knowledge typically acquired through specific training programmes such as the 'Porsche Track Experience' or 'Porsche Racing Experience'.,E1,Porsche Technical Manuals/992.2 Technical Manual.pdf,[3],chk_105391d4b3c51d7d961e5e699c2ef8c6,"This car has been specially designed for participation in circuit races.
+
+The Porsche 911 Cup (992 II) is a racecar; special skills and knowledge are required to drive a racecar. We therefore recommend that drivers first complete the 'Porsche Track Experience', the 'Porsche Racing Experience' or an equivalent training programme.
+
+Repair, maintenance and adjustment work on a racecar requires special skills and knowledge and an extremely high level of care and attention. Persons who carry out work on the 911Cup(992 II) must be sensitised to the particular requirements of motorsport.
+
+Figures, descriptions and schematic drawings serve only as visualisation of the text.
+
+We shall not accept liability for completeness of the content or for conformity of the content with applicable sporting codes and legal regulations.
+
+Porsche Motorsport does not accept any claims for repair and goodwill if control units and/or CANs have been manipulated.","This car has been specially designed for participation in circuit races.
+
+The Porsche 911 Cup (992 II) is a racecar; special skills and knowledge are required to drive a racecar. We therefore recommend that drivers first complete the 'Porsche Track Experience', the 'Porsche Racing Experience' or an equivalent training programme.
+
+Repair, maintenance and adjustment work on a racecar requires special skills and knowledge and an extremely high level of care and attention. Persons who carry out work on the 911Cup(992 II) must be sensitised to the particular requirements of motorsport.
+
+Figures, descriptions and schematic drawings serve only as visualisation of the text.
+
+We shall not accept liability for completeness of the content or for conformity of the content with applicable sporting codes and legal regulations.
+
+Porsche Motorsport does not accept any claims for repair and goodwill if control units and/or CANs have been manipulated.",True,,,,,,,,,,,,,
+manual_intended_use,Is the Porsche 911 Cup 992 II designed for public-road driving?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_intended_use.json,statement_citation_pair,completed,manual_intended_use:S3,answer,"Maintenance and adjustment work on the 911 Cup (992 II) requires special skills, knowledge, and an extremely high level of care due to its motorsport-specific requirements.",E1,Porsche Technical Manuals/992.2 Technical Manual.pdf,[3],chk_105391d4b3c51d7d961e5e699c2ef8c6,"This car has been specially designed for participation in circuit races.
+
+The Porsche 911 Cup (992 II) is a racecar; special skills and knowledge are required to drive a racecar. We therefore recommend that drivers first complete the 'Porsche Track Experience', the 'Porsche Racing Experience' or an equivalent training programme.
+
+Repair, maintenance and adjustment work on a racecar requires special skills and knowledge and an extremely high level of care and attention. Persons who carry out work on the 911Cup(992 II) must be sensitised to the particular requirements of motorsport.
+
+Figures, descriptions and schematic drawings serve only as visualisation of the text.
+
+We shall not accept liability for completeness of the content or for conformity of the content with applicable sporting codes and legal regulations.
+
+Porsche Motorsport does not accept any claims for repair and goodwill if control units and/or CANs have been manipulated.","This car has been specially designed for participation in circuit races.
+
+The Porsche 911 Cup (992 II) is a racecar; special skills and knowledge are required to drive a racecar. We therefore recommend that drivers first complete the 'Porsche Track Experience', the 'Porsche Racing Experience' or an equivalent training programme.
+
+Repair, maintenance and adjustment work on a racecar requires special skills and knowledge and an extremely high level of care and attention. Persons who carry out work on the 911Cup(992 II) must be sensitised to the particular requirements of motorsport.
+
+Figures, descriptions and schematic drawings serve only as visualisation of the text.
+
+We shall not accept liability for completeness of the content or for conformity of the content with applicable sporting codes and legal regulations.
+
+Porsche Motorsport does not accept any claims for repair and goodwill if control units and/or CANs have been manipulated.",True,,,,,,,,,,,,,
+manual_intended_use,Is the Porsche 911 Cup 992 II designed for public-road driving?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_intended_use.json,statement_citation_pair,completed,manual_intended_use:S4,answer,"The vehicle features a sequential six-speed gearbox developed specially for motorsport, further distinguishing it from road-legal configurations.",E2,Porsche Technical Manuals/992.2 Technical Manual.pdf,"[114, 115]",chk_8342f6f7b7e660d50c5c5756302b9644,"To drain completely, remove one of the two couplings [1] and allow the water to drain completely.
+
+Collect the coolant in a suitable container and dispose of it in accordance with the country-specific legal regulations.
+
+Coat the thread with Loctite® 574 and fit the coupling with a new sealing ring. Sealing ring dimensions: 22 x 27
+
+The Porsche 911 Cup (992 II) features a sequential six-speed gearbox developed specially for motorsport.
+
+NOTICE! Do not break the seal [1] on the interference filter [2] .
+
+The interference filter remains permanently fitted to the gearbox bell housing.
+
+NOTE: Replace all lock nuts, sealing rings and circlips after each removal!
+
+Some figures in this chapter show components from the Porsche 992 GT3 Cup (992 I) as examples. There may be differences to the Porsche 911Cup(992 II) in details that are not relevant to the respective description.","To drain completely, remove one of the two couplings [1] and allow the water to drain completely.
+
+Collect the coolant in a suitable container and dispose of it in accordance with the country-specific legal regulations.
+
+Coat the thread with Loctite® 574 and fit the coupling with a new sealing ring. Sealing ring dimensions: 22 x 27
+
+The Porsche 911 Cup (992 II) features a sequential six-speed gearbox developed specially for motorsport.
+
+NOTICE! Do not break the seal [1] on the interference filter [2] .
+
+The interference filter remains permanently fitted to the gearbox bell housing.
+
+NOTE: Replace all lock nuts, sealing rings and circlips after each removal!
+
+Some figures in this chapter show components from the Porsche 992 GT3 Cup (992 I) as examples. There may be differences to the Porsche 911Cup(992 II) in details that are not relevant to the respective description.",True,,,,,,,,,,,,,
+manual_main_voltage_switch,Which switch position turns the main voltage supply on?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_main_voltage_switch.json,statement_citation_pair,completed,manual_main_voltage_switch:S1,answer,The main voltage supply is turned on when the main switch [MAIN] is moved to the down position.,E1,Porsche Technical Manuals/992.2 Technical Manual.pdf,[750],chk_baebcc172805e52b7db82da966cd1885,"Pull the switch out and put it in up or down position.
+
+→ Switching the main voltage supply on/off
+
+Switch up: OFF
+
+Switch down: ON","Pull the switch out and put it in up or down position.
+
+→ Switching the main voltage supply on/off
+
+Switch up: OFF
+
+Switch down: ON",True,,,,,,,,,,,,,
+manual_main_voltage_switch,Which switch position turns the main voltage supply on?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_main_voltage_switch.json,statement_citation_pair,completed,manual_main_voltage_switch:S2,answer,Moving the main switch [MAIN] to the up position turns the main voltage supply off.,E1,Porsche Technical Manuals/992.2 Technical Manual.pdf,[750],chk_baebcc172805e52b7db82da966cd1885,"Pull the switch out and put it in up or down position.
+
+→ Switching the main voltage supply on/off
+
+Switch up: OFF
+
+Switch down: ON","Pull the switch out and put it in up or down position.
+
+→ Switching the main voltage supply on/off
+
+Switch up: OFF
+
+Switch down: ON",True,,,,,,,,,,,,,
+manual_fire_system_test,Why must the fire extinguisher system be tested in test mode?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_fire_system_test.json,statement_citation_pair,completed,manual_fire_system_test:S1,answer,The fire extinguisher system must be tested in test mode to prevent the unintentional activation and deployment of the extinguisher.,E1,Porsche Technical Manuals/992.2 Technical Manual.pdf,[9],chk_62e9853f1870d32d99d0c813cd35ef82,"Activating and testing the Fire extinguisher system.
+
+NOTICE! The system must be tested in test mode to prevent the fire extinguisher from being activated unintentionally, see Testing/activating the system on page 743 .","Activating and testing the Fire extinguisher system.
+
+NOTICE! The system must be tested in test mode to prevent the fire extinguisher from being activated unintentionally, see Testing/activating the system on page 743 .",True,,,,,,,,,,,,,
+manual_fire_system_test,Why must the fire extinguisher system be tested in test mode?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_fire_system_test.json,statement_citation_pair,completed,manual_fire_system_test:S1,answer,The fire extinguisher system must be tested in test mode to prevent the unintentional activation and deployment of the extinguisher.,E2,Porsche Technical Manuals/992.2 Technical Manual.pdf,[741],chk_fde15e9a802de9bed102b2ee15e78f7d,"The exterior actuation element is located on the left-hand and right-hand side below the windscreen. Actuating the fire extinguisher system also interrupts the car's electric system.
+
+[2]
+
+Emergency switch + fire extinguisher system.
+
+Pull pin.
+
+→ Main switch OFF and fire extinguisher system ON
+
+On all Porsche 911 Cup (992 II) , the fire extinguisher switches installed in the plenum panel cover must be checked for function and ease of movement before every use of the car.
+
+The function of the fire extinguisher switch must be tested in test mode of the fire extin -guisher in order to not deploy the extinguisher. When pressing the switch, the electrical system of the car will be shut down as well (FIA requirement). This function must be checked accordingly.
+
+→ In case the switch needs excessive force to be pressed or is not functioning at all, it must be exchanged immediately","The exterior actuation element is located on the left-hand and right-hand side below the windscreen. Actuating the fire extinguisher system also interrupts the car's electric system.
+
+[2]
+
+Emergency switch + fire extinguisher system.
+
+Pull pin.
+
+→ Main switch OFF and fire extinguisher system ON
+
+On all Porsche 911 Cup (992 II) , the fire extinguisher switches installed in the plenum panel cover must be checked for function and ease of movement before every use of the car.
+
+The function of the fire extinguisher switch must be tested in test mode of the fire extin -guisher in order to not deploy the extinguisher. When pressing the switch, the electrical system of the car will be shut down as well (FIA requirement). This function must be checked accordingly.
+
+→ In case the switch needs excessive force to be pressed or is not functioning at all, it must be exchanged immediately",True,,,,,,,,,,,,,
+manual_fire_system_test,Why must the fire extinguisher system be tested in test mode?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_fire_system_test.json,statement_citation_pair,completed,manual_fire_system_test:S2,answer,Testing in test mode allows the operator to verify the function of the switch and ensure it does not deploy the extinguisher while simultaneously checking that the electrical system shuts down as required by FIA regulations.,E2,Porsche Technical Manuals/992.2 Technical Manual.pdf,[741],chk_fde15e9a802de9bed102b2ee15e78f7d,"The exterior actuation element is located on the left-hand and right-hand side below the windscreen. Actuating the fire extinguisher system also interrupts the car's electric system.
+
+[2]
+
+Emergency switch + fire extinguisher system.
+
+Pull pin.
+
+→ Main switch OFF and fire extinguisher system ON
+
+On all Porsche 911 Cup (992 II) , the fire extinguisher switches installed in the plenum panel cover must be checked for function and ease of movement before every use of the car.
+
+The function of the fire extinguisher switch must be tested in test mode of the fire extin -guisher in order to not deploy the extinguisher. When pressing the switch, the electrical system of the car will be shut down as well (FIA requirement). This function must be checked accordingly.
+
+→ In case the switch needs excessive force to be pressed or is not functioning at all, it must be exchanged immediately","The exterior actuation element is located on the left-hand and right-hand side below the windscreen. Actuating the fire extinguisher system also interrupts the car's electric system.
+
+[2]
+
+Emergency switch + fire extinguisher system.
+
+Pull pin.
+
+→ Main switch OFF and fire extinguisher system ON
+
+On all Porsche 911 Cup (992 II) , the fire extinguisher switches installed in the plenum panel cover must be checked for function and ease of movement before every use of the car.
+
+The function of the fire extinguisher switch must be tested in test mode of the fire extin -guisher in order to not deploy the extinguisher. When pressing the switch, the electrical system of the car will be shut down as well (FIA requirement). This function must be checked accordingly.
+
+→ In case the switch needs excessive force to be pressed or is not functioning at all, it must be exchanged immediately",True,,,,,,,,,,,,,
+manual_fire_system_test,Why must the fire extinguisher system be tested in test mode?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_fire_system_test.json,statement_citation_pair,completed,manual_fire_system_test:S3,answer,"To perform a test, the operator must pull the switch and set it to its bottom position labeled TEST before actuating the system.",E3,Porsche Technical Manuals/992.2 Technical Manual.pdf,[743],chk_ff7eb3e6ee369ecde62bb9a96bbc4164,"Pull the switch and set it to its bottom position TEST .
+
+Actuate the fire extinguisher system.
+
+See Actuation outside the car on page 695 .
+
+See Actuation inside the car on page 694 .
+
+→ LED lights up orange for 10 seconds: Test was successful.
+
+→ LED flashes orange for 10 seconds or longer: Test was not successful.
+
+Check the possible causes: Battery low, electric fault.","Pull the switch and set it to its bottom position TEST .
+
+Actuate the fire extinguisher system.
+
+See Actuation outside the car on page 695 .
+
+See Actuation inside the car on page 694 .
+
+→ LED lights up orange for 10 seconds: Test was successful.
+
+→ LED flashes orange for 10 seconds or longer: Test was not successful.
+
+Check the possible causes: Battery low, electric fault.",True,,,,,,,,,,,,,
+manual_fire_system_test,Why must the fire extinguisher system be tested in test mode?,porsche-technical-manual,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_manual_fire_system_test.json,statement_citation_pair,completed,manual_fire_system_test:S4,answer,"A successful test is indicated by an orange LED light that remains lit for 10 seconds, whereas a flashing orange LED indicates a failure such as low battery or an electric fault.",E3,Porsche Technical Manuals/992.2 Technical Manual.pdf,[743],chk_ff7eb3e6ee369ecde62bb9a96bbc4164,"Pull the switch and set it to its bottom position TEST .
+
+Actuate the fire extinguisher system.
+
+See Actuation outside the car on page 695 .
+
+See Actuation inside the car on page 694 .
+
+→ LED lights up orange for 10 seconds: Test was successful.
+
+→ LED flashes orange for 10 seconds or longer: Test was not successful.
+
+Check the possible causes: Battery low, electric fault.","Pull the switch and set it to its bottom position TEST .
+
+Actuate the fire extinguisher system.
+
+See Actuation outside the car on page 695 .
+
+See Actuation inside the car on page 694 .
+
+→ LED lights up orange for 10 seconds: Test was successful.
+
+→ LED flashes orange for 10 seconds or longer: Test was not successful.
+
+Check the possible causes: Battery low, electric fault.",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S1,answer,"For circuits listed in the Porsche Technical recommendations N3_N3R_2025.pdf under 'mid stress, high stress, specific' usage categories (e.g., Dijon, Indianapolis, Interlagos), the minimum cold pressure is 1.3 bar (18.9 Psi).",E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[8],chk_a8cc84dfc79b78daae9c5227134f3ead,"Usage :			Dijon, Indianapolis, Interlagos, Lime Rock, Monza, Mosport, Nürburgring Nordschleife, Phillip Island, Road America, Road Atlanta, Shanghai, VIR, Watkins Glen
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar		31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.01°	0	0		0	0
+-3.0°	0	0		1	1
+-2.5°	0	0		1	1
+From -1.5° to -2°	0	0 1		1	1","Usage :			Dijon, Indianapolis, Interlagos, Lime Rock, Monza, Mosport, Nürburgring Nordschleife, Phillip Island, Road America, Road Atlanta, Shanghai, VIR, Watkins Glen
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar		31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.01°	0	0		0	0
+-3.0°	0	0		1	1
+-2.5°	0	0		1	1
+From -1.5° to -2°	0	0 1		1	1",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S2,answer,"For circuits listed in the Porsche Technical recommendations N3_N3R_2025.pdf under 'low stress circuit standard' usage categories (e.g., Le Castellet, Macao, Mandalika), the minimum cold pressure is 1.3 bar (18.9 Psi).",E3,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[7],chk_2c12cc9b2020700896b55247b083943c,"Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1","Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S3,answer,"For circuits listed in the Porsche Technical recommendations N3_N3R_2025.pdf under 'Track not listed in mid stress, high stress, specific' usage categories (e.g., Spa, Zandvoort), the minimum cold pressure is 1.2 bar (17.4 Psi).",E2,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[6],chk_7bb9956e39700a69eb65c67a43b4152a,"Usage :			Track not listed in mid stress, high stress, specific
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.2 bar  17.4 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-4.01°	0	0	0	0	0
+-4.0°	0	1	1	1	1
+-3.5°	0	1	1	1	1
+From -1.5° to -3°	0	1	1	1	1","Usage :			Track not listed in mid stress, high stress, specific
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.2 bar  17.4 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-4.01°	0	0	0	0	0
+-4.0°	0	1	1	1	1
+-3.5°	0	1	1	1	1
+From -1.5° to -3°	0	1	1	1	1",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S4,answer,"For circuits not explicitly listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used, which corresponds to a minimum cold pressure of 1.3 bar (18.9 Psi) based on the evidence provided for that category.",E4,Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf,[2],chk_7350f900afcfefb3e34195cc2e4ab066,"Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.","Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S4,answer,"For circuits not explicitly listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used, which corresponds to a minimum cold pressure of 1.3 bar (18.9 Psi) based on the evidence provided for that category.",E5,Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf,[2],chk_c76d4b2ac1e88d21c2449a7b5d073ea8,"Falsch eingestellte Sturz- und Luftdruckwerte können zu Reifenschäden führen.
+
+An  die  vorgegebenen  Sturz-  und  Luftdruckwerte  der  Mic helin  Preco's  ( Porsche  Technical recommendations N3_N3R_2025.pdf) halten.
+
+Bei Strecken die nicht in den Michelin Preco's aufgeführt sind, müssen die Vorgaben für 'low stress circuit standard' verwendet werden.
+
+Eine Überschreitung der maximalen Dicke der Sturzeinstellscheiben für den jeweiligen Streckentyp, ist nicht zulässig.","Falsch eingestellte Sturz- und Luftdruckwerte können zu Reifenschäden führen.
+
+An  die  vorgegebenen  Sturz-  und  Luftdruckwerte  der  Mic helin  Preco's  ( Porsche  Technical recommendations N3_N3R_2025.pdf) halten.
+
+Bei Strecken die nicht in den Michelin Preco's aufgeführt sind, müssen die Vorgaben für 'low stress circuit standard' verwendet werden.
+
+Eine Überschreitung der maximalen Dicke der Sturzeinstellscheiben für den jeweiligen Streckentyp, ist nicht zulässig.",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S5,limitation,"The supplied evidence does not establish a single universal minimum cold pressure for all N3R circuits without distinguishing between the specific usage categories (mid/high stress, low stress, or unlisted) defined in the Porsche Technical recommendations.",E1,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[8],chk_a8cc84dfc79b78daae9c5227134f3ead,"Usage :			Dijon, Indianapolis, Interlagos, Lime Rock, Monza, Mosport, Nürburgring Nordschleife, Phillip Island, Road America, Road Atlanta, Shanghai, VIR, Watkins Glen
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar		31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.01°	0	0		0	0
+-3.0°	0	0		1	1
+-2.5°	0	0		1	1
+From -1.5° to -2°	0	0 1		1	1","Usage :			Dijon, Indianapolis, Interlagos, Lime Rock, Monza, Mosport, Nürburgring Nordschleife, Phillip Island, Road America, Road Atlanta, Shanghai, VIR, Watkins Glen
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar		31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.01°	0	0		0	0
+-3.0°	0	0		1	1
+-2.5°	0	0		1	1
+From -1.5° to -2°	0	0 1		1	1",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S5,limitation,"The supplied evidence does not establish a single universal minimum cold pressure for all N3R circuits without distinguishing between the specific usage categories (mid/high stress, low stress, or unlisted) defined in the Porsche Technical recommendations.",E2,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[6],chk_7bb9956e39700a69eb65c67a43b4152a,"Usage :			Track not listed in mid stress, high stress, specific
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.2 bar  17.4 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-4.01°	0	0	0	0	0
+-4.0°	0	1	1	1	1
+-3.5°	0	1	1	1	1
+From -1.5° to -3°	0	1	1	1	1","Usage :			Track not listed in mid stress, high stress, specific
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.2 bar  17.4 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-4.01°	0	0	0	0	0
+-4.0°	0	1	1	1	1
+-3.5°	0	1	1	1	1
+From -1.5° to -3°	0	1	1	1	1",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S5,limitation,"The supplied evidence does not establish a single universal minimum cold pressure for all N3R circuits without distinguishing between the specific usage categories (mid/high stress, low stress, or unlisted) defined in the Porsche Technical recommendations.",E3,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[7],chk_2c12cc9b2020700896b55247b083943c,"Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1","Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S6,limitation,"The evidence does not provide a specific minimum cold pressure value for circuits falling into the 'low stress circuit standard' category if that category is distinct from the 'Le Castellet, Macao...' list in E3, though E4 implies using the 'low stress circuit standard' for unlisted tracks.",E3,Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf,[7],chk_2c12cc9b2020700896b55247b083943c,"Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1","Usage :			Le Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder
+Vitesse max / Max speed :			320 km/h
+Jante nominale / Nominal rim :			13 J 18
+Pression mini à froid / Mini cold pressure :			1.3 bar  18.9 Psi
+Relais / Stint :			200 km
+Nb de relais / Nb of stints	Pression mini à chaud / Mini hot pressure
+Carrossage / Camber	27.6 Psi 1.9 bar	29.0 Psi 2.0 bar	30.5 Psi 2.1 bar	31.9 Psi 2.2 bar	33.4 Psi 2.3 bar
+-3.51°	0	0	0	0	0
+-3.5°	0	0	1	1	1
+-3.0°	0	0	1	1	1
+From -1.5° to -2.5°	0	0	1	1	1",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S6,limitation,"The evidence does not provide a specific minimum cold pressure value for circuits falling into the 'low stress circuit standard' category if that category is distinct from the 'Le Castellet, Macao...' list in E3, though E4 implies using the 'low stress circuit standard' for unlisted tracks.",E4,Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf,[2],chk_7350f900afcfefb3e34195cc2e4ab066,"Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.","Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S6,limitation,"The evidence does not provide a specific minimum cold pressure value for circuits falling into the 'low stress circuit standard' category if that category is distinct from the 'Le Castellet, Macao...' list in E3, though E4 implies using the 'low stress circuit standard' for unlisted tracks.",E4,Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf,[2],chk_7350f900afcfefb3e34195cc2e4ab066,"Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.","Incorrectly adjusted camber and tyre pressure values can cause tyre failure.
+
+Respect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).
+
+For circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.
+
+Exceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.",True,,,,,,,,,,,,,
+conflict_n3r_pressure_sources,minimum cold pressure N3R,tyre-data,test,existing_test_split;prior_retrieval_exposure,True,validation_evidence/answer_conflict_n3r_pressure_sources.json,statement_citation_pair,completed,conflict_n3r_pressure_sources:S6,limitation,"The evidence does not provide a specific minimum cold pressure value for circuits falling into the 'low stress circuit standard' category if that category is distinct from the 'Le Castellet, Macao...' list in E3, though E4 implies using the 'low stress circuit standard' for unlisted tracks.",E5,Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf,[2],chk_c76d4b2ac1e88d21c2449a7b5d073ea8,"Falsch eingestellte Sturz- und Luftdruckwerte können zu Reifenschäden führen.
+
+An  die  vorgegebenen  Sturz-  und  Luftdruckwerte  der  Mic helin  Preco's  ( Porsche  Technical recommendations N3_N3R_2025.pdf) halten.
+
+Bei Strecken die nicht in den Michelin Preco's aufgeführt sind, müssen die Vorgaben für 'low stress circuit standard' verwendet werden.
+
+Eine Überschreitung der maximalen Dicke der Sturzeinstellscheiben für den jeweiligen Streckentyp, ist nicht zulässig.","Falsch eingestellte Sturz- und Luftdruckwerte können zu Reifenschäden führen.
+
+An  die  vorgegebenen  Sturz-  und  Luftdruckwerte  der  Mic helin  Preco's  ( Porsche  Technical recommendations N3_N3R_2025.pdf) halten.
+
+Bei Strecken die nicht in den Michelin Preco's aufgeführt sind, müssen die Vorgaben für 'low stress circuit standard' verwendet werden.
+
+Eine Überschreitung der maximalen Dicke der Sturzeinstellscheiben für den jeweiligen Streckentyp, ist nicht zulässig.",True,,,,,,,,,,,,,
+neg_budget_cap,What is the budget cap for the season?,unassigned,test,existing_test_split;prior_retrieval_exposure,False,validation_evidence/answer_neg_budget_cap.json,no_generated_claim,completed,,,,,,,,,,not_applicable,,,,,,,,,,,,,"RaceVault retrieved possible evidence, but its relevance did not meet the calibrated answer threshold."
+neg_turbo_boost_limit,What is the maximum turbocharger boost pressure permitted?,unassigned,test,existing_test_split;prior_retrieval_exposure,False,validation_evidence/answer_neg_turbo_boost_limit.json,no_generated_claim,completed,,,,,,,,,,not_applicable,,,,,,,,,,,,,"RaceVault retrieved possible evidence, but its relevance did not meet the calibrated answer threshold."
+neg_sprint_shootout,What is the sprint shootout format?,unassigned,test,existing_test_split;prior_retrieval_exposure,False,validation_evidence/answer_neg_sprint_shootout.json,no_generated_claim,completed,,,,,,,,,,not_applicable,,,,,,,,,,,,,"RaceVault retrieved possible evidence, but its relevance did not meet the calibrated answer threshold."
+neg_rallycross_joker,How does the rallycross joker lap work?,unassigned,test,existing_test_split;prior_retrieval_exposure,False,validation_evidence/answer_neg_rallycross_joker.json,no_generated_claim,completed,,,,,,,,,,not_applicable,,,,,,,,,,,,,"RaceVault retrieved possible evidence, but its relevance did not meet the calibrated answer threshold."

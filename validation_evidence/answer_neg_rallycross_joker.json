@@ -1,0 +1,964 @@
+{
+  "query_id": "neg_rallycross_joker",
+  "query": "How does the rallycross joker lap work?",
+  "split": "test",
+  "expected_empty": true,
+  "calls": [],
+  "response": {
+    "request_id": null,
+    "pipeline_fingerprint": null,
+    "query": "How does the rallycross joker lap work?",
+    "filters": {
+      "source_sha256": null,
+      "source_role": null,
+      "document_class": null,
+      "authority": null,
+      "vehicle_generation": null,
+      "championship": null,
+      "season": null,
+      "revision": null,
+      "page_number": null,
+      "chunk_kind": null,
+      "oversize": null
+    },
+    "resolved_scopes": [
+      {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      }
+    ],
+    "answer": "RaceVault retrieved possible evidence, but its relevance did not meet the calibrated answer threshold.",
+    "insufficient_evidence": true,
+    "conflicts": [],
+    "limitations": [
+      "Generation was skipped to avoid an unsupported answer."
+    ],
+    "citations": [],
+    "evidence": [
+      {
+        "rank": 1,
+        "evidence_text": "Rain Tyres\tTyre Marking: Max 2 sets before qualifying For each session it is only allowed the use of a single set of wet tyres, for avoidance of doubt Q1 and Q2 will be consider as a single session. The use of unmarked or previously marked rain tyres during free practice and test sessions is permitted.\tTyre Marking: Max 2 sets before qualifying For each session it is only allowed the use of a single set of wet tyres, for avoidance of doubt Q1 and Q2 will be consider as a single session. The use of unmarked or previously marked rain tyres during free practice and test sessions is permitted.\nJoker Tyres\t10 pcs of joker tyres slick are available over the season with the following limitation: 2 front + 2 rear max available at each meeting. From qualifying onwards, the following rules will be applied when using the joker tyres as replacement of marked tyres 1 joker tyres = no penalty 2 joker tyres = 2 grid drop 3 joker tyres = 4 grid drop 4 joker tyres = 6 grid drops. If the competitor decides to use the joker tyres during free practice no penalty will be applied (regardless of number of joker tyres). Joker tyres must be marked.",
+        "document_class": "regulation",
+        "chunk_kind": "table",
+        "source_role": "document_01458a13c8288fa0",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Asia",
+          "document_type": "regulation",
+          "season": 2025
+        },
+        "citation": {
+          "chunk_id": "chk_597a77cea75b117bb83cc227da7a66f3",
+          "source_sha256": "0372ebbf1caffa15deaed96c63f453817fc88a4baeac5068e231eb6fb5f6145a",
+          "source_path": "Rules and Regulations/PCC Asia/PCCA 2025 Regulations_Final.pdf",
+          "source_filename": "PCCA 2025 Regulations_Final.pdf",
+          "page_start": 88,
+          "page_end": 88,
+          "page_numbers": [
+            88
+          ],
+          "section_path": [
+            "Attachment 8 - Tyre Table"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "7f1001319a12a2d10bdd695eb3440fa211a7ea4cb2bcc937e9dfe1111411349f",
+          "element_ids": [
+            "el_d260ef270557a55e8791243297149212"
+          ],
+          "table_ids": [
+            "tbl_d260ef270557a55e8791243297149212"
+          ],
+          "provenance": [
+            {
+              "page_number": 88,
+              "bbox": {
+                "left": 47.014891,
+                "top": 793.360225,
+                "right": 575.375235,
+                "bottom": 397.284416,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 0
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 6,
+          "lexical_score": 33.884933,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 11,
+          "rrf_score": 0.015151515151515152,
+          "reranker_score": 0.03021458350121975
+        }
+      },
+      {
+        "rank": 2,
+        "evidence_text": "(SSR) It is the Competitor's responsibility to be familiar with the Regulations. Race Control does not respond to inquiries regarding the disposition of other Competitors and may not respond to requests  for  regulatory  clarification  due  to  the  complex  nature  of  the  RULES  during  the  time pressures of the Competition. Such inquiries should be made directly and in person with the Race Director or appropriate IMSA Officials.\n\n(SSR) Reports. Reports of on-track activity, passes under yellow and similar must include the Time of Day, Location, and a Description of the specific concern. Vague reports receive lower priority.\n\n(SSR) N/A\n\n(SSR) Behind The Wall. Requests to 'go behind the wall' must be made through the pit lane Officials.\n\n(SSR) Membership Enrollment Registration Gateway (MERG)\n\n(SSR) MERG. The MERG system, accessed at merg.imsa.com, is used to manage all entry list and starting grid changes, updates, and other changes as may be listed in these RULES. The Team Representative must login to MERG to make updates or changes to the entry list, to submit nominations for the starting Driver when required, change the starting Driver.\n\n(SSR) N/A\n\n(SSR) PCCNA Tire Registration\n\n(SSR) Joker tires must be registered using the Pirelli system no later than sixty (60) minutes prior to first use (ATT. 3, Par. 3.4.4).\n\n(SSR) Penalties.\n\n(SSR) Practice  Penalty for  use  of  unregistered  unused  allocated  tires,  or unregistered joker tires : First violation, loss of fifteen (15) minutes of qualifying time. Second violation, prohibited to participate in qualifying.\n\n(SSR) Qualifying  Penalty for  use  of  unregistered  unused  allocated  tires,  or unregistered joker tires : Loss of all qualifying times.\n\n(SSR) Race  Penalty for use  of unregistered unused  allocated  tires, or unregistered joker tires : Loss of two (2) laps. Loss of all Race lap times.\n\n(SSR) Tire  Penalty Unregistered unused allocated tires, or unregistered joker tires are rendered invalid for the remainder of the season.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_2d852ef55ae8cab6",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC North America",
+          "document_type": "regulation",
+          "season": 2026
+        },
+        "citation": {
+          "chunk_id": "chk_8161b03713d4543399be8658093f4407",
+          "source_sha256": "ed8e3a6cbe3a430f707329359604df1c72597a398b8ddda547eb3a85ddcaf1b6",
+          "source_path": "Rules and Regulations/Other/PCC North America/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 42,
+          "page_end": 43,
+          "page_numbers": [
+            42,
+            43
+          ],
+          "section_path": [
+            "ARTICLE\t13\t-\tTEAM\tINFORMATION\t&\tNOTIFICATIONS",
+            "13. TEAM INFORMATION & NOTIFICATIONS"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "da8e819d3d733bcec48c94d6878b459ff675d383af62e52ad0e14a33879ff29b",
+          "element_ids": [
+            "el_e97e415d5ae008aa663be68001d963a7",
+            "el_b17634892600c8ba879c70c855f3d19e",
+            "el_ba810e2053d4dd13127193bb9292bc18",
+            "el_f6ea5a323a92d48b75b3e1dec9dfc505",
+            "el_6437e4a199a34a24790b3926563bee05",
+            "el_5e93f81f7c384e5b2d80bde64880ea0b",
+            "el_920fe62cccc7da3296a3acb660780629",
+            "el_b42fc3b6232110674446e558a76b16b6",
+            "el_d0a714165aea85ec8b3e9f5cdfbfadc3",
+            "el_25f47cef2bc35ca490f70a14041a5577",
+            "el_b0e0bf6090515a340955e5a77855d03d",
+            "el_6eb2ded1f7b730d272f8c8e12ccfbd5b",
+            "el_65567ad5beb338f21fcc054bb2cff749",
+            "el_863f75fc6a211db0fe4e2df7db468b34"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 107.9952,
+                "top": 374.44992,
+                "right": 524.552064,
+                "bottom": 314.04423,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 443
+            },
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 126.00144,
+                "top": 305.33952,
+                "right": 524.543232,
+                "bottom": 270.12711,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 205
+            },
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 126.00144,
+                "top": 261.4224,
+                "right": 209.1216,
+                "bottom": 251.64615,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 17
+            },
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 126.00144,
+                "top": 242.94144,
+                "right": 524.586288,
+                "bottom": 220.44711,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 108
+            },
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 108.00624,
+                "top": 211.49952,
+                "right": 398.35824,
+                "bottom": 201.72327,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 61
+            },
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 126.01248,
+                "top": 193.01856,
+                "right": 524.519808,
+                "bottom": 145.32135,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 361
+            },
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 126.0,
+                "top": 136.37088,
+                "right": 206.60304,
+                "bottom": 126.59463,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 17
+            },
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 126.0,
+                "top": 117.64704,
+                "right": 295.318272,
+                "bottom": 107.87079,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 37
+            },
+            {
+              "page_number": 42,
+              "bbox": {
+                "left": 143.9952,
+                "top": 99.16608,
+                "right": 524.49984,
+                "bottom": 76.67175,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 138
+            },
+            {
+              "page_number": 43,
+              "bbox": {
+                "left": 143.9945,
+                "top": 717.64896,
+                "right": 245.596724,
+                "bottom": 707.87271,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 19
+            },
+            {
+              "page_number": 43,
+              "bbox": {
+                "left": 157.48538,
+                "top": 699.168,
+                "right": 524.46602,
+                "bottom": 663.95559,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 236
+            },
+            {
+              "page_number": 43,
+              "bbox": {
+                "left": 155.4761,
+                "top": 655.25088,
+                "right": 524.42186,
+                "bottom": 632.75655,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 144
+            },
+            {
+              "page_number": 43,
+              "bbox": {
+                "left": 153.46682,
+                "top": 624.05184,
+                "right": 524.39978,
+                "bottom": 601.55751,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 155
+            },
+            {
+              "page_number": 43,
+              "bbox": {
+                "left": 152.97002,
+                "top": 592.8528,
+                "right": 524.583044,
+                "bottom": 570.35847,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 142
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 4,
+          "lexical_score": 37.177742,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 8,
+          "rrf_score": 0.015625,
+          "reranker_score": 0.023241925984621048
+        }
+      },
+      {
+        "rank": 3,
+        "evidence_text": "The grid formation for each Round will be in a 1 x 1 formation for all standing start Rounds (and a 2 x 2 formation for any rolling start Round).\n\nWhen the signal is given, the Cars will be released onto the Track behind the Safety Car for the Drivers to execute a Formation Lap.\n\nDuring the Formation Lap, Drivers must keep their Cars in formation with no overtaking and the Safety Car will set the pace. Drivers must keep their Cars at (or as close as possible to) the speed of the Safety Car.  No practice starts may be executed during the course of the Formation Lap.  The Safety Car will stop at the front of the grid and the Drivers will place their Cars in their grid positions behind it.  Any Driver unable to join the train of Cars following the Safety Car shall be held in the Pit Lane and may only start the Round after the last Car to take the start has passed the Pit Lane exit on the first Round lap, but shall only do so under the instructions of the Marshals of the Pit Lane.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_1eeecab491e43df8",
+        "source_metadata": {
+          "season": 2026,
+          "authority": "official_regulation",
+          "championship": "PCC Great Britain",
+          "document_type": "regulation"
+        },
+        "citation": {
+          "chunk_id": "chk_4cc1e7edae31ac87b0874346c5387af7",
+          "source_sha256": "44039b73d0555aec69e39e675b0b1c9757779b953943d201b649863f61160ea8",
+          "source_path": "Rules and Regulations/Other/PCC Great Britian/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 31,
+          "page_end": 31,
+          "page_numbers": [
+            31
+          ],
+          "section_path": [
+            "EXECUTION VERSION"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "940c05df4854c0b99a9c179defe194b53181201e6dab55fd7a3f5e6dda6e01d9",
+          "element_ids": [
+            "el_6f10f2f7eb21a9605e63a3e6764b2c2c",
+            "el_f0880d4d9f135a351a9ffcc64def1ab0",
+            "el_ec16ac9566010cb1547e72dde8717885"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 31,
+              "bbox": {
+                "left": 36.0,
+                "top": 803.789983,
+                "right": 561.01668,
+                "bottom": 781.589983,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 151
+            },
+            {
+              "page_number": 31,
+              "bbox": {
+                "left": 36.0,
+                "top": 767.409983,
+                "right": 560.97684,
+                "bottom": 745.209983,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 138
+            },
+            {
+              "page_number": 31,
+              "bbox": {
+                "left": 36.0,
+                "top": 730.929983,
+                "right": 561.67096,
+                "bottom": 659.889983,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 716
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": null,
+          "lexical_score": null,
+          "semantic_rank": 9,
+          "semantic_score": 0.48758689949198186,
+          "fused_rank": 18,
+          "rrf_score": 0.014492753623188406,
+          "reranker_score": 0.020023440942168236
+        }
+      },
+      {
+        "rank": 5,
+        "evidence_text": "Practice Penalty for use of unregistered unused allocated tires, or unregistered joker tires: First violation, loss of fifteen (15) minutes of qualifying time. Second violation, prohibited to participate in qualifying.\n\nQualifying Penalty for use of unregistered unused allocated tires, or unregistered joker tires: Loss of all qualifying times.\n\nRace Penalty for use of unregistered unused allocated tires, or unregistered joker tires: Loss of two (2) laps. Loss of all Race lap times.\n\nPenalty Unregistered unused allocated tires, or unregistered joker tires are rendered invalid for the remainder of the season.\n\nTires for subsequent Race Events permit 'up to eight (8) previously registered tires' as listed in the table of Par. 3.4.4. Tires exceeding this registered quantity are prohibited in the Paddock.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_2d852ef55ae8cab6",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC North America",
+          "document_type": "regulation",
+          "season": 2026
+        },
+        "citation": {
+          "chunk_id": "chk_63c8a149ea126bccea52603e2a7231e7",
+          "source_sha256": "ed8e3a6cbe3a430f707329359604df1c72597a398b8ddda547eb3a85ddcaf1b6",
+          "source_path": "Rules and Regulations/Other/PCC North America/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 105,
+          "page_end": 105,
+          "page_numbers": [
+            105
+          ],
+          "section_path": [
+            "TABLE OF CONTENTS",
+            "3. ATTACHMENT 3 - TIRES",
+            "3.4. Entrant Tire Allocations",
+            "3.4.6. PCCNA Tire Registration",
+            "B. Penalties."
+          ],
+          "clause_reference": "3.4.6",
+          "evidence_sha256": "c732cdf47223bc5d134b1bb72f9326e8b4cd7ef4031afb691ddb37c045c0e2ab",
+          "element_ids": [
+            "el_dab16946ca0a974355fade318f6035c1",
+            "el_bb58851251814880fc9d77ee0387451a",
+            "el_0830a78b29781269701f72cdaa7fbf0b",
+            "el_32150e4a607abfb8db7c61ad9214fb21",
+            "el_39bece7eccf1d691204ebbd771d28c2e"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 105,
+              "bbox": {
+                "left": 157.48316,
+                "top": 699.168,
+                "right": 524.755256,
+                "bottom": 663.95559,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 221
+            },
+            {
+              "page_number": 105,
+              "bbox": {
+                "left": 155.47388,
+                "top": 655.25088,
+                "right": 524.775128,
+                "bottom": 632.75655,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 129
+            },
+            {
+              "page_number": 105,
+              "bbox": {
+                "left": 153.47564,
+                "top": 624.05184,
+                "right": 524.511272,
+                "bottom": 601.55751,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 144
+            },
+            {
+              "page_number": 105,
+              "bbox": {
+                "left": 152.9678,
+                "top": 592.8528,
+                "right": 524.75636,
+                "bottom": 570.35847,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 130
+            },
+            {
+              "page_number": 105,
+              "bbox": {
+                "left": 133.19516,
+                "top": 561.41088,
+                "right": 524.50796,
+                "bottom": 538.91655,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 198
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 2,
+          "lexical_score": 37.962738,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 3,
+          "rrf_score": 0.016129032258064516,
+          "reranker_score": 0.014559517614543438
+        }
+      },
+      {
+        "rank": 8,
+        "evidence_text": "Marking of Joker Tyres is subject to the penalties listed in the table in Attachment 8. However, Competitors need to report to the technical delegate the use of joker tyres for remarking and accounting purpose.\n\nFor the avoidance of doubt teams must declare for which session each joker tyre(s) will be used and latest 60 mins before the session in question.\n\nThe penalties will be issued according to the attachment 8 tyre-table.\n\nIn case of a change of weather conditions and wet weather tyres have been used instead of the Joker Tyres the penalty for that grid remains but the joker tyres are now part of the marked tyres without any penalty for the next session. If the driver does not take part in the session for which the joker tyres have been declared then the competitor re-register the joker tyres for the next session at the same event and will be subject to the corresponding penalty\n\nneeds to according to the attachment 8 tyre-table.\n\nIn case the competitor has not used the declared joker tyre(s) during the declared session the joker tyre(s) must be declared again and used in the next session of the same event and subject to the penalty according to the attachment 8 tyre-table.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_01458a13c8288fa0",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Asia",
+          "document_type": "regulation",
+          "season": 2025
+        },
+        "citation": {
+          "chunk_id": "chk_560922e3ea132113a0e0345b09639b4a",
+          "source_sha256": "0372ebbf1caffa15deaed96c63f453817fc88a4baeac5068e231eb6fb5f6145a",
+          "source_path": "Rules and Regulations/PCC Asia/PCCA 2025 Regulations_Final.pdf",
+          "source_filename": "PCCA 2025 Regulations_Final.pdf",
+          "page_start": 69,
+          "page_end": 69,
+          "page_numbers": [
+            69
+          ],
+          "section_path": [
+            "Rain Tyres",
+            "2.8.9 Slick Tyres damage and Joker Tyres"
+          ],
+          "clause_reference": "2.8.9",
+          "evidence_sha256": "b0440fd5b2873cd9a66a70ac8b704f07b8aba238e324eca0c9c588cd5185cc97",
+          "element_ids": [
+            "el_e28b84ffff3f3efa115144dbfb1b97a9",
+            "el_12dabc818225370d6f6aa472ca19de9d",
+            "el_1f0d1df9a418270415caaa958a4db178",
+            "el_446054858531735d2a26ad4365344f43",
+            "el_4496bbbd41322a60800bc6b4ec12faa5",
+            "el_010045a50bf45620492d1609c98fce8d"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 69,
+              "bbox": {
+                "left": 34.080072,
+                "top": 412.260463,
+                "right": 535.558944,
+                "bottom": 384.942433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 210
+            },
+            {
+              "page_number": 69,
+              "bbox": {
+                "left": 34.080072,
+                "top": 363.780463,
+                "right": 533.049456,
+                "bottom": 336.462433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 146
+            },
+            {
+              "page_number": 69,
+              "bbox": {
+                "left": 34.080072,
+                "top": 331.620463,
+                "right": 340.34184,
+                "bottom": 320.382433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 70
+            },
+            {
+              "page_number": 69,
+              "bbox": {
+                "left": 34.080072,
+                "top": 315.540463,
+                "right": 549.977952,
+                "bottom": 256.062433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 463
+            },
+            {
+              "page_number": 69,
+              "bbox": {
+                "left": 34.080072,
+                "top": 283.380463,
+                "right": 551.952384,
+                "bottom": 239.982433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 50
+            },
+            {
+              "page_number": 69,
+              "bbox": {
+                "left": 34.080072,
+                "top": 235.140463,
+                "right": 554.555808,
+                "bottom": 191.502433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 247
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 1,
+          "lexical_score": 41.279,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 1,
+          "rrf_score": 0.01639344262295082,
+          "reranker_score": 0.010529711842536926
+        }
+      },
+      {
+        "rank": 10,
+        "evidence_text": "12.7.7 If the Starter is not satisfied with the position/speed of the cars or a problem arises when the cars reach the Line at the end of the Formation Lap, the red lights will remain on and yellow lights will be flashing. This is the signal that an additional Formation Lap is required. Yellow flags will be displayed at all observation posts. The cars, with the pole position car leading, will complete another Formation Lap. They may be joined and led by another official leading car.\n\nIf additional Formation Laps are necessary, the procedures at the end of an additional Formation Lap will be the same as at the end of a Formation Lap. If more than one additional Formation Laps is necessary, for timing purposes the start will be considered as having been given at the end at the first formation lap.\n\nShould such an additional formation lap be carried out, the race timing will commence at the end of the first formation lap. The Race Starter will be Race Director or a Judge of Fact.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_01458a13c8288fa0",
+        "source_metadata": {
+          "season": 2025,
+          "authority": "official_regulation",
+          "championship": "PCC Asia",
+          "document_type": "regulation"
+        },
+        "citation": {
+          "chunk_id": "chk_a295a518b23b417a74aa6f51b5bdab4c",
+          "source_sha256": "0372ebbf1caffa15deaed96c63f453817fc88a4baeac5068e231eb6fb5f6145a",
+          "source_path": "Rules and Regulations/PCC Asia/PCCA 2025 Regulations_Final.pdf",
+          "source_filename": "PCCA 2025 Regulations_Final.pdf",
+          "page_start": 34,
+          "page_end": 34,
+          "page_numbers": [
+            34
+          ],
+          "section_path": [
+            "Additional point in each Race:",
+            "12. Running of the Competitions",
+            "12.7 Starting Procedure for Rolling Start"
+          ],
+          "clause_reference": "12.7.7",
+          "evidence_sha256": "00fc057ce83b6c227a8d4840e987439271861aed6345f17aeed326be5757e6cb",
+          "element_ids": [
+            "el_9ce20ce4f45bec2211a24bee423cac3d",
+            "el_e63b3c1607ab84c32afecd7333986de8",
+            "el_12247b9dc15b137e67bd7601cb8c6097"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 34,
+              "bbox": {
+                "left": 34.080072,
+                "top": 367.823983,
+                "right": 561.743904,
+                "bottom": 306.942433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 487
+            },
+            {
+              "page_number": 34,
+              "bbox": {
+                "left": 34.080072,
+                "top": 286.020463,
+                "right": 561.811944,
+                "bottom": 242.622433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 317
+            },
+            {
+              "page_number": 34,
+              "bbox": {
+                "left": 34.080072,
+                "top": 221.700463,
+                "right": 561.697128,
+                "bottom": 194.382433,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 183
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": null,
+          "lexical_score": null,
+          "semantic_rank": 1,
+          "semantic_score": 0.5049667303081848,
+          "fused_rank": 2,
+          "rrf_score": 0.01639344262295082,
+          "reranker_score": 0.0064882696606218815
+        }
+      },
+      {
+        "rank": 12,
+        "evidence_text": "If a driver has a problem on the grid after the Formation Lap, then he must make this known to the Starter, by means such as flashing the head lights, waving his arm, etc. If the Starter decides to delay the start, the yellow flashing lights will be switched on. Then the green lights will be illuminated, and drivers must complete a further Formation Lap. The driver that caused the Delayed Start will be pushed into the pitlane and will, if able, become a pitlane Starter. The race distance will be reduced by a time equivalent to at least 1 lap (to be determined by the Race Directors) each time this occurs.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_883b29bb55ed059e",
+        "source_metadata": {
+          "season": 2026,
+          "authority": "official_regulation",
+          "championship": "PCC Scandinavia",
+          "document_type": "regulation"
+        },
+        "citation": {
+          "chunk_id": "chk_41023730fd945c69e01bb7a32545ece3",
+          "source_sha256": "f473f6b5e4f15ae4b27adf3adb560c38d8056144ca8b4a25b7073b31af7bce5b",
+          "source_path": "Rules and Regulations/Other/PCC Scandinavia/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 35,
+          "page_end": 35,
+          "page_numbers": [
+            35
+          ],
+          "section_path": [
+            "The pre-start for qualifying is regulated as follows:",
+            "13.7 Start procedure"
+          ],
+          "clause_reference": "13.7",
+          "evidence_sha256": "d736617f2ff5251ee8eb89fdaa14e44d45a1a4fbab52150bc04d72e13be53194",
+          "element_ids": [
+            "el_e73c462eb920788b55287db21fdd36c4"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 35,
+              "bbox": {
+                "left": 70.775,
+                "top": 602.67,
+                "right": 526.651,
+                "bottom": 525.233508,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 611
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": null,
+          "lexical_score": null,
+          "semantic_rank": 10,
+          "semantic_score": 0.4861158636831133,
+          "fused_rank": 19,
+          "rrf_score": 0.014285714285714285,
+          "reranker_score": 0.0061450921930372715
+        }
+      },
+      {
+        "rank": 14,
+        "evidence_text": "The split report is based on the track sections. Each track section is marked by a split marking point. This can be either a physical marker or a marker set using the software. By dividing the track into sections, it can be quickly determined how fast and consistently a driver performs in each section.\n\nBy comparing laps, it is possible to determine how adjustments to the setup affect perfor -mance.\n\nCreating a split report using the time elapsed will create a very helpful split time report. The split time report provides two unique performance indicators:\n\nThe fastest lap in theory\n\nThe fastest lap driven\n\nThe fastest lap in theory defines the lap times that could be achieved if the best interme -diate times of an outing would be achieved in one single lap.\n\nThe fastest lap driven is the fastest lap using a start and finish point that must not neces -sarily be the end-of-lap beacon at the lap finish. The comparison of the lap times achieved and the fastest lap in theory shows the driver's consistency.",
+        "document_class": "technical_manual",
+        "chunk_kind": "section",
+        "source_role": "technical_manual_current_generation",
+        "source_metadata": {
+          "authority": "manufacturer_document",
+          "document_type": "technical_manual",
+          "vehicle_generation": "992.2"
+        },
+        "citation": {
+          "chunk_id": "chk_45784129d7d3f43d343a954e2d8d5a61",
+          "source_sha256": "35bb8384deb93537b2c99dfa9fe43681b1daa3d7fa7ddb62cbf71be268776456",
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "source_filename": "992.2 Technical Manual.pdf",
+          "page_start": 847,
+          "page_end": 847,
+          "page_numbers": [
+            847
+          ],
+          "section_path": [
+            "SPLIT REPORT"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "1c9cce72268a9cfe86bbe1f97d676e54b27fda39fa996c23d7aa721c049e132a",
+          "element_ids": [
+            "el_8375f64e828992b6c7d1a0cc2d6fba9f",
+            "el_c6b7d54d99b0e74b5c0489073661578a",
+            "el_d56f0dce87061450f58a0be5d6eba2b7",
+            "el_ae05a2f22ff952114a4ca4f876628f82",
+            "el_e0a5ef790af0427784231292e49dd53c",
+            "el_115ee5d992116609fb485771ec2fa982",
+            "el_f72f5422bfccba364f374b5b5bdcb4ec"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 847,
+              "bbox": {
+                "left": 127.5587,
+                "top": 501.948924,
+                "right": 516.0633,
+                "bottom": 452.745403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 303
+            },
+            {
+              "page_number": 847,
+              "bbox": {
+                "left": 127.5587,
+                "top": 449.940924,
+                "right": 515.9137,
+                "bottom": 426.741403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 97
+            },
+            {
+              "page_number": 847,
+              "bbox": {
+                "left": 127.5587,
+                "top": 417.941924,
+                "right": 506.9432,
+                "bottom": 394.742403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 158
+            },
+            {
+              "page_number": 847,
+              "bbox": {
+                "left": 150.2407,
+                "top": 391.937924,
+                "right": 266.7395,
+                "bottom": 381.740403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 27
+            },
+            {
+              "page_number": 847,
+              "bbox": {
+                "left": 150.2407,
+                "top": 378.935924,
+                "right": 255.1158,
+                "bottom": 368.738403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 24
+            },
+            {
+              "page_number": 847,
+              "bbox": {
+                "left": 127.5697,
+                "top": 359.938924,
+                "right": 512.7017,
+                "bottom": 336.739403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 153
+            },
+            {
+              "page_number": 847,
+              "bbox": {
+                "left": 127.5697,
+                "top": 327.939924,
+                "right": 516.0688,
+                "bottom": 291.738403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 247
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 9,
+          "lexical_score": 33.397903,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 17,
+          "rrf_score": 0.014492753623188406,
+          "reranker_score": 0.005598248913884163
+        }
+      }
+    ],
+    "retrieval_counts": {
+      "lexical": 50,
+      "semantic": 50,
+      "fused": 30,
+      "reranked": 20
+    },
+    "generation_model": {
+      "model": "qwen3.5:9b",
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "parameter_size": "9.7B",
+      "quantization_level": "Q4_K_M"
+    },
+    "generation_usage": {
+      "total_duration_ms": 0,
+      "load_duration_ms": 0,
+      "prompt_tokens": 0,
+      "output_tokens": 0
+    },
+    "timings": {
+      "retrieval_ms": 495,
+      "generation_ms": 8
+    },
+    "evidence_selection": {
+      "policy": "facet_topic_mmr_scope_v3",
+      "query_intent": "concept",
+      "candidates_considered": 20,
+      "selected_count": 8,
+      "duplicates_removed": 0,
+      "distinct_sources": 5,
+      "required_scopes": [],
+      "covered_scopes": [],
+      "requested_facets": [],
+      "covered_facets": [],
+      "missing_facets": [],
+      "maximum_reranker_score": 0.03021458350121975,
+      "minimum_score_threshold": 0.2377,
+      "sufficient": false,
+      "reason": "below_calibrated_threshold"
+    }
+  },
+  "status": "completed"
+}

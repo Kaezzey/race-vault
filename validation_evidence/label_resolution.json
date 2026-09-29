@@ -1,0 +1,950 @@
+{
+  "reg_joker_tyre_definition": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 6,
+          "text_contains": [
+            "Joker Tyre",
+            "Regulation S16.3"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_ff6c5f631854ebe913c8c34f258667a9",
+            "page_numbers": [
+              6
+            ],
+            "evidence_text": "CA\tThe Category Administrator of the Championship as appointed by the CM .\nChampionship\tThe 2026 Porsche Equity-One Carrera Cup Australia Championship.\nCM\tThe Category Manager of the Championship as appointed by Motorsport Australia .\nCode of Driving Conduct\tA document detailing the minimum level of conduct expected by all Drivers as published by Motorsport Australia .\nControl Component\tA component that is specified for use in the Championship and is supplied by PAG or a Control Component Supplier . Unless otherwise stated in these regulations, the fitment and/or use of each Control Component is mandatory.\nControl Component Service Agent\tThe agent permitted to service a Control Component as nominated by the CM .\nControl Component Supplier\tThe manufacturer and/or supplier of a Control Component as nominated by the CM .\nCRSR\tCircuit Race Standing Regulations as promulgated by Motorsport Australia .\nDM\tThe Driver Mentor as appointed by the CM .\nDRD\tThe Deputy Race Director as appointed by Motorsport Australia .\nDSA\tThe Driving Standards Advisor as appointed by Motorsport Australia .\nFIA\tThe Federation Internationale de l'Automobile.\nGuest Driver\tAn eligible Driver that is invited by the CM to compete at a Round .\nJoker Tyre\tA Tyre that has been manufactured by Michelin and supplied by the nominated Control Component Supplier , that has not been used or modified in any way, and is permitted to be used in practice in accordance with Regulation S16.3.\nMarked Tyre\tA Tyre that has been approved for use in the Championship by the TD .\nOM\tThe Operations Manager as appointed by the CM .\nOrganiser\tThe organiser of a Round as advised in the Supplementary Regulations issued for an event.\nPAG\tDr. Ing. h.c. F. Porsche Aktiengesellschaft\nPaddock\tA defined area within the Precinct , designated for the garaging of Automobiles and associated equipment.\nPrecinct\tThe area within the perimeter of the event venue.\nPreviously Marked Tyre\tA Marked Tyre from a prior Round that is approved for use by a specific Driver .\nPreviously Used Brake Rotor\tA brake rotor that has at least 0.2 mm of wear, measured adjacent to the wear indicators on the brake rotor.\nRacing Weight\tThe weight of an Automobile (including safety gear and liquids) and its Driver (including apparel) at any time during a Competition , such as at the end of practice, qualifying or a race.\nRD\tThe Race Director as appointed by Motorsport Australia .\nRMC\tRace Management Channel.\nRound\tA round of the Championship ."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "reg_control_component_requirement": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 6,
+          "text_contains": [
+            "Control Component",
+            "mandatory"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_ff6c5f631854ebe913c8c34f258667a9",
+            "page_numbers": [
+              6
+            ],
+            "evidence_text": "CA\tThe Category Administrator of the Championship as appointed by the CM .\nChampionship\tThe 2026 Porsche Equity-One Carrera Cup Australia Championship.\nCM\tThe Category Manager of the Championship as appointed by Motorsport Australia .\nCode of Driving Conduct\tA document detailing the minimum level of conduct expected by all Drivers as published by Motorsport Australia .\nControl Component\tA component that is specified for use in the Championship and is supplied by PAG or a Control Component Supplier . Unless otherwise stated in these regulations, the fitment and/or use of each Control Component is mandatory.\nControl Component Service Agent\tThe agent permitted to service a Control Component as nominated by the CM .\nControl Component Supplier\tThe manufacturer and/or supplier of a Control Component as nominated by the CM .\nCRSR\tCircuit Race Standing Regulations as promulgated by Motorsport Australia .\nDM\tThe Driver Mentor as appointed by the CM .\nDRD\tThe Deputy Race Director as appointed by Motorsport Australia .\nDSA\tThe Driving Standards Advisor as appointed by Motorsport Australia .\nFIA\tThe Federation Internationale de l'Automobile.\nGuest Driver\tAn eligible Driver that is invited by the CM to compete at a Round .\nJoker Tyre\tA Tyre that has been manufactured by Michelin and supplied by the nominated Control Component Supplier , that has not been used or modified in any way, and is permitted to be used in practice in accordance with Regulation S16.3.\nMarked Tyre\tA Tyre that has been approved for use in the Championship by the TD .\nOM\tThe Operations Manager as appointed by the CM .\nOrganiser\tThe organiser of a Round as advised in the Supplementary Regulations issued for an event.\nPAG\tDr. Ing. h.c. F. Porsche Aktiengesellschaft\nPaddock\tA defined area within the Precinct , designated for the garaging of Automobiles and associated equipment.\nPrecinct\tThe area within the perimeter of the event venue.\nPreviously Marked Tyre\tA Marked Tyre from a prior Round that is approved for use by a specific Driver .\nPreviously Used Brake Rotor\tA brake rotor that has at least 0.2 mm of wear, measured adjacent to the wear indicators on the brake rotor.\nRacing Weight\tThe weight of an Automobile (including safety gear and liquids) and its Driver (including apparel) at any time during a Competition , such as at the end of practice, qualifying or a race.\nRD\tThe Race Director as appointed by Motorsport Australia .\nRMC\tRace Management Channel.\nRound\tA round of the Championship ."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "reg_slick_tyre_definition": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 7,
+          "text_contains": [
+            "Slick Tyre",
+            "Regulation T12"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_a153ca123ff198e102ad0ce097f4d7db",
+            "page_numbers": [
+              7
+            ],
+            "evidence_text": "Slick Tyre\tA dry weather Tyre as specified in Regulation T12.\nStandard\tAn original unmodified component that is fitted to an Automobile in accordance with Regulation T2.2; and as supplied by PAG or an authorised Control Component Supplier .\nTD\tThe Technical Delegate as appointed by Motorsport Australia .\nTeam\tThe service provider as nominated by the Competitor on the Registration Application Form\nTeam Manager\tThe appointed Team representative as nominated by the Competitor on the Registration Application Form.\nTM\tThe Technical Manager as appointed by the CM .\nTyre\tAn eligible control tyre as specified in Regulation T12.\nTyre Bank\tA collection of Previously Marked Tyres allocated to a Driver .\nWet Tyre\tA wet weather Tyre as specified in Regulation T12."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "reg_round_alteration_precedence": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 8,
+          "text_contains": [
+            "Supplementary Regulations",
+            "take precedence"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_0bcd8bb20beb546d85592636b797b155",
+            "page_numbers": [
+              8
+            ],
+            "evidence_text": "1.2.3\n\nWhere any aspect of these regulations is approved by Motorsport Australia to be altered for a specific Round, this will be included in the Supplementary Regulations for that Event and/or a Bulletin at that Event and will take precedence over these regulations.\n\nThe Championship has been sanctioned by Motorsport Australia as a National Championship .\n\nPorsche Cars Australia Pty Ltd ( PCA )  has been appointed as the CM by Motorsport Australia for this Championship ."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "reg_driver_minimum_age": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 9,
+          "text_contains": [
+            "seventeen (17) years"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_75b5c4b7867ddb4b1d01facead0cee98",
+            "page_numbers": [
+              9
+            ],
+            "evidence_text": "To be eligible to enter and compete in the Championship , each Driver must:\n\nHave had their Registration Application Form unconditionally accepted by PCA;\n\nBe registered with the CM ;\n\nBe at least seventeen (17) years of age;\n\nHold a minimum of a valid Motorsport Australia Circuit Licence without Provisional endorsement or equivalent, and;\n\nComplete an online assessment to the satisfaction of the CM .\n\nNOTE: A Driver holding a Licence issued by an ASN other than Motorsport Australia will be eligible to score points in the Championship."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "reg_2026_calendar": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 10,
+          "text_contains": [
+            "Round",
+            "Circuit",
+            "Albert Park"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_2c78142b7d08c40136664753df1d0786",
+            "page_numbers": [
+              10
+            ],
+            "evidence_text": "Round\tDate\tEvent\tCircuit\n1\t5 - 8 March\tFormula 1 Qatar Airways Australian Grand Prix\tAlbert Park, VIC\n2\t19 - 21 June\tbetr Darwin Triple Crown\tHidden Valley, NT\n3\t21 - 23 August\tCentury Batteries Ipswich Super 440\tQueensland Raceway, QLD\n4\t11 - 13 September\tThe AirTouch 500 at the Bend\tShell V-Power Motorsport Park, SA\n5\t8 - 11 October\tRepco Bathurst 1000\tMount Panorama, NSW\n6\t23 - 25 October\tBoost Mobile Gold Coast 500\tSurfers Paradise, QLD\n7\t26 - 29 November\tbp Adelaide Grand Final\tAdelaide Parklands, SA"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "tyre_n3r_dimensions": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "31/71-18",
+            "N3R",
+            "2197"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_32aed2741216e83e7f7c3f6335b98f3a",
+            "page_numbers": [
+              2
+            ],
+            "evidence_text": "SIZE\tTYRE\tWHEEL RECOMMEN DED (\")\tTREAD WIDTH (mm)\tTIRE SECTION (MM)\tDIAMETER INLFATED (mm)\tROLLING CIRCUMFER ENCE (mm)\n30/65-18\tMICHELIN PORSCHE CUP N3\t12\t296\t320\t651\t2030\n31/71-18\tMICHELIN PORSCHE CUP N3R\t13\t311\t348\t708\t2197"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "tyre_n3_rolling_circumference": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "30/65-18",
+            "N3",
+            "2030"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_32aed2741216e83e7f7c3f6335b98f3a",
+            "page_numbers": [
+              2
+            ],
+            "evidence_text": "SIZE\tTYRE\tWHEEL RECOMMEN DED (\")\tTREAD WIDTH (mm)\tTIRE SECTION (MM)\tDIAMETER INLFATED (mm)\tROLLING CIRCUMFER ENCE (mm)\n30/65-18\tMICHELIN PORSCHE CUP N3\t12\t296\t320\t651\t2030\n31/71-18\tMICHELIN PORSCHE CUP N3R\t13\t311\t348\t708\t2197"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "tyre_shoulder_temperature_delta": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 3,
+          "text_contains": [
+            "inside shoulder",
+            "outside shoulder",
+            "20"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_979a04bfbd3dbd14cee46a474fe51a45",
+            "page_numbers": [
+              3
+            ],
+            "evidence_text": "After a run, the delta of temperature between the inside shoulder and the outside shoulder has to be less than 20\u00b0C.\n\nExceeding some of these data levels (f.e. camber) may cause a tyre damage or a fall of in performances  :  high  tyre  wear,  balance  problems  (oversteer/understeer)  and  a  drop  off  in laptimes (less constant).\n\nOne stint is equivalent to the mileage indicated (including a maximum of 2 pit stops and/or driving under pace car). At this mileage and this speed limit, the integrity of the construction is guaranteed for endurance but not for wear potential or grip potential. Therefore, depending on the conditions of use, a tyre :\n\nCould be worn before achieving the indicated mileage,\n\nCould be only partially  worn  even  though  the  indicated  mileage  has  been  achieved.  In  this case, the integrity of the construction cannot be guaranteed, the tyre must be replaced.\n\nThese  recommendations  are  valid  unless  the  tyres  have  been  damaged:  for  example, puncture or flat spots.\n\nThe recommendations regarding rain tyres are only for wet conditions and not intended for a drying race track."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "tyre_unlisted_track_recommendation": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 4,
+          "text_contains": [
+            "all other tracks",
+            "STANDARD recommendations"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_7080ff28f08cfe1d6d3a9cf13ec5a898",
+            "page_numbers": [
+              4
+            ],
+            "evidence_text": "For all other tracks, you can apply the STANDARD recommendations for use.\n\n(1) Contact Michelin for specific track recommendations for use\n\nTracks with banking other than listed in mid stress and high stress"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "tyre_n3r_standard_cold_pressure": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": 6,
+          "text_contains": [
+            "13 J 18",
+            "1.2 bar",
+            "17.4 Psi"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_7bb9956e39700a69eb65c67a43b4152a",
+            "page_numbers": [
+              6
+            ],
+            "evidence_text": "Usage :\t\t\tTrack not listed in mid stress, high stress, specific\nVitesse max / Max speed :\t\t\t320 km/h\nJante nominale / Nominal rim :\t\t\t13 J 18\nPression mini \u00e0 froid / Mini cold pressure :\t\t\t1.2 bar \uf0f3 17.4 Psi\nRelais / Stint :\t\t\t200 km\nNb de relais / Nb of stints\tPression mini \u00e0 chaud / Mini hot pressure\nCarrossage / Camber\t27.6 Psi 1.9 bar\t29.0 Psi 2.0 bar\t30.5 Psi 2.1 bar\t31.9 Psi 2.2 bar\t33.4 Psi 2.3 bar\n-4.01\u00b0\t0\t0\t0\t0\t0\n-4.0\u00b0\t0\t1\t1\t1\t1\n-3.5\u00b0\t0\t1\t1\t1\t1\nFrom -1.5\u00b0 to -3\u00b0\t0\t1\t1\t1\t1"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "manual_intended_use": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "page_number": 3,
+          "text_contains": [
+            "circuit races",
+            "racecar"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_105391d4b3c51d7d961e5e699c2ef8c6",
+            "page_numbers": [
+              3
+            ],
+            "evidence_text": "This car has been specially designed for participation in circuit races.\n\nThe Porsche 911 Cup (992 II) is a racecar; special skills and knowledge are required to drive a racecar. We therefore recommend that drivers first complete the 'Porsche Track Experience', the 'Porsche Racing Experience' or an equivalent training programme.\n\nRepair, maintenance and adjustment work on a racecar requires special skills and knowledge and an extremely high level of care and attention. Persons who carry out work on the 911Cup(992 II) must be sensitised to the particular requirements of motorsport.\n\nFigures, descriptions and schematic drawings serve only as visualisation of the text.\n\nWe shall not accept liability for completeness of the content or for conformity of the content with applicable sporting codes and legal regulations.\n\nPorsche Motorsport does not accept any claims for repair and goodwill if control units and/or CANs have been manipulated."
+          }
+        ]
+      },
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "page_number": 3,
+          "text_contains": [
+            "cannot be approved",
+            "public roads"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_ed35f9d646190257f4ab0be316305ae4",
+            "page_numbers": [
+              3
+            ],
+            "evidence_text": "This car cannot be approved for use on public roads and does not meet the requirements of the German Road Traffic Licensing Regulation (German designation: StVZO)."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "manual_main_voltage_switch": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "page_number": 9,
+          "text_contains": [
+            "main voltage supply",
+            "Switch down: ON"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_e09ccca9a904dc473a5be5cd3b2d8adf",
+            "page_numbers": [
+              9
+            ],
+            "evidence_text": "Pull the switch out and put it in up or down position.\n\n\u2192 Switching the main voltage supply on/off\n\nSwitch up: OFF\n\nSwitch down: ON"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "manual_fire_system_test": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "page_number": 9,
+          "text_contains": [
+            "test mode",
+            "activated unintentionally"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_62e9853f1870d32d99d0c813cd35ef82",
+            "page_numbers": [
+              9
+            ],
+            "evidence_text": "Activating and testing the Fire extinguisher system.\n\nNOTICE! The system must be tested in test mode to prevent the fire extinguisher from being activated unintentionally, see Testing/activating the system on page 743 ."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "failure_wrong_regulation_revision": {
+    "labels": [],
+    "negative_term_counts": {}
+  },
+  "conflict_n3r_pressure_sources": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+          "page_number": null,
+          "text_contains": [
+            "13 J 18",
+            "Mini cold pressure"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_7bb9956e39700a69eb65c67a43b4152a",
+            "page_numbers": [
+              6
+            ],
+            "evidence_text": "Usage :\t\t\tTrack not listed in mid stress, high stress, specific\nVitesse max / Max speed :\t\t\t320 km/h\nJante nominale / Nominal rim :\t\t\t13 J 18\nPression mini \u00e0 froid / Mini cold pressure :\t\t\t1.2 bar \uf0f3 17.4 Psi\nRelais / Stint :\t\t\t200 km\nNb de relais / Nb of stints\tPression mini \u00e0 chaud / Mini hot pressure\nCarrossage / Camber\t27.6 Psi 1.9 bar\t29.0 Psi 2.0 bar\t30.5 Psi 2.1 bar\t31.9 Psi 2.2 bar\t33.4 Psi 2.3 bar\n-4.01\u00b0\t0\t0\t0\t0\t0\n-4.0\u00b0\t0\t1\t1\t1\t1\n-3.5\u00b0\t0\t1\t1\t1\t1\nFrom -1.5\u00b0 to -3\u00b0\t0\t1\t1\t1\t1"
+          },
+          {
+            "id": "chk_1d7c04169bc6b3b2d3f1d186549640a3",
+            "page_numbers": [
+              6
+            ],
+            "evidence_text": "Usage :\t\t\tCircuit sans banking / Track without banking\nVitesse max / Max speed :\t\t\t320 km/h\nJante nominale / Nominal rim :\t\t\t13 J 18\nPression mini \u00e0 froid / Mini cold pressure :\t\t\t1.3 bar \uf0f3 18.9 Psi\nRelais / Stint :\t\t\t160 km\nNb de relais / Nb of stints\tPression mini \u00e0 chaud / Mini hot pressure\nCarrossage / Camber\t27.6 Psi 1.9 bar\t29.0 Psi 2.0 bar\t30.5 Psi 2.1 bar\t31.9 Psi 2.2 bar\t33.4 Psi 2.3 bar\n-3.51\u00b0\t0\t0\t0\t0\t0\n-3.5\u00b0\t0\t2\t2\t2\t2\n-3.0\u00b0\t0\t2\t2\t2\t2\nFrom -2\u00b0 to -2.5\u00b0\t0\t2\t2\t2\t2"
+          },
+          {
+            "id": "chk_2c12cc9b2020700896b55247b083943c",
+            "page_numbers": [
+              7
+            ],
+            "evidence_text": "Usage :\t\t\tLe Castellet, Macao, Mandalika, Mount Panorama, Red Bull ring, Silverstone, Spa, Zandvoort, Zolder\nVitesse max / Max speed :\t\t\t320 km/h\nJante nominale / Nominal rim :\t\t\t13 J 18\nPression mini \u00e0 froid / Mini cold pressure :\t\t\t1.3 bar \uf0f3 18.9 Psi\nRelais / Stint :\t\t\t200 km\nNb de relais / Nb of stints\tPression mini \u00e0 chaud / Mini hot pressure\nCarrossage / Camber\t27.6 Psi 1.9 bar\t29.0 Psi 2.0 bar\t30.5 Psi 2.1 bar\t31.9 Psi 2.2 bar\t33.4 Psi 2.3 bar\n-3.51\u00b0\t0\t0\t0\t0\t0\n-3.5\u00b0\t0\t0\t1\t1\t1\n-3.0\u00b0\t0\t0\t1\t1\t1\nFrom -1.5\u00b0 to -2.5\u00b0\t0\t0\t1\t1\t1"
+          },
+          {
+            "id": "chk_3344b38d2ef74f7195fdf30fddbd5800",
+            "page_numbers": [
+              7
+            ],
+            "evidence_text": "Usage :\t\t\tCircuit sans banking / Track without banking\nVitesse max / Max speed :\t\t\t320 km/h\nJante nominale / Nominal rim :\t\t\t13 J 18\nPression mini \u00e0 froid / Mini cold pressure :\t\t\t1.3 bar \uf0f3 18.9 Psi\nRelais / Stint :\t\t\t160 km\nNb de relais / Nb of stints\tPression mini \u00e0 chaud / Mini hot pressure\nCarrossage / Camber\t27.6 Psi 1.9 bar\t29.0 Psi 2.0 bar\t30.5 Psi 2.1 bar\t31.9 Psi 2.2 bar\t33.4 Psi 2.3 bar\n-3.51\u00b0\t0\t0\t0\t0\t0\n-3.5\u00b0\t0\t2\t2\t2\t2\n-3.0\u00b0\t0\t2\t2\t2\t2\nFrom -2\u00b0 to -2.5\u00b0\t0\t2\t2\t2\t2"
+          },
+          {
+            "id": "chk_a8cc84dfc79b78daae9c5227134f3ead",
+            "page_numbers": [
+              8
+            ],
+            "evidence_text": "Usage :\t\t\tDijon, Indianapolis, Interlagos, Lime Rock, Monza, Mosport, N\u00fcrburgring Nordschleife, Phillip Island, Road America, Road Atlanta, Shanghai, VIR, Watkins Glen\nVitesse max / Max speed :\t\t\t320 km/h\nJante nominale / Nominal rim :\t\t\t13 J 18\nPression mini \u00e0 froid / Mini cold pressure :\t\t\t1.3 bar \uf0f3 18.9 Psi\nRelais / Stint :\t\t\t200 km\nNb de relais / Nb of stints\tPression mini \u00e0 chaud / Mini hot pressure\nCarrossage / Camber\t27.6 Psi 1.9 bar\t29.0 Psi 2.0 bar\t\t31.9 Psi 2.2 bar\t33.4 Psi 2.3 bar\n-3.01\u00b0\t0\t0\t\t0\t0\n-3.0\u00b0\t0\t0\t\t1\t1\n-2.5\u00b0\t0\t0\t\t1\t1\nFrom -1.5\u00b0 to -2\u00b0\t0\t0 1\t\t1\t1"
+          },
+          {
+            "id": "chk_ce825ee0ab0f4ef74c1a9a81177a0440",
+            "page_numbers": [
+              8
+            ],
+            "evidence_text": "Usage :\t\t\tCircuit sans banking / Track without banking\nVitesse max / Max speed :\t\t\t320 km/h\nJante nominale / Nominal rim :\t\t\t13 J 18\nPression mini \u00e0 froid / Mini cold pressure :\t\t\t1.3 bar \uf0f3 18.9 Psi\nRelais / Stint :\t\t\t160 km\nNb de relais / Nb of stints\tPression mini \u00e0 chaud / Mini hot pressure\nCarrossage / Camber\t27.6 Psi 1.9 bar\t29.0 Psi 2.0 bar\t30.5 Psi 2.1 bar\t31.9 Psi 2.2 bar\t33.4 Psi 2.3 bar\n-3.01\u00b0\t0\t0\t0\t0\t0\n-3.0\u00b0\t0\t2\t2\t2\t2\n-2.5\u00b0\t0\t2\t2\t2\t2\nFrom -1.5\u00b0 to -2\u00b0\t0\t2\t2\t2\t2"
+          }
+        ]
+      },
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "tyre pressure",
+            "Michelin Precos"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_7350f900afcfefb3e34195cc2e4ab066",
+            "page_numbers": [
+              2
+            ],
+            "evidence_text": "Incorrectly adjusted camber and tyre pressure values can cause tyre failure.\n\nRespect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).\n\nFor circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.\n\nExceeding the maximum camber shim thickness for the corresponding circuit type is not permitted."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "aus_current_minimum_weight": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 26,
+          "text_contains": [
+            "minimum of 1300 kg"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_34441abb6093c6ce29e5de8b28820d7b",
+            "page_numbers": [
+              26
+            ],
+            "evidence_text": "At all times each Automobile must weigh a minimum of 1300 kg, inclusive of.\n\nThe judicial camera unit;\n\nIn-car camera/s and associated equipment as supplied by the Event Broadcaster;\n\nRadio communication equipment;\n\nAutomobile ballast;\n\nAuthorised Driver comfort aids; and,\n\nAny additional components fitted to the Automobile in accordance with Regulation T1.13.\n\nNOTE: Automobile Weight excludes any Driver ballast fitted to the Automobile in accordance with Regulation T3.1.2."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "aus_current_racing_weight": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 26,
+          "text_contains": [
+            "1385 kg"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_b393ab6f56457744ccd7b57abc988dab",
+            "page_numbers": [
+              26
+            ],
+            "evidence_text": "At all times, each Automobile must achieve a minimum Racing Weight of 1385 kg."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "aus_2025_minimum_weight": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2025_Porsche_Carrera_Cup_Australia_Sporting_Technical_Regulations_V1.pdf",
+          "page_number": 47,
+          "text_contains": [
+            "1295 kg"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_d4939d6a52cf181aaa147189b40f757b",
+            "page_numbers": [
+              47
+            ],
+            "evidence_text": "It  is  the Competitor's responsibility  to  ensure  that  the  combined  weight  of  the Automobile and  its Driver (including apparel) is a minimum of 1380 kg at all times during the Competition including during scrutineering, on the Track and in Parc Ferm\u00e9 .\n\nThe weight of the Automobile must be a minimum of 1295 kg and includes the weight of:\n\nthe Automobile with fuel remaining after the session;\n\nthe onboard camera system (refer Article S20.1);\n\nthe TV production camera or additional weight (refer Article S20.2)\n\nthe radio system;\n\nadditional weights (excluding the Driver equalisation weight);\n\nany additional parts or systems required to be fitted for development purposes by the TA (refer Article T2.9);\n\nDriver cooling systems approved by the TD.\n\nThe weight of the Driver including  any  apparel  required  by  Technical  Appendix  -  Schedule  D  must be a minimum of 85 kg.\n\nIf  a Driver and  their  apparel  weighs  less  than  85  kg,  a Driver equalisation  weight  must  be  added  to  the Automobile . For example, if a Driver and their apparel record a weight of 83 kg, a Driver equalisation weight of 2 kg must be added to the Automobile .\n\nThe Ballast mounting plate must be installed in the Automobile at all times.\n\nAny Driver equalisation weight or Automobile Ballast weight must be fixed to the top of the mounting plate located in the designated fixing points in the position of the Passenger Seat to the floor of the Cockpit (refer Attachment I ).\n\nWeight may be checked after each official qualifying session and after each race on the scales provided by the CM at each Round .  The weight recorded on these scales will be considered to be fact and will not be the subject of any Appeal or Protest.\n\nEach Automobile that records a weight less than the stipulated minimums will incur a penalty. The penalty for the first breach will be Disqualification from the results of that session. The penalty for any subsequent breach of the minimum weight may include Disqualification from the Round ."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "aus_driver_minimum_weight": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 26,
+          "text_contains": [
+            "85 kg",
+            "ballast"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_fd9c342a7f8d616d4aba51ea25f621ea",
+            "page_numbers": [
+              26
+            ],
+            "evidence_text": "At all times each Driver must weigh a minimum of 85 kg (including all normal racing apparel in accordance with Technical Appendix -Schedule D).\n\nIf a Driver weighs less than 85 kg, Driver ballast must be affixed to the Automobile to achieve the minimum Driver Weight."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "aus_fuel_remaining": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 19,
+          "text_contains": [
+            "2.0 kg of fuel"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_72e1f8fdf838251f66294c7558c5f2c5",
+            "page_numbers": [
+              19
+            ],
+            "evidence_text": "From the time an Automobile leaves its garage prior to the commencement of a Track session, until the time the Automobile is released from Parc Ferm\u00e9 after the session, the Automobile must have a minimum of 2.0 kg of fuel in its fuel system, capable of being extracted from the fuel sampling point."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "aus_driver_age": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 9,
+          "text_contains": [
+            "seventeen (17) years of age"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_75b5c4b7867ddb4b1d01facead0cee98",
+            "page_numbers": [
+              9
+            ],
+            "evidence_text": "To be eligible to enter and compete in the Championship , each Driver must:\n\nHave had their Registration Application Form unconditionally accepted by PCA;\n\nBe registered with the CM ;\n\nBe at least seventeen (17) years of age;\n\nHold a minimum of a valid Motorsport Australia Circuit Licence without Provisional endorsement or equivalent, and;\n\nComplete an online assessment to the satisfaction of the CM .\n\nNOTE: A Driver holding a Licence issued by an ASN other than Motorsport Australia will be eligible to score points in the Championship."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "aus_joker_tyre_allocation": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_number": 17,
+          "text_contains": [
+            "six (6) front",
+            "two (2) front"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_efc616194f898e7304b63fafac183c5f",
+            "page_numbers": [
+              17
+            ],
+            "evidence_text": "During the Championship each Driver will be permitted to use a maximum of six (6) front and six (6) rear Joker Tyres .\n\nAt each Round, each Driver is permitted to use a maximum of two (2) front and two (2) rear Joker Tyres .\n\nIf a Driver wishes to use Joker Tyres at any Round , the Competitor must:\n\nPlace an order for Joker Tyres with the Control Component Supplier at least seven (7) days prior to the commencement of the Round in which the Joker Tyres are to be used, and;\n\nNotify the TD at least sixty (60) minutes prior to the scheduled start time of the practice session in which the Joker Tyres are to be used."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "abs_map_switch_torque": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+          "page_number": 21,
+          "text_contains": [
+            "1 to 2 Nm"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_8527820013d17b1545c6c25c804da2e9",
+            "page_numbers": [
+              21
+            ],
+            "evidence_text": "Only use the supplied Map Switch.\n\nDo not exceed the max. tightening torque of 1 to 2 Nm. Overtorquing can damage the switch or make it difficult to turn.\n\nRemove the front cover of the switch to access the retaining hardware."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "abs_brake_line_diameter": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+          "page_number": 22,
+          "text_contains": [
+            "3.3 mm"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_666a7a2b5e7b355d415cab7d414f4012",
+            "page_numbers": [
+              22
+            ],
+            "evidence_text": "All hydraulic connections between ABS M5Use rigid steel brake lines with a diameter of 3.3 mm for as much of the plumbing as possible. Flexible line should be kept to an absolute minimum for optimal brake control and pedal feel.\n\nThe ABS M5 units use a DIN (bubble) flare convention common to European OEM applications. The best and simplest way to adapt the system hydraulically is with an M12x1 DIN tube nut on the ports. Tube nut size should be fitting to the hard line size used. Adapters should be avoided if possible.\n\nThe EBS unit is secured in the vehicle on the provided mounting board. During operation, the EBS unit will vibrate. These vibrations are then transferred to the brake lines. To prevent vibration-induced damage to the brake lines, they must not be secured at up to 20 cm from the EBS unit so that they can vibrate freely."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "abs_reset_after_drive_cycle_fault": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+          "page_number": 37,
+          "text_contains": [
+            "Power off - Power on"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_69455d11d84585eb06beb1102cfaae3a",
+            "page_numbers": [
+              37
+            ],
+            "evidence_text": "Multi switch = Map switch\n\nSystem reset after drive cycle faults.\n\nDrive cycle faults, e.g. because of wheel speed sensor bug, need an ABS M5-ECU reset (Power off - Power on). After the reset, the car has to accelerate to more than 12\u00a0km/h for system check."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "abs_map_switch_positions": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+          "page_number": 31,
+          "text_contains": [
+            "12-position map switch"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_81e986fc7e66312d36f919e2d146dbc5",
+            "page_numbers": [
+              31
+            ],
+            "evidence_text": "For the 12-position map switch, you can specify a default value. If the function switch fails for any reason, the switch automatically takes the position of the default value. To assign a position for the default value, select a number between one and twelve under 'MultiSwitch' in the field 'Default Position':"
+          }
+        ]
+      },
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "ABS/Core/Data_Sheet_70612107_ABS_M5_Kit.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "12-position function switch"
+          ],
+          "relevance_grade": 2
+        },
+        "matches": [
+          {
+            "id": "chk_03b4eb8d4a060704b7c44bd38101d954",
+            "page_numbers": [
+              2
+            ],
+            "evidence_text": "Hydraulic unit\t1,910 g\n2 pressure sensors\t40 g/each\nYaw/acceleration sensor\t60 g\n12-position function switch\t50 g\n4 wheel speed sensors DF11 standard\t50 g/each\nABS warning light (MIL)\t50 g\nVehicle specific wiring harness with motorsport connectors\tDepends on version\nClubsport wiring harness\t1,540 g\nMounting and vibration-damp- ing boards\t80 g\nMounting board for hydraulic unit\t212 g"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "abs_hydraulic_unit_weight": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "ABS/Core/Data_Sheet_70612107_ABS_M5_Kit.pdf",
+          "page_number": 2,
+          "text_contains": [
+            "1,910 g"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_03b4eb8d4a060704b7c44bd38101d954",
+            "page_numbers": [
+              2
+            ],
+            "evidence_text": "Hydraulic unit\t1,910 g\n2 pressure sensors\t40 g/each\nYaw/acceleration sensor\t60 g\n12-position function switch\t50 g\n4 wheel speed sensors DF11 standard\t50 g/each\nABS warning light (MIL)\t50 g\nVehicle specific wiring harness with motorsport connectors\tDepends on version\nClubsport wiring harness\t1,540 g\nMounting and vibration-damp- ing boards\t80 g\nMounting board for hydraulic unit\t212 g"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "software_update_order": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "PMRSI Other/2026-08-10_PA10_1918/992Cup_Manual_Software_Updates_V03.pdf",
+          "page_number": 20,
+          "text_contains": [
+            "Update firmware PowerBox",
+            "Update firmware display"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_29a6e7cbed5c5a59e85aa12268ad3e6e",
+            "page_numbers": [
+              20
+            ],
+            "evidence_text": "The following sequence MUST be respected:\n\nUpdate firmware PowerBox (PCU)\n\nUpdate setup PowerBox\n\nUpdate firmware logger (LOG)\n\nUpdate setup logger\n\nUpdate firmware display\n\nDelete errors in error stack\n\nReset qualifying mode\n\nIf no update is necessary, skip steps 2-5"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "ecu_temperature_range": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "ECU/engine_control_unit_ms_6-x_manual.pdf",
+          "page_number": 74,
+          "text_contains": [
+            "Temperature range"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_50e2afbc28e71a6e8e7ea9e7c9253ce9",
+            "page_numbers": [
+              74
+            ],
+            "evidence_text": "MS 6 harness connector type A (105 con- tacts), coding variant 1\tF02U.B00.712-01\nMS 6 harness connector type K ( 91 con- tacts), coding variant 1\tF02U.B00.711-01\nProtection Classification\tIP X6K, X8, X9K\nTemperature range\t-40 to 120\u00b0C\nShakeproofed\tMax. 3.4 g\nWiring diameter\t0.35 to 2.5 mm\u00b2\nPinsize\t1.2 mm; 2.8 mm"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "ecu_flywheel_sensor_type": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "ECU/engine_control_unit_ms_6-x_manual.pdf",
+          "page_number": 29,
+          "text_contains": [
+            "flywheel measurement"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_11e3c0d298d15fbcb95b204a4b100a60",
+            "page_numbers": [
+              29
+            ],
+            "evidence_text": "CWINTF_A047_A048\tSelection between Hall effect or inductive sensor for flywheel measurement, related to MS 6 contact A047 (use ground A048 if in- ductive type is selected).\nCWINTF_K045/K046\tSelection between Hall effect or inductive sensors for frequency measurements, like turbo- or driveshaft speeds, related to MS 6 contacts K045 or K046 (use ground K062 if inductive types are selected).\nCWINTF_A049/A050/A051/A052\tSelection between Hall effect or DF11 sensors for frequency measurement, like wheel speeds or cam position detection, re- lated to MS 6 contacts A49, A50, A51 or A52."
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "part_front_left_caliper": {
+    "labels": [
+      {
+        "label": {
+          "label_id": null,
+          "source_path": "Part Catalogues/PA10_0842_911 GT3 Cup MY2021-2025 (Typ 992)_CW_11_26_English_en.pdf",
+          "page_number": 109,
+          "text_contains": [
+            "9F1615427D"
+          ],
+          "relevance_grade": 3
+        },
+        "matches": [
+          {
+            "id": "chk_00d1979d88c0428d37301ae13400e3f5",
+            "page_numbers": [
+              109
+            ],
+            "evidence_text": "Item no.\tDescription\tM\tPc.\tMaterial\n1\tBRAKE CALIPER FRONT LEFT\tX\t1\t9F1615427D\n1\tBRAKE CALIPER FRONT RIGHT\tX\t1\t9F1615428D\n2\tZ BLEEDER VALVE FA\tX\t2\t9F0698121\n3\tBRAKE LINING FA\tX\t4\t9F1615432\n4\tZ GASKET SET FA\tX\t1\t9F1698671\n5\tBRAKE CALIPER PISTON REPAIR KIT FA\tX\t1\t9F1698145\n6\tHEXAGON FLANGE NUT M10\tX\t2\tWHT010026\n7\tSEALING RING 10X14\t\t1\tN 0138062\n8\tDOUBLE ADAPTER M10X1/DASH3\tX\t1\t9F1301330\n9\tBRAKE HOSE FA\tX\t1\t9F1611707A\n10\tADAPTER BRAKE LINE\tX\t1\t9F2611315\n11\tZ BRAKE DISK FA,LH\tX\t1\t9F1615283A\n11\tZ BRAKE DISK FA,RH\tX\t1\t9F1615284A\n12\tBRAKE DISK FRONT AXLE,LH\tX\t1\t9F1615603\n12\tBRAKE DISK FA,RH\tX\t1\t9F1615604\n13\tSECURING PART\tX\t19\t9F1401279\n14\tOVAL HEAD SCREW M6X12\tX\t4\tWHT009852A"
+          }
+        ]
+      }
+    ],
+    "negative_term_counts": {}
+  },
+  "neg_drs_activation": {
+    "labels": [],
+    "negative_term_counts": {
+      "DRS": 0,
+      "drag reduction system": 0
+    }
+  },
+  "neg_energy_recovery": {
+    "labels": [],
+    "negative_term_counts": {
+      "energy recovery": 0,
+      "hybrid deployment": 0
+    }
+  },
+  "neg_push_to_pass": {
+    "labels": [],
+    "negative_term_counts": {
+      "push to pass": 0
+    }
+  },
+  "neg_success_ballast": {
+    "labels": [],
+    "negative_term_counts": {
+      "success ballast": 0
+    }
+  },
+  "neg_budget_cap": {
+    "labels": [],
+    "negative_term_counts": {
+      "budget cap": 0
+    }
+  },
+  "neg_turbo_boost_limit": {
+    "labels": [],
+    "negative_term_counts": {
+      "turbocharger boost": 0
+    }
+  },
+  "neg_sprint_shootout": {
+    "labels": [],
+    "negative_term_counts": {
+      "sprint shootout": 0
+    }
+  },
+  "neg_rallycross_joker": {
+    "labels": [],
+    "negative_term_counts": {
+      "rallycross": 0
+    }
+  }
+}

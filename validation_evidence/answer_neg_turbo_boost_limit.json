@@ -1,0 +1,1085 @@
+{
+  "query_id": "neg_turbo_boost_limit",
+  "query": "What is the maximum turbocharger boost pressure permitted?",
+  "split": "test",
+  "expected_empty": true,
+  "calls": [],
+  "response": {
+    "request_id": null,
+    "pipeline_fingerprint": null,
+    "query": "What is the maximum turbocharger boost pressure permitted?",
+    "filters": {
+      "source_sha256": null,
+      "source_role": null,
+      "document_class": null,
+      "authority": null,
+      "vehicle_generation": null,
+      "championship": null,
+      "season": null,
+      "revision": null,
+      "page_number": null,
+      "chunk_kind": null,
+      "oversize": null
+    },
+    "resolved_scopes": [
+      {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      }
+    ],
+    "answer": "RaceVault retrieved possible evidence, but its relevance did not meet the calibrated answer threshold.",
+    "insufficient_evidence": true,
+    "conflicts": [],
+    "limitations": [
+      "Generation was skipped to avoid an unsupported answer."
+    ],
+    "citations": [],
+    "evidence": [
+      {
+        "rank": 1,
+        "evidence_text": "Noise limits will be measured in accordance with NCR 7.8.3.\n\nThe maximum permitted level for this method of measurement will be 96dB(A) at 2.0m / 108dB(A) at 0.5m with the engine at 75% maximum rpm.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_1eeecab491e43df8",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Great Britain",
+          "document_type": "regulation",
+          "season": 2026
+        },
+        "citation": {
+          "chunk_id": "chk_4b49886f7b8af2beac53adfd9f549643",
+          "source_sha256": "44039b73d0555aec69e39e675b0b1c9757779b953943d201b649863f61160ea8",
+          "source_path": "Rules and Regulations/Other/PCC Great Britian/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 58,
+          "page_end": 58,
+          "page_numbers": [
+            58
+          ],
+          "section_path": [
+            "EXECUTION VERSION",
+            "5.18 Noise test"
+          ],
+          "clause_reference": "5.18",
+          "evidence_sha256": "6756a7fea01bce85cd9481d2b1ce2ba4a8254956b9112ab3d63915396e8668f8",
+          "element_ids": [
+            "el_538d851814e59edc2aa62c48badf3027",
+            "el_8b2f51f2e39294301ec691ac5be548f6"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 58,
+              "bbox": {
+                "left": 36.0,
+                "top": 338.959983,
+                "right": 325.60096,
+                "bottom": 328.999983,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 66
+            },
+            {
+              "page_number": 58,
+              "bbox": {
+                "left": 36.0,
+                "top": 314.839983,
+                "right": 561.11628,
+                "bottom": 292.639983,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 144
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 39,
+          "lexical_score": 26.983747,
+          "semantic_rank": 40,
+          "semantic_score": 0.5219161529397313,
+          "fused_rank": 7,
+          "rrf_score": 0.020101010101010102,
+          "reranker_score": 0.03258974477648735
+        }
+      },
+      {
+        "rank": 2,
+        "evidence_text": "The regular oil filler cap is replaced by the oil filler cap incl. SOBEK quick-release cap. Purchase via Porsche Motorsport parts catalogue.\n\nEngine switched off.\n\nMaximum pressure 2 bar.\n\nFill the engine oil in 200 ml steps.\n\nFor quick filling, the pressure bottle \"Oilstick Magnum F2K Dispenser\" from the manufac -turer SOBEK is recommended.\n\nPurchase and further information via SOBEK Motorsporttechnik GmbH & Co. KG . For contact, see page 1009 .",
+        "document_class": "technical_manual",
+        "chunk_kind": "section",
+        "source_role": "technical_manual_previous_generation",
+        "source_metadata": {
+          "authority": "manufacturer_document",
+          "document_type": "technical_manual",
+          "vehicle_generation": "992.1"
+        },
+        "citation": {
+          "chunk_id": "chk_5190b09db243f686f613dd2fe10c765f",
+          "source_sha256": "82ea102c8f740227ad3411f3b3ab3814cce1cf16b3025cfdf34baf38363ef11c",
+          "source_path": "Porsche Technical Manuals/992.1 Technical Manual.pdf",
+          "source_filename": "992.1 Technical Manual.pdf",
+          "page_start": 68,
+          "page_end": 68,
+          "page_numbers": [
+            68
+          ],
+          "section_path": [
+            "Scenario II",
+            "1.4.5 Engine oil quick-fill"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "43ad5742cd1c85043f0a3cb1c1318076bffc5cf60a1c1edc3e8854e9248720c9",
+          "element_ids": [
+            "el_1656ec59097791ddd6e1f78dcc5a9829",
+            "el_650c5e0777a54ed89e9008dc9986391f",
+            "el_a2fb76f37589aa8745946f8116965fc1",
+            "el_3f834ec544a21afdff4b1e20aa8687e7",
+            "el_c23669a47074e25ab4e8c1eb20f8ce96",
+            "el_77e3eda6753818553beb01e9f604e8e5"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 68,
+              "bbox": {
+                "left": 127.5567,
+                "top": 467.101924,
+                "right": 492.683,
+                "bottom": 443.902403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 140
+            },
+            {
+              "page_number": 68,
+              "bbox": {
+                "left": 127.5567,
+                "top": 428.095924,
+                "right": 227.3201,
+                "bottom": 417.898403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 22
+            },
+            {
+              "page_number": 68,
+              "bbox": {
+                "left": 127.5567,
+                "top": 415.093924,
+                "right": 248.7613,
+                "bottom": 404.896403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 25
+            },
+            {
+              "page_number": 68,
+              "bbox": {
+                "left": 127.5567,
+                "top": 402.091924,
+                "right": 284.6444,
+                "bottom": 391.894403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 38
+            },
+            {
+              "page_number": 68,
+              "bbox": {
+                "left": 127.5457,
+                "top": 376.087924,
+                "right": 513.5797,
+                "bottom": 352.888403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 116
+            },
+            {
+              "page_number": 68,
+              "bbox": {
+                "left": 127.5457,
+                "top": 350.083924,
+                "right": 477.0707,
+                "bottom": 326.884403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 105
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 12,
+          "lexical_score": 30.475576,
+          "semantic_rank": 12,
+          "semantic_score": 0.5483440828772441,
+          "fused_rank": 2,
+          "rrf_score": 0.027777777777777776,
+          "reranker_score": 0.02898062951862812
+        }
+      },
+      {
+        "rank": 4,
+        "evidence_text": "Inner track rod: 27mm\n\nTrack rod end: 19mm",
+        "document_class": "technical_manual",
+        "chunk_kind": "section",
+        "source_role": "technical_manual_previous_generation",
+        "source_metadata": {
+          "authority": "manufacturer_document",
+          "document_type": "technical_manual",
+          "vehicle_generation": "992.1"
+        },
+        "citation": {
+          "chunk_id": "chk_33348961f2f50032ad085296563fbac4",
+          "source_sha256": "82ea102c8f740227ad3411f3b3ab3814cce1cf16b3025cfdf34baf38363ef11c",
+          "source_path": "Porsche Technical Manuals/992.1 Technical Manual.pdf",
+          "source_filename": "992.1 Technical Manual.pdf",
+          "page_start": 324,
+          "page_end": 324,
+          "page_numbers": [
+            324
+          ],
+          "section_path": [
+            "Maximum permitted thread protrusions:"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "4d690efc1badb2cea29760bb4ab193325cf624188e8a8e896ac3b39f222ca655",
+          "element_ids": [
+            "el_701c45090bd15da18128b9f8c3592778",
+            "el_28247142449fa3e6af277d4dafafe3b1"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 324,
+              "bbox": {
+                "left": 127.5567,
+                "top": 284.477424,
+                "right": 249.2981,
+                "bottom": 274.279903,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 23
+            },
+            {
+              "page_number": 324,
+              "bbox": {
+                "left": 127.5567,
+                "top": 271.475424,
+                "right": 244.4493,
+                "bottom": 261.277903,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 21
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 6,
+          "lexical_score": 32.610325,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 17,
+          "rrf_score": 0.015151515151515152,
+          "reranker_score": 0.01652955636382103
+        }
+      },
+      {
+        "rank": 7,
+        "evidence_text": "\uf0a7 Water-cooled six-cylinder boxer engine\n\n\uf0a7 Max. power: 382 kW (520 hp) at 8,400 rpm; Max. torque: 470 Nm at 6,150 rpm; Max. rpm: 8,750 rpm\n\n\uf0a7 Displacement 3,996 cm \u00b3; stroke 81.5 mm; bore 102 mm\n\n\uf0a7 Camshafts with extended valve opening times\n\n\uf0a7 Intake manifold with two resonance flaps\n\n\uf0a7 Flow optimized single throttle butterfly system\n\n\uf0a7 Dry-sump lubrication with oil-water heat exchanger\n\n\uf0a7 Engine control unit Bosch MS 6.6 with integrated Porsche Motorsport Traction Control (PMTC) and Push-2-Pass functionality\n\n\uf0a7 Race exhaust system with DMSB certified catalytic converter\n\n\uf0a7 Single-mass flywheel\n\n\uf0a7 Fuel quality: Superplus unleaded, to E20 (min. 98 octane); E-Fuels ready (compliant with Article 266 of FIA Appendix J)\n\nOnly engines sealed in accordance with Article 2.11.1 of these regulations are permitted to be used in the Series.Engines can be called in and inspected at any time by the Scrutineers or on the instructions of the Stewards.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_3dd5dff7ab2451b8",
+        "source_metadata": {
+          "season": 2026,
+          "authority": "official_regulation",
+          "championship": "Porsche Supercup",
+          "document_type": "regulation"
+        },
+        "citation": {
+          "chunk_id": "chk_d9d76a4eb1acdd17155c2474cdeb8d20",
+          "source_sha256": "0732553e309be6e005f2651fc3a8f8a21614461697418b65340a7a15240cd12a",
+          "source_path": "Rules and Regulations/Other/Porsche Supercup/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 78,
+          "page_end": 79,
+          "page_numbers": [
+            78,
+            79
+          ],
+          "section_path": [
+            "Important Information",
+            "2.2 Engine",
+            "2.2.1 General description"
+          ],
+          "clause_reference": "2.2.1",
+          "evidence_sha256": "b31508d9019ad6404695efd2b5d1d87816cb42c305b290db35c51e3e2fd9b32e",
+          "element_ids": [
+            "el_efc0a52a1989b2f8a2d7e1773e443cd9",
+            "el_961688bf6184fd8a09489bb3b078ee25",
+            "el_6268a28a34ab7a6de13e4b4c761a8529",
+            "el_6114dca133228afeca60be37d4a92719",
+            "el_1b7c3289790e6dca315ff42a960f3818",
+            "el_55064b48a0515a0fd247e18359b542e0",
+            "el_42440f057620a60751e4f41f921ea83a",
+            "el_77a068d10da9064d3a96de73c63172de",
+            "el_27fc4bbd09f3c2930236d0ea833bde9b",
+            "el_24f8c8a902756a9f658d6608c0c5ce4a",
+            "el_6786b059c8558cad56a2e62d180f84da",
+            "el_2b87d24fb8fa2eaa0a06f36389215044"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 302.7203,
+                "right": 296.724,
+                "bottom": 285.56405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 40
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 271.1003,
+                "right": 542.1708,
+                "bottom": 238.10405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 97
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 286.8803,
+                "right": 382.224,
+                "bottom": 269.72405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 54
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 238.2803,
+                "right": 327.8664,
+                "bottom": 221.12405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 45
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 206.0603,
+                "right": 304.188,
+                "bottom": 188.90405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 42
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 221.9003,
+                "right": 331.1604,
+                "bottom": 204.74405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 49
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 190.2803,
+                "right": 354.8112,
+                "bottom": 173.12405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 52
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 157.4603,
+                "right": 519.2616,
+                "bottom": 122.72405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 123
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 174.4403,
+                "right": 401.5308,
+                "bottom": 157.28405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 61
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 123.5003,
+                "right": 211.2588,
+                "bottom": 106.34405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 22
+            },
+            {
+              "page_number": 78,
+              "bbox": {
+                "left": 88.92,
+                "top": 107.7203,
+                "right": 528.1884,
+                "bottom": 74.72405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 121
+            },
+            {
+              "page_number": 79,
+              "bbox": {
+                "left": 70.92,
+                "top": 775.2803,
+                "right": 553.848,
+                "bottom": 726.50405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 223
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": null,
+          "lexical_score": null,
+          "semantic_rank": 1,
+          "semantic_score": 0.5958529437366687,
+          "fused_rank": 9,
+          "rrf_score": 0.01639344262295082,
+          "reranker_score": 0.009161027148365974
+        }
+      },
+      {
+        "rank": 9,
+        "evidence_text": "Syntax\n\n2 * ([Air box pressure] - [static pressure])/(GLOBALCONST(Air Density) * pow([Speed],2)\n\nChannels\n\nAir box Pressure, Static Pressure, Speed\n\nDefinition\n\nAir box efficiency is the ratio of the pressure in the air box to the maximum available pressure. The maximum available pressure is the pressure of a free stream flow due to the speed of the car.",
+        "document_class": "component_manual",
+        "chunk_kind": "section",
+        "source_role": "document_f345482180cbd76e",
+        "source_metadata": {
+          "authority": "component_supplier_document",
+          "document_type": "component_manual"
+        },
+        "citation": {
+          "chunk_id": "chk_c220e092b401445e83b338559426e1cb",
+          "source_sha256": "e66f7b7610f4026211fa99a66ceda0b71af674eaff8d3e16b99f6920cbb0742c",
+          "source_path": "Cosworth/Pi Toolbox/Pi Toolbox User Guide.pdf",
+          "source_filename": "Pi Toolbox User Guide.pdf",
+          "page_start": 202,
+          "page_end": 202,
+          "page_numbers": [
+            202
+          ],
+          "section_path": [
+            "Name Air box Efficiency"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "fa1804cc0b1ad6e192479a4d9c26b9d2acc7c6d959dabd8ce0f2eb033de217cd",
+          "element_ids": [
+            "el_9d4c01d183064646a3b00de9592e9b92",
+            "el_729d50b0fa17f78b2d14fec2b61c2302",
+            "el_9e6b729299e59ea723b8ea1705be0d80",
+            "el_f858b2874d27fcb40c77898f39c2231d",
+            "el_ba761b615efbc6c1158df1d94b2cda66",
+            "el_06fccaca745f160e66a4f7cb83357745"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 202,
+              "bbox": {
+                "left": 165.7803,
+                "top": 602.5017,
+                "right": 195.7647,
+                "bottom": 594.53309,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 6
+            },
+            {
+              "page_number": 202,
+              "bbox": {
+                "left": 222.48,
+                "top": 608.51736,
+                "right": 498.747816,
+                "bottom": 590.953371,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 87
+            },
+            {
+              "page_number": 202,
+              "bbox": {
+                "left": 165.78,
+                "top": 579.942,
+                "right": 206.3088,
+                "bottom": 571.97339,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 8
+            },
+            {
+              "page_number": 202,
+              "bbox": {
+                "left": 222.5269,
+                "top": 579.942,
+                "right": 388.4824,
+                "bottom": 571.97339,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 40
+            },
+            {
+              "page_number": 202,
+              "bbox": {
+                "left": 165.78,
+                "top": 548.0216,
+                "right": 205.731,
+                "bottom": 540.05299,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 10
+            },
+            {
+              "page_number": 202,
+              "bbox": {
+                "left": 222.48,
+                "top": 560.9817,
+                "right": 534.7521,
+                "bottom": 526.97249,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 195
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 1,
+          "lexical_score": 39.3693,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 8,
+          "rrf_score": 0.01639344262295082,
+          "reranker_score": 0.007636216934770346
+        }
+      },
+      {
+        "rank": 14,
+        "evidence_text": "Incorrectly adjusted camber and tyre pressure values can cause tyre failure.\n\nRespect the specified camber and tyre pressure values listed in the Michelin Precos (Porsche Technical recommendations N3_N3R_2025.pdf)).\n\nFor circuits not listed in the Michelin Precos, the specifications for 'low stress circuit standard' must be used.\n\nExceeding the maximum camber shim thickness for the corresponding circuit type is not permitted.",
+        "document_class": "tyre_data",
+        "chunk_kind": "page",
+        "source_role": "document_8ecdba2faf5cd989",
+        "source_metadata": {
+          "authority": "component_supplier_document",
+          "document_type": "tyre_data",
+          "season": 2025,
+          "vehicle_generation": "992.1"
+        },
+        "citation": {
+          "chunk_id": "chk_7350f900afcfefb3e34195cc2e4ab066",
+          "source_sha256": "bd3ecac7421c70fc94a7b7646595bfb4040c722ef99822c1846fc57df9a50361",
+          "source_path": "Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf",
+          "source_filename": "01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf",
+          "page_start": 2,
+          "page_end": 2,
+          "page_numbers": [
+            2
+          ],
+          "section_path": [
+            "INCORRECT CAMBER AND TYRE PRESSURE VALUES"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "969501656b982b0941ca53aa1c4a0380ae61f56c27ef49ee7d1f42ff24d1d41b",
+          "element_ids": [
+            "el_48d562ad9b6b87fbecc56e96b582576c",
+            "el_c04f6e629944e20578a357a56786b555",
+            "el_f4bc705a5ef408ce2b5013c5864c7fb0",
+            "el_3839262a11e658efcdd839a4c67490b0"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 2,
+              "bbox": {
+                "left": 141.86,
+                "top": 345.529023,
+                "right": 443.40268,
+                "bottom": 330.947583,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 76
+            },
+            {
+              "page_number": 2,
+              "bbox": {
+                "left": 141.86,
+                "top": 330.889023,
+                "right": 526.60384,
+                "bottom": 301.667583,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 139
+            },
+            {
+              "page_number": 2,
+              "bbox": {
+                "left": 141.86,
+                "top": 301.609023,
+                "right": 526.2764,
+                "bottom": 272.357583,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 116
+            },
+            {
+              "page_number": 2,
+              "bbox": {
+                "left": 70.944,
+                "top": 252.164943,
+                "right": 506.22256,
+                "bottom": 236.002383,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 96
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 5,
+          "lexical_score": 33.07922,
+          "semantic_rank": 33,
+          "semantic_score": 0.5272393954178655,
+          "fused_rank": 3,
+          "rrf_score": 0.026137303556658397,
+          "reranker_score": 0.003403005190193653
+        }
+      },
+      {
+        "rank": 16,
+        "evidence_text": "The non-removable spacer of the rear lower control arm (part number 9F1.505.184) will be included when determining the combined thickness of the Camber Shims.\n\n'Mini cold pressure' in the illustrations set out at Section 5.13.2 above is the start pressure of each tyre.\n\nStart  pressure is defined as the pressure in the tyre  when the temperature in the tyre is at ambient temperature.    The  Tyre  Pressure  Management  System  values  in  the  Car's  data  files  will  be  used  to determine the ambient temperature at all times, including while the Car is located in the team's awning, the  paddock,  and  the  assembly  area.    For  the  avoidance  of  doubt,  it  is  not  permitted  to  raise  the temperature of  the  tyres  and/or  wheels  above  the  natural  ambient  temperature  by  any  means  (see Section 5.13.9 below).\n\nOnly atmospheric air is to be used as a filling medium for the tyres on a Car.\n\nThe removal of rubber pickup and stones is permitted for the tyres.\n\nAny chemical or mechanical treatment of the tyres on a Car is not permitted.\n\nThe use of heated covers, tyre tents, exhaust gases or any other means to change the temperature of tyres prior to, during or after Meetings, is prohibited.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_3abb76d5b42c0ead",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Great Britain",
+          "document_type": "regulation",
+          "season": 2025
+        },
+        "citation": {
+          "chunk_id": "chk_2906f8dc7a82da5bd3672278ae08849d",
+          "source_sha256": "b77fc089b2f3bb1cebc5130707ba45c3c08a3e7d0873a560ffb91730fb317e79",
+          "source_path": "Rules and Regulations/Other/PCC Great Britian/2025 Regulations.pdf",
+          "source_filename": "2025 Regulations.pdf",
+          "page_start": 57,
+          "page_end": 57,
+          "page_numbers": [
+            57
+          ],
+          "section_path": [
+            "5 TECHNICAL REGULATIONS",
+            "5.13 Tyres"
+          ],
+          "clause_reference": "5.13",
+          "evidence_sha256": "93ad7375d05018592d68b78495156afce4dc8c1c365ef61753c7d0b8dc51b5ef",
+          "element_ids": [
+            "el_84f3785f5e76b7c05a3ef09e81450a8d",
+            "el_05c6be04d872cf459c0f965079192b78",
+            "el_536194b6ed10125c0ce01b8411b86551",
+            "el_0fed8e2ee0f81b7f1dec2d3d86166fa6",
+            "el_d38b6a6cccd83581630d917e873da4de",
+            "el_d8113f0ab17cd121d9665eb484ca2514",
+            "el_2e61cb24ea9a4375bedcf0f248196e67"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 57,
+              "bbox": {
+                "left": 106.58,
+                "top": 597.099978,
+                "right": 532.51208,
+                "bottom": 574.899978,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 158
+            },
+            {
+              "page_number": 57,
+              "bbox": {
+                "left": 63.984,
+                "top": 560.619978,
+                "right": 532.27096,
+                "bottom": 550.659978,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 116
+            },
+            {
+              "page_number": 57,
+              "bbox": {
+                "left": 63.984,
+                "top": 536.499978,
+                "right": 532.642,
+                "bottom": 465.459978,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 574
+            },
+            {
+              "page_number": 57,
+              "bbox": {
+                "left": 63.984,
+                "top": 451.179978,
+                "right": 416.08096,
+                "bottom": 441.219978,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 85
+            },
+            {
+              "page_number": 57,
+              "bbox": {
+                "left": 63.984,
+                "top": 426.919978,
+                "right": 382.36096,
+                "bottom": 416.959978,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 74
+            },
+            {
+              "page_number": 57,
+              "bbox": {
+                "left": 63.984,
+                "top": 402.799978,
+                "right": 425.44096,
+                "bottom": 392.839978,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 83
+            },
+            {
+              "page_number": 57,
+              "bbox": {
+                "left": 63.984,
+                "top": 378.559978,
+                "right": 532.24052,
+                "bottom": 356.359978,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 163
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 21,
+          "lexical_score": 29.129404,
+          "semantic_rank": 43,
+          "semantic_score": 0.5186402634865459,
+          "fused_rank": 5,
+          "rrf_score": 0.022054416876423347,
+          "reranker_score": 0.0015792594058439136
+        }
+      },
+      {
+        "rank": 17,
+        "evidence_text": "Alarm color: The alarm's color.\n\nAlarm condition: Determines the threshold condition for which the alarm is triggered. The options are none, minimum, maximum and both. The alarm can be configured to trigger when the channel value drops below the minimum value, when the channel value rises above  the  maximum  value  or  when  both  minimum  and  maximum  alarm  values  are exceeded.\n\nAlarm maximum: the threshold value that the channel value must exceed above for the alarm to be triggered.\n\nAlarm minimum: The threshold value that the channel value must exceed below for the alarm to be triggered.\n\n-Data\n\nDecimal Places : The number of decimal places to which channel values are displayed. Quantity : What the channel is measuring, for example pressure, velocity.\n\nUnits : \u00b0C, MPH, KPH, liters, mm, bar, volts.\n\n-Filter\n\nFilter : Select a filter type from the drop-down list. The default options are: No filter, bandpass filter,  gating-function  filter,  and  moving  average  filter.  When  a  filter  is  selected  the Filter Enabled : Indicator changes to Yes . Custom filters developed using the SDK will also appear in the drop-down list.\n\nFilter enabled : Indicates filter on or off state.\n\nFilter Properties : Double-clicking this property opens the Property dialog for the filter type selected.",
+        "document_class": "component_manual",
+        "chunk_kind": "section",
+        "source_role": "document_285ea06620ffc395",
+        "source_metadata": {
+          "authority": "component_supplier_document",
+          "document_type": "component_manual"
+        },
+        "citation": {
+          "chunk_id": "chk_05a2dafd305ae285ddac55db925e5545",
+          "source_sha256": "989056de54d8300a98b91e969c6558608259cc5adca114517b54964ce6771f3f",
+          "source_path": "Cosworth/Pi Toolbox/start-up-manual-pi-toolbox.pdf",
+          "source_filename": "start-up-manual-pi-toolbox.pdf",
+          "page_start": 17,
+          "page_end": 18,
+          "page_numbers": [
+            17,
+            18
+          ],
+          "section_path": [
+            "Data",
+            "3.2.5 The Channel Properties Explorer"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "d1eb5e9049726289ecc409e4bd9e97ec4277c7c9f75e1109de55de1d8cd4ca4a",
+          "element_ids": [
+            "el_d4c4d01bd01e603f5892e2d45410b19b",
+            "el_4f1ec20bbb6a72e20f20a8d5e1a43dca",
+            "el_5b4255523763dd8204976c4051fb4823",
+            "el_1648de1006a479a66fe11ad31da4179d",
+            "el_2c41a3dd7a03c012f839a53b4d5ccea2",
+            "el_c5f3cb73f7614219cb420a9c207310c3",
+            "el_91705859f73e662e307c3638bacfac15",
+            "el_ae5a2c4f71dcf2b422ee05cbbc0de0f5",
+            "el_648506f95d9dd8681945b97d2cd19160",
+            "el_526c0ff3c3a247cf9f305daeada0eac7",
+            "el_ea594030c6d84fe2417380d09dcc998d"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 17,
+              "bbox": {
+                "left": 57.160024,
+                "top": 283.176095,
+                "right": 222.32308,
+                "bottom": 273.394808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 31
+            },
+            {
+              "page_number": 17,
+              "bbox": {
+                "left": 57.160024,
+                "top": 256.056095,
+                "right": 542.356984,
+                "bottom": 192.514808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 352
+            },
+            {
+              "page_number": 17,
+              "bbox": {
+                "left": 57.160024,
+                "top": 175.176095,
+                "right": 542.066824,
+                "bottom": 151.954808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 106
+            },
+            {
+              "page_number": 17,
+              "bbox": {
+                "left": 57.160024,
+                "top": 134.856095,
+                "right": 542.045896,
+                "bottom": 111.394808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 106
+            },
+            {
+              "page_number": 17,
+              "bbox": {
+                "left": 75.160024,
+                "top": 94.296095,
+                "right": 121.774648,
+                "bottom": 84.514808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 5
+            },
+            {
+              "page_number": 17,
+              "bbox": {
+                "left": 57.160024,
+                "top": 80.856095,
+                "right": 523.8724,
+                "bottom": 57.634808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 158
+            },
+            {
+              "page_number": 18,
+              "bbox": {
+                "left": 57.160024,
+                "top": 768.696095,
+                "right": 273.6976,
+                "bottom": 758.914808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 45
+            },
+            {
+              "page_number": 18,
+              "bbox": {
+                "left": 75.160024,
+                "top": 755.256095,
+                "right": 120.662848,
+                "bottom": 745.474808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 7
+            },
+            {
+              "page_number": 18,
+              "bbox": {
+                "left": 57.160024,
+                "top": 741.576095,
+                "right": 542.11792,
+                "bottom": 691.474808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 323
+            },
+            {
+              "page_number": 18,
+              "bbox": {
+                "left": 57.160024,
+                "top": 674.136095,
+                "right": 292.91536,
+                "bottom": 664.354808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 50
+            },
+            {
+              "page_number": 18,
+              "bbox": {
+                "left": 57.160024,
+                "top": 660.696095,
+                "right": 529.18984,
+                "bottom": 637.474808,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 105
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 3,
+          "lexical_score": 37.051643,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 12,
+          "rrf_score": 0.015873015873015872,
+          "reranker_score": 0.0015548133524134755
+        }
+      }
+    ],
+    "retrieval_counts": {
+      "lexical": 50,
+      "semantic": 50,
+      "fused": 30,
+      "reranked": 20
+    },
+    "generation_model": {
+      "model": "qwen3.5:9b",
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "parameter_size": "9.7B",
+      "quantization_level": "Q4_K_M"
+    },
+    "generation_usage": {
+      "total_duration_ms": 0,
+      "load_duration_ms": 0,
+      "prompt_tokens": 0,
+      "output_tokens": 0
+    },
+    "timings": {
+      "retrieval_ms": 408,
+      "generation_ms": 7
+    },
+    "evidence_selection": {
+      "policy": "facet_topic_mmr_scope_v3",
+      "query_intent": "exact_or_numeric",
+      "candidates_considered": 20,
+      "selected_count": 8,
+      "duplicates_removed": 0,
+      "distinct_sources": 7,
+      "required_scopes": [],
+      "covered_scopes": [],
+      "requested_facets": [],
+      "covered_facets": [],
+      "missing_facets": [],
+      "maximum_reranker_score": 0.03258974477648735,
+      "minimum_score_threshold": 0.2377,
+      "sufficient": false,
+      "reason": "below_calibrated_threshold"
+    }
+  },
+  "status": "completed"
+}

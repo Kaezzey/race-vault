@@ -1,0 +1,40 @@
+{
+  "query_id": "failure_wrong_regulation_revision",
+  "request": {
+    "query": "What is a Joker Tyre?",
+    "filters": {
+      "source_sha256": null,
+      "source_role": null,
+      "document_class": "regulation",
+      "authority": null,
+      "vehicle_generation": null,
+      "championship": "PCC Australia",
+      "season": 2026,
+      "revision": "Version 1",
+      "page_number": null,
+      "chunk_kind": null,
+      "oversize": null
+    },
+    "channel_limit": 50,
+    "fusion_limit": 30,
+    "rerank_limit": 15,
+    "result_limit": 15,
+    "rrf": {
+      "rank_constant": 60,
+      "lexical_weight": 1.0,
+      "semantic_weight": 1.0
+    },
+    "embedding_model_id": "BAAI/bge-m3",
+    "embedding_model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "reranker": {
+      "model_id": "BAAI/bge-reranker-v2-m3",
+      "model_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "max_tokens": 8192,
+      "normalized_scores": true
+    }
+  },
+  "lexical": [],
+  "semantic": [],
+  "fused": [],
+  "reranked": []
+}

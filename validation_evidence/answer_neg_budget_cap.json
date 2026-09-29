@@ -1,0 +1,847 @@
+{
+  "query_id": "neg_budget_cap",
+  "query": "What is the budget cap for the season?",
+  "split": "test",
+  "expected_empty": true,
+  "calls": [],
+  "response": {
+    "request_id": null,
+    "pipeline_fingerprint": null,
+    "query": "What is the budget cap for the season?",
+    "filters": {
+      "source_sha256": null,
+      "source_role": null,
+      "document_class": null,
+      "authority": null,
+      "vehicle_generation": null,
+      "championship": null,
+      "season": null,
+      "revision": null,
+      "page_number": null,
+      "chunk_kind": null,
+      "oversize": null
+    },
+    "resolved_scopes": [
+      {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      }
+    ],
+    "answer": "RaceVault retrieved possible evidence, but its relevance did not meet the calibrated answer threshold.",
+    "insufficient_evidence": true,
+    "conflicts": [],
+    "limitations": [
+      "Generation was skipped to avoid an unsupported answer."
+    ],
+    "citations": [],
+    "evidence": [
+      {
+        "rank": 1,
+        "evidence_text": "1st place:\n\nSEK 500 000\n\n2nd place:\n\nSEK\n\n250 000\n\n3rd place:\n\nSEK 100 000",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_7274ba30e39e9215",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Scandinavia",
+          "document_type": "regulation",
+          "season": 2025
+        },
+        "citation": {
+          "chunk_id": "chk_02e84131d4d776c313774fa806f0f0f1",
+          "source_sha256": "25e5f1e190defae79f996acca9722929daff1a50baff2cf204f8a57cc2284fde",
+          "source_path": "Rules and Regulations/Other/PCC Scandinavia/2025 Regulations.pdf",
+          "source_filename": "2025 Regulations.pdf",
+          "page_start": 26,
+          "page_end": 26,
+          "page_numbers": [
+            26
+          ],
+          "section_path": [
+            "Overall Classification for the season"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "2755f1d8929f6da8de9ff11f659986895d7e3a9203e08437cccaf269befae84c",
+          "element_ids": [
+            "el_a60559bc53cad1b098c390c2e75af099",
+            "el_45902bc740cf94619ee1b907ec3618b6",
+            "el_e803835486f136ae483a14c7a5fc823b",
+            "el_b655c35e5ccdbc85fea997c78ec36391",
+            "el_043f5ddb121d6f3e0860a7cd5564f548",
+            "el_43a5649782cfc6a30b3a8b56fc4c4339",
+            "el_358507da97a8e08ee5b23584121255a8"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 26,
+              "bbox": {
+                "left": 70.775,
+                "top": 702.7,
+                "right": 113.422,
+                "bottom": 691.7,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 10
+            },
+            {
+              "page_number": 26,
+              "bbox": {
+                "left": 142.8,
+                "top": 702.7,
+                "right": 253.336,
+                "bottom": 691.7,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 11
+            },
+            {
+              "page_number": 26,
+              "bbox": {
+                "left": 70.775,
+                "top": 689.45,
+                "right": 116.931,
+                "bottom": 678.45,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 10
+            },
+            {
+              "page_number": 26,
+              "bbox": {
+                "left": 142.8,
+                "top": 689.45,
+                "right": 159.014,
+                "bottom": 678.45,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 3
+            },
+            {
+              "page_number": 26,
+              "bbox": {
+                "left": 214.85,
+                "top": 689.45,
+                "right": 253.336,
+                "bottom": 678.45,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 7
+            },
+            {
+              "page_number": 26,
+              "bbox": {
+                "left": 70.775,
+                "top": 675.95,
+                "right": 114.951,
+                "bottom": 664.95,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 10
+            },
+            {
+              "page_number": 26,
+              "bbox": {
+                "left": 142.8,
+                "top": 675.95,
+                "right": 253.336,
+                "bottom": 664.95,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 11
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 26,
+          "lexical_score": 27.513968,
+          "semantic_rank": 8,
+          "semantic_score": 0.4997044492812117,
+          "fused_rank": 1,
+          "rrf_score": 0.026333789329685362,
+          "reranker_score": 0.02843603305518627
+        }
+      },
+      {
+        "rank": 3,
+        "evidence_text": "The entry fee for the first two cars is\n\nuntil\n\n15 th November 2025\n\nEUR 70,650.00 plus VAT*\n\nafter\n\n15 th November 2025\n\nEUR 76,100.00 plus VAT*\n\n*Prices do not include the value added tax as effective by law, if applicable.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_3dd5dff7ab2451b8",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "Porsche Supercup",
+          "document_type": "regulation",
+          "season": 2026
+        },
+        "citation": {
+          "chunk_id": "chk_d6c22cd82cf952b7fd213396c50747c3",
+          "source_sha256": "0732553e309be6e005f2651fc3a8f8a21614461697418b65340a7a15240cd12a",
+          "source_path": "Rules and Regulations/Other/Porsche Supercup/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 22,
+          "page_end": 22,
+          "page_numbers": [
+            22
+          ],
+          "section_path": [
+            "4 Entries and Series Classifications",
+            "4.4 Entry fees",
+            "4.4.1 Entry fee for the season"
+          ],
+          "clause_reference": "4.4.1",
+          "evidence_sha256": "b34130d3a7f57943ee7645bd5f9dae1e3dd521b46691c74c8399912fa19fa336",
+          "element_ids": [
+            "el_ab1ff832d6c1244d2ba3b3e13d531b20",
+            "el_baaf8d052901bbbbc441ccd9af8192bc",
+            "el_7fc1ce57b2f5847233e3d026607bfd16",
+            "el_56e4f554da3d0d299bf0715a6e048365",
+            "el_bdf8c5d2a41ae25372b62ed8a087e357",
+            "el_c5c6a7a06be3ede6a57ac3facd501d80",
+            "el_4985937710050d5f7edf317392c80a95",
+            "el_a6e687a02c8378179f3b36dbd3ed3320"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 22,
+              "bbox": {
+                "left": 70.92,
+                "top": 606.5603,
+                "right": 248.8848,
+                "bottom": 589.40405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 39
+            },
+            {
+              "page_number": 22,
+              "bbox": {
+                "left": 70.92,
+                "top": 571.4603,
+                "right": 97.134,
+                "bottom": 554.30405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 5
+            },
+            {
+              "page_number": 22,
+              "bbox": {
+                "left": 106.326,
+                "top": 571.4603,
+                "right": 215.1456,
+                "bottom": 554.30405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 19
+            },
+            {
+              "page_number": 22,
+              "bbox": {
+                "left": 247.9776,
+                "top": 571.4603,
+                "right": 375.1176,
+                "bottom": 554.30405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 23
+            },
+            {
+              "page_number": 22,
+              "bbox": {
+                "left": 70.92,
+                "top": 536.3003,
+                "right": 98.562,
+                "bottom": 519.14405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 5
+            },
+            {
+              "page_number": 22,
+              "bbox": {
+                "left": 106.314,
+                "top": 536.3003,
+                "right": 215.1456,
+                "bottom": 519.14405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 19
+            },
+            {
+              "page_number": 22,
+              "bbox": {
+                "left": 247.9776,
+                "top": 536.3003,
+                "right": 375.1176,
+                "bottom": 519.14405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 23
+            },
+            {
+              "page_number": 22,
+              "bbox": {
+                "left": 70.92,
+                "top": 501.2003,
+                "right": 426.9,
+                "bottom": 484.04405,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 78
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 42,
+          "lexical_score": 25.989864,
+          "semantic_rank": 2,
+          "semantic_score": 0.5198158882717082,
+          "fused_rank": 3,
+          "rrf_score": 0.025932953826691967,
+          "reranker_score": 0.006413164082914591
+        }
+      },
+      {
+        "rank": 4,
+        "evidence_text": "The entry fees* (based on the six rounds of the championship) costs 22 000\u20ac (ex-VAT).",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_672e60181e4c0f48",
+        "source_metadata": {
+          "season": 2026,
+          "authority": "official_regulation",
+          "championship": "PCC France",
+          "document_type": "regulation"
+        },
+        "citation": {
+          "chunk_id": "chk_d0c87a54a07ef0f18aaf5efe17ab0735",
+          "source_sha256": "1343a156046e7c341f0d6f44f828487d1c56800a9a206a2d46d32f629526fbe8",
+          "source_path": "Rules and Regulations/Other/PCC France/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 13,
+          "page_end": 13,
+          "page_numbers": [
+            13
+          ],
+          "section_path": [
+            "Replacement of engine, gearbox or ECU during an event",
+            "4.4. Entry fees",
+            "4.4.1. Entry fee for the season"
+          ],
+          "clause_reference": "4.4.1",
+          "evidence_sha256": "4ba53e0f139fc06be05298385576686736ee1dc2f3b1f12fb2d255f4e22e4561",
+          "element_ids": [
+            "el_6a7e3f075e0ed6126ca4ece3ce241f0f"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 13,
+              "bbox": {
+                "left": 70.944,
+                "top": 331.129028,
+                "right": 414.71176,
+                "bottom": 316.547588,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 85
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": null,
+          "lexical_score": null,
+          "semantic_rank": 3,
+          "semantic_score": 0.5193340697706769,
+          "fused_rank": 11,
+          "rrf_score": 0.015873015873015872,
+          "reranker_score": 0.0046455576084554195
+        }
+      },
+      {
+        "rank": 6,
+        "evidence_text": "Advantage\tPrice\n1 st and 2 nd cars\tEntry fee: 100%\t22 000\u20ac ex-VAT each car\n3 rd car\tEntry fee: 50%\t11 000\u20ac ex-VAT\n4 th car\tEntry fee: 25%\t5 500\u20ac ex-VAT\n5 th and 6 th cars\tEntry fee: 100%\t22 000\u20ac ex-VAT each car",
+        "document_class": "regulation",
+        "chunk_kind": "table",
+        "source_role": "document_8541cdf020332d70",
+        "source_metadata": {
+          "season": 2025,
+          "authority": "official_regulation",
+          "championship": "PCC France",
+          "document_type": "regulation"
+        },
+        "citation": {
+          "chunk_id": "chk_e4021d3e58f37753ebe1094b33bcf056",
+          "source_sha256": "f4ace80344c5dde0c72dd03e53c826152ac9493f271755241b06993af7afb118",
+          "source_path": "Rules and Regulations/Other/PCC France/2025 Regulations.pdf",
+          "source_filename": "2025 Regulations.pdf",
+          "page_start": 13,
+          "page_end": 13,
+          "page_numbers": [
+            13
+          ],
+          "section_path": [
+            "Replacement of engine, gearbox or ECU during an event",
+            "4.4. Entry fees",
+            "4.4.1. Entry fee for the season"
+          ],
+          "clause_reference": "4.4.1",
+          "evidence_sha256": "c503c2e71f385085469c919a361916aee42f26e108f17efe72f6e5fde2eca3d4",
+          "element_ids": [
+            "el_f5e1525f37f54ad6e94ad841d821e053"
+          ],
+          "table_ids": [
+            "tbl_f5e1525f37f54ad6e94ad841d821e053"
+          ],
+          "provenance": [
+            {
+              "page_number": 13,
+              "bbox": {
+                "left": 69.873548,
+                "top": 156.053071,
+                "right": 525.054248,
+                "bottom": 78.913623,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 0
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": null,
+          "lexical_score": null,
+          "semantic_rank": 6,
+          "semantic_score": 0.5010634991084014,
+          "fused_rank": 17,
+          "rrf_score": 0.015151515151515152,
+          "reranker_score": 0.004038591403514147
+        }
+      },
+      {
+        "rank": 8,
+        "evidence_text": "The registration/entry fees as well as any additional deposit are payable as specified on the 'Application for Entry'. The following registration/entry fees are payable by participants:\n\nFull season entry: EUR 85,415 or CNY 674,777 (incl. Mainland China VAT only, net of withholding or any other taxes or bank charges),\n\nReturning 2025 entrants full season entry fee: EUR 81,678 or CNY 645,256 (incl. Mainland China VAT only, net of withholding or any other taxes or bank charges),\n\nTalent Pool full season entry fee: EUR 70,468 or CNY 556,691 (incl. Mainland China VAT only, net of withholding or any other taxes or bank charges).\n\nOnce the 'Application for Entry' has been accepted and confirmed in writing by the Series Organiser and the entry fee has been accepted been paid in full and in due time the entry is valid, and the competitor is entitled and obliged to participate.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_6113a83764b0f20b",
+        "source_metadata": {
+          "season": 2026,
+          "authority": "official_regulation",
+          "championship": "PCC Asia",
+          "document_type": "regulation"
+        },
+        "citation": {
+          "chunk_id": "chk_c94f3813b1aba4f37f7c83ecc0a9e8aa",
+          "source_sha256": "dc570ef568d5646ca95da996a1c6709cd699e219fd43ae2b331590382c543d85",
+          "source_path": "Rules and Regulations/PCC Asia/PCCA 2026 Regulations_Final.pdf",
+          "source_filename": "PCCA 2026 Regulations_Final.pdf",
+          "page_start": 14,
+          "page_end": 15,
+          "page_numbers": [
+            14,
+            15
+          ],
+          "section_path": [
+            "Calendar",
+            "4.2 Entry Fees"
+          ],
+          "clause_reference": "4.2",
+          "evidence_sha256": "6fb4143d8891badcb88852927b96d90c6d0d6c3d7cd5dc287d04e4bef7a83165",
+          "element_ids": [
+            "el_6c39c345292b4b8673f310e766b120a9",
+            "el_3b4b8d877f8c396049e61494361cf293",
+            "el_02db9d0d0dbfaa5c115f9a4f6e4cb6b6",
+            "el_910044051d9b9eb9782e9f9647a75463",
+            "el_c2db3001d2f44562d19a6324a14bfb5e"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 14,
+              "bbox": {
+                "left": 33.96,
+                "top": 124.980463,
+                "right": 561.67752,
+                "bottom": 98.627335,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 185
+            },
+            {
+              "page_number": 15,
+              "bbox": {
+                "left": 51.96,
+                "top": 788.449903,
+                "right": 561.658032,
+                "bottom": 762.096775,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 134
+            },
+            {
+              "page_number": 15,
+              "bbox": {
+                "left": 51.92688,
+                "top": 740.083663,
+                "right": 561.580752,
+                "bottom": 713.730535,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 162
+            },
+            {
+              "page_number": 15,
+              "bbox": {
+                "left": 51.9048,
+                "top": 691.827823,
+                "right": 561.619392,
+                "bottom": 665.364295,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 150
+            },
+            {
+              "page_number": 15,
+              "bbox": {
+                "left": 33.9096,
+                "top": 643.461583,
+                "right": 561.645888,
+                "bottom": 601.023175,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 248
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": null,
+          "lexical_score": null,
+          "semantic_rank": 7,
+          "semantic_score": 0.5008840346807555,
+          "fused_rank": 19,
+          "rrf_score": 0.014925373134328358,
+          "reranker_score": 0.003960787784308195
+        }
+      },
+      {
+        "rank": 12,
+        "evidence_text": "Prize  money  will  be  awarded  for  position  1  in  the  Team  Classification  in  the  Porsche  Carrera  Cup Scandinavia 2025 total championship standings.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_7274ba30e39e9215",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Scandinavia",
+          "document_type": "regulation",
+          "season": 2025
+        },
+        "citation": {
+          "chunk_id": "chk_e9f1eded6f39e9eff88b2023806e1ac3",
+          "source_sha256": "25e5f1e190defae79f996acca9722929daff1a50baff2cf204f8a57cc2284fde",
+          "source_path": "Rules and Regulations/Other/PCC Scandinavia/2025 Regulations.pdf",
+          "source_filename": "2025 Regulations.pdf",
+          "page_start": 26,
+          "page_end": 26,
+          "page_numbers": [
+            26
+          ],
+          "section_path": [
+            "ProAm Classification",
+            "9.2.1.2 Team and Rookie Driver Classifications for the season"
+          ],
+          "clause_reference": "9.2.1.2",
+          "evidence_sha256": "b4ce08011f59b0ef3aa699ad7d0478ec976f49891857b8af279521e9628762f4",
+          "element_ids": [
+            "el_7dec15be66ff2488480eec5968cb50c5"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 26,
+              "bbox": {
+                "left": 70.775,
+                "top": 530.65,
+                "right": 526.175,
+                "bottom": 506.4,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 159
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 48,
+          "lexical_score": 25.465714,
+          "semantic_rank": 19,
+          "semantic_score": 0.4882662628295382,
+          "fused_rank": 4,
+          "rrf_score": 0.021917487107360523,
+          "reranker_score": 0.0006070755189284682
+        }
+      },
+      {
+        "rank": 13,
+        "evidence_text": "The regular oil filler cap is replaced by the oil filler cap incl. SOBEK quick-release cap. Available at Porsche Motorsport parts catalogue.\n\nEngine switched off.\n\nMaximum pressure 2 bar.\n\nFill the engine oil in 200 ml steps.\n\nFor quick filling, the pressure bottle \"Oilstick Magnum F2K Dispenser\" from the manufac -turer SOBEK is recommended.\n\nPurchase and further information via SOBEK Motorsporttechnik GmbH & Co. KG . For contact, see page 973 .",
+        "document_class": "technical_manual",
+        "chunk_kind": "section",
+        "source_role": "technical_manual_current_generation",
+        "source_metadata": {
+          "authority": "manufacturer_document",
+          "document_type": "technical_manual",
+          "vehicle_generation": "992.2"
+        },
+        "citation": {
+          "chunk_id": "chk_a1f879a71e588bd493f34a0c65d188d4",
+          "source_sha256": "35bb8384deb93537b2c99dfa9fe43681b1daa3d7fa7ddb62cbf71be268776456",
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "source_filename": "992.2 Technical Manual.pdf",
+          "page_start": 58,
+          "page_end": 58,
+          "page_numbers": [
+            58
+          ],
+          "section_path": [
+            "Scenario II",
+            "1.4.5 Engine oil quick-fill"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "9b89cfdc57f8095f5376cac9090ee0543e18252a571fcca49af8069e22b97969",
+          "element_ids": [
+            "el_b8b9aa8c4bae6d946e83009b769cac5e",
+            "el_0f7880a121a5aee8912d3a6d2b383adc",
+            "el_4b46e629506e3e0f500a5950f03c29bf",
+            "el_3ae4b96a39e0c9c2855fec01cb845eb0",
+            "el_2ae83ce5a57170c202130712844e8592",
+            "el_b7402051d06e8aed3516b65bf4b60dc3"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 58,
+              "bbox": {
+                "left": 127.5587,
+                "top": 467.099824,
+                "right": 492.696,
+                "bottom": 443.900303,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 140
+            },
+            {
+              "page_number": 58,
+              "bbox": {
+                "left": 127.5587,
+                "top": 428.093824,
+                "right": 227.3232,
+                "bottom": 417.896303,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 22
+            },
+            {
+              "page_number": 58,
+              "bbox": {
+                "left": 127.5587,
+                "top": 415.091824,
+                "right": 248.7633,
+                "bottom": 404.894303,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 25
+            },
+            {
+              "page_number": 58,
+              "bbox": {
+                "left": 127.5587,
+                "top": 402.089824,
+                "right": 284.6464,
+                "bottom": 391.892303,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 38
+            },
+            {
+              "page_number": 58,
+              "bbox": {
+                "left": 127.5587,
+                "top": 376.085824,
+                "right": 513.5927,
+                "bottom": 352.886303,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 116
+            },
+            {
+              "page_number": 58,
+              "bbox": {
+                "left": 127.5587,
+                "top": 350.081824,
+                "right": 477.0837,
+                "bottom": 326.882303,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 104
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 8,
+          "lexical_score": 31.192938,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 20,
+          "rrf_score": 0.014705882352941176,
+          "reranker_score": 0.0003406293108128011
+        }
+      },
+      {
+        "rank": 17,
+        "evidence_text": "Insert the cap [1] with greased O -ring [2] .\n\nInstall the new circlip [3] .",
+        "document_class": "technical_manual",
+        "chunk_kind": "section",
+        "source_role": "technical_manual_current_generation",
+        "source_metadata": {
+          "authority": "manufacturer_document",
+          "document_type": "technical_manual",
+          "vehicle_generation": "992.2"
+        },
+        "citation": {
+          "chunk_id": "chk_8352bfe6de80116795721bb1f3167a60",
+          "source_sha256": "35bb8384deb93537b2c99dfa9fe43681b1daa3d7fa7ddb62cbf71be268776456",
+          "source_path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+          "source_filename": "992.2 Technical Manual.pdf",
+          "page_start": 255,
+          "page_end": 255,
+          "page_numbers": [
+            255
+          ],
+          "section_path": [
+            "Installing the differential",
+            "2.5.25 Installing the assembly opening cap"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "648af77e682d3d15c325de5865248f7e4fb63dc2a2f0aa9222898c7e8f33bc91",
+          "element_ids": [
+            "el_26c35d5b53221ec26bb77f8cffcd1d1c",
+            "el_2751b7336bab07dc3ce4adc0cf590162"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 255,
+              "bbox": {
+                "left": 127.5593,
+                "top": 284.429224,
+                "right": 332.5333,
+                "bottom": 274.231703,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 48
+            },
+            {
+              "page_number": 255,
+              "bbox": {
+                "left": 127.5703,
+                "top": 271.427224,
+                "right": 260.1313,
+                "bottom": 261.229703,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 32
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 3,
+          "lexical_score": 32.303658,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 10,
+          "rrf_score": 0.015873015873015872,
+          "reranker_score": 2.732141365413554e-05
+        }
+      }
+    ],
+    "retrieval_counts": {
+      "lexical": 50,
+      "semantic": 50,
+      "fused": 30,
+      "reranked": 20
+    },
+    "generation_model": {
+      "model": "qwen3.5:9b",
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "parameter_size": "9.7B",
+      "quantization_level": "Q4_K_M"
+    },
+    "generation_usage": {
+      "total_duration_ms": 0,
+      "load_duration_ms": 0,
+      "prompt_tokens": 0,
+      "output_tokens": 0
+    },
+    "timings": {
+      "retrieval_ms": 359,
+      "generation_ms": 8
+    },
+    "evidence_selection": {
+      "policy": "facet_topic_mmr_scope_v3",
+      "query_intent": "concept",
+      "candidates_considered": 20,
+      "selected_count": 8,
+      "duplicates_removed": 0,
+      "distinct_sources": 6,
+      "required_scopes": [],
+      "covered_scopes": [],
+      "requested_facets": [],
+      "covered_facets": [],
+      "missing_facets": [],
+      "maximum_reranker_score": 0.02843603305518627,
+      "minimum_score_threshold": 0.2377,
+      "sufficient": false,
+      "reason": "below_calibrated_threshold"
+    }
+  },
+  "status": "completed"
+}

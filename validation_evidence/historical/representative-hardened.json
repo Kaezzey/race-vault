@@ -1,0 +1,525 @@
+{
+  "created_at": "2026-08-13T12:47:45.308554Z",
+  "fused": {
+    "mean_reciprocal_rank": 0.7976190476190476,
+    "negative_accuracy": 1.0,
+    "passed_queries": 15,
+    "positive_hit_rate": 1.0
+  },
+  "lexical": {
+    "mean_reciprocal_rank": 0.7970238095238095,
+    "negative_accuracy": 1.0,
+    "passed_queries": 15,
+    "positive_hit_rate": 1.0
+  },
+  "negative_queries": 1,
+  "positive_queries": 14,
+  "query_count": 15,
+  "reranked": {
+    "mean_reciprocal_rank": 1.0,
+    "negative_accuracy": 1.0,
+    "passed_queries": 15,
+    "positive_hit_rate": 1.0
+  },
+  "results": [
+    {
+      "category": "regulation_definition",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "passed": true,
+        "reciprocal_rank": 0.5,
+        "returned": 27
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "query_id": "reg_joker_tyre_definition",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "passed": true,
+        "reciprocal_rank": 0.5,
+        "returned": 27
+      }
+    },
+    {
+      "category": "regulation_concept",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "passed": true,
+        "reciprocal_rank": 0.5,
+        "returned": 27
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "passed": true,
+        "reciprocal_rank": 0.5,
+        "returned": 7
+      },
+      "query_id": "reg_control_component_requirement",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 27
+      }
+    },
+    {
+      "category": "regulation_definition",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 27
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 13
+      },
+      "query_id": "reg_slick_tyre_definition",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 27
+      }
+    },
+    {
+      "category": "regulation_rule",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 27
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 27
+      },
+      "query_id": "reg_round_alteration_precedence",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "passed": true,
+        "reciprocal_rank": 0.5,
+        "returned": 27
+      }
+    },
+    {
+      "category": "regulation_rule",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 27
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 21
+      },
+      "query_id": "reg_driver_minimum_age",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 27
+      }
+    },
+    {
+      "category": "regulation_table",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 3,
+        "passed": true,
+        "reciprocal_rank": 0.3333333333333333,
+        "returned": 27
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 5,
+        "passed": true,
+        "reciprocal_rank": 0.2,
+        "returned": 27
+      },
+      "query_id": "reg_2026_calendar",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "passed": true,
+        "reciprocal_rank": 0.5,
+        "returned": 27
+      }
+    },
+    {
+      "category": "technical_table",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      },
+      "query_id": "tyre_n3r_dimensions",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      }
+    },
+    {
+      "category": "technical_table",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      },
+      "query_id": "tyre_n3_rolling_circumference",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      }
+    },
+    {
+      "category": "technical_recommendation",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      },
+      "query_id": "tyre_shoulder_temperature_delta",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      }
+    },
+    {
+      "category": "technical_recommendation",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "passed": true,
+        "reciprocal_rank": 0.5,
+        "returned": 17
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 3,
+        "passed": true,
+        "reciprocal_rank": 0.3333333333333333,
+        "returned": 14
+      },
+      "query_id": "tyre_unlisted_track_recommendation",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 17
+      }
+    },
+    {
+      "category": "technical_table",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 3,
+        "passed": true,
+        "reciprocal_rank": 0.3333333333333333,
+        "returned": 17
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 8,
+        "passed": true,
+        "reciprocal_rank": 0.125,
+        "returned": 17
+      },
+      "query_id": "tyre_n3r_standard_cold_pressure",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "passed": true,
+        "reciprocal_rank": 0.5,
+        "returned": 17
+      }
+    },
+    {
+      "category": "manual_concept",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      },
+      "query_id": "manual_intended_use",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      }
+    },
+    {
+      "category": "manual_procedure",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 11
+      },
+      "query_id": "manual_main_voltage_switch",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      }
+    },
+    {
+      "category": "manual_safety",
+      "expected_empty": false,
+      "fused": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      },
+      "lexical": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      },
+      "query_id": "manual_fire_system_test",
+      "reranked": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      },
+      "semantic": {
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 12
+      }
+    },
+    {
+      "category": "wrong_revision",
+      "expected_empty": true,
+      "fused": {
+        "distinct_relevant_sources": 0,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 0
+      },
+      "lexical": {
+        "distinct_relevant_sources": 0,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 0
+      },
+      "query_id": "failure_wrong_regulation_revision",
+      "reranked": {
+        "distinct_relevant_sources": 0,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 0
+      },
+      "semantic": {
+        "distinct_relevant_sources": 0,
+        "passed": true,
+        "reciprocal_rank": 1.0,
+        "returned": 0
+      }
+    }
+  ],
+  "schema_name": "racevault.retrieval_evaluation_report",
+  "schema_version": 1,
+  "semantic": {
+    "mean_reciprocal_rank": 0.8571428571428571,
+    "negative_accuracy": 1.0,
+    "passed_queries": 15,
+    "positive_hit_rate": 1.0
+  }
+}

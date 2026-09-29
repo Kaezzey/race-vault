@@ -1,0 +1,322 @@
+[
+  {
+    "path": "ABS/Core/Data_Sheet_70612107_ABS_M5_Kit.pdf",
+    "bytes": 898889,
+    "sha256": "0da8768b9e71eedcffcda673653cc113c6def2dbe26f6950917c41a6d098bcea"
+  },
+  {
+    "path": "ABS/Core/Operation_Manual_70618763_ABS_M5_Kit.pdf",
+    "bytes": 17980693,
+    "sha256": "d44429b18d7728519bf0c46d363ffce8a3e47f0d4922b663e4e3f8849372ff6a"
+  },
+  {
+    "path": "ABS/Diagnostics/ABS_Diagnostics_in_Display.pdf",
+    "bytes": 3720292,
+    "sha256": "801d13700865fda71f871803fc41aba2b0e55b3c82c9bbe86b52ca55d2cac0c1"
+  },
+  {
+    "path": "Cosworth/Pi Toolbox/Pi Toolbox User Guide.pdf",
+    "bytes": 8248766,
+    "sha256": "e66f7b7610f4026211fa99a66ceda0b71af674eaff8d3e16b99f6920cbb0742c"
+  },
+  {
+    "path": "Cosworth/Pi Toolbox/start-up-manual-pi-toolbox.pdf",
+    "bytes": 4186409,
+    "sha256": "989056de54d8300a98b91e969c6558608259cc5adca114517b54964ce6771f3f"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/22-pi-toolset-devices-device-properties.pdf",
+    "bytes": 185031,
+    "sha256": "2dd40a72272821ebea4ccf4b42b7912d697be01d55374fbc68d10368714e6ca2"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/3-pi-toolset-data.pdf",
+    "bytes": 386719,
+    "sha256": "06d8937243958f7c21cde9f72ace4dc2f0c8b16fbd90255e72728ed9fad1a956"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/5-pi-toolset-actions-changing-lap-number.pdf",
+    "bytes": 184193,
+    "sha256": "6c18c6739aea03dbad9843b8a3d920bab72bc23a4a8c315aede5e2341f5a50de"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/5-pi-toolset-actions-logging.pdf",
+    "bytes": 138185,
+    "sha256": "04c9c1db760da74f0fab9cddc1349eabb480a96833bcd5d098d31bb341e3b268"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-alarms.pdf",
+    "bytes": 519635,
+    "sha256": "dd4d5ad4a0a79d6929e3956e568a8bc627b39714c5b0660b75b6d4b03dffddff"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-beacons.pdf",
+    "bytes": 376964,
+    "sha256": "cbecf54f8597a4deb8fae87600dc1a896772b4284597c812c7b5626f47804adf"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-channel-rates.pdf",
+    "bytes": 212715,
+    "sha256": "71b8a12f75b1d8964b5e9e4e082edeb8db482acd141536697450ae9257dc6ae0"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-ecu.pdf",
+    "bytes": 173680,
+    "sha256": "35fa4001bbee7ca36f41b289e0dfb3b6b1608ed2a2e291f1fe5cada3febc287b"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-fuelling.pdf",
+    "bytes": 185930,
+    "sha256": "74079b7ccd53e4a5658c28cdc534d521867131af3eee4f45b31fd277b8a8ffc1"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-hardware-settings.pdf",
+    "bytes": 442064,
+    "sha256": "962cce56d47795684a134aed6122c8fdba24624f29d341d4d6a15f48c1a7f038"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-logging.pdf",
+    "bytes": 564804,
+    "sha256": "653788004fb9c3a20e3ad7743accde056fd264e40eceb57e5c98887fa0e7b834"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-logic-channels.pdf",
+    "bytes": 384634,
+    "sha256": "00cbc558fd795fe149b38b9b19ab19ffd5c73fd50eac9276488c8d5a9f4f3227"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-maths-channels.pdf",
+    "bytes": 383680,
+    "sha256": "8fe019a7961bea8ee6be33d6844a996d7f28842fc349d79f210d417251b5d3e8"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-nmea-0183-decode.pdf",
+    "bytes": 203792,
+    "sha256": "ff3fd28e448b2a4cddebf622d45e9b7d25c6613c5ebbed4d604c8ba1c6756a18"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-sensors.pdf",
+    "bytes": 838091,
+    "sha256": "9d8c03d9fda590aecf05a3758ee0137407c4f6798f1940f214dc2320375ba84b"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-setup-locking.pdf",
+    "bytes": 286790,
+    "sha256": "f126edec0c357ba727235704962093f3990fcc85d6a0105bc830660f3241c9f0"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-streams-can.pdf",
+    "bytes": 898340,
+    "sha256": "2a8e9afe41782413e522433d98b8e008c9825ef401e703090c64e018be8a4c53"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-wheelspeeds.pdf",
+    "bytes": 296407,
+    "sha256": "301e43a0b377bcce8334a3b379dcc403d2a2ccab5de9caf4c772d9b46562252b"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/6-pi-toolset-setups-zeroing.pdf",
+    "bytes": 234148,
+    "sha256": "53cdd9bef5ce583ac623e26c0a7b2a8b82aa0e4e87214eb2caf9131ede951e86"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/7-pi-toolset-channels.pdf",
+    "bytes": 219276,
+    "sha256": "d81ecf0ac691d51b02a45ce915b5257ab05a62762458a2aededb324513b26e94"
+  },
+  {
+    "path": "Cosworth/Pi Toolset/8-pi-toolset-settings.pdf",
+    "bytes": 348410,
+    "sha256": "678f05b0f49ef2547b945c26b4a31f67fb5df4ee4ffcc6dcfae24548e335a890"
+  },
+  {
+    "path": "ECU/engine_control_unit_ms_6-x_manual.pdf",
+    "bytes": 13656378,
+    "sha256": "5a637a06978da8cb080c038ea791f2ade986c883de69ad77b67b9288659f4afa"
+  },
+  {
+    "path": "Part Catalogues/PA10_0842_911 GT3 Cup MY2021-2025 (Typ 992)_CW_11_26_English_en.pdf",
+    "bytes": 50462509,
+    "sha256": "f89664c56eb6980d16dd0ee0bb326b846b6d2a5561bb11796c73538e03f5e481"
+  },
+  {
+    "path": "Part Catalogues/PA10_2282_911 Cup MY2026 (Typ 992 II)_CW_24_26_English_en.pdf",
+    "bytes": 50511636,
+    "sha256": "285da488a0ac51330565b39ea3b1036c4ceadcb2b9af9adb4ee87ff3c3abe865"
+  },
+  {
+    "path": "Part Catalogues/PA10_2336_01_2026_Tech_Info_911_Cup_Identical parts_V2_en.pdf",
+    "bytes": 310126,
+    "sha256": "1b8a366585cdb117ae923abdf8f1def0f47a3c7d48ae66755571c2180e4d9304"
+  },
+  {
+    "path": "Part Catalogues/PA10_2337_02_2026_Tech_Info_GT3_Cup_Identical parts_en.pdf",
+    "bytes": 195829,
+    "sha256": "f90e65ca4a97e4dfba728e9069a16de479e6b57501cc50b5fd9862e9515afe86"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_0852/PA10_0852_992_GT3_Cup_RaceCon_Manual_en.pdf",
+    "bytes": 5935193,
+    "sha256": "bb3dac225913444a8a2d308d8826af99e216aea665868eb113c3f2b090a36690"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_1024/Windows11_Workaround_temp.pdf",
+    "bytes": 103766,
+    "sha256": "f786c161a077df473d7fdb732ba885c634de57947d0dc0ac8427f4dae870c515"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_1281/PA10_1281_Start-up Manual for Porsche Toolset_v4_de_en.pdf",
+    "bytes": 4142705,
+    "sha256": "3e1e1ae1a2b29f8781a25aa72dc35867786957ae70088030862dc6bf46e3c0cc"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_1281/Porsche_Toolset_10.0.4680.11/Pi Toolset 10.0 (Build 4680 - Update 11) Release Note.pdf",
+    "bytes": 178422,
+    "sha256": "14563286f66d34462df0d7d519121b35e6a7d4b1f321ccfdfa177535e8a3ba3e"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_1918/992Cup_Manual_Software_Updates_V03.pdf",
+    "bytes": 2989356,
+    "sha256": "24fa3086552a8c77930cdabf14dfd1752a62df9998df13ae8601018fb515643c"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_2238/992_GT3_CUP_SW_ChangeLog_VBV12_V1.pdf",
+    "bytes": 603868,
+    "sha256": "8b6b9997d540d11e728e270d506c3b3b27a346136854a404ac5f9918768ab64f"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_2238/PA10_1282_992Cup_Manual_Software_Updates_V06.1_us.pdf",
+    "bytes": 3973807,
+    "sha256": "b9cda5d51419bcc63f1ea4e28d7b9af8364d42b7194a3b96d6aad6d7dc1d510a"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_2238/PA10_1282_Track kml list V1_de.pdf",
+    "bytes": 71403,
+    "sha256": "15ae22837e9e68758fa66fdad68c5d70e3f34ec59ed29ba238e789a5f4c5fc40"
+  },
+  {
+    "path": "PMRSI Other/2026-08-10_PA10_2427/PA10_2427_Bosch RaceABS_Import XML_en.pdf",
+    "bytes": 101483,
+    "sha256": "480ecae53ffb76ef34aefdb6fc60feba86c1b0dba8bbd947010389b208853bdf"
+  },
+  {
+    "path": "Porsche Technical Manuals/992.1 Technical Manual.pdf",
+    "bytes": 47361669,
+    "sha256": "82ea102c8f740227ad3411f3b3ab3814cce1cf16b3025cfdf34baf38363ef11c"
+  },
+  {
+    "path": "Porsche Technical Manuals/992.2 Technical Manual.pdf",
+    "bytes": 52998493,
+    "sha256": "35bb8384deb93537b2c99dfa9fe43681b1daa3d7fa7ddb62cbf71be268776456"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC Benelux/2025 Sporting Regulations.pdf",
+    "bytes": 1641188,
+    "sha256": "d6be2317025f42b17a49648422f25df4c52a6739ca16cbcc05a2e099ea6eafca"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC Benelux/2025 Technical Regulations.pdf",
+    "bytes": 2779750,
+    "sha256": "b16d5195d2f4b604a13ba400de2ef5ee5c4df4140fd6e375c5c3e7523c37b227"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC Deutschland/2026 Regulations.pdf",
+    "bytes": 4215662,
+    "sha256": "f611963116306be329eeade9eb86242582e225037e6197ede63fd7023a545a56"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC France/2025 Regulations.pdf",
+    "bytes": 1159949,
+    "sha256": "f4ace80344c5dde0c72dd03e53c826152ac9493f271755241b06993af7afb118"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC France/2026 Regulations.pdf",
+    "bytes": 1983874,
+    "sha256": "1343a156046e7c341f0d6f44f828487d1c56800a9a206a2d46d32f629526fbe8"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC Great Britian/2025 Regulations.pdf",
+    "bytes": 2674123,
+    "sha256": "b77fc089b2f3bb1cebc5130707ba45c3c08a3e7d0873a560ffb91730fb317e79"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC Great Britian/2026 Regulations.pdf",
+    "bytes": 4419010,
+    "sha256": "44039b73d0555aec69e39e675b0b1c9757779b953943d201b649863f61160ea8"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC North America/2025 Regulations.pdf",
+    "bytes": 2689808,
+    "sha256": "cec74d3502c163111d8690c57d0210ec3f6fe89ce294a5449c4b1d63f69a062a"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC North America/2026 Regulations.pdf",
+    "bytes": 1185547,
+    "sha256": "ed8e3a6cbe3a430f707329359604df1c72597a398b8ddda547eb3a85ddcaf1b6"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC Scandinavia/2025 Regulations.pdf",
+    "bytes": 2367795,
+    "sha256": "25e5f1e190defae79f996acca9722929daff1a50baff2cf204f8a57cc2284fde"
+  },
+  {
+    "path": "Rules and Regulations/Other/PCC Scandinavia/2026 Regulations.pdf",
+    "bytes": 2830619,
+    "sha256": "f473f6b5e4f15ae4b27adf3adb560c38d8056144ca8b4a25b7073b31af7bce5b"
+  },
+  {
+    "path": "Rules and Regulations/Other/Porsche Supercup/2026 Regulations.pdf",
+    "bytes": 4439553,
+    "sha256": "0732553e309be6e005f2651fc3a8f8a21614461697418b65340a7a15240cd12a"
+  },
+  {
+    "path": "Rules and Regulations/PCC Asia/PCCA 2025 Regulations_Final.pdf",
+    "bytes": 8644579,
+    "sha256": "0372ebbf1caffa15deaed96c63f453817fc88a4baeac5068e231eb6fb5f6145a"
+  },
+  {
+    "path": "Rules and Regulations/PCC Asia/PCCA 2026 Regulations_Final.pdf",
+    "bytes": 2127246,
+    "sha256": "dc570ef568d5646ca95da996a1c6709cd699e219fd43ae2b331590382c543d85"
+  },
+  {
+    "path": "Rules and Regulations/PCC Australia/2025_Porsche_Carrera_Cup_Australia_Sporting_Technical_Regulations_V1.pdf",
+    "bytes": 3276210,
+    "sha256": "fc91684ec9d028ca23563c91ae5d92060c8d2bb061726c8a606024917ff6b44d"
+  },
+  {
+    "path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+    "bytes": 1598348,
+    "sha256": "24183ae7710bbd3eab55a92d2c1a73a011882da329eca266d0b2eaf056463005"
+  },
+  {
+    "path": "Tyre Data/992.1/Combined/01_2025_Tech_Info_GT3_Cup_Michelin_Preco.pdf",
+    "bytes": 92186,
+    "sha256": "bd3ecac7421c70fc94a7b7646595bfb4040c722ef99822c1846fc57df9a50361"
+  },
+  {
+    "path": "Tyre Data/992.1/Combined/Porsche Technical recommendations N3_N3R_2025.pdf",
+    "bytes": 706735,
+    "sha256": "d4da6b8b3219ef366d00db3c789249477053755d35b9f41391ffbdc71e1189f9"
+  },
+  {
+    "path": "Tyre Data/992.1/Slicks/Front/PA10_0849_DataPackage_30 65 18 N3_en.pdf",
+    "bytes": 513913,
+    "sha256": "49b296fcb06e5cbef0e1ec9a8732c96d210ede0d3f44ad371698dbe6913b765f"
+  },
+  {
+    "path": "Tyre Data/992.1/Slicks/Rear/PA10_0849_DataPackage_31 71 18 N3_en.pdf",
+    "bytes": 520446,
+    "sha256": "69a2c657c8541e10b8fd7c7dcc319c0c06903acc5e04c83239bdba35135ec57f"
+  },
+  {
+    "path": "Tyre Data/992.2/Combined/PA10_2359_03_2026_Tech_Info_911_Cup_Michelin_Preco_en.pdf",
+    "bytes": 107238,
+    "sha256": "bf701d23b5c64bb115b23aa0a3bb477cba0d4f4998f1b5c23757e1662766fb1e"
+  },
+  {
+    "path": "Tyre Data/992.2/Combined/PA10_2359_Cup N4_Technical Recommendations_2025_en.pdf",
+    "bytes": 1413249,
+    "sha256": "88e140e186ae4cc5ab0327edd09e2eb9a17ba3017c61851b3c774ca960aacb56"
+  }
+]

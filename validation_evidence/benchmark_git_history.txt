@@ -1,0 +1,2 @@
+cce0fe72be2f4bc1c99f27bb6503478d04f284ff 2026-08-24T00:16:55+12:00 Niket Shah Add evaluation artifacts and observability configurations
+ac6fc3d48225a9a2b012dbb391b5e4f2a2f8cede 2026-08-14T01:51:13+12:00 Niket Shah Add evaluation runner and corpus ingestion tests

@@ -1,0 +1,347 @@
+{
+  "version": {
+    "name": "b79fc9577af8",
+    "cluster_name": "docker-cluster",
+    "cluster_uuid": "e09_jeoLSG2s2hqCqmltGQ",
+    "version": {
+      "distribution": "opensearch",
+      "number": "3.7.0",
+      "build_type": "tar",
+      "build_hash": "72121f014083f9ca010fd5a7da83b2ec4886027f",
+      "build_date": "2026-06-03T23:30:14.822289255Z",
+      "build_snapshot": false,
+      "lucene_version": "10.4.0",
+      "minimum_wire_compatibility_version": "2.19.0",
+      "minimum_index_compatibility_version": "2.0.0"
+    },
+    "tagline": "The OpenSearch Project: https://opensearch.org/"
+  },
+  "settings": {
+    "racevault-chunks-v2": {
+      "settings": {
+        "index": {
+          "replication": {
+            "type": "DOCUMENT"
+          },
+          "number_of_shards": "1",
+          "provided_name": "racevault-chunks-v2",
+          "creation_date": "1787480839099",
+          "analysis": {
+            "filter": {
+              "racevault_motorsport_synonyms": {
+                "type": "synonym_graph",
+                "lenient": "false",
+                "synonyms": [
+                  "automobile, car, vehicle",
+                  "weight, weigh, mass",
+                  "tyre, tire",
+                  "kerb, curb",
+                  "tyre wall, tire wall",
+                  "litre, liter",
+                  "metre, meter",
+                  "centre, center",
+                  "stabiliser, stabilizer",
+                  "aluminium, aluminum",
+                  "damper, shock absorber, shock",
+                  "anti-roll bar, antiroll bar, roll bar, sway bar, stabiliser bar, arb",
+                  "ride height, ground clearance",
+                  "wishbone, control arm, a-arm",
+                  "upright, hub carrier, knuckle",
+                  "spring rate, spring stiffness",
+                  "bump stop, bumpstop, packer",
+                  "corner weight, corner weighting",
+                  "rim, wheel rim",
+                  "et, wheel offset, offset",
+                  "rolling circumference, circumference",
+                  "tyre pressure, inflation pressure, cold pressure",
+                  "wheel nut, wheel bolt, lug nut",
+                  "abs, anti-lock braking system, antilock braking system, anti lock brake",
+                  "brake bias, brake balance, brake distribution",
+                  "brake disc, brake rotor, disc rotor",
+                  "brake pad, friction pad",
+                  "brake caliper, caliper",
+                  "gearbox, transmission",
+                  "differential, diff",
+                  "lsd, limited slip differential",
+                  "driveshaft, drive shaft, halfshaft, half shaft",
+                  "clutch pack, clutch plate",
+                  "final drive, crown wheel and pinion",
+                  "ecu, engine control unit, engine management",
+                  "tc, traction control",
+                  "engine map, calibration map, fuel map",
+                  "lambda, air fuel ratio, afr",
+                  "knock, detonation, pinking",
+                  "rpm, engine speed, revs",
+                  "bhp, hp, horsepower",
+                  "nm, newton metre, newton meter",
+                  "wiring loom, wiring harness, cable loom",
+                  "telemetry, data logging, datalogging",
+                  "dashboard, dash display, steering wheel display",
+                  "coolant temperature, water temperature",
+                  "aero, aerodynamic",
+                  "undertray, floor, underbody",
+                  "splitter, front splitter, front lip",
+                  "rear wing, rear aerofoil, rear airfoil",
+                  "diffuser, rear diffuser",
+                  "bodywork, panel work",
+                  "roll cage, rollcage, safety cage",
+                  "safety harness, seat belt, seatbelt, six point harness",
+                  "hans, head and neck restraint, frhd",
+                  "fuel cell, fuel bladder, fuel tank",
+                  "fire extinguisher, fire suppression, extinguisher system",
+                  "window net, window netting",
+                  "seat insert, seat padding",
+                  "scrutineering, technical inspection, tech inspection, eligibility check",
+                  "parc ferme, parc ferme conditions, impound",
+                  "safety car, pace car",
+                  "formation lap, warm up lap, warmup lap, parade lap",
+                  "qualifying, qualification, quali",
+                  "free practice, practice session",
+                  "pit lane, pitlane, pits",
+                  "pit stop, pitstop",
+                  "track limits, circuit limits",
+                  "grid, starting grid",
+                  "minimum weight, weight limit",
+                  "homologation, homologated specification",
+                  "ballast, weight ballast",
+                  "driving standards, on track conduct",
+                  "gt3 cup, cup car",
+                  "carrera cup, pcc",
+                  "supercup, psc"
+                ]
+              }
+            },
+            "normalizer": {
+              "racevault_keyword": {
+                "filter": [
+                  "lowercase",
+                  "asciifolding"
+                ],
+                "type": "custom"
+              }
+            },
+            "analyzer": {
+              "racevault_technical": {
+                "filter": [
+                  "lowercase",
+                  "asciifolding",
+                  "kstem"
+                ],
+                "type": "custom",
+                "tokenizer": "standard"
+              },
+              "racevault_codes": {
+                "filter": [
+                  "lowercase",
+                  "asciifolding"
+                ],
+                "type": "custom",
+                "tokenizer": "racevault_code_tokenizer"
+              },
+              "racevault_technical_search": {
+                "filter": [
+                  "lowercase",
+                  "asciifolding",
+                  "racevault_motorsport_synonyms",
+                  "kstem"
+                ],
+                "type": "custom",
+                "tokenizer": "standard"
+              }
+            },
+            "tokenizer": {
+              "racevault_code_tokenizer": {
+                "pattern": "[^\\p{L}\\p{N}._/-]+",
+                "type": "pattern"
+              }
+            }
+          },
+          "number_of_replicas": "0",
+          "uuid": "3BBnXNEMSv2_xp25zm3l6w",
+          "version": {
+            "created": "137287827"
+          }
+        }
+      }
+    }
+  },
+  "mapping": {
+    "racevault-chunks-v2": {
+      "mappings": {
+        "dynamic": "strict",
+        "_meta": {
+          "racevault_schema_version": "2.0"
+        },
+        "properties": {
+          "artifact_id": {
+            "type": "keyword"
+          },
+          "authority": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "championship": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "character_count": {
+            "type": "integer"
+          },
+          "chunk_id": {
+            "type": "keyword"
+          },
+          "clause_reference": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "contextual_sha256": {
+            "type": "keyword",
+            "index": false
+          },
+          "contextual_text": {
+            "type": "text",
+            "fields": {
+              "codes": {
+                "type": "text",
+                "analyzer": "racevault_codes"
+              }
+            },
+            "analyzer": "racevault_technical",
+            "search_analyzer": "racevault_technical_search"
+          },
+          "document_class": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "element_ids": {
+            "type": "keyword",
+            "index": false
+          },
+          "evidence_sha256": {
+            "type": "keyword",
+            "index": false
+          },
+          "evidence_text": {
+            "type": "text",
+            "index": false
+          },
+          "kind": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "oversize": {
+            "type": "boolean"
+          },
+          "page_end": {
+            "type": "short"
+          },
+          "page_numbers": {
+            "type": "short"
+          },
+          "page_start": {
+            "type": "short"
+          },
+          "provenance": {
+            "type": "object",
+            "enabled": false
+          },
+          "revision": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "season": {
+            "type": "short"
+          },
+          "section_path": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "section_text": {
+            "type": "text",
+            "fields": {
+              "codes": {
+                "type": "text",
+                "analyzer": "racevault_codes"
+              }
+            },
+            "analyzer": "racevault_technical",
+            "search_analyzer": "racevault_technical_search"
+          },
+          "source_filename": {
+            "type": "text",
+            "fields": {
+              "codes": {
+                "type": "text",
+                "analyzer": "racevault_codes"
+              }
+            },
+            "analyzer": "racevault_technical",
+            "search_analyzer": "racevault_technical_search"
+          },
+          "source_metadata": {
+            "type": "object",
+            "enabled": false
+          },
+          "source_path": {
+            "type": "keyword",
+            "index": false
+          },
+          "source_role": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "source_sha256": {
+            "type": "keyword"
+          },
+          "strategy": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          },
+          "table_ids": {
+            "type": "keyword",
+            "index": false
+          },
+          "vehicle_generation": {
+            "type": "keyword",
+            "normalizer": "racevault_keyword"
+          }
+        }
+      }
+    }
+  },
+  "count": {
+    "count": 9212,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    }
+  },
+  "index_document_count": 9212,
+  "index_content_sha256": "301fab5787204f2b1501aa8c05a2ecbc24a9f4049d795c482d72cb03723af2c8",
+  "postgres_version": {
+    "version": "PostgreSQL 18.4 (Debian 18.4-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+  },
+  "pgvector_version": {
+    "extversion": "0.8.6"
+  },
+  "counts": {
+    "documents": 64,
+    "chunks": 9212,
+    "chunk_embeddings": 9212
+  },
+  "embedding_models": [
+    {
+      "model_id": "BAAI/bge-m3",
+      "model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "n": 9212
+    }
+  ],
+  "documents_sha256": "d892eb7870eb7745443e0ed764fab525098bda54801dff6e08ae6212557922a9",
+  "chunks_sha256": "3ad25fa0adae23e2273223c8cc6e936dc6bd88cf8aaa73fffff35066c2637b02",
+  "chunk_embeddings_sha256": "147a0df063837901567e1d67ac8131932f18d26486a537abbab2ffaca2ab3f5d"
+}

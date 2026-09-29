@@ -1,0 +1,132 @@
+{
+  "started_at": "2026-09-29T11:00:01.646748+00:00",
+  "status": "completed",
+  "selection_rule": "all existing test-split questions, dataset order; no development additions",
+  "settings": {
+    "opensearch_index_name": "racevault-chunks-v2",
+    "opensearch_timeout_seconds": 10.0,
+    "semantic_model_id": "BAAI/bge-m3",
+    "semantic_model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "semantic_max_tokens": 8192,
+    "semantic_batch_size": 8,
+    "reranker_model_id": "BAAI/bge-reranker-v2-m3",
+    "reranker_model_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+    "reranker_max_tokens": 8192,
+    "reranker_batch_size": 8,
+    "api_model_device": "cuda",
+    "api_local_files_only": true,
+    "api_cors_origins": [
+      "http://localhost:3000"
+    ],
+    "api_ingestion_enabled": false,
+    "retrieval_prefer_latest_edition": true,
+    "ollama_model": "qwen3.5:9b",
+    "ollama_timeout_seconds": 300.0,
+    "ollama_context_tokens": 16384,
+    "ollama_max_output_tokens": 3072,
+    "ollama_keep_alive": "5m",
+    "answer_retrieval_candidate_limit": 20,
+    "answer_facet_candidate_limit": 8,
+    "answer_max_query_facets": 6,
+    "answer_evidence_limit": 8,
+    "answer_max_evidence_limit": 10,
+    "answer_evidence_character_budget": 24000,
+    "answer_evidence_topic_weight": 0.15,
+    "answer_evidence_diversity_weight": 0.2,
+    "answer_evidence_duplicate_threshold": 0.9,
+    "answer_evidence_max_per_source": 3,
+    "answer_minimum_reranker_score": 0.2377,
+    "answer_release_retrieval_models": false,
+    "generation_max_concurrency": 1,
+    "generation_queue_depth": 4,
+    "generation_retry_after_seconds": 5,
+    "metrics_enabled": true,
+    "json_logging": false,
+    "otel_exporter_endpoint": null,
+    "otel_service_name": "racevault-api",
+    "corpus_manifest_path": "corpus/full_documents.json",
+    "corpus_root_path": "AI & ML Reference File Database",
+    "extraction_root_path": ".artifacts/extracted",
+    "chunk_root_path": ".artifacts/chunks",
+    "upload_root_path": ".artifacts/uploads",
+    "upload_max_bytes": 262144000,
+    "ingestion_extraction_device": "auto",
+    "ingestion_threads": 8,
+    "ingestion_report_path": ".artifacts/reports/full-ingestion.json",
+    "dependency_timeout_seconds": 2.0
+  },
+  "generation_seed": 0,
+  "temperature": 0,
+  "retrieval_seed": 17,
+  "generation_status": {
+    "available": true,
+    "ollama_version": "0.34.2",
+    "model": {
+      "model": "qwen3.5:9b",
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "parameter_size": "9.7B",
+      "quantization_level": "Q4_K_M"
+    },
+    "capabilities": [
+      "completion",
+      "vision",
+      "tools",
+      "thinking"
+    ]
+  },
+  "results": [
+    {
+      "query_id": "tyre_n3r_dimensions",
+      "status": "completed"
+    },
+    {
+      "query_id": "tyre_n3_rolling_circumference",
+      "status": "completed"
+    },
+    {
+      "query_id": "tyre_shoulder_temperature_delta",
+      "status": "completed"
+    },
+    {
+      "query_id": "tyre_unlisted_track_recommendation",
+      "status": "completed"
+    },
+    {
+      "query_id": "tyre_n3r_standard_cold_pressure",
+      "status": "completed"
+    },
+    {
+      "query_id": "manual_intended_use",
+      "status": "completed"
+    },
+    {
+      "query_id": "manual_main_voltage_switch",
+      "status": "completed"
+    },
+    {
+      "query_id": "manual_fire_system_test",
+      "status": "completed"
+    },
+    {
+      "query_id": "conflict_n3r_pressure_sources",
+      "status": "completed"
+    },
+    {
+      "query_id": "neg_budget_cap",
+      "status": "completed"
+    },
+    {
+      "query_id": "neg_turbo_boost_limit",
+      "status": "completed"
+    },
+    {
+      "query_id": "neg_sprint_shootout",
+      "status": "completed"
+    },
+    {
+      "query_id": "neg_rallycross_joker",
+      "status": "completed"
+    }
+  ],
+  "finished_at": "2026-09-29T11:01:17.901830+00:00"
+}

@@ -1,0 +1,4287 @@
+{
+  "ablation_label": "hybrid_reranked",
+  "comparisons": [
+    {
+      "interval": {
+        "confidence": 0.95,
+        "high": 0.187175077419952,
+        "low": 0.0
+      },
+      "left_stage": "reranked",
+      "mean_difference": 0.07606396630884091,
+      "metric": "ndcg_at_10",
+      "probability_left_better": 0.879,
+      "right_stage": "fused"
+    },
+    {
+      "interval": {
+        "confidence": 0.95,
+        "high": 0.061511707738090414,
+        "low": 0.0
+      },
+      "left_stage": "fused",
+      "mean_difference": 0.02050390257936347,
+      "metric": "ndcg_at_10",
+      "probability_left_better": 0.673,
+      "right_stage": "lexical"
+    }
+  ],
+  "created_at": "2026-08-23T12:04:05.525005Z",
+  "dataset_id": "racevault-corpus-v2",
+  "dataset_version": "2.0.0",
+  "experiment": {
+    "commit_sha": "75c8f3ecebee79bd3f52785008555334fa2c6d11",
+    "configuration_sha256": "857ec4589fc518a00f29ac2507f5f2739bced39a2b76681f9a2af546008c2d4e",
+    "dataset_sha256": "2c0ecd96991945ce3d6a69153880a9d771f8f7e13fb2cb9320efc8b822b50cee",
+    "dirty_worktree": true,
+    "hardware": {
+      "cpu_count": "16",
+      "machine": "AMD64",
+      "processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD"
+    },
+    "model_revisions": {
+      "BAAI/bge-m3": "5617a9f61b028005a4858fdac845db406aefb181",
+      "BAAI/bge-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+    },
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python_version": "3.14.3",
+    "random_seed": 17,
+    "run_id": "f35b140a-4f6b-4050-82bb-c12fff48a6f8"
+  },
+  "fused": {
+    "confidence_intervals": {
+      "mean_context_precision_at_10": {
+        "confidence": 0.95,
+        "high": 0.26666666666666666,
+        "low": 0.1
+      },
+      "mean_ndcg_at_10": {
+        "confidence": 0.95,
+        "high": 0.9570163547517176,
+        "low": 0.6759465027370324
+      },
+      "mean_recall_at_10": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7222222222222222
+      },
+      "mean_recall_at_20": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.8333333333333334
+      },
+      "mean_recall_at_5": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7777777777777778
+      },
+      "mean_reciprocal_rank": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7037037037037037
+      },
+      "negative_accuracy": {
+        "confidence": 0.95,
+        "high": 0.0,
+        "low": 0.0
+      },
+      "positive_hit_rate": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 1.0
+      }
+    },
+    "mean_context_precision_at_10": 0.15555555555555556,
+    "mean_ndcg_at_10": 0.8174693487891527,
+    "mean_recall_at_10": 0.8888888888888888,
+    "mean_recall_at_20": 0.9444444444444444,
+    "mean_recall_at_5": 0.8888888888888888,
+    "mean_reciprocal_rank": 0.8703703703703703,
+    "negative_accuracy": 0.0,
+    "passed_queries": 9,
+    "positive_hit_rate": 1.0
+  },
+  "lexical": {
+    "confidence_intervals": {
+      "mean_context_precision_at_10": {
+        "confidence": 0.95,
+        "high": 0.31666666666666665,
+        "low": 0.1
+      },
+      "mean_ndcg_at_10": {
+        "confidence": 0.95,
+        "high": 0.9570163547517176,
+        "low": 0.6349386975783055
+      },
+      "mean_recall_at_10": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7222222222222222
+      },
+      "mean_recall_at_20": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7763888888888902
+      },
+      "mean_recall_at_5": {
+        "confidence": 0.95,
+        "high": 0.9444444444444444,
+        "low": 0.5555555555555556
+      },
+      "mean_reciprocal_rank": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.6527777777777778
+      },
+      "negative_accuracy": {
+        "confidence": 0.95,
+        "high": 0.0,
+        "low": 0.0
+      },
+      "positive_hit_rate": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 1.0
+      }
+    },
+    "mean_context_precision_at_10": 0.17222222222222222,
+    "mean_ndcg_at_10": 0.7969654462097893,
+    "mean_recall_at_10": 0.8888888888888888,
+    "mean_recall_at_20": 0.8888888888888888,
+    "mean_recall_at_5": 0.7777777777777778,
+    "mean_reciprocal_rank": 0.8472222222222222,
+    "negative_accuracy": 0.0,
+    "passed_queries": 8,
+    "positive_hit_rate": 1.0
+  },
+  "negative_queries": 4,
+  "positive_queries": 9,
+  "query_count": 13,
+  "reranked": {
+    "confidence_intervals": {
+      "mean_context_precision_at_10": {
+        "confidence": 0.95,
+        "high": 0.3,
+        "low": 0.1
+      },
+      "mean_ndcg_at_10": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7850907901064317
+      },
+      "mean_recall_at_10": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.8333333333333334
+      },
+      "mean_recall_at_20": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.8333333333333334
+      },
+      "mean_recall_at_5": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7777777777777778
+      },
+      "mean_reciprocal_rank": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.8333333333333334
+      },
+      "negative_accuracy": {
+        "confidence": 0.95,
+        "high": 0.0,
+        "low": 0.0
+      },
+      "positive_hit_rate": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 1.0
+      }
+    },
+    "mean_context_precision_at_10": 0.16666666666666666,
+    "mean_ndcg_at_10": 0.8935333150979936,
+    "mean_recall_at_10": 0.9444444444444444,
+    "mean_recall_at_20": 0.9444444444444444,
+    "mean_recall_at_5": 0.8888888888888888,
+    "mean_reciprocal_rank": 0.9444444444444444,
+    "negative_accuracy": 0.0,
+    "passed_queries": 9,
+    "positive_hit_rate": 1.0
+  },
+  "resources": {
+    "cold_query_ms": 12930.405699997209,
+    "elapsed_ms": 17817.047299991827,
+    "peak_gpu_memory_mb": 2262.65185546875,
+    "queries_per_second": 0.7296382942198264,
+    "warm_query_p50_ms": 308.3388999802992,
+    "warm_query_p95_ms": 820.6361999909859
+  },
+  "results": [
+    {
+      "category": "technical_table",
+      "elapsed_ms": 12930.405699997209,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 25
+      },
+      "lexical": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 73.69373,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 10
+      },
+      "query_id": "tyre_n3r_dimensions",
+      "reranked": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.8384153246879578,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.617878914941225,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 25
+      },
+      "slices": [
+        "technical_table",
+        "table",
+        "numeric_unit"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "technical_table",
+      "elapsed_ms": 300.47539999941364,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 25
+      },
+      "lexical": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 59.642685,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 20
+      },
+      "query_id": "tyre_n3_rolling_circumference",
+      "reranked": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.542742133140564,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.6062092022213693,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 25
+      },
+      "slices": [
+        "technical_table",
+        "table",
+        "numeric_unit"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "technical_recommendation",
+      "elapsed_ms": 207.07279999624006,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 25
+      },
+      "lexical": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 70.09099,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 19
+      },
+      "query_id": "tyre_shoulder_temperature_delta",
+      "reranked": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.9320833086967468,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.6699824342719709,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 25
+      },
+      "slices": [
+        "technical_recommendation",
+        "numeric_unit"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "technical_recommendation",
+      "elapsed_ms": 195.23149999440648,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 25
+      },
+      "lexical": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 49.50582,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 16
+      },
+      "query_id": "tyre_unlisted_track_recommendation",
+      "reranked": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.920647144317627,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.6149428665296063,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 25
+      },
+      "slices": [
+        "technical_recommendation",
+        "numeric_unit"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "technical_table",
+      "elapsed_ms": 266.8796999787446,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 3,
+        "ndcg_at_10": 0.5,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 0.3333333333333333,
+        "returned": 25
+      },
+      "lexical": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 8,
+        "maximum_score": 63.793343,
+        "ndcg_at_10": 0.31546487678572877,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.125,
+        "returned": 20
+      },
+      "query_id": "tyre_n3r_standard_cold_pressure",
+      "reranked": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.3213534951210022,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "maximum_score": 0.6020995567264242,
+        "ndcg_at_10": 0.6309297535714575,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 0.5,
+        "returned": 25
+      },
+      "slices": [
+        "technical_table",
+        "table",
+        "numeric_unit"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "manual_concept",
+      "elapsed_ms": 485.7045999960974,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "ndcg_at_10": 0.6131471927654584,
+        "passed": true,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "recall_at_5": 0.5,
+        "reciprocal_rank": 1.0,
+        "returned": 30
+      },
+      "lexical": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 75.55659,
+        "ndcg_at_10": 0.6131471927654584,
+        "passed": true,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "recall_at_5": 0.5,
+        "reciprocal_rank": 1.0,
+        "returned": 50
+      },
+      "query_id": "manual_intended_use",
+      "reranked": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.9674717783927917,
+        "ndcg_at_10": 0.6131471927654584,
+        "passed": true,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "recall_at_5": 0.5,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.6904211902745828,
+        "ndcg_at_10": 0.6131471927654584,
+        "passed": true,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "recall_at_5": 0.5,
+        "reciprocal_rank": 1.0,
+        "returned": 50
+      },
+      "slices": [
+        "manual_concept",
+        "technical_manual"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "manual_procedure",
+      "elapsed_ms": 317.14619998820126,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "ndcg_at_10": 0.6309297535714575,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 0.5,
+        "returned": 30
+      },
+      "lexical": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "maximum_score": 95.712105,
+        "ndcg_at_10": 0.6309297535714575,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 0.5,
+        "returned": 50
+      },
+      "query_id": "manual_main_voltage_switch",
+      "reranked": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "maximum_score": 0.9526622891426086,
+        "ndcg_at_10": 0.6309297535714575,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 0.5,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.7220828214015583,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 50
+      },
+      "slices": [
+        "manual_procedure",
+        "technical_manual",
+        "ordered_steps"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "manual_safety",
+      "elapsed_ms": 308.3388999802992,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 30
+      },
+      "lexical": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 144.4299,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 50
+      },
+      "query_id": "manual_fire_system_test",
+      "reranked": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.9987648725509644,
+        "ndcg_at_10": 1.0,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.1,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 2,
+        "maximum_score": 0.7310404771601442,
+        "ndcg_at_10": 0.6309297535714575,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank": 0.5,
+        "returned": 50
+      },
+      "slices": [
+        "manual_safety",
+        "technical_manual",
+        "safety_limit"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "multi_source_conflict",
+      "elapsed_ms": 216.39789998880588,
+      "expected_empty": false,
+      "fused": {
+        "context_precision_at_10": 0.6,
+        "distinct_relevant_sources": 2,
+        "first_relevant_rank": 1,
+        "ndcg_at_10": 0.6131471927654584,
+        "passed": true,
+        "recall_at_10": 0.5,
+        "recall_at_20": 1.0,
+        "recall_at_5": 0.5,
+        "reciprocal_rank": 1.0,
+        "returned": 30
+      },
+      "lexical": {
+        "context_precision_at_10": 0.75,
+        "distinct_relevant_sources": 1,
+        "first_relevant_rank": 1,
+        "maximum_score": 25.45111,
+        "ndcg_at_10": 0.6131471927654584,
+        "passed": false,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "recall_at_5": 0.5,
+        "reciprocal_rank": 1.0,
+        "returned": 8
+      },
+      "query_id": "conflict_n3r_pressure_sources",
+      "reranked": {
+        "context_precision_at_10": 0.7,
+        "distinct_relevant_sources": 2,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.46529632806777954,
+        "ndcg_at_10": 0.7977228895450266,
+        "passed": true,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_5": 0.5,
+        "reciprocal_rank": 1.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.6,
+        "distinct_relevant_sources": 2,
+        "first_relevant_rank": 1,
+        "maximum_score": 0.5551074412173465,
+        "ndcg_at_10": 0.6131471927654584,
+        "passed": true,
+        "recall_at_10": 0.5,
+        "recall_at_20": 1.0,
+        "recall_at_5": 0.5,
+        "reciprocal_rank": 1.0,
+        "returned": 35
+      },
+      "slices": [
+        "multi_source_conflict",
+        "adversarial",
+        "conflict"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "out_of_corpus",
+      "elapsed_ms": 546.4745000062976,
+      "expected_empty": true,
+      "fused": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 30
+      },
+      "lexical": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 34.630714,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 50
+      },
+      "query_id": "neg_budget_cap",
+      "reranked": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 0.012771867215633392,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 0.5431787903075966,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 50
+      },
+      "slices": [
+        "out_of_corpus",
+        "negative"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "out_of_corpus",
+      "elapsed_ms": 409.86460002022795,
+      "expected_empty": true,
+      "fused": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 30
+      },
+      "lexical": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 39.3693,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 50
+      },
+      "query_id": "neg_turbo_boost_limit",
+      "reranked": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 0.02876158617436886,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 0.6160865934135416,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 50
+      },
+      "slices": [
+        "out_of_corpus",
+        "negative"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "out_of_corpus",
+      "elapsed_ms": 820.6361999909859,
+      "expected_empty": true,
+      "fused": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 30
+      },
+      "lexical": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 61.235954,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 50
+      },
+      "query_id": "neg_sprint_shootout",
+      "reranked": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 0.03283695504069328,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 0.47424184426804383,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 50
+      },
+      "slices": [
+        "out_of_corpus",
+        "negative"
+      ],
+      "split": "test"
+    },
+    {
+      "category": "out_of_corpus",
+      "elapsed_ms": 522.6346999988891,
+      "expected_empty": true,
+      "fused": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 30
+      },
+      "lexical": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 41.279,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 50
+      },
+      "query_id": "neg_rallycross_joker",
+      "reranked": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 0.02190636843442917,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 15
+      },
+      "semantic": {
+        "context_precision_at_10": 0.0,
+        "distinct_relevant_sources": 0,
+        "maximum_score": 0.5041936593605754,
+        "ndcg_at_10": 0.0,
+        "passed": false,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank": 0.0,
+        "returned": 50
+      },
+      "slices": [
+        "out_of_corpus",
+        "negative"
+      ],
+      "split": "test"
+    }
+  ],
+  "schema_name": "racevault.retrieval_evaluation_report",
+  "schema_version": 2,
+  "semantic": {
+    "confidence_intervals": {
+      "mean_context_precision_at_10": {
+        "confidence": 0.95,
+        "high": 0.26666666666666666,
+        "low": 0.1
+      },
+      "mean_ndcg_at_10": {
+        "confidence": 0.95,
+        "high": 0.9570163547517176,
+        "low": 0.7050420035306896
+      },
+      "mean_recall_at_10": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7222222222222222
+      },
+      "mean_recall_at_20": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.8333333333333334
+      },
+      "mean_recall_at_5": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7777777777777778
+      },
+      "mean_reciprocal_rank": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 0.7222222222222222
+      },
+      "negative_accuracy": {
+        "confidence": 0.95,
+        "high": 0.0,
+        "low": 0.0
+      },
+      "positive_hit_rate": {
+        "confidence": 0.95,
+        "high": 1.0,
+        "low": 1.0
+      }
+    },
+    "mean_context_precision_at_10": 0.15555555555555556,
+    "mean_ndcg_at_10": 0.8320170991859813,
+    "mean_recall_at_10": 0.8888888888888888,
+    "mean_recall_at_20": 0.9444444444444444,
+    "mean_recall_at_5": 0.8888888888888888,
+    "mean_reciprocal_rank": 0.8888888888888888,
+    "negative_accuracy": 0.0,
+    "passed_queries": 9,
+    "positive_hit_rate": 1.0
+  },
+  "slices": {
+    "adversarial": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.6,
+            "low": 0.6
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.6,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.75,
+            "low": 0.75
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.75,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 0.5,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.7,
+            "low": 0.7
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.7977228895450266,
+            "low": 0.7977228895450266
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.7,
+        "mean_ndcg_at_10": 0.7977228895450266,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.6,
+            "low": 0.6
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.6,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "conflict": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.6,
+            "low": 0.6
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.6,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.75,
+            "low": 0.75
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.75,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 0.5,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.7,
+            "low": 0.7
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.7977228895450266,
+            "low": 0.7977228895450266
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.7,
+        "mean_ndcg_at_10": 0.7977228895450266,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.6,
+            "low": 0.6
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.6,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "manual_concept": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 0.5,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 0.5,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 0.5,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 0.5,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "manual_procedure": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6309297535714575,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6309297535714575,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.5,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6309297535714575,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6309297535714575,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.5,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6309297535714575,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6309297535714575,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.5,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "manual_safety": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6309297535714575,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6309297535714575,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.5,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "multi_source_conflict": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.6,
+            "low": 0.6
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.6,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.75,
+            "low": 0.75
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.75,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 0.5,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.7,
+            "low": 0.7
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.7977228895450266,
+            "low": 0.7977228895450266
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.7,
+        "mean_ndcg_at_10": 0.7977228895450266,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.6,
+            "low": 0.6
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6131471927654584,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.6,
+        "mean_ndcg_at_10": 0.6131471927654584,
+        "mean_recall_at_10": 0.5,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.5,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "negative": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 1.0,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 0.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 1.0,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 0.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 1.0,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 0.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 1.0,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 0.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "numeric_unit": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.7
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.6
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.9,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.8666666666666666,
+        "negative_accuracy": 1.0,
+        "passed_queries": 5,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5892789260714373
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.4
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.475
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.8630929753571458,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.8,
+        "mean_reciprocal_rank": 0.825,
+        "negative_accuracy": 1.0,
+        "passed_queries": 5,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 5,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.7785578521428744
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.7
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.9261859507142916,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.9,
+        "negative_accuracy": 1.0,
+        "passed_queries": 5,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "ordered_steps": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6309297535714575,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6309297535714575,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.5,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6309297535714575,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6309297535714575,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.5,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6309297535714575,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6309297535714575,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.5,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "out_of_corpus": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 1.0,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 0.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 1.0,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 0.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 1.0,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 0.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 1.0,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 0.0,
+        "passed_queries": 0,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "safety_limit": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 0.6309297535714575,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 0.6309297535714575,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.5,
+        "negative_accuracy": 1.0,
+        "passed_queries": 1,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "table": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.3333333333333333
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.8333333333333334,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.7777777777777778,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.31546487678572877
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.125
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.7718216255952429,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.6666666666666666,
+        "mean_reciprocal_rank": 0.7083333333333334,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.8769765845238192,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.8333333333333334,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "technical_manual": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.748025648778972,
+        "mean_recall_at_10": 0.8333333333333334,
+        "mean_recall_at_20": 0.8333333333333334,
+        "mean_recall_at_5": 0.8333333333333334,
+        "mean_reciprocal_rank": 0.8333333333333334,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.748025648778972,
+        "mean_recall_at_10": 0.8333333333333334,
+        "mean_recall_at_20": 0.8333333333333334,
+        "mean_recall_at_5": 0.8333333333333334,
+        "mean_reciprocal_rank": 0.8333333333333334,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.748025648778972,
+        "mean_recall_at_10": 0.8333333333333334,
+        "mean_recall_at_20": 0.8333333333333334,
+        "mean_recall_at_5": 0.8333333333333334,
+        "mean_reciprocal_rank": 0.8333333333333334,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.6131471927654584
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.748025648778972,
+        "mean_recall_at_10": 0.8333333333333334,
+        "mean_recall_at_20": 0.8333333333333334,
+        "mean_recall_at_5": 0.8333333333333334,
+        "mean_reciprocal_rank": 0.8333333333333334,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "technical_recommendation": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 2,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 2,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 2,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.1,
+            "low": 0.1
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.1,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 2,
+        "positive_hit_rate": 1.0
+      }
+    },
+    "technical_table": {
+      "fused": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.3333333333333333
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.8333333333333334,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.7777777777777778,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "lexical": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.31546487678572877
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.125
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.7718216255952429,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 0.6666666666666666,
+        "mean_reciprocal_rank": 0.7083333333333334,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "reranked": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 1.0,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 1.0,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      },
+      "semantic": {
+        "confidence_intervals": {
+          "mean_context_precision_at_10": {
+            "confidence": 0.95,
+            "high": 0.10000000000000002,
+            "low": 0.10000000000000002
+          },
+          "mean_ndcg_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.6309297535714575
+          },
+          "mean_recall_at_10": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_20": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_recall_at_5": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "mean_reciprocal_rank": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.5
+          },
+          "negative_accuracy": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          },
+          "positive_hit_rate": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0
+          }
+        },
+        "mean_context_precision_at_10": 0.10000000000000002,
+        "mean_ndcg_at_10": 0.8769765845238192,
+        "mean_recall_at_10": 1.0,
+        "mean_recall_at_20": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_reciprocal_rank": 0.8333333333333334,
+        "negative_accuracy": 1.0,
+        "passed_queries": 3,
+        "positive_hit_rate": 1.0
+      }
+    }
+  },
+  "split": "test"
+}

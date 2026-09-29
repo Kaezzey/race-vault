@@ -1,0 +1,661 @@
+{
+  "query_id": "neg_sprint_shootout",
+  "query": "What is the sprint shootout format?",
+  "split": "test",
+  "expected_empty": true,
+  "calls": [],
+  "response": {
+    "request_id": null,
+    "pipeline_fingerprint": null,
+    "query": "What is the sprint shootout format?",
+    "filters": {
+      "source_sha256": null,
+      "source_role": null,
+      "document_class": null,
+      "authority": null,
+      "vehicle_generation": null,
+      "championship": null,
+      "season": null,
+      "revision": null,
+      "page_number": null,
+      "chunk_kind": null,
+      "oversize": null
+    },
+    "resolved_scopes": [
+      {
+        "source_sha256": null,
+        "source_role": null,
+        "document_class": null,
+        "authority": null,
+        "vehicle_generation": null,
+        "championship": null,
+        "season": null,
+        "revision": null,
+        "page_number": null,
+        "chunk_kind": null,
+        "oversize": null
+      }
+    ],
+    "answer": "RaceVault retrieved possible evidence, but its relevance did not meet the calibrated answer threshold.",
+    "insufficient_evidence": true,
+    "conflicts": [],
+    "limitations": [
+      "Generation was skipped to avoid an unsupported answer."
+    ],
+    "citations": [],
+    "evidence": [
+      {
+        "rank": 1,
+        "evidence_text": "Practice Two (2) x twenty-five (25) minute sessions.\n\nQualifying One (1) x thirty (30) minute session.\n\nRaces Three (3) x thirty (30) minute races.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "regulation_current",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Australia",
+          "document_type": "regulation",
+          "revision": "Version 2",
+          "season": 2026,
+          "vehicle_generation": "992.2"
+        },
+        "citation": {
+          "chunk_id": "chk_ba5dbc5da79ecd4996a8127d9fcd3af1",
+          "source_sha256": "24183ae7710bbd3eab55a92d2c1a73a011882da329eca266d0b2eaf056463005",
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "source_filename": "2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_start": 11,
+          "page_end": 11,
+          "page_numbers": [
+            11
+          ],
+          "section_path": [
+            "Sprint Format"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "17503a791efea328bb217884ad12d6426edf4225626f781ca2410239c710b190",
+          "element_ids": [
+            "el_3c1a410a29cf471531bd39f8d64966d3",
+            "el_142708c35a3c24e71629aa7a6d927990",
+            "el_6e1a18894773c5b374854c643168932e"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 11,
+              "bbox": {
+                "left": 156.02,
+                "top": 678.651978,
+                "right": 369.532,
+                "bottom": 670.579624,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 52
+            },
+            {
+              "page_number": 11,
+              "bbox": {
+                "left": 156.02,
+                "top": 665.331978,
+                "right": 339.532,
+                "bottom": 657.259624,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 48
+            },
+            {
+              "page_number": 11,
+              "bbox": {
+                "left": 156.02,
+                "top": 651.891978,
+                "right": 339.172,
+                "bottom": 643.819624,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 43
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 2,
+          "lexical_score": 60.425907,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 9,
+          "rrf_score": 0.016129032258064516,
+          "reranker_score": 0.1037486344575882
+        }
+      },
+      {
+        "rank": 2,
+        "evidence_text": "Points\t\tPoints\t\t\t\tPoints\nPosition\tSprint Format\tEndurance Format\tPosition\tSprint Format\tEndurance Format\tPosition\tSprint Format\tEndurance Format\n1 st\t60\t90\t11 th\t22\t33\t21 st\t10\t15\n2 nd\t50\t75\t12 th\t20\t30\t22 nd\t9\t14\n3 rd\t42\t63\t13 th\t18\t27\t23 rd\t8\t12\n4 th\t36\t54\t14 th\t17\t26\t24 th\t7\t11\n5 th\t34\t51\t15 th\t16\t24\t25 th\t6\t9\n6 th\t32\t48\t16 th\t15\t23\t26 th\t5\t8\n7 th\t30\t45\t17 th\t14\t21\t27 th\t4\t6\n8 th\t28\t42\t18 th\t13\t20\t28 th\t3\t5\n9 th\t26\t39\t19 th\t12\t18\t29 th\t2\t3\n10 th\t24\t36\t20 th\t11\t17\t30 th\t1\t2",
+        "document_class": "regulation",
+        "chunk_kind": "table",
+        "source_role": "regulation_current",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Australia",
+          "document_type": "regulation",
+          "revision": "Version 2",
+          "season": 2026,
+          "vehicle_generation": "992.2"
+        },
+        "citation": {
+          "chunk_id": "chk_72f6e7bf6aa37b32c44d00ba954283fa",
+          "source_sha256": "24183ae7710bbd3eab55a92d2c1a73a011882da329eca266d0b2eaf056463005",
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "source_filename": "2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_start": 12,
+          "page_end": 12,
+          "page_numbers": [
+            12
+          ],
+          "section_path": [
+            "S13.2 Pointscore"
+          ],
+          "clause_reference": "S13.2",
+          "evidence_sha256": "06fa3a25922124a27900b24bdca9a867d22469a9559c5b9dc6bbf21ed3dcb68e",
+          "element_ids": [
+            "el_f34eb0a536dd018660a9911b929acbb8"
+          ],
+          "table_ids": [
+            "tbl_f34eb0a536dd018660a9911b929acbb8"
+          ],
+          "provenance": [
+            {
+              "page_number": 12,
+              "bbox": {
+                "left": 112.804218,
+                "top": 740.211894,
+                "right": 544.044286,
+                "bottom": 521.075887,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 0
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 3,
+          "lexical_score": 56.292507,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 10,
+          "rrf_score": 0.015873015873015872,
+          "reranker_score": 0.09417666494846344
+        }
+      },
+      {
+        "rank": 3,
+        "evidence_text": "Round\tCircuit\tRound Format\n1\tAlbert Park, VIC\tSprint\n2\tHidden Valley, NT\tEndurance\n3\tQueensland Raceway, QLD\tEndurance\n4\tShell V-Power Motorsport Park, SA\tEndurance\n5\tMount Panorama, NSW\tSprint\n6\tSurfers Paradise, QLD\tEndurance\n7\tAdelaide Parklands, SA\tSprint",
+        "document_class": "regulation",
+        "chunk_kind": "table",
+        "source_role": "regulation_current",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC Australia",
+          "document_type": "regulation",
+          "revision": "Version 2",
+          "season": 2026,
+          "vehicle_generation": "992.2"
+        },
+        "citation": {
+          "chunk_id": "chk_68b998c2a315b5516567c363e359020e",
+          "source_sha256": "24183ae7710bbd3eab55a92d2c1a73a011882da329eca266d0b2eaf056463005",
+          "source_path": "Rules and Regulations/PCC Australia/2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "source_filename": "2026-Porsche-Equity-One-Carrera-Cup-Australia-Championship-Sporting-and-Technical-Regulations-Version-2_260602.pdf",
+          "page_start": 11,
+          "page_end": 11,
+          "page_numbers": [
+            11
+          ],
+          "section_path": [
+            "Endurance Format"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "b939264ca8f9761bed4f2c0c810ca6b96d2136ff4c806e99f50441bd4042f83f",
+          "element_ids": [
+            "el_3d750d5fc1af41f5928766fb691cd991"
+          ],
+          "table_ids": [
+            "tbl_3d750d5fc1af41f5928766fb691cd991"
+          ],
+          "provenance": [
+            {
+              "page_number": 11,
+              "bbox": {
+                "left": 154.718122,
+                "top": 553.424377,
+                "right": 412.228952,
+                "bottom": 411.991148,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 0
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 1,
+          "lexical_score": 61.235954,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 7,
+          "rrf_score": 0.01639344262295082,
+          "reranker_score": 0.003809630172327161
+        }
+      },
+      {
+        "rank": 4,
+        "evidence_text": "With this format selected the QM will look to learn the fastest lap and hold this as the QM reference lap. This lap will be updated if a new fastest lap is achieved.",
+        "document_class": "technical_manual",
+        "chunk_kind": "section",
+        "source_role": "technical_manual_previous_generation",
+        "source_metadata": {
+          "authority": "manufacturer_document",
+          "document_type": "technical_manual",
+          "vehicle_generation": "992.1"
+        },
+        "citation": {
+          "chunk_id": "chk_811fee2c6b80825a4bd5c82bcf6203d0",
+          "source_sha256": "82ea102c8f740227ad3411f3b3ab3814cce1cf16b3025cfdf34baf38363ef11c",
+          "source_path": "Porsche Technical Manuals/992.1 Technical Manual.pdf",
+          "source_filename": "992.1 Technical Manual.pdf",
+          "page_start": 922,
+          "page_end": 922,
+          "page_numbers": [
+            922
+          ],
+          "section_path": [
+            "LEARN FASTEST LAP:"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "e0c00b7b758209a08c97367e8d250b84e5905efd0c3531bea1d361046a7b5b23",
+          "element_ids": [
+            "el_48727cdc67139a776cef2dfd64754c38"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 922,
+              "bbox": {
+                "left": 127.5518,
+                "top": 422.100924,
+                "right": 516.0498,
+                "bottom": 398.901403,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 165
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 42,
+          "lexical_score": 23.789228,
+          "semantic_rank": 9,
+          "semantic_score": 0.40318895019559364,
+          "fused_rank": 4,
+          "rrf_score": 0.02429667519181586,
+          "reranker_score": 0.002251847181469202
+        }
+      },
+      {
+        "rank": 8,
+        "evidence_text": "This  button automatically  selects  the outing,  from  those  currently  in  view,  which contains the fastest lap.\n\nThis  button selects  the  most  recent outing from those currently in view.\n\nLook  in : Use  the  Look  in  field  and  the browse tools to locate an outing.\n\nFile Window : The outings (datasets) contained  in  the  selected  data  folder  are displayed here. When you highlight a dataset,  details  are  displayed  in  the  lower pane.  Clicking  OK  will  add  the  selected dataset  to  the  Task  selected  in  the  field above.\n\nFile Name : Displays the name of the outing file (.pds file) selected.\n\nFile of Type : Use this field to select the format of the outing, i.e. Pi, MATLAB or ASCII.\n\nDetails : Details  of  the  highlighted  outing  appear  in  this  window  to  help  you  identify  it. Properties are listed in categories that can be expanded or collapsed as required.",
+        "document_class": "component_manual",
+        "chunk_kind": "section",
+        "source_role": "document_f345482180cbd76e",
+        "source_metadata": {
+          "authority": "component_supplier_document",
+          "document_type": "component_manual"
+        },
+        "citation": {
+          "chunk_id": "chk_c674f0eec6451f786d9c86c13bc5048e",
+          "source_sha256": "e66f7b7610f4026211fa99a66ceda0b71af674eaff8d3e16b99f6920cbb0742c",
+          "source_path": "Cosworth/Pi Toolbox/Pi Toolbox User Guide.pdf",
+          "source_filename": "Pi Toolbox User Guide.pdf",
+          "page_start": 60,
+          "page_end": 60,
+          "page_numbers": [
+            60
+          ],
+          "section_path": [
+            "Adding Historic Data"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "920451c4e7f962d9db81b2051fe119b530df8e13337bf0a9857101a9b1fa6b1a",
+          "element_ids": [
+            "el_4b448b29d4202da05e68eb15ad3ac81c",
+            "el_c0de1508259e1b4de3d559dbcb8bfcfa",
+            "el_f56cd58b8607f01c4875cb8704febe3c",
+            "el_007992d7ba778d1c0b8f596f2afaf340",
+            "el_5d19cf58ef51daa9ed1c84ba3e233779",
+            "el_92f6de2c43ba3d1fc143e6d15ba30797",
+            "el_a92dd180df2d114f9034bb7d614bae2e"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 60,
+              "bbox": {
+                "left": 164.2797,
+                "top": 696.462,
+                "right": 342.5052,
+                "bottom": 662.51309,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 116
+            },
+            {
+              "page_number": 60,
+              "bbox": {
+                "left": 164.2797,
+                "top": 646.062,
+                "right": 342.4754,
+                "bottom": 625.07309,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 76
+            },
+            {
+              "page_number": 60,
+              "bbox": {
+                "left": 164.2802,
+                "top": 614.1416,
+                "right": 342.4813,
+                "bottom": 593.09339,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 80
+            },
+            {
+              "page_number": 60,
+              "bbox": {
+                "left": 164.2792,
+                "top": 582.1017,
+                "right": 342.5397,
+                "bottom": 496.07149,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 273
+            },
+            {
+              "page_number": 60,
+              "bbox": {
+                "left": 164.2792,
+                "top": 485.14,
+                "right": 432.8597,
+                "bottom": 477.17139,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 70
+            },
+            {
+              "page_number": 60,
+              "bbox": {
+                "left": 164.2782,
+                "top": 466.1204,
+                "right": 512.5757,
+                "bottom": 458.15179,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 91
+            },
+            {
+              "page_number": 60,
+              "bbox": {
+                "left": 164.2782,
+                "top": 447.1007,
+                "right": 535.1437,
+                "bottom": 426.11179,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 186
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": null,
+          "lexical_score": null,
+          "semantic_rank": 3,
+          "semantic_score": 0.4112129252588752,
+          "fused_rank": 11,
+          "rrf_score": 0.015873015873015872,
+          "reranker_score": 0.001269364496693015
+        }
+      },
+      {
+        "rank": 9,
+        "evidence_text": "The Split report control displays channel data per map sector in a spreadsheet format, using laps as row headings and sectors as column headings. Additional columns containing lap performance,  differences between  current  and  fastest lap, and  two  additional  rows containing the fastest rolling lap and theoretical fastest lap data can be displayed.",
+        "document_class": "component_manual",
+        "chunk_kind": "section",
+        "source_role": "document_f345482180cbd76e",
+        "source_metadata": {
+          "authority": "component_supplier_document",
+          "document_type": "component_manual"
+        },
+        "citation": {
+          "chunk_id": "chk_de12fe115a51a4306a0e1be9ee79ca94",
+          "source_sha256": "e66f7b7610f4026211fa99a66ceda0b71af674eaff8d3e16b99f6920cbb0742c",
+          "source_path": "Cosworth/Pi Toolbox/Pi Toolbox User Guide.pdf",
+          "source_filename": "Pi Toolbox User Guide.pdf",
+          "page_start": 23,
+          "page_end": 23,
+          "page_numbers": [
+            23
+          ],
+          "section_path": [
+            "Other symbols used",
+            "What's new in this guide?",
+            "Split report display"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "70a125d93928e9116eb760724a3fe6395f95c9d4c1172cd42bb3c6302a679b9a",
+          "element_ids": [
+            "el_c02b2d438bbeed249c3f0ab7a4f71cfa"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 23,
+              "bbox": {
+                "left": 164.28,
+                "top": 536.442,
+                "right": 535.2339,
+                "bottom": 489.47279,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 354
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 6,
+          "lexical_score": 33.34188,
+          "semantic_rank": 4,
+          "semantic_score": 0.40635515374380216,
+          "fused_rank": 1,
+          "rrf_score": 0.030776515151515152,
+          "reranker_score": 0.0007854739669710398
+        }
+      },
+      {
+        "rank": 11,
+        "evidence_text": "All drivers under 25 on January 1 st , 2026, will receive individual coaching from a professional driver designated by the  Organizing  Committee.  The  drivers  of  the  Porsche  Carrera  Cup  France  will  be  selected  by  the  Organizing Committee on sporting and behavioural criteria. At the end of the season, the selected young talent will be invited to the Porsche Shootout organized by Porsche Motorsport (and confirmed by Porsche AG).\n\nThe winner of the  Porsche  Shootout  organized by  Porsche  Motorsport  will  receive  funding  to  participate  in  the Porsche Mobil 1 Supercup.",
+        "document_class": "regulation",
+        "chunk_kind": "clause",
+        "source_role": "document_672e60181e4c0f48",
+        "source_metadata": {
+          "authority": "official_regulation",
+          "championship": "PCC France",
+          "document_type": "regulation",
+          "season": 2026
+        },
+        "citation": {
+          "chunk_id": "chk_c8119f6ddaa555b5c919c025da8e361a",
+          "source_sha256": "1343a156046e7c341f0d6f44f828487d1c56800a9a206a2d46d32f629526fbe8",
+          "source_path": "Rules and Regulations/Other/PCC France/2026 Regulations.pdf",
+          "source_filename": "2026 Regulations.pdf",
+          "page_start": 21,
+          "page_end": 21,
+          "page_numbers": [
+            21
+          ],
+          "section_path": [
+            "Michelin Allocations",
+            "9.8. Porsche Motorsport Junior Programme"
+          ],
+          "clause_reference": "9.8",
+          "evidence_sha256": "10809fd5d1e33b4c0e6ee18e5a35fa8af9fa915a46a7dc6884aa5d30633012a9",
+          "element_ids": [
+            "el_23bbe6f260e7a7c8987385d7b6855cd8",
+            "el_dffed2171ac0f2a492e560758b32a55a"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 21,
+              "bbox": {
+                "left": 70.944,
+                "top": 722.139028,
+                "right": 526.43452,
+                "bottom": 663.637588,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 444
+            },
+            {
+              "page_number": 21,
+              "bbox": {
+                "left": 70.944,
+                "top": 663.579028,
+                "right": 526.20896,
+                "bottom": 634.357588,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 147
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 4,
+          "lexical_score": 33.95451,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 12,
+          "rrf_score": 0.015625,
+          "reranker_score": 0.000682501879055053
+        }
+      },
+      {
+        "rank": 20,
+        "evidence_text": "If  the  data  format in  your Excel Reports is  not as expected, you may need to change the Excel file cell format. For instance, if your output data is in times, you may need to change the cell format to display times correctly, e.g. 00:01:51. To change cell format right click in any cell in the Excel file and select: Format Cells.... Choose the appropriate format from the 'Category:' list.",
+        "document_class": "component_manual",
+        "chunk_kind": "section",
+        "source_role": "document_f345482180cbd76e",
+        "source_metadata": {
+          "authority": "component_supplier_document",
+          "document_type": "component_manual"
+        },
+        "citation": {
+          "chunk_id": "chk_905b7002c4721330609f5a5e335049dd",
+          "source_sha256": "e66f7b7610f4026211fa99a66ceda0b71af674eaff8d3e16b99f6920cbb0742c",
+          "source_path": "Cosworth/Pi Toolbox/Pi Toolbox User Guide.pdf",
+          "source_filename": "Pi Toolbox User Guide.pdf",
+          "page_start": 352,
+          "page_end": 352,
+          "page_numbers": [
+            352
+          ],
+          "section_path": [
+            "To run a macro in Excel:",
+            "Data format in Excel"
+          ],
+          "clause_reference": null,
+          "evidence_sha256": "b92d78fc1fffc22d17a04e99ff126c18634b81f564f18c9d99b1ae3016ec2fac",
+          "element_ids": [
+            "el_d2fbf3951b7e41bdc7d87a75db1b2ccf"
+          ],
+          "table_ids": [],
+          "provenance": [
+            {
+              "page_number": 352,
+              "bbox": {
+                "left": 164.28,
+                "top": 611.982,
+                "right": 535.2658,
+                "bottom": 550.73369,
+                "coordinate_origin": "BOTTOMLEFT"
+              },
+              "char_start": 0,
+              "char_end": 395
+            }
+          ]
+        },
+        "diagnostics": {
+          "lexical_rank": 7,
+          "lexical_score": 31.573956,
+          "semantic_rank": null,
+          "semantic_score": null,
+          "fused_rank": 17,
+          "rrf_score": 0.014925373134328358,
+          "reranker_score": 2.8632557587116025e-05
+        }
+      }
+    ],
+    "retrieval_counts": {
+      "lexical": 50,
+      "semantic": 50,
+      "fused": 30,
+      "reranked": 20
+    },
+    "generation_model": {
+      "model": "qwen3.5:9b",
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "parameter_size": "9.7B",
+      "quantization_level": "Q4_K_M"
+    },
+    "generation_usage": {
+      "total_duration_ms": 0,
+      "load_duration_ms": 0,
+      "prompt_tokens": 0,
+      "output_tokens": 0
+    },
+    "timings": {
+      "retrieval_ms": 438,
+      "generation_ms": 7
+    },
+    "evidence_selection": {
+      "policy": "facet_topic_mmr_scope_v3",
+      "query_intent": "concept",
+      "candidates_considered": 20,
+      "selected_count": 8,
+      "duplicates_removed": 0,
+      "distinct_sources": 4,
+      "required_scopes": [],
+      "covered_scopes": [],
+      "requested_facets": [],
+      "covered_facets": [],
+      "missing_facets": [],
+      "maximum_reranker_score": 0.1037486344575882,
+      "minimum_score_threshold": 0.2377,
+      "sufficient": false,
+      "reason": "below_calibrated_threshold"
+    }
+  },
+  "status": "completed"
+}
